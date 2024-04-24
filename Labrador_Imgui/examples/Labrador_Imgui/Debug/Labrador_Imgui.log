@@ -1,0 +1,8 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (C:\University_offline\ENG4701\dev\examples\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+C:\University_offline\ENG4701\dev\examples\Labrador_Imgui\main.cpp(81,24): warning C4244: '=': conversion from 'BOOL' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\dev\examples\Labrador_Imgui\main.cpp(53,10): warning C4189: 'deviceCount': local variable is initialized but not referenced
+C:\University_offline\ENG4701\dev\examples\Labrador_Imgui\main.cpp(135,42): warning C4244: '=': conversion from 'BOOL' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\dev\examples\Labrador_Imgui\main.cpp(297,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\dev\examples\Labrador_Imgui\main.cpp(299,44): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+  Labrador_Imgui.vcxproj -> C:\University_offline\ENG4701\dev\examples\Labrador_Imgui\Debug\Labrador_Imgui.exe
