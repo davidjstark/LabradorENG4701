@@ -59,10 +59,8 @@ public:
     isoBuffer *internalBuffer375_CH2;
     isoBuffer *internalBuffer750;
     isoBuffer_file *internalBufferFile = NULL;
-#if QCP_VER == 1
     QCPItemText *cursorTextPtr;
     QCPItemText *triggerFrequencyLabel;
-#endif
     genericUsbDriver *driver;
     bool doNotTouchGraph = true;
     double ch1_ref = 1.65;

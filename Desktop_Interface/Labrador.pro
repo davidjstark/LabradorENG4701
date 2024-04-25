@@ -10,21 +10,24 @@
 ##########################################################################
 
 QT += core gui
+#QT += core5compat
 
-CONFIG += c++14
+
+CONFIG += c++20
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = Labrador
 TEMPLATE = app
 
-QCP_VER = 1
+QCP_VER = 2
 DEFINES += "QCP_VER=$${QCP_VER}"
 equals(QCP_VER,"2"){
     DEFINES += QCUSTOMPLOT_USE_OPENGL
     LIBS += -lOpenGL32
     message("Using QCP2 with OpenGL support")
 }
+QT += openglwidgets
 
 include(ui_elements.pri)
 
@@ -44,10 +47,12 @@ SOURCES += main.cpp\
     daqloadprompt.cpp \
     isobuffer_file.cpp \
     i2cdecoder.cpp \
-    asyncdft.cpp
+    asyncdft.cpp \
+    ui_elements/qcp2/qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
     functiongencontrol.h \
+    ui_elements/qcp2/qcustomplot.h \
     xmega.h \
     isodriver.h \
     isobuffer.h \

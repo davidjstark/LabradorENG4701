@@ -4,6 +4,8 @@
 #include <QDesktopServices>
 #include "espospinbox.h"
 
+#undef max
+#undef min
 #include <algorithm>
 
 #define DO_QUOTE(X) #X
@@ -228,9 +230,9 @@ MainWindow::MainWindow(QWidget *parent) :
 #endif
     ui->realTimeButton->setVisible(false);
 
-    if ((QApplication::desktop()->availableGeometry().width() < 1520) || (QApplication::desktop()->geometry().height() < 800))
+    if ((QApplication::primaryScreen()->availableGeometry().width() < 1520) || (QApplication::primaryScreen()->geometry().height() < 800))
     {
-        qDebug() << "Low resolution detected:" << QApplication::desktop()->availableGeometry().width() << "x" << QApplication::desktop()->availableGeometry().height();
+        qDebug() << "Low resolution detected:" << QApplication::primaryScreen()->availableGeometry().width() << "x" << QApplication::primaryScreen()->availableGeometry().height();
         this->setMinimumSize(1280, 700);
         this->resize(1280, 700);
     }
@@ -290,7 +292,6 @@ void MainWindow::initialisePlot()
 {
     QCPCurve *xyCurve = new QCPCurve(ui->scopeAxes->xAxis, ui->scopeAxes->yAxis);
     xyCurve->setPen(QPen(Qt::yellow, 1));
-    ui->scopeAxes->addPlottable(xyCurve);
     ui->scopeAxes->addGraph();
     ui->scopeAxes->addGraph();
     ui->scopeAxes->addGraph();
@@ -1109,7 +1110,7 @@ void MainWindow::arrowUpTriggered(){
     if(!(ui->scopeAxes->underMouse())) return;
 
     QPoint point = ui->scopeAxes->mapFromGlobal(QCursor::pos());
-    wheelEmu = new QWheelEvent(point, 120, 0, 0, Qt::Vertical);
+    wheelEmu = new QWheelEvent(point, point, *(new QPoint(0,0)), *(new QPoint(0,120)), Qt::NoButton, Qt::NoModifier, Qt::NoScrollPhase, false);
     ui->controller_iso->setVoltageRange(wheelEmu);
 }
 
@@ -1118,7 +1119,7 @@ void MainWindow::arrowDownTriggered(){
     if(!(ui->scopeAxes->underMouse())) return;
 
     QPoint point = ui->scopeAxes->mapFromGlobal(QCursor::pos());
-    wheelEmu = new QWheelEvent(point, -120, 0, 0, Qt::Vertical);
+    wheelEmu = new QWheelEvent(point, point, *(new QPoint(0,0)), *(new QPoint(0,0)), Qt::NoButton, Qt::NoModifier, Qt::NoScrollPhase, false);
     ui->controller_iso->setVoltageRange(wheelEmu);
 }
 
@@ -1127,7 +1128,7 @@ void MainWindow::ctrlArrowUpTriggered(){
     if(!(ui->scopeAxes->underMouse())) return;
 
     QPoint point = ui->scopeAxes->mapFromGlobal(QCursor::pos());
-    wheelEmu = new QWheelEvent(point, 120, 0, Qt::ControlModifier, Qt::Vertical);
+    wheelEmu = new QWheelEvent(point, point, *(new QPoint(0,0)),*(new QPoint(0,0)), Qt::NoButton, Qt::ControlModifier, Qt::NoScrollPhase, false);
     ui->controller_iso->setVoltageRange(wheelEmu);
 }
 
@@ -1136,7 +1137,7 @@ void MainWindow::ctrlArrowDownTriggered(){
     if(!(ui->scopeAxes->underMouse())) return;
 
     QPoint point = ui->scopeAxes->mapFromGlobal(QCursor::pos());
-    wheelEmu = new QWheelEvent(point, -120, 0, Qt::ControlModifier, Qt::Vertical);
+    wheelEmu = new QWheelEvent(point, point, *(new QPoint(0,0)), *(new QPoint(0,-120)), Qt::NoButton, Qt::ControlModifier, Qt::NoScrollPhase, false);
     ui->controller_iso->setVoltageRange(wheelEmu);
 }
 

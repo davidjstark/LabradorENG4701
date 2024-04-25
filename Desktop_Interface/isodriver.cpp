@@ -267,20 +267,20 @@ void isoDriver::setVoltageRange(QWheelEvent* event)
 
 void DisplayControl::setVoltageRange (QWheelEvent* event, bool isProperlyPaused, double maxWindowSize, QCustomPlot* axes)
 {
-    if (!(event->modifiers() == Qt::ControlModifier) && event->orientation() == Qt::Orientation::Vertical) {
+    if (!(event->modifiers() == Qt::ControlModifier) && event->angleDelta().y() != 0) {
         double c = (topRange - botRange) / (double)400;
 
         QCPRange range = axes->yAxis->range();
 
-        double pixPct = (double)100 - ((double)100 * (((double)axes->yAxis->pixelToCoord(event->y())-range.lower) / range.size()));
+        double pixPct = (double)100 - ((double)100 * (((double)axes->yAxis->pixelToCoord(event->position().y())-range.lower) / range.size()));
         if (pixPct < 0) pixPct = 0; 
         if (pixPct > 100) pixPct = 100;
 
         qDebug() << "WHEEL @ " << pixPct << "%";
         qDebug() << range.upper;
 
-        topRange -= event->delta() / 120.0 * c * pixPct;
-        botRange += event->delta() / 120.0 * c * (100.0 - pixPct);
+topRange -= event->angleDelta().y() / 120.0 * c * pixPct;
+        botRange += event->angleDelta().y() / 120.0 * c * (100.0 - pixPct);
 
         if (topRange > (double)20) topRange = (double)20;
         if (botRange < -(double)20) botRange = (double)-20;
@@ -292,7 +292,7 @@ void DisplayControl::setVoltageRange (QWheelEvent* event, bool isProperlyPaused,
         double c = (window) / (double)200;
         QCPRange range = axes->xAxis->range();
 
-        double pixPct = (double)100 * ((double)axes->xAxis->pixelToCoord(event->x()) - range.lower);
+        double pixPct = (double)100 * ((double)axes->xAxis->pixelToCoord(event->position().x()) - range.lower);
 
         pixPct /= isProperlyPaused ? (double)(range.upper - range.lower)
                                    : (double)(window);
@@ -304,7 +304,7 @@ void DisplayControl::setVoltageRange (QWheelEvent* event, bool isProperlyPaused,
             pixPct = 100;
 
         qDebug() << "WHEEL @ " << pixPct << "%";
-        qDebug() << event->delta();
+        qDebug() << event->angleDelta().y();
 
         if (! isProperlyPaused)
         {
@@ -315,8 +315,8 @@ void DisplayControl::setVoltageRange (QWheelEvent* event, bool isProperlyPaused,
             qDebug() << c * ((double)100 - (double)pixPct) * pixPct / 100;
         }
 
-        window -= event->delta() / 120.0 * c * pixPct;
-        delay += event->delta() / 120.0 * c * (100.0 - pixPct) * pixPct / 100.0;
+window -= event->angleDelta().y() / 120.0 * c * pixPct;
+        delay += event->angleDelta().y() / 120.0 * c * (100.0 - pixPct) * pixPct / 100.0;
 
         // NOTE: delayUpdated and timeWindowUpdated are called more than once beyond here,
         // maybe they should only be called once at the end?
@@ -1272,7 +1272,7 @@ void isoDriver::slowTimerTick(){
             siprint periodSiprint("s", 1. / triggerFrequency);
 
             QString cursorString;
-            cursorString.sprintf(" Trigger ΔT = %s, f = %s ", periodSiprint.printVal(), triggerFreqSiprint.printVal());
+            cursorString.asprintf(" Trigger ΔT = %s, f = %s ", periodSiprint.printVal(), triggerFreqSiprint.printVal());
             triggerFrequencyLabel->setText(cursorString);
         }
         qDebug() << triggerFrequency << "Hz";
