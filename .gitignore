@@ -56,3 +56,5 @@ Librador_API/___librador/librador_shared_library/Makefile
 Librador_API/___librador/demo_qt/librademo/librademo
 
 Librador_API/___librador/librador_shared_library/a\.out
+
+*.vs/

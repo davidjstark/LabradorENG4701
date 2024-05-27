@@ -1,1 +1,1 @@
-﻿  BasicDemoLibradorWin.vcxproj -> C:\Users\David\LabradorENG4701\Librador_API\___librador\win_demo\BasicDemoLibradorWin\x64\Release\BasicDemoLibradorWin.exe
+﻿LINK : fatal error LNK1181: cannot open input file '..\..\libusb-1.0.27\VS2022\MS64\static\libusb-1.0.lib'
