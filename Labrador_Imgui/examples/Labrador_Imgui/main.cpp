@@ -10,9 +10,7 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-// #include <Windows.h> // Added for libusbk
-// #include "libusbk.h"
-#include "librador.h" // new librador library added
+#include "librador.h"
 #include <stdio.h>
 #define GL_SILENCE_DEPRECATION
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -36,115 +34,6 @@ static void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
-
-//KUSB_HANDLE handle = NULL; // global var !!
-//#define BOARD_VID 0x03eb // labrador specific
-//#define BOARD_PID 0xba94
-//#define GOBINDAR_PID 0xa000 // two PIDs, trying the first one BOARD_PID
-//unsigned char inBuffer[256]; // for usb send
-
-// Helper functions (hacked in here for the moment, to be moved to another file)
-//unsigned char usbInit(unsigned long VIDin, unsigned long PIDin) {
-//
-//    //This function gets you a USB handle, as well as any other data needed to send a control transfer over USB.
-//    //You should be able to call usbSendControl() immediately after this function has returned success!!
-//
-//    unsigned char success;
-//    KLST_DEVINFO_HANDLE deviceInfo = NULL;
-//    UINT deviceCount = 0;
-//    DWORD ec = ERROR_SUCCESS;
-//    KLST_HANDLE deviceList = NULL;
-//
-//    //List libusbk devices connected
-//    if (!LstK_Init(&deviceList, (KLST_FLAG)0)) {
-//        printf("Error initializing device list\n");
-//        return 1;
-//    } //else qDebug() << "Device List initialised!";
-//
-//    /*
-//    LstK_Count(deviceList, &deviceCount);
-//    if (!deviceCount) {
-//        qDebug("Device list empty");
-//        LstK_Free(deviceList);	// If LstK_Init returns TRUE, the list must be freed.
-//        return 0;
-//    } //else qDebug() << "Device Count initialised!";
-//*/
-//
-//    //Look for Labrador!
-//    LstK_FindByVidPid(deviceList, VIDin, PIDin, &deviceInfo);
-//    LstK_Free(deviceList);
-//    if (deviceInfo == NULL) {
-//        printf("Could not find device VID = %04X, PID = %04X\n", VIDin, PIDin);
-//        return 2;
-//    }
-//
-//    //Open Labrador!!
-//    success = UsbK_Init(&handle, deviceInfo);
-//    if (!success) {
-//        ec = GetLastError();
-//        printf("UsbK_Init failed. ErrorCode: %08Xh\n", ec);
-//        return 3;
-//    }
-//    else printf("Device opened successfully!\n");
-//
-//    if (handle == NULL) {
-//        return 4; //Unkown error, only exists on 32 bit???
-//    }
-//
-//    return 0;
-//}
-//
-//void usbSendControl(uint8_t RequestType, uint8_t Request, uint16_t Value, uint16_t Index, uint16_t Length, unsigned char* LDATA) {
-//
-//    //This function sends a control transfer over USB.
-//    //LDATA is a pointer to the buffer that is going to be sent to the device.  If no buffer is to be sent, LDATA should be NULL (and any implementation should be able to handle this case!!).
-//    //The Linux implementation of this is trivially simple.  Have a look!
-//
-//    //////////////////////////////////////////////////////////////////////////////////////////
-//    //IF YOU'RE SEEING AN ERROR, CHECK THAT REQUESTTYPE AND REQUEST ARE FORMATTED AS HEX
-//    //////////////////////////////////////////////////////////////////////////////////////////    
-//
-//    WINUSB_SETUP_PACKET setupPacket;
-//    unsigned char controlSuccess;
-//    UINT bytesTransferred = 0;
-//    unsigned char* controlBuffer;
-//    DWORD errorCode = ERROR_SUCCESS;
-//
-//    /*if (!connected) {
-//        qDebug() << "Not connected.  Ignoring Control Request!!!";
-//    }*/
-//    //Error checking
-//    if (handle == NULL) {
-//        printf("Null handle error in usbSendControl\n");
-//        return;
-//    }
-//
-//    //Fill the setup packet
-//    setupPacket.RequestType = RequestType;
-//    setupPacket.Request = Request;
-//    setupPacket.Value = Value;
-//    setupPacket.Index = Index;
-//    setupPacket.Length = Length;
-//
-//    //Check for case of null LDATA
-//    if (LDATA == NULL) {
-//        controlBuffer = inBuffer;
-//    }
-//    else controlBuffer = LDATA;
-//
-//    //Send the packet
-//    controlSuccess = UsbK_ControlTransfer(handle, setupPacket, controlBuffer, setupPacket.Length, &bytesTransferred, NULL);
-//    if (controlSuccess) {
-//        printf("%d BYTES TRANSFERRED\n", bytesTransferred);
-//    }
-//    else {
-//        errorCode = GetLastError();
-//        printf("UsbK_ControlTransfer failed with error code %d\n", errorCode);
-//        if (errorCode == 170) { //Device not connected?? (According to test)
-//            // killMe();
-//        }
-//    }
-//}
 
 
 // Main code
@@ -290,7 +179,7 @@ int main(int, char**)
 
             ImGui::Text("Aiming to push this voltage to Power Supply on Labrador board with libusbk library."); // Display some text (you can use a format strings too)
 
-            ImGui::SliderFloat("Voltage (PSU)", &voltage, 4.5f, 6.0f, "%.1f V");            // Edit 1 float using a slider from 0.0f to 1.0f
+            ImGui::SliderFloat("Voltage (PSU)", &voltage, 4.5f, 6.0f, "%.1f V");
 
             if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
                 counter++;
@@ -312,9 +201,7 @@ int main(int, char**)
         }
 
         if (frames % 60 == 0) {
-            // will run every 60 frames (1 sec on my monitor)
-            // Send a Control signal to Labrador to set voltage on PSU
-            // int dutyTemp = (int)29 + (voltage - 4.5) * (11 / 1.5) + 0.5; // maps from range (4.5, 29) to (29, 40)
+            // will run every 60 frames
             // Set the power supply voltage
             error = librador_set_power_supply_voltage(voltage);
             if (error)
