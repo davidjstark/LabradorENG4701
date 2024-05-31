@@ -17,18 +17,20 @@ class App : public AppBase<App>
 		int error = librador_init();
 		if (error)
 		{
-			printf("librador_init FAILED with error code %d\tExiting...", error);
-			std::exit(error);
+			printf("librador_init FAILED with error code %d\t\n", error);
+			// std::exit(error);
+			connected = false;
 		}
 
 		// Initialise the USB
 		error = librador_setup_usb();
 		if (error)
 		{
-			printf("librador_setup_usb FAILED with error code %d\tExiting...", error);
-			std::exit(error);
+			printf("librador_setup_usb FAILED with error code %d\t\n", error);
+			// std::exit(error);
+			connected = false;
 		}
-		printf("Device Connected Successfully!\n");
+		if (connected) printf("Device Connected Successfully!\n");
 
 		// Print firmware info
 		uint16_t deviceVersion = librador_get_device_firmware_version();
@@ -39,6 +41,13 @@ class App : public AppBase<App>
     // Anything that needs to be called cyclically INSIDE of the main application loop
     void Update()
     {
+		if (true)
+		{
+			// Show ImGui and ImPlot demo windows
+			ImGui::ShowDemoWindow();
+			ImPlot::ShowDemoWindow();
+		}
+
 		static float voltage = 4.5;
 		// 2. Show a simple window that we create ourselves. We use a Begin/End pair to
 		// create a named window.
@@ -67,12 +76,7 @@ class App : public AppBase<App>
 			ImGui::End();
 		}
 
-		if (false)
-		{
-			ImGui::ShowDemoWindow();
-		}
-
-		if (frames % 60 == 0)
+		if (frames % 60 == 0 && connected)
 		{
 			// will run every 60 frames
 			// Set the power supply voltage
@@ -124,4 +128,5 @@ class App : public AppBase<App>
 
   private:
 	int frames = 0;
+	bool connected = true;
 };
