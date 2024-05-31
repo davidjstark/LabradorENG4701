@@ -29,6 +29,9 @@
     <ClCompile Include="libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="libs\imgui\imgui_tables.cpp" />
     <ClCompile Include="libs\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="libs\imgui\implot.cpp" />
+    <ClCompile Include="libs\imgui\implot_demo.cpp" />
+    <ClCompile Include="libs\imgui\implot_items.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -44,9 +47,13 @@
     <ClInclude Include="libs\imgui\imconfig.h" />
     <ClInclude Include="libs\imgui\imgui.h" />
     <ClInclude Include="libs\imgui\imgui_internal.h" />
+    <ClInclude Include="libs\imgui\implot.h" />
+    <ClInclude Include="libs\imgui\implot_internal.h" />
     <ClInclude Include="libs\imgui\imstb_rectpack.h" />
     <ClInclude Include="libs\imgui\imstb_textedit.h" />
     <ClInclude Include="libs\imgui\imstb_truetype.h" />
+    <ClInclude Include="src\AppBase.hpp" />
+    <ClInclude Include="src\App.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt" />

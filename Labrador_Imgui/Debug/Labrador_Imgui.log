@@ -1,6 +1,53 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  imgui_impl_glfw.cpp
-  imgui_impl_opengl3.cpp
-  Generating Code...
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\backends\imgui_impl_opengl3.cpp(928,1): warning C4701: potentially uninitialized local variable 'last_pixel_unpack_buffer' used
+  main.cpp
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador_global.h(7,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(94,85): warning C4100: 'mods': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(94,73): warning C4100: 'action': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(94,61): warning C4100: 'button': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(94,49): warning C4100: 'window': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(104,75): warning C4100: 'ypos': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(104,62): warning C4100: 'xpos': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(104,47): warning C4100: 'window': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(114,89): warning C4100: 'mods': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(114,76): warning C4100: 'actions': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(114,62): warning C4100: 'scancode': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(114,53): warning C4100: 'key': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(114,41): warning C4100: 'window': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(196,33): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(196,33):
+  the template instantiation context (the oldest one first) is
+  	C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(7,20):
+  	see reference to class template instantiation 'AppBase<App>' being compiled
+  	C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(21,5):
+  	while compiling class template member function 'AppBase<App>::AppBase(void)'
+  		C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(10,8):
+  		see the first reference to 'AppBase<App>::AppBase' in 'App::App'
+  
   Labrador_Imgui.vcxproj -> C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe

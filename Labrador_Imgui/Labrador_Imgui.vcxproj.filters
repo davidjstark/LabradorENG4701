@@ -32,6 +32,15 @@
     <ClCompile Include="backends\imgui_impl_opengl3.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="libs\imgui\implot.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui\implot_demo.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui\implot_items.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libs\imgui\imstb_truetype.h">
@@ -70,6 +79,14 @@
     <ClInclude Include="backends\imgui_impl_opengl3_loader.h">
       <Filter>ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\AppBase.hpp" />
+    <ClInclude Include="libs\imgui\implot.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imgui\implot_internal.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\App.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
