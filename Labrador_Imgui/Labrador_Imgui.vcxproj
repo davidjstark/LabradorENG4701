@@ -54,6 +54,11 @@
     <ClInclude Include="libs\imgui\imstb_truetype.h" />
     <ClInclude Include="src\AppBase.hpp" />
     <ClInclude Include="src\App.hpp" />
+    <ClInclude Include="src\ControlWidget.hpp" />
+    <ClInclude Include="src\MultimeterControl.hpp" />
+    <ClInclude Include="src\OSCControl.hpp" />
+    <ClInclude Include="src\PSUControl.hpp" />
+    <ClInclude Include="src\SGControl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt" />
@@ -148,6 +153,8 @@
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.\libs\imgui;.\backends;.\libs\glfw\include;..\Librador_API\___librador\librador_shared_library;.\libs\libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

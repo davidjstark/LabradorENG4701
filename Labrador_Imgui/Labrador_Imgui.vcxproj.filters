@@ -87,6 +87,11 @@
       <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\App.hpp" />
+    <ClInclude Include="src\ControlWidget.hpp" />
+    <ClInclude Include="src\PSUControl.hpp" />
+    <ClInclude Include="src\MultimeterControl.hpp" />
+    <ClInclude Include="src\OSCControl.hpp" />
+    <ClInclude Include="src\SGControl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

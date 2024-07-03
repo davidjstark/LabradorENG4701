@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 #include <librador.h>
+#include "PSUControl.hpp"
+#include "OSCControl.hpp"
+#include "SGControl.hpp"
+#include "MultimeterControl.hpp"
 
 // #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
@@ -13,8 +17,10 @@ class App : public AppBase<App>
   public:
     App(){};
     virtual ~App() = default;
-
+	
+	
     // Anything that needs to be called once OUTSIDE of the main application loop
+	
     void StartUp()
     {
 		int error = librador_init();
@@ -44,42 +50,15 @@ class App : public AppBase<App>
     // Anything that needs to be called cyclically INSIDE of the main application loop
     void Update()
     {
-		if (false)
+		bool showDemoWindows = false;
+		if (showDemoWindows)
 		{
 			// Show ImGui and ImPlot demo windows
 			ImGui::ShowDemoWindow();
 			ImPlot::ShowDemoWindow();
 		}
 
-		static float voltage = 4.5;
-		// 2. Show a simple window that we create ourselves. We use a Begin/End pair to
-		// create a named window.
-		
-		if (false)
-		{
-			static int counter = 0;
-
-			ImGui::Begin("Labrador Controller"); // Create a window called "Hello, world!" and
-			                               // append into it.
-
-			ImGui::Text("Aiming to push this voltage to Power Supply on Labrador board "
-			            "with libusbk library."); // Display some text (you can use a
-			                                      // format strings too)
-
-			ImGui::SliderFloat("Voltage (PSU)", &voltage, 4.5f, 6.0f, "%.1f V");
-
-			if (ImGui::Button("Button")) // Buttons return true when clicked (most widgets
-			                             // return true when edited/activated)
-				counter++;
-			ImGui::SameLine();
-			ImGui::Text("counter = %d", counter);
-			static float framerate = ImGui::GetIO().Framerate;
-
-			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
-			    1000.0f / framerate, framerate);
-			ImGui::End();
-		}
-
+		if (!showDemoWindows)
 		{
 			// Main window
 			ImGui::SetNextWindowPos(ImVec2(0, 0));
@@ -89,7 +68,7 @@ class App : public AppBase<App>
 			        | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
 
 			// Apply custom padding
-			const int padding = 10;
+			const int padding = 6;
 			ImGuiStyle& style = ImGui::GetStyle();
 			style.WindowPadding = ImVec2(padding, padding); // Custom padding within window
 			
@@ -98,97 +77,65 @@ class App : public AppBase<App>
 			float plot_width = (window_size.x - 2*style.WindowPadding.x) * 0.60f - padding;
 			float plot_height = (window_size.y - 2*style.WindowPadding.y) * 0.75f - padding;
 			
-			
+			// Left Column Widgets
 			style.ItemSpacing = ImVec2(0, 0); // No padding for left and right columns
-			// Plot widget with unique outline color
 			ImGui::BeginChild("Left Column",
 			    ImVec2(plot_width + 2*padding, window_size.y - 2*style.WindowPadding.y),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
-			ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255, 0, 0, 255)); // Red border
+			// Render scope
+			// TODO: could potentially combine scope and scope controls because they will have a lot of shared responsibilities
+			ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255,255,255, 255));
 			ImGui::BeginChild("Plot Widget", ImVec2(plot_width, plot_height), true);
 			ImGui::Text("Plot Widget");
-			// Your plot drawing code here
+			// plot drawing code here
 			ImGui::EndChild();
 			ImGui::PopStyleColor();
 
-			// Control widget under plot with unique outline color
-			ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(0, 255, 0, 255)); // Green border
-			ImGui::BeginChild("Control Widget Under Plot",
-			    ImVec2(plot_width, 0), true);
-			ImGui::Text("Control Widget Under Plot");
-			// Your control code here
-			ImGui::EndChild();
-			ImGui::PopStyleColor();
+			// Render Oscilloscope controls
+			OSCWidget.setSize(ImVec2(plot_width, 0));
+			OSCWidget.Render();
 			
-			ImGui::EndChild(); // End Left Column
+			ImGui::EndChild(); // End left column
 
 			// Right column control widgets
 			float control_widget_height = (window_size.y - 2*style.WindowPadding.y - 3*style.ItemSpacing.y) * 0.25f;
 			
 			style.ItemSpacing = ImVec2(0, 0);
-			ImGui::SameLine();
-			ImGui::BeginChild("Right Column",
-			    ImVec2(window_size.x - plot_width - 2*padding - 2*style.WindowPadding.x,
-			        window_size.y - 2 * style.WindowPadding.y),
+			ImGui::SameLine(); 
+			ImGui::BeginChild("Right Column",ImVec2(
+				window_size.x - plot_width - 2 * padding - 2 * style.WindowPadding.x,
+			    window_size.y - 2 * style.WindowPadding.y),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
-			// Control widget 1 with unique outline color
-			ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(0, 0, 255, 255)); // Blue border
-			ImGui::BeginChild("Control Widget 1", ImVec2(0, control_widget_height), true);
-			ImGui::Text("Control Widget 1");
-			// Your control code here
-			ImGui::EndChild();
-			ImGui::PopStyleColor();
+			// Render PSU Control
+			PSUWidget.setSize(ImVec2(0, control_widget_height));
+			PSUWidget.Render();
 
-			// Control widget 2 with unique outline color
-			ImGui::PushStyleColor(
-			    ImGuiCol_Border, IM_COL32(255, 255, 0, 255)); // Yellow border
-			ImGui::BeginChild("Control Widget 2", ImVec2(0, control_widget_height), true);
-			ImGui::Text("Control Widget 2");
-			// Your control code here
-			ImGui::EndChild();
-			ImGui::PopStyleColor();
+			// Render Signal Gen 1
+			SG1Widget.setSize(ImVec2(0, control_widget_height));
+			SG1Widget.Render();
 
-			// Control widget 3 with unique outline color
-			ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(0, 255, 255, 255)); // Cyan border
-			ImGui::BeginChild("Control Widget 3", ImVec2(0, control_widget_height), true);
-			ImGui::Text("Control Widget 3");
-			// Your control code here
-			ImGui::EndChild();
-			ImGui::PopStyleColor();
+			// Render Signal Gen 2
+			SG2Widget.setSize(ImVec2(0, control_widget_height));
+			SG2Widget.Render();
 
-			// Control widget 4 with unique outline color
-			ImGui::PushStyleColor(
-			    ImGuiCol_Border, IM_COL32(255, 0, 255, 255)); // Magenta border
-			ImGui::BeginChild("Control Widget 4", ImVec2(0, control_widget_height), true);
-			ImGui::Text("Control Widget 4");
-			// Your control code here
-			ImGui::EndChild();
-			ImGui::PopStyleColor();
+			// Render Multimeter
+			MMWidget.setSize(ImVec2(0, control_widget_height));
+			MMWidget.Render();
 
-			ImGui::EndChild();
-
+			ImGui::EndChild(); // End right column
 			ImGui::End();
-		}
 
-		if (frames % 60 == 0 && connected)
-		{
-			// will run every 60 frames
-			// Set the power supply voltage
-			int error = librador_set_power_supply_voltage(voltage);
-			if (error)
+			// Updates state of labrador to match widgets
+			if (connected && frames % labRefreshRate == 0)
 			{
-				printf("librador_set_power_supply_voltage FAILED with error code "
-				       "%d\tExiting...",
-				    error);
-				std::exit(error);
+				// Call controlLab functions for each widget
+				PSUWidget.controlLab();
 			}
-			printf("Successfully set power supply voltage to %.2fV\n", voltage);
 		}
-
 		frames++;
     }
 
@@ -226,5 +173,16 @@ class App : public AppBase<App>
 
   private:
 	int frames = 0;
-	bool connected = true;
+	const int labRefreshRate = 60; // send controls to labrador every this many frames
+	bool connected = true; // state of labrador connection
+	// Define default configurations for widgets here
+	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), IM_COL32(255,0,0,255));
+	MultimeterControl MMWidget
+	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(255, 255, 255, 255));
+	SGControl SG1Widget
+	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), IM_COL32(0, 255, 0, 255));
+	SGControl SG2Widget
+	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), IM_COL32(0, 0, 255, 255));
+	OSCControl OSCWidget
+	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(255, 255, 255, 255));
 };
