@@ -1,0 +1,68 @@
+﻿  glad.c
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(86,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(87,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(88,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(165,115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(165,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(283,49): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,40): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,50): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,61): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,71): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+  Generating Code...
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetError referenced in function "bool __cdecl ImGui_ImplGlfw_Init(struct GLFWwindow *,bool,enum GlfwClientApi)" (?ImGui_ImplGlfw_Init@@YA_NPAUGLFWwindow@@_NW4GlfwClientApi@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetErrorCallback referenced in function "bool __cdecl ImGui_ImplGlfw_Init(struct GLFWwindow *,bool,enum GlfwClientApi)" (?ImGui_ImplGlfw_Init@@YA_NPAUGLFWwindow@@_NW4GlfwClientApi@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetMonitorCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetWindowSize referenced in function "void __cdecl ImGui_ImplGlfw_NewFrame(void)" (?ImGui_ImplGlfw_NewFrame@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetFramebufferSize referenced in function "void __cdecl ImGui_ImplGlfw_NewFrame(void)" (?ImGui_ImplGlfw_NewFrame@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetWindowAttrib referenced in function "void __cdecl ImGui_ImplGlfw_UpdateMouseData(void)" (?ImGui_ImplGlfw_UpdateMouseData@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetWindowFocusCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetInputMode referenced in function "void __cdecl ImGui_ImplGlfw_UpdateMouseCursor(void)" (?ImGui_ImplGlfw_UpdateMouseCursor@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetInputMode referenced in function "void __cdecl ImGui_ImplGlfw_UpdateMouseCursor(void)" (?ImGui_ImplGlfw_UpdateMouseCursor@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetKeyName referenced in function "int __cdecl ImGui_ImplGlfw_TranslateUntranslatedKey(int,int)" (?ImGui_ImplGlfw_TranslateUntranslatedKey@@YAHHH@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetKey referenced in function "void __cdecl ImGui_ImplGlfw_UpdateKeyModifiers(struct GLFWwindow *)" (?ImGui_ImplGlfw_UpdateKeyModifiers@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetCursorPos referenced in function "void __cdecl ImGui_ImplGlfw_UpdateMouseData(void)" (?ImGui_ImplGlfw_UpdateMouseData@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetCursorPos referenced in function "void __cdecl ImGui_ImplGlfw_UpdateMouseData(void)" (?ImGui_ImplGlfw_UpdateMouseData@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwCreateStandardCursor referenced in function "bool __cdecl ImGui_ImplGlfw_Init(struct GLFWwindow *,bool,enum GlfwClientApi)" (?ImGui_ImplGlfw_Init@@YA_NPAUGLFWwindow@@_NW4GlfwClientApi@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwDestroyCursor referenced in function "void __cdecl ImGui_ImplGlfw_Shutdown(void)" (?ImGui_ImplGlfw_Shutdown@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetCursor referenced in function "void __cdecl ImGui_ImplGlfw_UpdateMouseCursor(void)" (?ImGui_ImplGlfw_UpdateMouseCursor@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetKeyCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetCharCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetMouseButtonCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetCursorPosCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetCursorEnterCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetScrollCallback referenced in function "void __cdecl ImGui_ImplGlfw_InstallCallbacks(struct GLFWwindow *)" (?ImGui_ImplGlfw_InstallCallbacks@@YAXPAUGLFWwindow@@@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetGamepadState referenced in function "void __cdecl ImGui_ImplGlfw_UpdateGamepads(void)" (?ImGui_ImplGlfw_UpdateGamepads@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwSetClipboardString referenced in function "void __cdecl ImGui_ImplGlfw_SetClipboardText(void *,char const *)" (?ImGui_ImplGlfw_SetClipboardText@@YAXPAXPBD@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetClipboardString referenced in function "char const * __cdecl ImGui_ImplGlfw_GetClipboardText(void *)" (?ImGui_ImplGlfw_GetClipboardText@@YAPBDPAX@Z)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetTime referenced in function "void __cdecl ImGui_ImplGlfw_NewFrame(void)" (?ImGui_ImplGlfw_NewFrame@@YAXXZ)
+imgui_impl_glfw.obj : error LNK2019: unresolved external symbol _glfwGetWin32Window referenced in function "bool __cdecl ImGui_ImplGlfw_Init(struct GLFWwindow *,bool,enum GlfwClientApi)" (?ImGui_ImplGlfw_Init@@YA_NPAUGLFWwindow@@_NW4GlfwClientApi@@@Z)
+main.obj : error LNK2019: unresolved external symbol _glfwInit referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwTerminate referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwWindowHint referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwCreateWindow referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwDestroyWindow referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwWindowShouldClose referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwPollEvents referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwMakeContextCurrent referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _glfwSwapBuffers referenced in function _main
+libraries\lib\glfw3.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\Debug\Labrador2024GUI.exe : fatal error LNK1120: 36 unresolved externals

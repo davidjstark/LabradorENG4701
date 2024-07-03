@@ -1,1 +1,22 @@
-﻿  Labrador2024GUI.vcxproj -> C:\Users\David\OneDrive\Documents\Monash\2024 Semester 1\ENG4701\Labrador2024GUI\x64\Debug\Labrador2024GUI.exe
+﻿  main.cpp
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(86,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(87,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(88,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(165,115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(165,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(283,49): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,40): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,50): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,61): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,71): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+  Labrador2024GUI.vcxproj -> C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\x64\Debug\Labrador2024GUI.exe

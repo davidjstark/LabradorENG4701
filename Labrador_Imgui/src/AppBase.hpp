@@ -14,6 +14,9 @@ static void ErrorCallback(int error, const char* description)
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
+const int window_width = 900;
+const int window_height = 600;
+
 template <typename Derived>
 class AppBase
 {
@@ -30,11 +33,13 @@ class AppBase
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
         // Create window with graphics context
-        window = glfwCreateWindow(1280, 720, "Default App", nullptr, nullptr);
+
+        window = glfwCreateWindow(
+		    window_width, window_height, "Default App", nullptr, nullptr);
         if (window == NULL)
             std::exit(1);
 
-        glfwSetWindowSize(window, 1920, 1080);
+        // glfwSetWindowSize(window, 1920, 1080);
         glfwMakeContextCurrent(window);
         glfwSwapInterval(1);
 
