@@ -9,6 +9,8 @@
 #include "SGControl.hpp"
 #include "MultimeterControl.hpp"
 
+#include "util.h"
+
 // #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
 
@@ -110,6 +112,8 @@ class App : public AppBase<App>
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
+			// ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(10, 10, 10, 255));
+			
 			// Render PSU Control
 			PSUWidget.setSize(ImVec2(0, control_widget_height));
 			PSUWidget.Render();
@@ -123,8 +127,10 @@ class App : public AppBase<App>
 			SG2Widget.Render();
 
 			// Render Multimeter
-			MMWidget.setSize(ImVec2(0, control_widget_height));
+			MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
 			MMWidget.Render();
+
+			// ImGui::PopStyleColor();
 
 			ImGui::EndChild(); // End right column
 			ImGui::End();
@@ -176,13 +182,14 @@ class App : public AppBase<App>
 	const int labRefreshRate = 60; // send controls to labrador every this many frames
 	bool connected = true; // state of labrador connection
 	// Define default configurations for widgets here
-	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), IM_COL32(255,0,0,255));
+	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), constants::PSU_ACCENT);
 	MultimeterControl MMWidget
-	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(255, 255, 255, 255));
+	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 	SGControl SG1Widget
-	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), IM_COL32(0, 255, 0, 255));
+	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT);
 	SGControl SG2Widget
-	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), IM_COL32(0, 0, 255, 255));
+	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT);
 	OSCControl OSCWidget
-	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(255, 255, 255, 255));
+	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 };
+

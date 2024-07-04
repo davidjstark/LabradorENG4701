@@ -13,10 +13,10 @@ public:
 	/// <param name="label">Name of controller</param>
 	/// <param name="size">Child window size</param>
 	/// <param name="borderColor">Accent colour</param>
-	ControlWidget(const char* label, ImVec2 size, ImU32 borderColor)
+	ControlWidget(const char* label, ImVec2 size, const ImU32 accentColour)
 	    : label(label)
 	    , size(size)
-	    , borderColor(borderColor)
+	    , accentColour(accentColour)
 	{}
 
 	/// <summary>
@@ -33,14 +33,28 @@ public:
 	/// </summary>
 	void Render()
 	{
-		ImGui::PushStyleColor(ImGuiCol_Border, borderColor);
-		ImGui::BeginChild(label, size, true,
-		    ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
-		ImGui::Text(label);
 		
+		
+		ImGui::PushStyleColor(ImGuiCol_Border, accentColour);
+		ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1f, 0.1f, 0.1f, 1.0f));
+		
+		ImGui::BeginChild(label, size, ImGuiChildFlags_Border, 
+		ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+		
+		// Hacky rectangle for heading (can not fill entire width of child)
+		//ImDrawList* draw = ImGui::GetWindowDrawList();
+		//ImVec2 p = ImGui::GetCursorScreenPos();
+		//float height = ImGui::GetFrameHeight() * 0.9;
+		//draw->AddRectFilled(ImVec2(p.x - 5, p.y - 5),
+		//    ImVec2(p.x + ImGui::GetContentRegionAvail().x + 5, p.y + height),
+		//    accentColour, 0.0f);
+
+		ImGui::Text(label);
+
 		renderControl();
 
 		ImGui::EndChild();
+		ImGui::PopStyleColor();
 		ImGui::PopStyleColor();
 	}
 
@@ -51,5 +65,5 @@ public:
 protected:
 	const char* label;
 	ImVec2 size;
-	ImU32 borderColor;
+	const ImU32 accentColour;
 };

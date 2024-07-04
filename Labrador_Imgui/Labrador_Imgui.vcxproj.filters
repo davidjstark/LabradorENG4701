@@ -41,6 +41,7 @@
     <ClCompile Include="libs\imgui\implot_items.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\UIComponents.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libs\imgui\imstb_truetype.h">
@@ -92,6 +93,7 @@
     <ClInclude Include="src\MultimeterControl.hpp" />
     <ClInclude Include="src\OSCControl.hpp" />
     <ClInclude Include="src\SGControl.hpp" />
+    <ClInclude Include="src\util.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

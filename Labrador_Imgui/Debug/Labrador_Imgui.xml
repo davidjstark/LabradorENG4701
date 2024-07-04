@@ -38,6 +38,14 @@ Render UI elements for Signal Generator
             <summary>Signal Generator Widget
 </summary>
         </member>
+        <member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)">
+            <summary>
+Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+</summary>
+            <param name="id" />
+            <param name="state" />
+            <param name="accentColour" />
+        </member>
         <member name="M:OSCControl.controlLab">
             <summary>
 Control sampling settings on labrador board
@@ -77,7 +85,7 @@ Update size of child window
 </summary>
             <param name="new_size">New size</param>
         </member>
-        <member name="M:ControlWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.UInt32)">
+        <member name="M:ControlWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.UInt32!System.Runtime.CompilerServices.IsConst)">
             <summary>
 Constructor
 </summary>

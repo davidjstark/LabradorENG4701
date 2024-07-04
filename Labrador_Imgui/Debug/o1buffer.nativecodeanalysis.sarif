@@ -1,0 +1,59 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33523.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/librador_api/___librador/librador_shared_library/o1buffer.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "8350b6860070fb56138f53b3424f365cec07fd46537d59dc460ab84dbdc7b4eb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/librador_api/___librador/librador_shared_library/o1buffer.h"
+          },
+          "hashes": {
+            "sha-256": "bc98e26981a990fdf1316fe6f321db5476581141687d80e0113956f12cb86280"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/librador_api/___librador/librador_shared_library/logging_internal.h"
+          },
+          "hashes": {
+            "sha-256": "0446506008b85fd4fe5096d6079c3d9e15fb0cb39deeb833bccc1a217ec36dca"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/librador_api/___librador/librador_shared_library/logging.h"
+          },
+          "hashes": {
+            "sha-256": "2c1df7f5013440272246d1334067937e7642a1c2fd6a0bc3ad394125f465a10e"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
 Abstract class that draws child that can be populated by a control widget
 </summary>
 </member>
-<member name="M:ControlWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.UInt32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="10">
+<member name="M:ControlWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.UInt32!System.Runtime.CompilerServices.IsConst)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="10">
 <summary>
 Constructor
 </summary>
@@ -33,7 +33,7 @@ Generic function to render control widget with correct style
 Render UI elements for power supply unit
 </summary>
 </member>
-<member name="M:PSUControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="23">
+<member name="M:PSUControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="26">
 <summary>
 Set the Power Supply Voltage on the labrador board.
 </summary>
@@ -52,16 +52,24 @@ Render UI elements for oscilloscope control
 Control sampling settings on labrador board
 </summary>
 </member>
-<member name="T:SGControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="4">
+<member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="3">
+<summary>
+Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+</summary>
+<param name="id"></param>
+<param name="state"></param>
+<param name="accentColour"></param>
+</member>
+<member name="T:SGControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="27">
 <summary>Signal Generator Widget
 </summary>
 </member>
-<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="15">
+<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="40">
 <summary> 
 Render UI elements for Signal Generator
 </summary>
 </member>
-<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="23">
+<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="94">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
