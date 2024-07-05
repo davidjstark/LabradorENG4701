@@ -54,22 +54,26 @@ class App : public AppBase<App>
     // Anything that needs to be called cyclically INSIDE of the main application loop
     void Update()
     {
-		bool showDemoWindows = false;
-		if (showDemoWindows)
-		{
-			// Show ImGui and ImPlot demo windows
-			ImGui::ShowDemoWindow();
-			ImPlot::ShowDemoWindow();
-		}
-
-		if (!showDemoWindows)
+		
 		{
 			// Main window
 			ImGui::SetNextWindowPos(ImVec2(0, 0));
 			ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
 			ImGui::Begin("Main Window", NULL,
-			    ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove
-			        | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
+			    ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse
+			        | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_MenuBar);
+
+			// Menu Bar
+			static bool showDemoWindows = false;
+			if (ImGui::BeginMenuBar())
+			{
+				if (ImGui::BeginMenu("Menu"))
+				{
+					ImGui::MenuItem("Show Demos", "", &showDemoWindows);
+					ImGui::EndMenu();
+				}
+				ImGui::EndMenuBar();
+			}
 
 			// Apply custom padding
 			const int padding = 6;
@@ -83,8 +87,9 @@ class App : public AppBase<App>
 			
 			// Left Column Widgets
 			style.ItemSpacing = ImVec2(0, 0); // No padding for left and right columns
+			int menu_height = ImGui::GetFrameHeight();
 			ImGui::BeginChild("Left Column",
-			    ImVec2(plot_width + 2*padding, window_size.y - 2*style.WindowPadding.y),
+			    ImVec2(plot_width + 2*padding, window_size.y - 2*style.WindowPadding.y - menu_height),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
@@ -110,7 +115,7 @@ class App : public AppBase<App>
 			ImGui::SameLine(); 
 			ImGui::BeginChild("Right Column",ImVec2(
 				window_size.x - plot_width - 2 * padding - 2 * style.WindowPadding.x,
-			    window_size.y - 2 * style.WindowPadding.y),
+			    window_size.y - 2 * style.WindowPadding.y - menu_height),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
@@ -143,6 +148,14 @@ class App : public AppBase<App>
 				// Call controlLab functions for each widget
 				PSUWidget.controlLab();
 			}
+
+			if (showDemoWindows)
+			{
+				// Show ImGui and ImPlot demo windows
+				ImGui::ShowDemoWindow();
+				ImPlot::ShowDemoWindow();
+			}
+				
 		}
 		frames++;
     }
