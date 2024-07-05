@@ -60,16 +60,16 @@ Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 <param name="state"></param>
 <param name="accentColour"></param>
 </member>
-<member name="T:SGControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="27">
+<member name="T:SGControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="7">
 <summary>Signal Generator Widget
 </summary>
 </member>
-<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="40">
+<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="21">
 <summary> 
 Render UI elements for Signal Generator
 </summary>
 </member>
-<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="94">
+<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="109">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>

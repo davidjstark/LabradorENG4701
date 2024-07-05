@@ -2,27 +2,7 @@
 #include "librador.h"
 #include "UIComponents.hpp"
 #include "implot.h"
-
-void Demo_LinePlots()
-{
-	static float xs1[1001], ys1[1001];
-	for (int i = 0; i < 1001; ++i)
-	{
-		xs1[i] = i * 0.001f;
-		ys1[i] = 0.5f + 0.5f * sinf(50 * (xs1[i] + (float)ImGui::GetTime() / 100));
-	}
-
-	if (ImPlot::BeginPlot("##Line Plots", ImVec2(100, 100)), ImPlotFlags_CanvasOnly)
-	{
-		ImPlot::SetupAxes(
-		    nullptr, nullptr, ImPlotAxisFlags_NoTickLabels, ImPlotAxisFlags_NoTickLabels);
-		ImPlot::PlotLine("##f(x)", xs1, ys1, 201, ImPlotLineFlags_None);
-		
-		// ImPlot::SetNextMarkerStyle(ImPlotMarker_Circle);
-		ImPlot::EndPlot();
-	}
-}
-
+#include "util.h"
 
 /// <summary>Signal Generator Widget
 /// </summary>
@@ -34,6 +14,7 @@ public:
 	    : ControlWidget(label, size, accentColour)
 	    , active(false)
 	    , toggle_id(label + (std::string)"_toggle")
+	    , plot_id(label + (std::string)"_preview")
 	    , wt_current_idx(0)
 	{}
 	
@@ -71,20 +52,54 @@ public:
 		ImGui::SeparatorText((std::string(wt_preview_value) + " Wave Properties").c_str());
 
 		const float width = ImGui::GetContentRegionAvail().x;
-
+		const float height = ImGui::GetFrameHeight();
 		switch (wt_current_idx)
 		{
 		case 0: // SINE
 
 			// Controls
-			ImGui::BeginChild("sg1_wave_control", ImVec2(width * 0.5f, 0.0f));
+			ImGui::BeginChild((plot_id + "_control").c_str(), ImVec2(width * 0.5f, height * 3.0f));
 			ImGui::Text("Amplitude");
 			ImGui::Text("Frequency");
 			ImGui::Text("Phase Offset");
 			ImGui::EndChild();
 			// Preview
 			ImGui::SameLine();
-			Demo_LinePlots();
+
+			ImPlotStyle backup = ImPlot::GetStyle();
+			PreviewStyle();
+			if (ImPlot::BeginPlot((plot_id).c_str(), ImVec2(width * 0.4, 4 * height),
+			        ImPlotFlags_CanvasOnly | ImPlotFlags_NoInputs))
+			{
+				ImPlot::SetupAxes(nullptr, nullptr, ImPlotAxisFlags_NoDecorations,
+				    ImPlotAxisFlags_NoDecorations);
+				ImPlot::SetupAxesLimits(
+				    0, constants::PREVIEW_RES, 1.2, -1.2, ImGuiCond_Always);
+				ImPlot::PlotLine(("##" + plot_id).c_str(), constants::x_preview,
+				    constants::sine_preview, constants::PREVIEW_RES);
+				ImPlot::EndPlot();
+			}
+			ImPlot::GetStyle() = backup;
+
+			// ImGui::PlotLines(("##" + plot_id).c_str(), constants::sine_preview, constants::PREVIEW_RES, 0, NULL, -1.0f, 1.0f, ImVec2(width*0.4, 3*height));
+			
+			
+
+			//ImPlot::PushStyleVar(ImPlotStyleVar_PlotPadding, ImVec2(0, 0));
+			//if (ImPlot::BeginPlot((plot_id).c_str(), ImVec2(width * 0.4, 3 * height)),
+			//    ImPlotFlags_CanvasOnly))
+			//{
+			//	ImPlot::SetupAxes(nullptr, nullptr, ImPlotAxisFlags_NoDecorations,
+			//	    ImPlotAxisFlags_NoDecorations);
+			//	ImPlot::SetupAxesLimits(0, count - 1, min_v, max_v, ImGuiCond_Always);
+			//	ImPlot::SetNextLineStyle(col);
+			//	ImPlot::SetNextFillStyle(col, 0.25);
+			//	ImPlot::PlotLine(id, values, count, 1, 0, ImPlotLineFlags_Shaded, offset);
+			//	ImPlot::EndPlot();
+			//}
+			//ImPlot::PopStyleVar();
+
+
 			break;
 		}
 		
@@ -101,6 +116,7 @@ public:
 
 private:
 	std::string toggle_id;
+	std::string plot_id;
 	bool active;
 	int wt_current_idx = 0;
 };

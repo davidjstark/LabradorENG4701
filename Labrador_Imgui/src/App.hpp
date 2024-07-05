@@ -47,6 +47,8 @@ class App : public AppBase<App>
 		uint16_t deviceVersion = librador_get_device_firmware_version();
 		uint8_t deviceVariant = librador_get_device_firmware_variant();
 		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
+
+		init_constants();
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop

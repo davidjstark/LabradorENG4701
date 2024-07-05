@@ -36,10 +36,12 @@ public:
 		
 		
 		ImGui::PushStyleColor(ImGuiCol_Border, accentColour);
-		ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1f, 0.1f, 0.1f, 1.0f));
+
+		// Commented out this 'child' approach because of padding issues
+		// ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1f, 0.1f, 0.1f, 1.0f));
 		
-		ImGui::BeginChild(label, size, ImGuiChildFlags_Border, 
-		ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+		//ImGui::BeginChild(label, size, ImGuiChildFlags_Border, 
+		//ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
 		
 		// Hacky rectangle for heading (can not fill entire width of child)
 		//ImDrawList* draw = ImGui::GetWindowDrawList();
@@ -49,13 +51,22 @@ public:
 		//    ImVec2(p.x + ImGui::GetContentRegionAvail().x + 5, p.y + height),
 		//    accentColour, 0.0f);
 
-		ImGui::Text(label);
+		// ImGui::Text(label);
 
-		renderControl();
+		// ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 10.0f));
+		
+		// Plain tree approach works well, no indentation from 'CollapsingHeader' so have used this instead. Have not tried to style this yet
+		if (ImGui::TreeNodeEx(label, ImGuiTreeNodeFlags_DefaultOpen))
+		{
+			renderControl();
+			ImGui::TreePop();
+		}
+		// ImGui::PopStyleVar();
+		
 
-		ImGui::EndChild();
+		// ImGui::EndChild();
 		ImGui::PopStyleColor();
-		ImGui::PopStyleColor();
+		// ImGui::PopStyleColor();
 	}
 
 	// Customise for each widget, see PSUControl.hpp

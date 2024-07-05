@@ -6,40 +6,43 @@ C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\libr
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(14,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(150,85): warning C4100: 'mods': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(71,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(150,73): warning C4100: 'action': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(152,85): warning C4100: 'mods': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(150,61): warning C4100: 'button': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(152,73): warning C4100: 'action': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(150,49): warning C4100: 'window': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(152,61): warning C4100: 'button': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(160,75): warning C4100: 'ypos': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(152,49): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(160,62): warning C4100: 'xpos': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(162,75): warning C4100: 'ypos': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(160,47): warning C4100: 'window': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(162,62): warning C4100: 'xpos': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(170,89): warning C4100: 'mods': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(162,47): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(170,76): warning C4100: 'actions': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(172,89): warning C4100: 'mods': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(170,62): warning C4100: 'scancode': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(172,76): warning C4100: 'actions': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(170,53): warning C4100: 'key': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(172,62): warning C4100: 'scancode': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(170,41): warning C4100: 'window': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(172,53): warning C4100: 'key': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(172,41): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(129,33): warning C4305: 'argument': truncation from 'double' to 'float'

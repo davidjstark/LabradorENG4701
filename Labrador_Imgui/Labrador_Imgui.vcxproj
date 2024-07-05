@@ -34,6 +34,7 @@
     <ClCompile Include="libs\imgui\implot_items.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\UIComponents.hpp" />
+    <ClCompile Include="src\util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libs\imgui\.editorconfig" />
