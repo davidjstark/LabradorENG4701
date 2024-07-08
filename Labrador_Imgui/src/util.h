@@ -17,8 +17,9 @@ namespace constants
     extern float x_preview[PREVIEW_RES];
     extern float sine_preview[PREVIEW_RES];
     
-    
-}
+    constexpr char* freq_units[3] = { "Hz", "kHz", "MHz" };
+    constexpr char* volt_units[3] = { "uV", "mV", "V" };
+    }
 
 void init_constants();
 void PreviewStyle();

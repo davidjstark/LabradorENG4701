@@ -69,7 +69,7 @@ Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 Render UI elements for Signal Generator
 </summary>
 </member>
-<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="109">
+<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="94">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>

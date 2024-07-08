@@ -10,11 +10,11 @@ class SGControl : public ControlWidget
 {
 public:
 	
-	SGControl(const char* label, ImVec2 size, ImU32 accentColour)
+	SGControl(const char* label, ImVec2 size, ImU32 accentColour, int channel)
 	    : ControlWidget(label, size, accentColour)
+	    , channel(channel)
 	    , active(false)
-	    , toggle_id(label + (std::string)"_toggle")
-	    , plot_id(label + (std::string)"_preview")
+	    , label(label)
 	    , wt_current_idx(0)
 	{}
 	
@@ -28,77 +28,62 @@ public:
 		ImGui::SameLine();
 		ImGui::Text("   OFF");
 		ImGui::SameLine();
-		ToggleSwitch(toggle_id.c_str(), &active, accentColour);
+		ToggleSwitch((label + "_toggle").c_str(), &active, accentColour);
 		ImGui::SameLine();
 		ImGui::Text("ON");
 		
 		const char* wt_preview_value = constants::wavetypes[wt_current_idx];
-		// TODO: define a generic Dropdown menu in UIComponents
-		if (ImGui::BeginCombo("wavetypes", wt_preview_value, 0))
-		{
-			for (int n = 0; n < IM_ARRAYSIZE(constants::wavetypes); n++)
-			{
-				const bool is_selected = (wt_current_idx == n);
-				if (ImGui::Selectable(constants::wavetypes[n], is_selected))
-					wt_current_idx = n;
-
-				// Set the initial focus when opening the combo (scrolling + keyboard
-				// navigation focus)
-				if (is_selected)
-					ImGui::SetItemDefaultFocus();
-			}
-			ImGui::EndCombo();
-		}
+		DropDown(("##" + label + "wt_selector").c_str(), constants::wavetypes,
+		    &wt_current_idx, IM_ARRAYSIZE(constants::wavetypes));
 		ImGui::SeparatorText((std::string(wt_preview_value) + " Wave Properties").c_str());
 
 		const float width = ImGui::GetContentRegionAvail().x;
-		const float height = ImGui::GetFrameHeight();
+		const float height = ImGui::GetFrameHeightWithSpacing();
+		
+		// TODO: Make each waveform a separate class that controls rendering and librador controls
 		switch (wt_current_idx)
 		{
 		case 0: // SINE
 
 			// Controls
-			ImGui::BeginChild((plot_id + "_control").c_str(), ImVec2(width * 0.5f, height * 3.0f));
-			ImGui::Text("Amplitude");
-			ImGui::Text("Frequency");
-			ImGui::Text("Phase Offset");
+			ImGui::BeginChild((label + "_control").c_str(), ImVec2(width * 0.5f, height * 3.0f));
+
+			// Amplitude
+			ImGui::SliderFloat(("##" + label + "_amp").c_str(), &amplitude, 0.0f, 3.0f, "Amplitude = %.2f");
+			ImGui::SameLine();
+			DropDown(("##" + label + "_amp_unit").c_str(), constants::volt_units,
+			    &amp_unit_idx, IM_ARRAYSIZE(constants::volt_units));
+
+			// Frequency
+			ImGui::SliderFloat(("##" + label + "_freq").c_str(), &frequency, 0.0f, 999.0f, "Frequency = %.2f");
+			ImGui::SameLine();
+			DropDown(("##" + label + "_freq_unit").c_str(), constants::freq_units,
+			    &freq_unit_idx, IM_ARRAYSIZE(constants::freq_units));
+
+			// Offset
+			ImGui::SliderFloat(("##" + label + "_offset").c_str(), &offset, -3.0f, 3.0f, "Offset = %.2f");
+			ImGui::SameLine();
+			DropDown(("##" + label + "_os_unit").c_str(), constants::volt_units,
+			    &os_unit_idx, IM_ARRAYSIZE(constants::volt_units));
+
 			ImGui::EndChild();
+			
 			// Preview
 			ImGui::SameLine();
-
 			ImPlotStyle backup = ImPlot::GetStyle();
 			PreviewStyle();
-			if (ImPlot::BeginPlot((plot_id).c_str(), ImVec2(width * 0.4, 4 * height),
+			if (ImPlot::BeginPlot((label + "_preview").c_str(), ImVec2(width * 0.4, 3 * height),
 			        ImPlotFlags_CanvasOnly | ImPlotFlags_NoInputs))
 			{
 				ImPlot::SetupAxes(nullptr, nullptr, ImPlotAxisFlags_NoDecorations,
 				    ImPlotAxisFlags_NoDecorations);
 				ImPlot::SetupAxesLimits(
 				    0, constants::PREVIEW_RES, 1.2, -1.2, ImGuiCond_Always);
-				ImPlot::PlotLine(("##" + plot_id).c_str(), constants::x_preview,
+				ImPlot::PlotLine(("##" + label + "_plot_preview").c_str(), constants::x_preview,
 				    constants::sine_preview, constants::PREVIEW_RES);
 				ImPlot::EndPlot();
 			}
 			ImPlot::GetStyle() = backup;
-
-			// ImGui::PlotLines(("##" + plot_id).c_str(), constants::sine_preview, constants::PREVIEW_RES, 0, NULL, -1.0f, 1.0f, ImVec2(width*0.4, 3*height));
-			
-			
-
-			//ImPlot::PushStyleVar(ImPlotStyleVar_PlotPadding, ImVec2(0, 0));
-			//if (ImPlot::BeginPlot((plot_id).c_str(), ImVec2(width * 0.4, 3 * height)),
-			//    ImPlotFlags_CanvasOnly))
-			//{
-			//	ImPlot::SetupAxes(nullptr, nullptr, ImPlotAxisFlags_NoDecorations,
-			//	    ImPlotAxisFlags_NoDecorations);
-			//	ImPlot::SetupAxesLimits(0, count - 1, min_v, max_v, ImGuiCond_Always);
-			//	ImPlot::SetNextLineStyle(col);
-			//	ImPlot::SetNextFillStyle(col, 0.25);
-			//	ImPlot::PlotLine(id, values, count, 1, 0, ImPlotLineFlags_Shaded, offset);
-			//	ImPlot::EndPlot();
-			//}
-			//ImPlot::PopStyleVar();
-
 
 			break;
 		}
@@ -111,12 +96,27 @@ public:
 	/// </summary>
 	void controlLab() override
 	{
-
+		if (active)
+		{
+			switch (wt_current_idx)
+			{
+			case 0: // SINE
+				// TODO: convert to correct units
+				librador_send_sin_wave(channel, frequency, amplitude, offset);
+			}
+		}
+		
 	}
 
 private:
-	std::string toggle_id;
-	std::string plot_id;
+	std::string label;
+	int channel;
 	bool active;
 	int wt_current_idx = 0;
+	float amplitude = 0.0f;
+	float offset = 0.0f;
+	float frequency = 100.0f;
+	int amp_unit_idx = 2;
+	int freq_unit_idx = 0;
+	int os_unit_idx = 2;
 };

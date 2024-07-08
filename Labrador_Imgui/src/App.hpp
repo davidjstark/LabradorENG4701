@@ -89,7 +89,7 @@ class App : public AppBase<App>
 			style.ItemSpacing = ImVec2(0, 0); // No padding for left and right columns
 			int menu_height = ImGui::GetFrameHeight();
 			ImGui::BeginChild("Left Column",
-			    ImVec2(plot_width + 2*padding, window_size.y - 2*style.WindowPadding.y - menu_height),
+			    ImVec2(plot_width, window_size.y - 2*style.WindowPadding.y - menu_height),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
@@ -111,7 +111,7 @@ class App : public AppBase<App>
 			// Right column control widgets
 			float control_widget_height = (window_size.y - 2*style.WindowPadding.y - 3*style.ItemSpacing.y) * 0.25f;
 			
-			style.ItemSpacing = ImVec2(0, 0);
+			style.ItemSpacing = ImVec2(padding, 0);
 			ImGui::SameLine(); 
 			ImGui::BeginChild("Right Column",ImVec2(
 				window_size.x - plot_width - 2 * padding - 2 * style.WindowPadding.x,
@@ -147,6 +147,8 @@ class App : public AppBase<App>
 			{
 				// Call controlLab functions for each widget
 				PSUWidget.controlLab();
+				SG1Widget.controlLab();
+				SG2Widget.controlLab();
 			}
 
 			if (showDemoWindows)
@@ -201,9 +203,9 @@ class App : public AppBase<App>
 	MultimeterControl MMWidget
 	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 	SGControl SG1Widget
-	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT);
+	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
 	SGControl SG2Widget
-	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT);
+	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
 	OSCControl OSCWidget
 	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 };

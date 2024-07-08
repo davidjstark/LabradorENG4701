@@ -58,7 +58,7 @@ class AppBase
 		style.ChildRounding = 5.0f;
 
         ImVec4* colors = ImGui::GetStyle().Colors;
-		colors[ImGuiCol_WindowBg] = ImVec4(0.33f, 0.33f, 0.33f, 1.0f);
+		colors[ImGuiCol_WindowBg] = ImVec4(0.1f, 0.1f, 0.1f, 0.8f);
 		colors[ImGuiCol_ChildBg] = ImVec4(0.1f, 0.1f, 0.1f, 0.0f);
 
         // Setup Platform/Renderer backends

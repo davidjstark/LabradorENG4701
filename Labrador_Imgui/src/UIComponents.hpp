@@ -32,3 +32,30 @@ void inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 			constants::PRIM_LIGHT, 
 			rounding);
 	}
+
+int inline DropDown(const char* id, char * const options[], int* active, int size)
+    {
+	int changed = 0;
+	const char* preview = options[*active];
+	if (ImGui::BeginCombo(id, preview, 0))
+	{
+		for (int n = 0; n < size; n++)
+		{
+			const bool is_selected = (*active == n);
+			if (ImGui::Selectable(options[n], is_selected))
+			{
+				*active = n;
+				changed = 1;
+			}
+				
+
+			// Set the initial focus when opening the combo (scrolling + keyboard
+			// navigation focus)
+			if (is_selected)
+				ImGui::SetItemDefaultFocus();
+		}
+		ImGui::EndCombo();
+	}
+	return changed;
+	
+}
