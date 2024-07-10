@@ -33,8 +33,6 @@ public:
 	/// </summary>
 	void Render()
 	{
-		
-		
 		ImGui::PushStyleColor(ImGuiCol_Border, accentColour);
 
 		// Commented out this 'child' approach because of padding issues
@@ -87,7 +85,7 @@ public:
 		// ImGui::PopStyleColor();
 	}
 
-	// Customise for each widget, see PSUControl.hpp
+	// Customise for each widget, see PSUControl.hpp for example
 	virtual void renderControl() = 0;
 	virtual void controlLab() = 0;
 

@@ -95,6 +95,7 @@
     <ClInclude Include="src\OSCControl.hpp" />
     <ClInclude Include="src\SGControl.hpp" />
     <ClInclude Include="src\util.h" />
+    <ClInclude Include="src\SignalType.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

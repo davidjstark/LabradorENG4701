@@ -1,5 +1,9 @@
+#ifndef _UI_H_
+#define _UI_H_
+
 #include "imgui.h"
 #include "util.h"
+
 /// <summary>
 /// Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 /// </summary>
@@ -33,8 +37,51 @@ void inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 			rounding);
 	}
 
-int inline DropDown(const char* id, char * const options[], int* active, int size)
+/// <summary>
+/// Generic dropdown menu for list of objects
+/// </summary>
+/// <typeparam name="T">Has getLabel() method</typeparam>
+/// <param name="id"></param>
+/// <param name="options">Dropdown options</param>
+/// <param name="active">Active index</param>
+/// <param name="size">Length of options</param>
+/// <returns></returns>
+template <typename T>
+    int inline ObjectDropDown(const char* id, T const options[], int* active, int size)
     {
+	int changed = 0;
+	std::string preview = options[*active]->getLabel();
+	if (ImGui::BeginCombo(id, preview.c_str(), 0))
+	{
+		for (int n = 0; n < size; n++)
+		{
+			const bool is_selected = (*active == n);
+			if (ImGui::Selectable(options[n]->getLabel().c_str(), is_selected))
+			{
+				*active = n;
+				changed = 1;
+			}
+			
+			// Set the initial focus when opening the combo (scrolling + keyboard
+			// navigation focus)
+			if (is_selected)
+				ImGui::SetItemDefaultFocus();
+		}
+		ImGui::EndCombo();
+	}
+	return changed;
+}
+
+/// <summary>
+/// Generic dropdown for list of strings
+/// </summary>
+/// <param name="id"></param>
+/// <param name="options"></param>
+/// <param name="active"></param>
+/// <param name="size"></param>
+/// <returns></returns>
+int inline DropDown(const char* id, char* const *options, int* active, int size)
+{
 	int changed = 0;
 	const char* preview = options[*active];
 	if (ImGui::BeginCombo(id, preview, 0))
@@ -47,7 +94,6 @@ int inline DropDown(const char* id, char * const options[], int* active, int siz
 				*active = n;
 				changed = 1;
 			}
-				
 
 			// Set the initial focus when opening the combo (scrolling + keyboard
 			// navigation focus)
@@ -57,5 +103,25 @@ int inline DropDown(const char* id, char * const options[], int* active, int siz
 		ImGui::EndCombo();
 	}
 	return changed;
-	
 }
+
+/// <summary>
+/// Generic Slider with Units
+/// </summary>
+/// <param name="type">Type of slider</param>
+/// <param name="result">Resulting float</param>
+/// <param name="min">Lower bound</param>
+/// <param name="max">Upper bound</param>
+/// <param name="prompt">Prompt/format over slider</param>
+/// <param name="units">List of unit objects</param>
+/// <param name="unit_idx">Index of selected unit</param>
+void inline renderSliderwUnits(std::string label, float* result, float min, float max,
+    const char* prompt, Unit* const units[], int* unit_idx)
+{
+	ImGui::SliderFloat(("##" + label).c_str(), result, min, max, prompt);
+	ImGui::SameLine();
+	ObjectDropDown(("##" + label + "_unit").c_str(), units, unit_idx,
+	    3);
+}
+
+#endif

@@ -52,7 +52,7 @@ Render UI elements for oscilloscope control
 Control sampling settings on labrador board
 </summary>
 </member>
-<member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="3">
+<member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="7">
 <summary>
 Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 </summary>
@@ -60,16 +60,47 @@ Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 <param name="state"></param>
 <param name="accentColour"></param>
 </member>
-<member name="T:SGControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="7">
+<member name="M:renderSliderwUnits(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,System.Single*,System.Single,System.Single,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,Unit*!System.Runtime.CompilerServices.IsConst*,System.Int32*)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="100">
+<summary>
+Generic Slider with Units
+</summary>
+<param name="type">Type of slider</param>
+<param name="result">Resulting float</param>
+<param name="min">Lower bound</param>
+<param name="max">Upper bound</param>
+<param name="prompt">Prompt/format over slider</param>
+<param name="units">List of unit objects</param>
+<param name="unit_idx">Index of selected unit</param>
+</member>
+<member name="M:GenericSignal.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="20">
+<summary>
+Generic UI elements for Signal Control
+</summary>
+</member>
+<member name="M:GenericSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="52">
+<summary>
+Set the Signal Generator on the labrador board.
+</summary>
+</member>
+<member name="T:SineSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="62">
+<summary>Sine Signal Generator Widget
+</summary>
+</member>
+<member name="M:SineSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="97">
+<summary>
+Set the Signal Generator on the labrador board.
+</summary>
+</member>
+<member name="T:SGControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="8">
 <summary>Signal Generator Widget
 </summary>
 </member>
-<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="21">
+<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="36">
 <summary> 
 Render UI elements for Signal Generator
 </summary>
 </member>
-<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="94">
+<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="59">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
