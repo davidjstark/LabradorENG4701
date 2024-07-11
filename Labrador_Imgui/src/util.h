@@ -39,10 +39,13 @@ constexpr ImU32 SG1_ACCENT = IM_COL32(42, 39, 212, 255);
 constexpr ImU32 SG2_ACCENT = IM_COL32(203, 100, 4, 255);
 constexpr ImU32 PSU_ACCENT = IM_COL32(190, 54, 54, 255);
 
-constexpr char* wavetypes[3] = { "Sine", "Square", "Sawtooth" };
+constexpr char* wavetypes[4] = { "Sine", "Square", "Sawtooth", "Triangle" };
 constexpr int PREVIEW_RES = 128;
 extern float x_preview[PREVIEW_RES];
 extern float sine_preview[PREVIEW_RES];
+extern float square_preview[PREVIEW_RES];
+extern float sawtooth_preview[PREVIEW_RES];
+extern float triangle_preview[PREVIEW_RES];
 
 static Unit Hz_unit("Hz", 1);
 static Unit kHz_unit("kHz", 1e3);

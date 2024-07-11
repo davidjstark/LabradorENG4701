@@ -3,6 +3,7 @@
 
 #include "imgui.h"
 #include "util.h"
+#include <iostream>
 
 /// <summary>
 /// Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
@@ -51,12 +52,13 @@ template <typename T>
     {
 	int changed = 0;
 	std::string preview = options[*active]->getLabel();
+	// std::cout << "size: " << size;
 	if (ImGui::BeginCombo(id, preview.c_str(), 0))
 	{
 		for (int n = 0; n < size; n++)
 		{
 			const bool is_selected = (*active == n);
-			if (ImGui::Selectable(options[n]->getLabel().c_str(), is_selected))
+			if (ImGui::Selectable((options[n]->getLabel()).c_str(), is_selected))
 			{
 				*active = n;
 				changed = 1;
@@ -115,13 +117,12 @@ int inline DropDown(const char* id, char* const *options, int* active, int size)
 /// <param name="prompt">Prompt/format over slider</param>
 /// <param name="units">List of unit objects</param>
 /// <param name="unit_idx">Index of selected unit</param>
-void inline renderSliderwUnits(std::string label, float* result, float min, float max,
+void inline renderSliderwUnits(const std::string& label, float* result, float min, float max,
     const char* prompt, Unit* const units[], int* unit_idx)
 {
 	ImGui::SliderFloat(("##" + label).c_str(), result, min, max, prompt);
 	ImGui::SameLine();
-	ObjectDropDown(("##" + label + "_unit").c_str(), units, unit_idx,
-	    3);
+	ObjectDropDown(("##" + label + "_unit").c_str(), units, unit_idx, 3);
 }
 
 #endif

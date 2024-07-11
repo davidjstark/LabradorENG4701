@@ -3,14 +3,32 @@
 
 float constants::x_preview[constants::PREVIEW_RES];
 float constants::sine_preview[constants::PREVIEW_RES];
+float constants::square_preview[constants::PREVIEW_RES];
+float constants::sawtooth_preview[constants::PREVIEW_RES];
+float constants::triangle_preview[constants::PREVIEW_RES];
 
 // Initialise preview arrays
 void init_constants()
 {
-	for (int i = 0; i < constants::PREVIEW_RES; i++)
+	const int pr = constants::PREVIEW_RES;
+	for (int i = 0; i < pr; i++)
 	{
-		constants::sine_preview[i] = sinf(i * (1.0f / constants::PREVIEW_RES) * 2*M_PI);
 		constants::x_preview[i] = i * 1.0f;
+		constants::sine_preview[i] = sinf(i * (1.0f / pr) * 2 * M_PI);
+		if (i < pr / 2)
+		{
+			constants::square_preview[i] = -1.0f;
+			constants::sawtooth_preview[i] = -1.0f + 4.0f / pr * i;
+			constants::triangle_preview[i] = constants::sawtooth_preview[i];
+		}
+		else
+		{
+			constants::square_preview[i] = 1.0f;
+			constants::sawtooth_preview[i] = constants::sawtooth_preview[i - pr / 2];
+			constants::triangle_preview[i] = constants::triangle_preview[pr - i - 1];
+		}
+		
+
 	}
 }
 

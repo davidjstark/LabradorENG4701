@@ -19,16 +19,17 @@ public:
 	    , label(label)
 	    , signal_idx(0)
 	{
-		signals[0] = new SineSignal("sine_1");
+		signals[0] = new SineSignal("Sine");
 		// TODO: implement different signal classes
-		signals[1] = new SineSignal("sine_2");
-		signals[2] = new SineSignal("sine_3");
+		signals[1] = new SquareSignal("Square");
+		signals[2] = new SawtoothSignal("Sawtooth");
+		signals[3] = new TriangleSignal("Triangle");
 	}
 	
 	// Destructor
 	~SGControl()
 	{
-		for (int i = 0; i < 3; ++i)
+		for (int i = 0; i < 4; ++i)
 		{
 			delete signals[i];
 		}
@@ -73,5 +74,5 @@ private:
 	int channel;
 	bool active;
 	int signal_idx = 0;
-	GenericSignal* signals[3];
+	GenericSignal* signals[4];
 };
