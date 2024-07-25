@@ -38,6 +38,82 @@ Render UI elements for Signal Generator
             <summary>Signal Generator Widget
 </summary>
         </member>
+        <member name="M:TriangleSignal.controlLab(System.Int32)">
+            <summary>
+Set the Signal Generator on the labrador board.
+</summary>
+        </member>
+        <member name="T:TriangleSignal">
+            <summary>Triangle Signal Generator Widget
+</summary>
+        </member>
+        <member name="M:SawtoothSignal.controlLab(System.Int32)">
+            <summary>
+Set the Signal Generator on the labrador board.
+</summary>
+        </member>
+        <member name="T:SawtoothSignal">
+            <summary>Sawtooth Signal Generator Widget
+</summary>
+        </member>
+        <member name="M:SquareSignal.controlLab(System.Int32)">
+            <summary>
+Set the Signal Generator on the labrador board.
+</summary>
+        </member>
+        <member name="T:SquareSignal">
+            <summary>Square Signal Generator Widget
+</summary>
+        </member>
+        <member name="M:SineSignal.controlLab(System.Int32)">
+            <summary>
+Set the Signal Generator on the labrador board.
+</summary>
+        </member>
+        <member name="T:SineSignal">
+            <summary>Sine Signal Generator Widget
+</summary>
+        </member>
+        <member name="M:GenericSignal.controlLab(System.Int32)">
+            <summary>
+Set the Signal Generator on the labrador board.
+</summary>
+        </member>
+        <member name="M:GenericSignal.renderControl">
+            <summary>
+Generic UI elements for Signal Control
+</summary>
+        </member>
+        <member name="M:renderSliderwUnits(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single*,System.Single,System.Single,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,Unit*!System.Runtime.CompilerServices.IsConst*,System.Int32*)">
+            <summary>
+Generic Slider with Units
+</summary>
+            <param name="type">Type of slider</param>
+            <param name="result">Resulting float</param>
+            <param name="min">Lower bound</param>
+            <param name="max">Upper bound</param>
+            <param name="prompt">Prompt/format over slider</param>
+            <param name="units">List of unit objects</param>
+            <param name="unit_idx">Index of selected unit</param>
+        </member>
+        <member name="M:DropDown(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte*!System.Runtime.CompilerServices.IsConst*,System.Int32*,System.Int32)">
+            <summary>
+Generic dropdown for list of strings
+</summary>
+            <param name="id" />
+            <param name="options" />
+            <param name="active" />
+            <param name="size" />
+            <returns />
+        </member>
+        <member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)">
+            <summary>
+Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+</summary>
+            <param name="id" />
+            <param name="state" />
+            <param name="accentColour" />
+        </member>
         <member name="M:OSCControl.controlLab">
             <summary>
 Control sampling settings on labrador board
@@ -77,7 +153,7 @@ Update size of child window
 </summary>
             <param name="new_size">New size</param>
         </member>
-        <member name="M:ControlWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.UInt32)">
+        <member name="M:ControlWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.UInt32!System.Runtime.CompilerServices.IsConst)">
             <summary>
 Constructor
 </summary>
@@ -1733,6 +1809,11 @@ In the context of a \ref libusb_device_descriptor "device descriptor",
 	 * own class information and all interfaces operate independently.
 
 </member>
+        <member name="M:PreviewStyle">
+            <summary>
+Defines style for the Signal Generator Preview plot
+</summary>
+        </member>
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->
         <!-- Discarding badly formed XML document comment for member 'F:libusb_pollfd.events'. -->
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->

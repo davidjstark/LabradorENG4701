@@ -9,6 +9,8 @@
 #include "SGControl.hpp"
 #include "MultimeterControl.hpp"
 
+#include "util.h"
+
 // #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
 
@@ -45,27 +47,33 @@ class App : public AppBase<App>
 		uint16_t deviceVersion = librador_get_device_firmware_version();
 		uint8_t deviceVariant = librador_get_device_firmware_variant();
 		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
+
+		init_constants();
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
     void Update()
     {
-		bool showDemoWindows = false;
-		if (showDemoWindows)
-		{
-			// Show ImGui and ImPlot demo windows
-			ImGui::ShowDemoWindow();
-			ImPlot::ShowDemoWindow();
-		}
-
-		if (!showDemoWindows)
+		
 		{
 			// Main window
 			ImGui::SetNextWindowPos(ImVec2(0, 0));
 			ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
 			ImGui::Begin("Main Window", NULL,
-			    ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove
-			        | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
+			    ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse
+			        | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_MenuBar);
+
+			// Menu Bar
+			static bool showDemoWindows = false;
+			if (ImGui::BeginMenuBar())
+			{
+				if (ImGui::BeginMenu("Menu"))
+				{
+					ImGui::MenuItem("Show Demos", "", &showDemoWindows);
+					ImGui::EndMenu();
+				}
+				ImGui::EndMenuBar();
+			}
 
 			// Apply custom padding
 			const int padding = 6;
@@ -79,8 +87,9 @@ class App : public AppBase<App>
 			
 			// Left Column Widgets
 			style.ItemSpacing = ImVec2(0, 0); // No padding for left and right columns
+			int menu_height = ImGui::GetFrameHeight();
 			ImGui::BeginChild("Left Column",
-			    ImVec2(plot_width + 2*padding, window_size.y - 2*style.WindowPadding.y),
+			    ImVec2(plot_width, window_size.y - 2*style.WindowPadding.y - menu_height),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
@@ -102,14 +111,16 @@ class App : public AppBase<App>
 			// Right column control widgets
 			float control_widget_height = (window_size.y - 2*style.WindowPadding.y - 3*style.ItemSpacing.y) * 0.25f;
 			
-			style.ItemSpacing = ImVec2(0, 0);
+			style.ItemSpacing = ImVec2(padding, 0);
 			ImGui::SameLine(); 
 			ImGui::BeginChild("Right Column",ImVec2(
 				window_size.x - plot_width - 2 * padding - 2 * style.WindowPadding.x,
-			    window_size.y - 2 * style.WindowPadding.y),
+			    window_size.y - 2 * style.WindowPadding.y - menu_height),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
+			// ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(10, 10, 10, 255));
+			
 			// Render PSU Control
 			PSUWidget.setSize(ImVec2(0, control_widget_height));
 			PSUWidget.Render();
@@ -123,8 +134,10 @@ class App : public AppBase<App>
 			SG2Widget.Render();
 
 			// Render Multimeter
-			MMWidget.setSize(ImVec2(0, control_widget_height));
+			MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
 			MMWidget.Render();
+
+			// ImGui::PopStyleColor();
 
 			ImGui::EndChild(); // End right column
 			ImGui::End();
@@ -134,7 +147,17 @@ class App : public AppBase<App>
 			{
 				// Call controlLab functions for each widget
 				PSUWidget.controlLab();
+				SG1Widget.controlLab();
+				SG2Widget.controlLab();
 			}
+
+			if (showDemoWindows)
+			{
+				// Show ImGui and ImPlot demo windows
+				ImGui::ShowDemoWindow();
+				ImPlot::ShowDemoWindow();
+			}
+				
 		}
 		frames++;
     }
@@ -176,13 +199,14 @@ class App : public AppBase<App>
 	const int labRefreshRate = 60; // send controls to labrador every this many frames
 	bool connected = true; // state of labrador connection
 	// Define default configurations for widgets here
-	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), IM_COL32(255,0,0,255));
+	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), constants::PSU_ACCENT);
 	MultimeterControl MMWidget
-	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(255, 255, 255, 255));
+	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 	SGControl SG1Widget
-	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), IM_COL32(0, 255, 0, 255));
+	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
 	SGControl SG2Widget
-	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), IM_COL32(0, 0, 255, 255));
+	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
 	OSCControl OSCWidget
-	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(255, 255, 255, 255));
+	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 };
+
