@@ -8,4 +8,18 @@ C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(56,
   
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(19,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(41,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  util.cpp
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(55,27): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(56,27): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.cpp(17,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  LINK : C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4217: symbol 'vsnprintf' defined in 'implot_demo.obj' is imported by 'glfw3.lib(init.obj)' in function '_glfwInputError'
+LINK : warning LNK4286: symbol 'vsnprintf' defined in 'implot_demo.obj' is imported by 'MSVCRTD.lib(vsnprintf.obj)'
+LINK : warning LNK4217: symbol 'sscanf' defined in 'imgui_impl_opengl3.obj' is imported by 'glfw3.lib(context.obj)' in function 'parseVersionString'
+LINK : warning LNK4286: symbol '_vsnprintf' defined in 'imgui.obj' is imported by 'MSVCRTD.lib(vsnprintf.obj)'
   Labrador_Imgui.vcxproj -> C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe

@@ -61,8 +61,8 @@ void PreviewStyle()
 	//colors[ImPlotCol_Crosshairs] = ImVec4(0.23f, 0.10f, 0.64f, 0.50f);
 
 	//style.LineWeight = 1.5;
-	//style.Marker = ImPlotMarker_None;
-	//style.MarkerSize = 4;
+	//style.Marker = ImPlotMarker_Up;
+	// style.MarkerSize = 2;
 	//style.MarkerWeight = 1;
 	//style.FillAlpha = 1.0f;
 	//style.ErrorBarSize = 5;
