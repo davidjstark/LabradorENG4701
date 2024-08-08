@@ -59,7 +59,7 @@ static void LIBUSB_CALL isoCallback(struct libusb_transfer * transfer){
         buffer_read_write_mutex.lock();
         switch(deviceMode){
         case 0:
-            internal_o1_buffer_375_CH1->addVector((char*) packetPointer, 375);
+			internal_o1_buffer_375_CH1->addVector((char*)packetPointer, 500);
             break;
         case 1:
             internal_o1_buffer_375_CH1->addVector((char*) packetPointer, 375);

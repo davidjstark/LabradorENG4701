@@ -59,6 +59,7 @@
     <ClInclude Include="src\ControlWidget.hpp" />
     <ClInclude Include="src\MultimeterControl.hpp" />
     <ClInclude Include="src\OSCControl.hpp" />
+    <ClInclude Include="src\PlotWidget.hpp" />
     <ClInclude Include="src\PSUControl.hpp" />
     <ClInclude Include="src\SGControl.hpp" />
     <ClInclude Include="src\SignalType.hpp" />

@@ -8,6 +8,7 @@
 #include "OSCControl.hpp"
 #include "SGControl.hpp"
 #include "MultimeterControl.hpp"
+#include "PlotWidget.hpp"
 
 #include "util.h"
 
@@ -47,7 +48,6 @@ class App : public AppBase<App>
 		uint16_t deviceVersion = librador_get_device_firmware_version();
 		uint8_t deviceVariant = librador_get_device_firmware_variant();
 		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
-
 		init_constants();
     }
 
@@ -95,12 +95,9 @@ class App : public AppBase<App>
 
 			// Render scope
 			// TODO: could potentially combine scope and scope controls because they will have a lot of shared responsibilities
-			ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255,255,255, 255));
-			ImGui::BeginChild("Plot Widget", ImVec2(plot_width, plot_height), true);
-			ImGui::Text("Plot Widget");
-			// plot drawing code here
-			ImGui::EndChild();
-			ImGui::PopStyleColor();
+			PlotWidgetObj.setSize(ImVec2(plot_width, plot_height));
+			PlotWidgetObj.Render();
+			
 
 			// Render Oscilloscope controls
 			OSCWidget.setSize(ImVec2(plot_width, 0));
@@ -208,5 +205,8 @@ class App : public AppBase<App>
 	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
 	OSCControl OSCWidget
 	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(0,0,0, 255));
+	PlotWidget PlotWidgetObj 
+		= PlotWidget("Plot Widget",ImVec2(0, 0));
+
 };
 

@@ -1,11 +1,36 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  UIComponents.hpp
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(55,27): warning C4305: 'argument': truncation from 'double' to 'float'
-  (compiling source file 'src/UIComponents.hpp')
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (C:\Users\David\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  usbcallhandler.cpp
+C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89,1): warning C4635: XML document comment applied to 'libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)': badly-formed XML: Invalid at the top level of the document.
+C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89,1): warning C4635: 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(56,27): warning C4305: 'argument': truncation from 'double' to 'float'
-  (compiling source file 'src/UIComponents.hpp')
+C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(1569,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(19,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(41,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
-  Labrador_Imgui.vcxproj -> C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe
+C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125,1): warning C4635: XML document comment applied to 'libusb_pollfd.events': badly-formed XML: Invalid at the top level of the document.
+C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125,1): warning C4635: 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2177,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2192,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(123,25): warning C4244: '=': conversion from 'int' to 'unsigned char', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(281,14): warning C4189: 'counter': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(278,14): warning C4189: 'trfcnt1': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(282,14): warning C4189: 'dma_ch0_cnt': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(277,14): warning C4189: 'trfcnt0': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(279,14): warning C4189: 'medianTrfcnt': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(283,14): warning C4189: 'dma_ch1_cnt': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(280,14): warning C4189: 'outOfRange': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(385,5): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(414,5): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(484,75): warning C4244: '=': conversion from 'double' to 'uint16_t', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(485,52): warning C4244: '=': conversion from 'int' to 'uint8_t', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(495,9): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(500,9): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(533,5): warning C4244: 'return': conversion from 'int' to 'uint16_t', possible loss of data
+C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(538,5): warning C4244: 'return': conversion from 'int' to 'uint8_t', possible loss of data
+  Labrador_Imgui.vcxproj -> C:\Users\David\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe

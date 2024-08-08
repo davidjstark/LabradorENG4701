@@ -11,6 +11,7 @@
 o1buffer::o1buffer()
 {
     buffer = (int *) (malloc(sizeof(int)*NUM_SAMPLES_PER_CHANNEL));
+	//BufferFile.open("buffer.csv");
 }
 
 o1buffer::~o1buffer(){
@@ -37,8 +38,9 @@ void o1buffer::add(int value, int address){
     if(address<0){
         LIBRADOR_LOG(LOG_ERROR, "ERROR: o1buffer::add was given a negative address\n");
     }
-    //Assign the value
+    //Assign the values
     buffer[address] = value;
+	//BufferFile << value << ",";
     updateMostRecentAddress(address);
 }
 

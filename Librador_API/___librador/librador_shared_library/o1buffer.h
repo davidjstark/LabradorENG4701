@@ -3,8 +3,10 @@
 
 #include <vector>
 #include <stdint.h>
+#include <fstream>
 
 #define NUM_SAMPLES_PER_CHANNEL (375000 * 60) //1 minute of samples at 375ksps!
+//#define NUM_SAMPLES_PER_CHANNEL (500) // 1 minute of samples at 375ksps!
 #define MULTIMETER_INVERT
 
 class o1buffer
@@ -30,6 +32,7 @@ public:
     double voltage_ref = 1.65;
 private:
     int *buffer;
+	//std::ofstream BufferFile;
     std::vector<double> convertedStream_double;
     std::vector<uint8_t> convertedStream_digital;
     void updateMostRecentAddress(int newAddress);

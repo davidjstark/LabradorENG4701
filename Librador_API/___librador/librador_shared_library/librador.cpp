@@ -69,16 +69,15 @@ std::vector<double> * librador_get_analog_data(int channel, double timeWindow_se
     VECTOR_USB_INIT_CHECK
 
     double samples_per_second = internal_librador_object->usb_driver->get_samples_per_second();
-
     if(samples_per_second == 0){
         return NULL;
     }
 
 
     int interval_samples = round(samples_per_second / sample_rate_hz);
+
     int delay_samples = round(delay_seconds * samples_per_second);
     int numToGet = round(timeWindow_seconds * samples_per_second)/interval_samples;
-
     return internal_librador_object->usb_driver->getMany_double(channel, numToGet, interval_samples, delay_samples, filter_mode);
 }
 
