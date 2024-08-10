@@ -56,10 +56,13 @@ static Unit uV_unit("uV", 1e-6);
 static Unit mV_unit("mV", 1e-3);
 static Unit V_unit("V", 1);
 constexpr Unit* const volt_units[3] = { &uV_unit, &mV_unit, &V_unit };
+
+extern int pinout_width;
+extern int pinout_height;
+extern intptr_t pinout_texture;
 }
 
 void init_constants();
 void PreviewStyle();
-
 
 #endif

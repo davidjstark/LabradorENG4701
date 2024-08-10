@@ -5,7 +5,7 @@
 Abstract class that draws child that can be populated by a control widget
 </summary>
 </member>
-<member name="M:ControlWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.UInt32!System.Runtime.CompilerServices.IsConst)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="10">
+<member name="M:ControlWidget.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,ImVec2,System.UInt32!System.Runtime.CompilerServices.IsConst)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="10">
 <summary>
 Constructor
 </summary>
@@ -13,13 +13,13 @@ Constructor
 <param name="size">Child window size</param>
 <param name="borderColor">Accent colour</param>
 </member>
-<member name="M:ControlWidget.setSize(ImVec2)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="22">
+<member name="M:ControlWidget.setSize(ImVec2)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="23">
 <summary>
 Update size of child window
 </summary>
 <param name="new_size">New size</param>
 </member>
-<member name="M:ControlWidget.Render" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="31">
+<member name="M:ControlWidget.Render" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="32">
 <summary>
 Generic function to render control widget with correct style
 </summary>
@@ -33,7 +33,12 @@ Generic function to render control widget with correct style
 Render UI elements for power supply unit
 </summary>
 </member>
-<member name="M:PSUControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="26">
+<member name="M:PSUControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="26">
+<summary>
+Render help message in popup window
+</summary>
+</member>
+<member name="M:PSUControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="34">
 <summary>
 Set the Power Supply Voltage on the labrador board.
 </summary>
@@ -47,7 +52,12 @@ Set the Power Supply Voltage on the labrador board.
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="23">
+<member name="M:OSCControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="23">
+<summary>
+Render help message in popup window
+</summary>
+</member>
+<member name="M:OSCControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="31">
 <summary>
 Control sampling settings on labrador board
 </summary>
@@ -137,7 +147,12 @@ Set the Signal Generator on the labrador board.
 Render UI elements for Signal Generator
 </summary>
 </member>
-<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="60">
+<member name="M:SGControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="60">
+<summary>
+Render help message in popup window
+</summary>
+</member>
+<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="71">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
@@ -151,7 +166,12 @@ Set the Signal Generator on the labrador board.
 Render UI elements for multimeter
 </summary>
 </member>
-<member name="M:MultimeterControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\MultimeterControl.hpp" line="23">
+<member name="M:MultimeterControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\MultimeterControl.hpp" line="23">
+<summary>
+Render help message in popup window
+</summary>
+</member>
+<member name="M:MultimeterControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\MultimeterControl.hpp" line="31">
 <summary>
 Read multimeter from labrador board
 </summary>

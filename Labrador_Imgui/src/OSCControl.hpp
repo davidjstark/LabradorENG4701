@@ -7,7 +7,7 @@ class OSCControl : public ControlWidget
 {
 public:
 	
-	OSCControl(const char* label, ImVec2 size, ImU32 borderColor)
+	OSCControl(std::string label, ImVec2 size, ImU32 borderColor)
 	    : ControlWidget(label, size, borderColor)
 	    , voltage(4.5f)
 	{}
@@ -18,6 +18,14 @@ public:
 	void renderControl() override
 	{
 		ImGui::SliderFloat("Voltage", &voltage, 4.5f, 6.0f, "%.1f V");	
+	}
+
+	/// <summary>
+	/// Render help message in popup window
+	/// </summary>
+	void renderHelp() override
+	{
+		ImGui::Text("HELP HERE");
 	}
 
 	/// <summary>

@@ -8,11 +8,14 @@
 #include "OSCControl.hpp"
 #include "SGControl.hpp"
 #include "MultimeterControl.hpp"
-
 #include "util.h"
 
 // #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
+
+int constants::pinout_width;
+int constants::pinout_height;
+intptr_t constants::pinout_texture;
 
 class App : public AppBase<App>
 {
@@ -48,6 +51,13 @@ class App : public AppBase<App>
 		uint8_t deviceVariant = librador_get_device_firmware_variant();
 		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
 
+		// Load pinout image
+		GLuint tmp_texture = 0;
+		bool ret = LoadTextureFromFile(
+		    ".\\misc\\media\\pinout.png", &tmp_texture, &constants::pinout_width, &constants::pinout_height);
+		
+		constants::pinout_texture = (intptr_t)tmp_texture;
+		IM_ASSERT(ret);
 		init_constants();
     }
 

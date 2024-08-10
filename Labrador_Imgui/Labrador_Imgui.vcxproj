@@ -67,6 +67,9 @@
   <ItemGroup>
     <Text Include="README.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="misc\media\pinout.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4a1fb5ea-22f5-42a8-ab92-1d2df5d47fb9}</ProjectGuid>
     <RootNamespace>example_glfw_opengl3</RootNamespace>
@@ -155,7 +158,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.\libs\imgui;.\backends;.\libs\glfw\include;..\Librador_API\___librador\librador_shared_library;.\libs\libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\libs\imgui;.\backends;.\libs\glfw\include;..\Librador_API\___librador\librador_shared_library;.\libs\libusb;.\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
       <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>

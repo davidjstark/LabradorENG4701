@@ -12,7 +12,7 @@ class SGControl : public ControlWidget
 public:
 	
 	// Constructor
-	SGControl(const char* label, ImVec2 size, ImU32 accentColour, int channel)
+	SGControl(std::string label, ImVec2 size, ImU32 accentColour, int channel)
 	    : ControlWidget(label, size, accentColour)
 	    , channel(channel)
 	    , active(false)
@@ -55,6 +55,17 @@ public:
 		    ((signals[signal_idx]->getLabel()) + " Wave Properties").c_str());
 		
 		signals[signal_idx]-> renderControl();	
+	}
+
+	/// <summary>
+	/// Render help message in popup window
+	/// </summary>
+	void renderHelp() override
+	{
+		ImGui::Text("HELP HERE");
+		// Pinout image
+		ImGui::Image((void*)constants::pinout_texture,
+		    ImVec2(constants::pinout_width, constants::pinout_height));
 	}
 
 	/// <summary>
