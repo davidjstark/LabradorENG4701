@@ -1,5 +1,10 @@
 <?xml version="1.0"?><doc>
 <members>
+<member name="T:Unit" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h" line="10">
+<summary>
+Handles conversion of unit and labelling.
+</summary>
+</member>
 <member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="8">
 <summary>
 Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097

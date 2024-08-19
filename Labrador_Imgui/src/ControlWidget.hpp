@@ -54,9 +54,10 @@ public:
 		if (ImGui::Button("?"))
 			ImGui::OpenPopup(help_popup_id.c_str());
 
-		if (ImGui::BeginPopupModal(help_popup_id.c_str()))
+		if (ImGui::BeginPopup(help_popup_id.c_str(), ImGuiWindowFlags_NoResize))
 		{
 			renderHelp();
+			
 			if (ImGui::Button("Close"))
 				ImGui::CloseCurrentPopup();
 			ImGui::EndPopup();

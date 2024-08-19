@@ -20,7 +20,6 @@ public:
 	    , signal_idx(0)
 	{
 		signals[0] = new SineSignal("Sine");
-		// TODO: implement different signal classes
 		signals[1] = new SquareSignal("Square");
 		signals[2] = new SawtoothSignal("Sawtooth");
 		signals[3] = new TriangleSignal("Triangle");
@@ -64,7 +63,7 @@ public:
 	{
 		ImGui::Text("HELP HERE");
 		// Pinout image
-		ImGui::Image((void*)constants::pinout_texture,
+		ImGui::Image((void*)constants::sg_pinout_texture,
 		    ImVec2(constants::pinout_width, constants::pinout_height));
 	}
 

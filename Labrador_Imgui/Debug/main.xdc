@@ -24,21 +24,26 @@ Update size of child window
 Generic function to render control widget with correct style
 </summary>
 </member>
-<member name="T:PSUControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="4">
+<member name="T:Unit" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h" line="10">
+<summary>
+Handles conversion of unit and labelling.
+</summary>
+</member>
+<member name="T:PSUControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="5">
 <summary>Power Suppy Unit Widget
 </summary>
 </member>
-<member name="M:PSUControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="15">
+<member name="M:PSUControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="16">
 <summary> 
 Render UI elements for power supply unit
 </summary>
 </member>
-<member name="M:PSUControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="26">
+<member name="M:PSUControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="27">
 <summary>
 Render help message in popup window
 </summary>
 </member>
-<member name="M:PSUControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="34">
+<member name="M:PSUControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="38">
 <summary>
 Set the Power Supply Voltage on the labrador board.
 </summary>
@@ -57,7 +62,7 @@ Render UI elements for oscilloscope control
 Render help message in popup window
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="31">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="34">
 <summary>
 Control sampling settings on labrador board
 </summary>
@@ -92,48 +97,66 @@ Generic Slider with Units
 <param name="units">List of unit objects</param>
 <param name="unit_idx">Index of selected unit</param>
 </member>
-<member name="M:GenericSignal.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="21">
+<member name="T:GenericSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="7">
+<summary>
+Abstract class representing signal from signal generator
+</summary>
+</member>
+<member name="M:GenericSignal.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="24">
 <summary>
 Generic UI elements for Signal Control
 </summary>
 </member>
-<member name="M:GenericSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="68">
+<member name="M:GenericSignal.renderPreview" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="52">
+<summary>
+Render preview of signal
+</summary>
+</member>
+<member name="M:GenericSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="73">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:SineSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="85">
-<summary>Sine Signal Generator Widget
+<member name="T:SineSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="102">
+<summary>
+Sine Signal Generator Widget
 </summary>
 </member>
-<member name="M:SineSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="133">
+<member name="M:SineSignal.renderAnnotations" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="127">
+<summary>
+Render annotations on preview
+</summary>
+</member>
+<member name="M:SineSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="153">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:SquareSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="144">
-<summary>Square Signal Generator Widget
+<member name="T:SquareSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="164">
+<summary>
+Square Signal Generator Widget
 </summary>
 </member>
-<member name="M:SquareSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="194">
+<member name="M:SquareSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="215">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:SawtoothSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="204">
-<summary>Sawtooth Signal Generator Widget
+<member name="T:SawtoothSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="225">
+<summary>
+Sawtooth Signal Generator Widget
 </summary>
 </member>
-<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="253">
+<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="275">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:TriangleSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="263">
+<member name="T:TriangleSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="285">
 <summary>Triangle Signal Generator Widget
 </summary>
 </member>
-<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="312">
+<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="334">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
@@ -142,17 +165,17 @@ Set the Signal Generator on the labrador board.
 <summary>Signal Generator Widget
 </summary>
 </member>
-<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="37">
+<member name="M:SGControl.renderControl" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="36">
 <summary> 
 Render UI elements for Signal Generator
 </summary>
 </member>
-<member name="M:SGControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="60">
+<member name="M:SGControl.renderHelp" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="59">
 <summary>
 Render help message in popup window
 </summary>
 </member>
-<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="71">
+<member name="M:SGControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="70">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>

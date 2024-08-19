@@ -1,4 +1,13 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  UIComponents.hpp
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(62,27): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(63,27): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(19,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(41,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
   main.cpp
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(54,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   (compiling source file 'src/main.cpp')
@@ -6,10 +15,22 @@ C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hp
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador_global.h(7,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(55,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(62,27): warning C4305: 'argument': truncation from 'double' to 'float'
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(56,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(63,27): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp(35,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp(35,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(31,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(31,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(19,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
@@ -18,68 +39,77 @@ C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponen
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(41,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(40,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(43,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(34,4): warning C5205: delete of an abstract class 'GenericSignal' that has a non-virtual destructor results in undefined behavior
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(33,4): warning C5205: delete of an abstract class 'GenericSignal' that has a non-virtual destructor results in undefined behavior
   (compiling source file 'src/main.cpp')
-  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(7,7):
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(10,7):
   see declaration of 'GenericSignal'
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(68,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(67,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(68,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(67,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(100,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(117,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(177,85): warning C4100: 'mods': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(194,85): warning C4100: 'mods': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(177,73): warning C4100: 'action': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(194,73): warning C4100: 'action': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(177,61): warning C4100: 'button': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(194,61): warning C4100: 'button': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(177,49): warning C4100: 'window': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(194,49): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(187,75): warning C4100: 'ypos': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(204,75): warning C4100: 'ypos': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(187,62): warning C4100: 'xpos': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(204,62): warning C4100: 'xpos': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(187,47): warning C4100: 'window': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(204,47): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(197,89): warning C4100: 'mods': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(214,89): warning C4100: 'mods': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(197,76): warning C4100: 'actions': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(214,76): warning C4100: 'actions': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(197,62): warning C4100: 'scancode': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(214,62): warning C4100: 'scancode': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(197,53): warning C4100: 'key': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(214,53): warning C4100: 'key': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(197,41): warning C4100: 'window': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(214,41): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(190,33): warning C4305: 'argument': truncation from 'double' to 'float'
   (compiling source file 'src/main.cpp')
   C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(190,33):
   the template instantiation context (the oldest one first) is
-  	C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(20,20):
+  	C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(23,20):
   	see reference to class template instantiation 'AppBase<App>' being compiled
   	C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(82,5):
   	while compiling class template member function 'AppBase<App>::AppBase(void)'
-  		C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(23,8):
+  		C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(26,8):
   		see the first reference to 'AppBase<App>::AppBase' in 'App::App'
   
+  util.cpp
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(62,27): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(63,27): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.cpp(18,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   Labrador_Imgui.vcxproj -> C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe

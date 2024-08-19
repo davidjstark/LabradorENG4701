@@ -1,13 +1,14 @@
 #include "util.h"
 
-
 float constants::x_preview[constants::PREVIEW_RES];
 float constants::sine_preview[constants::PREVIEW_RES];
 float constants::square_preview[constants::PREVIEW_RES];
 float constants::sawtooth_preview[constants::PREVIEW_RES];
 float constants::triangle_preview[constants::PREVIEW_RES];
 
-// Initialise preview arrays
+/// <summary>
+/// Initialise global preview arrays
+/// </summary>
 void init_constants()
 {
 	const int pr = constants::PREVIEW_RES;

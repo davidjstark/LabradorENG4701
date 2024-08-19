@@ -4,6 +4,9 @@
 #include "UIComponents.hpp"
 #include <string>
 
+/// <summary>
+/// Abstract class representing signal from signal generator
+/// </summary>
 class GenericSignal
 {
 public:
@@ -46,6 +49,9 @@ public:
 		ImPlot::GetStyle() = backup;
 	}
 
+	/// <summary>
+	/// Render preview of signal
+	/// </summary>
 	void renderPreview()
 	{
 		ImPlot::SetupAxes(nullptr, nullptr, ImPlotAxisFlags_NoDecorations,
@@ -60,7 +66,6 @@ public:
 	}
 
 
-	// Customise for each widget
 	virtual void renderProperties() = 0;
 	
 	virtual void renderAnnotations() = 0;
@@ -79,10 +84,23 @@ protected:
 	int amp_unit_idx = 2;
 	int freq_unit_idx = 0;
 	int os_unit_idx = 2;
+	float getSIFrequency()
+	{
+		return constants::freq_units[freq_unit_idx]->toSI(frequency);
+	}
+	float getSIAmp()
+	{
+		return constants::volt_units[amp_unit_idx]->toSI(amplitude);
+	}
+	float getSIOffset()
+	{
+		return constants::volt_units[os_unit_idx]->toSI(offset);
+	}
 };
 
 
-/// <summary>Sine Signal Generator Widget
+/// <summary>
+/// Sine Signal Generator Widget
 /// </summary>
 class SineSignal : public GenericSignal
 {
@@ -95,6 +113,7 @@ public:
 	void renderProperties() override
 	{
 		// Amplitude
+		// TODO: better handle units
 		renderSliderwUnits(label + "_amp", &amplitude, 0.1f, 3.0f, "Amplitude = %.2f",
 		    constants::volt_units, &amp_unit_idx);
 
@@ -106,7 +125,9 @@ public:
 		renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
 		    constants::volt_units, &os_unit_idx);
 	}
-
+	/// <summary>
+	/// Render annotations on preview
+	/// </summary>
 	void renderAnnotations() override
 	{
 		float period = constants::PREVIEW_RES;
@@ -119,16 +140,16 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "A = %.2f V", amplitude);
+		    "A = %.2E V", getSIAmp());
 
 		float per_label_x[2] = { 0, period };
 		float per_label_y[2] = { 0.0f, 0.0f };
 
 		ImPlot::PlotLine(("##" + label + "_per").c_str(), per_label_x, per_label_y, 2);
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
-		// Annotate amplitude
+		// Annotate frequency
 		ImPlot::Annotation(3 * period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, -5), true,
-		    "T = %.2f s", 1 / frequency);
+		    "T = %.2E s", 1 / getSIFrequency());
 	}
 	/// <summary>
 	/// Set the Signal Generator on the labrador board.
@@ -136,12 +157,13 @@ public:
 	void controlLab(int channel) override
 	{
 		// TODO: convert to correct units
-		librador_send_sin_wave(channel, frequency, amplitude, offset);
+		librador_send_sin_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
 	}
 	
 };
 
-/// <summary>Square Signal Generator Widget
+/// <summary>
+/// Square Signal Generator Widget
 /// </summary>
 class SquareSignal : public GenericSignal
 {
@@ -178,7 +200,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(amp_label_x[0], 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "A = %.2f V", amplitude);
+		    "A = %.2f V", getSIAmp());
 
 		float per_label_x[2] = { 0, period };
 		float per_label_y[2] = { 0.0f, 0.0f };
@@ -187,7 +209,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, -5), true,
-		    "T = %.2f s", 1 / frequency);
+		    "T = %.2f s", 1 / getSIFrequency());
 	}
 
 
@@ -197,11 +219,12 @@ public:
 	void controlLab(int channel) override
 	{
 		// TODO: convert to correct units
-		librador_send_square_wave(channel, frequency, amplitude, offset);
+		librador_send_square_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
 	}
 };
 
-/// <summary>Sawtooth Signal Generator Widget
+/// <summary>
+/// Sawtooth Signal Generator Widget
 /// </summary>
 class SawtoothSignal : public GenericSignal
 {
@@ -238,7 +261,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(3 * period/4, plt_amp/2, ImVec4(0, 0, 0, 0), ImVec2(0, 0), true,
-		    "A = %.2f V", amplitude);
+		    "A = %.2f V", getSIAmp());
 
 		float per_label_x[2] = { 0, period };
 		float per_label_y[2] = { 0.0f, 0.0f };
@@ -247,7 +270,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "T = %.2f s", 1 / frequency);
+		    "T = %.2f s", 1 / getSIFrequency());
 	}
 
 	/// <summary>
@@ -256,7 +279,7 @@ public:
 	void controlLab(int channel) override
 	{
 		// TODO: convert to correct units
-		librador_send_sawtooth_wave(channel, frequency, amplitude, offset);
+		librador_send_sawtooth_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
 	}
 };
 
@@ -297,7 +320,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(amp_label_x[0], 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "A = %.2f V", amplitude);
+		    "A = %.2f V", getSIAmp());
 
 		float per_label_x[2] = { 0, period };
 		float per_label_y[2] = { -amplitude, -amplitude };
@@ -306,7 +329,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 2, 0, ImVec4(0, 0, 0, 0), ImVec2(0, -5), true,
-		    "T = %.2f s", 1 / frequency);
+		    "T = %.2f s", 1 / getSIFrequency());
 	}
 
 	/// <summary>
@@ -314,7 +337,6 @@ public:
 	/// </summary>
 	void controlLab(int channel) override
 	{
-		// TODO: convert to correct units
-		librador_send_triangle_wave(channel, frequency, amplitude, offset);
+		librador_send_triangle_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
 	}
 };

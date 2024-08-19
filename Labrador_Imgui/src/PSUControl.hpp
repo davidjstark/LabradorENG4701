@@ -1,5 +1,6 @@
 #include "ControlWidget.hpp"
 #include "librador.h"
+#include "util.h"
 
 /// <summary>Power Suppy Unit Widget
 /// </summary>
@@ -29,6 +30,9 @@ public:
 	void renderHelp() override
 	{
 		ImGui::Text("HELP HERE");
+		// Pinout image
+		ImGui::Image((void*)constants::psu_pinout_texture,
+		    ImVec2(constants::pinout_width, constants::pinout_height));
 	}
 
 	/// <summary>

@@ -13,9 +13,12 @@
 // #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
 
+// Global textures to be loaded once during start-up
 int constants::pinout_width;
 int constants::pinout_height;
-intptr_t constants::pinout_texture;
+intptr_t constants::psu_pinout_texture;
+intptr_t constants::sg_pinout_texture;
+intptr_t constants::osc_pinout_texture;
 
 class App : public AppBase<App>
 {
@@ -23,9 +26,7 @@ class App : public AppBase<App>
     App(){};
     virtual ~App() = default;
 	
-	
     // Anything that needs to be called once OUTSIDE of the main application loop
-	
     void StartUp()
     {
 		int error = librador_init();
@@ -51,13 +52,29 @@ class App : public AppBase<App>
 		uint8_t deviceVariant = librador_get_device_firmware_variant();
 		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
 
-		// Load pinout image
-		GLuint tmp_texture = 0;
-		bool ret = LoadTextureFromFile(
-		    ".\\misc\\media\\pinout.png", &tmp_texture, &constants::pinout_width, &constants::pinout_height);
+		// Load pinout images
+		GLuint psu_tmp_texture = 0;
+		GLuint sg_tmp_texture = 0;
+		GLuint osc_tmp_texture = 0;
+		int _not_needed = 0;
+
+		bool psu_ret = LoadTextureFromFile(
+		    ".\\misc\\media\\psu-pinout.png", &psu_tmp_texture, &constants::pinout_width, &constants::pinout_height);
+
+		bool sg_ret = LoadTextureFromFile(".\\misc\\media\\sg-pinout.png",
+		    &sg_tmp_texture, &_not_needed, &_not_needed);
+
+		bool osc_ret = LoadTextureFromFile(".\\misc\\media\\osc-pinout.png",
+		    &osc_tmp_texture, &_not_needed, &_not_needed);
 		
-		constants::pinout_texture = (intptr_t)tmp_texture;
-		IM_ASSERT(ret);
+		constants::psu_pinout_texture = (intptr_t)psu_tmp_texture;
+		constants::sg_pinout_texture = (intptr_t)sg_tmp_texture;
+		constants::osc_pinout_texture = (intptr_t)osc_tmp_texture;
+
+		IM_ASSERT(psu_ret);
+		IM_ASSERT(sg_ret);
+		IM_ASSERT(osc_ret);
+
 		init_constants();
     }
 
