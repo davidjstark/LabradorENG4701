@@ -47,6 +47,7 @@ class App : public AppBase<App>
 		// Print firmware info
 		uint16_t deviceVersion = librador_get_device_firmware_version();
 		uint8_t deviceVariant = librador_get_device_firmware_variant();
+		//librador_jump_to_bootloader();
 		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
 		init_constants();
     }

@@ -56,7 +56,6 @@ int o1buffer::addVector(int *firstElement, int numElements){
 
 int o1buffer::addVector(char *firstElement, int numElements){
     int currentAddress = mostRecentAddress;
-
     for(int i=0; i< numElements; i++){
         add(firstElement[i], currentAddress);
         currentAddress = (currentAddress + 1) % NUM_SAMPLES_PER_CHANNEL;
@@ -66,7 +65,6 @@ int o1buffer::addVector(char *firstElement, int numElements){
 
 int o1buffer::addVector(unsigned char *firstElement, int numElements){
     int currentAddress = mostRecentAddress;
-
     for(int i=0; i< numElements; i++){
         add(firstElement[i], currentAddress);
         currentAddress = (currentAddress + 1) % NUM_SAMPLES_PER_CHANNEL;
@@ -81,6 +79,7 @@ int o1buffer::addVector(short *firstElement, int numElements){
         add(firstElement[i], currentAddress);
         currentAddress = (currentAddress + 1) % NUM_SAMPLES_PER_CHANNEL;
     }
+	
     return 0;
 }
 

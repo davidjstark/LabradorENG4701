@@ -36,7 +36,7 @@ public:
 				error);
 			std::exit(error);
 		}
-		printf("Successfully set power supply voltage to %.2fV\n", voltage);
+		//printf("Successfully set power supply voltage to %.2fV\n", voltage);
 	}
 
 private:

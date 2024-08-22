@@ -174,7 +174,7 @@ Update size of child window
 </summary>
 <param name="new_size">New size</param>
 </member>
-<member name="M:PlotWidget.Render" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="33">
+<member name="M:PlotWidget.Render" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="34">
 <summary>
 Generic function to render plot widget with correct style
 </summary>

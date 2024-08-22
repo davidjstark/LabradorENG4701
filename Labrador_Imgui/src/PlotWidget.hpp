@@ -30,6 +30,7 @@ public:
 		size = new_size;
 	}
 
+
 	/// <summary>
 	/// Generic function to render plot widget with correct style
 	/// </summary>
@@ -38,7 +39,6 @@ public:
 		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255,255,255, 255));
 		int channel = 1;
 		double sample_rate_hz = 375000;
-		double time_window_s = 0.005;
 		double delay_s = 0;
 		int filter_mode = 0; // 1 for a moving average filter
 		librador_set_oscilloscope_gain(16);
@@ -48,24 +48,34 @@ public:
 			analog_data = librador_get_analog_data(
 			    channel, time_window_s, sample_rate_hz, delay_s, filter_mode);
 		}
-		if (analog_data)
+		
+		if (ImGui::Button("Autofit"))
 		{
-			// plot drawing code here
-			double time_step = time_window_s / analog_data->size();
-			std::vector<double> time(analog_data->size());
-			// linspace vector between 0 and time_window_s where n is number of samples
-			// in current frame
-			std::generate(time.begin(), time.end(),
-				[n = 0, &time_step]() mutable { return time_step * n++; });
 			ImPlot::SetNextAxesToFit();
-			if (ImPlot::BeginPlot("##Oscilloscopes",size,ImPlotFlags_NoFrame))
+		}
+		if (ImPlot::BeginPlot("##Oscilloscopes",size,ImPlotFlags_NoFrame))
+		{
+			ImPlot::SetupAxes("", "",
+				ImPlotAxisFlags_NoLabel,
+				ImPlotAxisFlags_NoLabel);
+			if (analog_data)
 			{
-				ImPlot::SetupAxes("", "",
-					ImPlotAxisFlags_NoLabel,
-					ImPlotAxisFlags_NoLabel);
-				ImPlot::PlotLine("##Osc 1", time.data(), analog_data->data(), analog_data->size());
-				ImPlot::EndPlot();
+				// plot drawing code here
+				double time_step = time_window_s / analog_data->size();
+				std::vector<double> time(analog_data->size());
+				// linspace vector between 0 and time_window_s where n is number of
+				// samples in current frame
+				double time_left = ImPlot::GetPlotLimits().X.Min;
+				double time_right = ImPlot::GetPlotLimits().X.Max;
+				printf("Left bound: %f\nRight bound: %f\n", time_left, time_right);
+				std::generate(time.begin(), time.end(),
+				    [n = time_left, &time_step]() mutable { return (1+time_step)*n++; });
+				ImPlot::PlotLine(
+				    "##Osc 1", time.data(), analog_data->data(), analog_data->size());
+				time_window_s = ImPlot::GetPlotLimits().X.Size();
+				printf("Time Window: %f\n", time_window_s);
 			}
+			ImPlot::EndPlot();
 		}
 		ImGui::PopStyleColor();
 	}
@@ -76,5 +86,5 @@ protected:
 	ImVec2 size;
 	std::vector<double>* analog_data = {};
 	bool paused = false;
-	unsigned __int64 time_at_last_render = 0;
+	double time_window_s = 0.03;
 };
