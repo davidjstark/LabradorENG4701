@@ -53,6 +53,7 @@ public:
 		{
 			ImPlot::SetNextAxesToFit();
 		}
+		ImPlot::SetNextAxesLimits(0, time_window_s, 0, 5, ImPlotCond_Once);
 		if (ImPlot::BeginPlot("##Oscilloscopes",size,ImPlotFlags_NoFrame))
 		{
 			ImPlot::SetupAxes("", "",
@@ -65,15 +66,21 @@ public:
 				std::vector<double> time(analog_data->size());
 				// linspace vector between 0 and time_window_s where n is number of
 				// samples in current frame
-				double time_left = ImPlot::GetPlotLimits().X.Min;
-				double time_right = ImPlot::GetPlotLimits().X.Max;
-				printf("Left bound: %f\nRight bound: %f\n", time_left, time_right);
+				if (!paused)
+				{
+					time_start = ImPlot::GetPlotLimits().X.Min;
+				}
+				//printf("Left bound: %f\nRight bound: %f\n", time_left, time_right);
+				auto& local_time_start = time_start;
 				std::generate(time.begin(), time.end(),
-				    [n = time_left, &time_step]() mutable { return (1+time_step)*n++; });
+				    [n = 0, &time_step,&local_time_start]() mutable { return n++*time_step+local_time_start; });
 				ImPlot::PlotLine(
 				    "##Osc 1", time.data(), analog_data->data(), analog_data->size());
-				time_window_s = ImPlot::GetPlotLimits().X.Size();
-				printf("Time Window: %f\n", time_window_s);
+				if (!paused)
+				{
+					time_window_s = ImPlot::GetPlotLimits().X.Size();
+				}
+				//printf("Time Window: %f\n", time_window_s);
 			}
 			ImPlot::EndPlot();
 		}
@@ -87,4 +94,5 @@ protected:
 	std::vector<double>* analog_data = {};
 	bool paused = false;
 	double time_window_s = 0.03;
+	double time_start = 0;
 };
