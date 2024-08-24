@@ -4,6 +4,12 @@
         "Labrador_Imgui"
     </assembly>
     <members>
+        <member name="M:librador_set_device_mode(System.Int32)">
+As above, a1 and a2
+</member>
+        <member name="T:ImPlot.GetterFuncPtr">
+Interprets a user's function pointer as ImPlotPoints
+</member>
         <member name="M:PlotWidget.Render">
             <summary>
 Generic function to render plot widget with correct style
@@ -183,14 +189,6 @@ Constructor
 Abstract class that draws child that can be populated by a control widget
 </summary>
         </member>
-        <member name="M:PreviewStyle">
-            <summary>
-Defines style for the Signal Generator Preview plot
-</summary>
-        </member>
-        <member name="T:ImPlot.GetterFuncPtr">
-Interprets a user's function pointer as ImPlotPoints
-</member>
         <member name="M:libusb_hotplug_get_user_data(libusb_context*,System.Int32)">
 \ingroup libusb_hotplug
  * Gets the user_data associated with a hotplug callback.
@@ -1834,9 +1832,11 @@ In the context of a \ref libusb_device_descriptor "device descriptor",
 	 * own class information and all interfaces operate independently.
 
 </member>
-        <member name="M:librador_set_device_mode(System.Int32)">
-As above, a1 and a2
-</member>
+        <member name="M:PreviewStyle">
+            <summary>
+Defines style for the Signal Generator Preview plot
+</summary>
+        </member>
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->
         <!-- Discarding badly formed XML document comment for member 'F:libusb_pollfd.events'. -->
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->

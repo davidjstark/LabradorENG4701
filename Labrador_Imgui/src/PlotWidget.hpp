@@ -35,7 +35,7 @@ public:
 	/// </summary>
 	void Render()
 	{
-		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255,255,255, 255));
+		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255,255,255,255));
 		int channel = 1;
 		double sample_rate_hz = 375000;
 		double time_window_s = 0.005;

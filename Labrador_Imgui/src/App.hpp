@@ -47,7 +47,16 @@ class App : public AppBase<App>
 		// Print firmware info
 		uint16_t deviceVersion = librador_get_device_firmware_version();
 		uint8_t deviceVariant = librador_get_device_firmware_variant();
+		// librador_set_oscilloscope_gain()
 		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
+
+		if (deviceVariant == 1)
+		{
+			librador_jump_to_bootloader();
+			printf("Entered bootloader...");
+			std::exit(1);
+		}
+
 		init_constants();
     }
 
