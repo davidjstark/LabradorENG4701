@@ -121,6 +121,23 @@ class App : public AppBase<App>
 				// Device
 				if (ImGui::BeginMenu("Device"))
 				{
+					if (connected)
+					{
+						// Print firmware info
+						uint16_t deviceVersion = librador_get_device_firmware_version();
+						uint8_t deviceVariant = librador_get_device_firmware_variant();
+						ImGui::MenuItem("Help");
+						ImGui::TextColored(constants::GRAY_TEXT, "Version: %hu", deviceVersion);
+						ImGui::TextColored(constants::GRAY_TEXT, "Firmware: %hhu", deviceVariant);
+						
+					
+					}
+					else
+					{
+						ImGui::MenuItem("Help");
+						ImGui::TextColored(constants::GRAY_TEXT, "No Labrador board detected");
+					}
+					    
 					ImGui::EndMenu();
 				}
 
