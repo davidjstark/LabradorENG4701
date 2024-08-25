@@ -76,6 +76,11 @@ class App : public AppBase<App>
 		IM_ASSERT(osc_ret);
 
 		init_constants();
+
+		// Reset Signal Generators
+		SG1Widget.reset();
+		SG2Widget.reset();
+
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
@@ -160,9 +165,9 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
-			// Render Multimeter
-			MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
-			MMWidget.Render();
+			// Render Multimeter [REMOVED DUE TO LIMITED FUNCTIONALITY]
+			//MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
+			//MMWidget.Render();
 
 			// ImGui::PopStyleColor();
 
@@ -170,10 +175,15 @@ class App : public AppBase<App>
 			ImGui::End();
 
 			// Updates state of labrador to match widgets
-			if (connected && frames % labRefreshRate == 0)
+			if (connected)
 			{
 				// Call controlLab functions for each widget
-				PSUWidget.controlLab();
+				if (frames % labRefreshRate == 0)
+				{
+					PSUWidget.controlLab();
+				}
+
+				// Signal generators update on change
 				SG1Widget.controlLab();
 				SG2Widget.controlLab();
 			}
@@ -188,6 +198,15 @@ class App : public AppBase<App>
 		}
 		frames++;
     }
+
+	void ShutDown()
+	{
+		printf("Shutting Down\n");
+
+		// Turn off Signal Generators
+		SG1Widget.reset();
+		SG2Widget.reset();
+	}
 
     // The callbacks are updated and called BEFORE the Update loop is entered
     // It can be assumed that inside the Update loop all callbacks have already been processed
@@ -227,8 +246,8 @@ class App : public AppBase<App>
 	bool connected = true; // state of labrador connection
 	// Define default configurations for widgets here
 	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), constants::PSU_ACCENT);
-	MultimeterControl MMWidget
-	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
+	//MultimeterControl MMWidget
+	//    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 	SGControl SG1Widget
 	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
 	SGControl SG2Widget

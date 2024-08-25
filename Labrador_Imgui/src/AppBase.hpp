@@ -173,6 +173,8 @@ class AppBase
 
             glfwSwapBuffers(window);
         }
+
+        ShutDown();
     }
 
     void Update()
@@ -184,6 +186,11 @@ class AppBase
     {
         static_cast<Derived*>(this)->StartUp();
     }
+
+    void ShutDown()
+	{
+		static_cast<Derived*>(this)->ShutDown();
+	}
 
   private:
     GLFWwindow* window = nullptr;

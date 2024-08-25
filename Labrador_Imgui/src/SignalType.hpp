@@ -24,7 +24,7 @@ public:
 	/// <summary>
 	/// Generic UI elements for Signal Control
 	/// </summary>
-	void renderControl()
+	bool renderControl()
 	{
 		const float width = ImGui::GetContentRegionAvail().x;
 		const float height = ImGui::GetFrameHeightWithSpacing();
@@ -32,7 +32,7 @@ public:
 		// Controls
 		ImGui::BeginChild((label + "_control").c_str(), ImVec2(width * 0.5f, height * 3.0f));
 
-		renderProperties();
+		bool changed = renderProperties();
 
 		ImGui::EndChild();
 
@@ -47,6 +47,7 @@ public:
 		}
 
 		ImPlot::GetStyle() = backup;
+		return changed;
 	}
 
 	/// <summary>
@@ -66,7 +67,7 @@ public:
 	}
 
 
-	virtual void renderProperties() = 0;
+	virtual bool renderProperties() = 0;
 	
 	virtual void renderAnnotations() = 0;
 
@@ -74,6 +75,15 @@ public:
 	/// Set the Signal Generator on the labrador board.
 	/// </summary>
 	virtual void controlLab(int channel) = 0;
+
+	/// <summary>
+	/// Set signal generator amplitude to zero
+	/// </summary>
+	/// <param name="channel"></param>
+	virtual void turnOff(int channel)
+	{
+		librador_send_sin_wave(channel, 100, 0.0, 0.0);
+	}
 
 protected:
 	std::string label;
@@ -110,21 +120,23 @@ public:
 	    : GenericSignal(label, constants::sine_preview)
 	{}
 
-	void renderProperties() override
+	bool renderProperties() override
 	{
+		bool changed = false;
 		// Amplitude
-		// TODO: better handle units
-		renderSliderwUnits(label + "_amp", &amplitude, 0.1f, 3.0f, "Amplitude = %.2f",
-		    constants::volt_units, &amp_unit_idx);
+		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
+		    "Amplitude = %.2f", constants::volt_units, &amp_unit_idx);
 
 		// Frequency
-		renderSliderwUnits(label + "_freq", &frequency, 0.1f, 999.0f, "Frequency = %.0f",
-		    constants::freq_units, &freq_unit_idx);
+		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
+		    "Frequency = %.0f", constants::freq_units, &freq_unit_idx);
 
 		// Offset
-		renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
+		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
 		    constants::volt_units, &os_unit_idx);
+		return changed;
 	}
+
 	/// <summary>
 	/// Render annotations on preview
 	/// </summary>
@@ -173,19 +185,22 @@ public:
 	{
 	}
 
-	void renderProperties() override
+	bool renderProperties() override
 	{
+		bool changed = false;
 		// Amplitude
-		renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f, "Amplitude = %.2f",
+		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f, "Amplitude = %.2f",
 		    constants::volt_units, &amp_unit_idx);
 
 		// Frequency
-		renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f, "Frequency = %.0f",
+		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
+		    "Frequency = %.0f",
 		    constants::freq_units, &freq_unit_idx);
 
 		// Offset
-		renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
+		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
 		    constants::volt_units, &os_unit_idx);
+		return changed;
 	}
 
 	void renderAnnotations() override
@@ -234,19 +249,21 @@ public:
 	{
 	}
 
-	void renderProperties() override
+	bool renderProperties() override
 	{
+		bool changed = false;
 		// Amplitude
-		renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f, "Amplitude = %.2f",
-		    constants::volt_units, &amp_unit_idx);
+		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
+		    "Amplitude = %.2f", constants::volt_units, &amp_unit_idx);
 
 		// Frequency
-		renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f, "Frequency = %.0f",
-		    constants::freq_units, &freq_unit_idx);
+		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
+		    "Frequency = %.0f", constants::freq_units, &freq_unit_idx);
 
 		// Offset
-		renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
+		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
 		    constants::volt_units, &os_unit_idx);
+		return changed;
 	}
 
 	void renderAnnotations() override
@@ -293,19 +310,21 @@ public:
 	{
 	}
 
-	void renderProperties() override
+	bool renderProperties() override
 	{
+		bool changed = false;
 		// Amplitude
-		renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f, "Amplitude = %.2f",
-		    constants::volt_units, &amp_unit_idx);
+		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
+		    "Amplitude = %.2f", constants::volt_units, &amp_unit_idx);
 
 		// Frequency
-		renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f, "Frequency = %.0f",
-		    constants::freq_units, &freq_unit_idx);
+		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
+		    "Frequency = %.0f", constants::freq_units, &freq_unit_idx);
 
 		// Offset
-		renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
+		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
 		    constants::volt_units, &os_unit_idx);
+		return changed;
 	}
 
 	void renderAnnotations() override

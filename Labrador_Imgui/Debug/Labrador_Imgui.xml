@@ -92,6 +92,12 @@ Render annotations on preview
 Sine Signal Generator Widget
 </summary>
         </member>
+        <member name="M:GenericSignal.turnOff(System.Int32)">
+            <summary>
+Set signal generator amplitude to zero
+</summary>
+            <param name="channel" />
+        </member>
         <member name="M:GenericSignal.controlLab(System.Int32)">
             <summary>
 Set the Signal Generator on the labrador board.
