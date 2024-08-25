@@ -34,8 +34,9 @@ public:
 	/// <summary>
 	/// Control sampling settings on labrador board
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
+		return false;
 	}
 
 private:

@@ -134,4 +134,13 @@ bool inline renderSliderwUnits(const std::string& label, float* result, float mi
 	return changed;
 }
 
+void inline TextRight(std::string text)
+{
+	auto windowWidth = ImGui::GetWindowSize().x;
+	auto textWidth = ImGui::CalcTextSize(text.c_str()).x;
+
+	ImGui::SetCursorPosX(windowWidth - textWidth - 10);
+	ImGui::Text(text.c_str());
+}
+
 #endif

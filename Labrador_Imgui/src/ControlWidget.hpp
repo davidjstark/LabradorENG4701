@@ -83,7 +83,7 @@ public:
 	// Customise for each widget, see PSUControl.hpp for example
 	virtual void renderControl() = 0;
 	virtual void renderHelp() = 0;
-	virtual void controlLab() = 0;
+	virtual bool controlLab() = 0;
 	
 
 protected:

@@ -31,7 +31,7 @@ public:
 	/// <summary>
 	/// Read multimeter from labrador board
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
 		
 	}

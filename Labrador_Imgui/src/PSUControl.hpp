@@ -38,7 +38,7 @@ public:
 	/// <summary>
 	/// Set the Power Supply Voltage on the labrador board.
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
 		int error = librador_set_power_supply_voltage(voltage);
 		if (error)
@@ -46,8 +46,13 @@ public:
 			printf("librador_set_power_supply_voltage FAILED with error code "
 				    "%d\tExiting...",
 				error);
+			if (error == -1101)
+			{
+				return false;
+			}
 			std::exit(error);
 		}
+		return true;
 		// printf("Successfully set power supply voltage to %.2fV\n", voltage);
 	}
 

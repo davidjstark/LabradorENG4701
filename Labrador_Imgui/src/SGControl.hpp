@@ -72,20 +72,22 @@ public:
 	/// <summary>
 	/// Set the Signal Generator on the labrador board.
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
 		if (switched)
 		{
 			if (!active)
 			{
 				signals[signal_idx]->turnOff(channel);
+				return true;
 			}
 			else
 			{
 				signals[signal_idx]->controlLab(channel);
+				return true;
 			}
-			
 		}
+		return false;
 		
 	}
 
