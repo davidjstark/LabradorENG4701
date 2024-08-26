@@ -25,10 +25,22 @@ public:
 	}
 
 	/// <summary>
+	/// Render help message in popup window
+	/// </summary>
+	void renderHelp() override
+	{
+		ImGui::Text("HELP HERE");
+		// Pinout image
+		ImGui::Image((void*)constants::osc_pinout_texture,
+		    ImVec2(constants::pinout_width, constants::pinout_height));
+	}
+
+	/// <summary>
 	/// Control sampling settings on labrador board
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
+		return false;
 	}
 
 private:

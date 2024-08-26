@@ -15,15 +15,47 @@
 // #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
 
+// Global textures to be loaded once during start-up
+int constants::pinout_width;
+int constants::pinout_height;
+intptr_t constants::psu_pinout_texture = 0;
+intptr_t constants::sg_pinout_texture;
+intptr_t constants::osc_pinout_texture;
+
 class App : public AppBase<App>
 {
   public:
     App(){};
     virtual ~App() = default;
-	
+
+	void connectToLabrador()
+	{
+		// Initialise the USB
+		int error = librador_setup_usb();
+		if (error)
+		{
+			printf("librador_setup_usb FAILED with error code %d\t\n", error);
+			// std::exit(error);
+			connected = false;
+		}
+		else
+			connected = true;
+		if (connected)
+		{
+			printf("Device Connected Successfully!\n");
+
+			// Print firmware info
+			uint16_t deviceVersion = librador_get_device_firmware_version();
+			uint8_t deviceVariant = librador_get_device_firmware_variant();
+			printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
+
+			// Reset Signal Generators
+			SG1Widget.reset();
+			SG2Widget.reset();
+		}
+	}
 	
     // Anything that needs to be called once OUTSIDE of the main application loop
-	
     void StartUp()
     {
 		int error = librador_init();
@@ -34,21 +66,30 @@ class App : public AppBase<App>
 			connected = false;
 		}
 
-		// Initialise the USB
-		error = librador_setup_usb();
-		if (error)
-		{
-			printf("librador_setup_usb FAILED with error code %d\t\n", error);
-			// std::exit(error);
-			connected = false;
-		}
-		if (connected) printf("Device Connected Successfully!\n");
+		connectToLabrador();
 
-		// Print firmware info
-		uint16_t deviceVersion = librador_get_device_firmware_version();
-		uint8_t deviceVariant = librador_get_device_firmware_variant();
-		//librador_jump_to_bootloader();
-		printf("deviceVersion=%hu, deviceVariant=%hhu\n", deviceVersion, deviceVariant);
+		// Load pinout images
+		GLuint psu_tmp_texture = 0;
+		GLuint sg_tmp_texture = 0;
+		GLuint osc_tmp_texture = 0;
+		int _not_needed = 0;
+
+		bool psu_ret = LoadTextureFromFile(".\\misc\\media\\psu-pinout.png",
+			&psu_tmp_texture, &constants::pinout_width, &constants::pinout_height);
+
+		bool sg_ret = LoadTextureFromFile(".\\misc\\media\\sg-pinout.png",
+			&sg_tmp_texture, &_not_needed, &_not_needed);
+
+		bool osc_ret = LoadTextureFromFile(".\\misc\\media\\osc-pinout.png",
+			&osc_tmp_texture, &_not_needed, &_not_needed);
+
+		constants::psu_pinout_texture = (intptr_t)psu_tmp_texture;
+		constants::sg_pinout_texture = (intptr_t)sg_tmp_texture;
+		constants::osc_pinout_texture = (intptr_t)osc_tmp_texture;
+
+		IM_ASSERT(psu_ret);
+		IM_ASSERT(sg_ret);
+		IM_ASSERT(osc_ret);
 
 		if (deviceVariant == 1)
 		{
@@ -58,6 +99,7 @@ class App : public AppBase<App>
 		}
 
 		init_constants();
+
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
@@ -72,16 +114,67 @@ class App : public AppBase<App>
 			    ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse
 			        | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_MenuBar);
 
+			ImDrawList* draw_list = ImGui::GetWindowDrawList();
+
 			// Menu Bar
 			static bool showDemoWindows = false;
 			if (ImGui::BeginMenuBar())
 			{
+				// Demo windows for styling/docs [TODO: REMOVE in finished product]
 				if (ImGui::BeginMenu("Menu"))
 				{
 					ImGui::MenuItem("Show Demos", "", &showDemoWindows);
 					ImGui::EndMenu();
 				}
+
+				// Device
+				if (ImGui::BeginMenu("Device"))
+				{
+					if (connected)
+					{
+						// Print firmware info
+						uint16_t deviceVersion = librador_get_device_firmware_version();
+						uint8_t deviceVariant = librador_get_device_firmware_variant();
+						ImGui::MenuItem("Help");
+						ImGui::TextColored(constants::GRAY_TEXT, "Version: %hu", deviceVersion);
+						ImGui::TextColored(constants::GRAY_TEXT, "Firmware: %hhu", deviceVariant);
+						
+					
+					}
+					else
+					{
+						ImGui::MenuItem("Help");
+						ImGui::TextColored(constants::GRAY_TEXT, "No Labrador board detected");
+					}
+					    
+					ImGui::EndMenu();
+				}
+
+				if (connected)
+				{
+					TextRight("Labrador Connected     ");
+				}
+				else
+				{
+
+					TextRight("No Labrador Found     ");
+					if (frames % labRefreshRate == 0)
+					{
+						std::cout << "Attempting to connect to Labrador\n";
+						connectToLabrador();
+					}
+				}
+
+				const float radius = ImGui::GetTextLineHeight() * 0.4;
+				const ImU32 status_colour = ImGui::GetColorU32(
+				    connected ? ImVec4(0, 1, 0, 1) : ImVec4(1, 0, 0, 1));
+				const ImVec2 p1 = ImGui::GetCursorScreenPos();
+				draw_list->AddCircleFilled(
+				    ImVec2(p1.x - 10, p1.y + ImGui::GetTextLineHeight() - radius), radius, status_colour); 
+
 				ImGui::EndMenuBar();
+				
+				
 			}
 
 			// Apply custom padding
@@ -142,9 +235,9 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
-			// Render Multimeter
-			MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
-			MMWidget.Render();
+			// Render Multimeter [REMOVED DUE TO LIMITED FUNCTIONALITY]
+			//MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
+			//MMWidget.Render();
 
 			// ImGui::PopStyleColor();
 
@@ -152,10 +245,17 @@ class App : public AppBase<App>
 			ImGui::End();
 
 			// Updates state of labrador to match widgets
-			if (connected && frames % labRefreshRate == 0)
+			if (connected)
 			{
 				// Call controlLab functions for each widget
-				PSUWidget.controlLab();
+				if (frames % labRefreshRate == 0)
+				{
+					// Check board status by setting PSU Widget
+					connected = PSUWidget.controlLab();
+					if (!connected) librador_reset_usb();
+				}
+
+				// Signal generators update on change
 				SG1Widget.controlLab();
 				SG2Widget.controlLab();
 			}
@@ -170,6 +270,15 @@ class App : public AppBase<App>
 		}
 		frames++;
     }
+
+	void ShutDown()
+	{
+		printf("Shutting Down\n");
+
+		// Turn off Signal Generators
+		SG1Widget.reset();
+		SG2Widget.reset();
+	}
 
     // The callbacks are updated and called BEFORE the Update loop is entered
     // It can be assumed that inside the Update loop all callbacks have already been processed
@@ -209,8 +318,8 @@ class App : public AppBase<App>
 	bool connected = true; // state of labrador connection
 	// Define default configurations for widgets here
 	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), constants::PSU_ACCENT);
-	MultimeterControl MMWidget
-	    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
+	//MultimeterControl MMWidget
+	//    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
 	SGControl SG1Widget
 	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
 	SGControl SG2Widget

@@ -113,4 +113,7 @@
   <ItemGroup>
     <Text Include="README.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="misc\media\pinout.png" />
+  </ItemGroup>
 </Project>

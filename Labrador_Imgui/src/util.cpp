@@ -1,13 +1,14 @@
 #include "util.h"
 
-
 float constants::x_preview[constants::PREVIEW_RES];
 float constants::sine_preview[constants::PREVIEW_RES];
 float constants::square_preview[constants::PREVIEW_RES];
 float constants::sawtooth_preview[constants::PREVIEW_RES];
 float constants::triangle_preview[constants::PREVIEW_RES];
 
-// Initialise preview arrays
+/// <summary>
+/// Initialise global preview arrays
+/// </summary>
 void init_constants()
 {
 	const int pr = constants::PREVIEW_RES;
@@ -61,8 +62,8 @@ void PreviewStyle()
 	//colors[ImPlotCol_Crosshairs] = ImVec4(0.23f, 0.10f, 0.64f, 0.50f);
 
 	//style.LineWeight = 1.5;
-	//style.Marker = ImPlotMarker_None;
-	//style.MarkerSize = 4;
+	//style.Marker = ImPlotMarker_Up;
+	// style.MarkerSize = 2;
 	//style.MarkerWeight = 1;
 	//style.FillAlpha = 1.0f;
 	//style.ErrorBarSize = 5;

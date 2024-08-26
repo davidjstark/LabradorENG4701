@@ -7,7 +7,7 @@ class MultimeterControl : public ControlWidget
 {
 public:
 	
-	MultimeterControl(const char* label, ImVec2 size, ImU32 borderColor)
+	MultimeterControl(std::string label, ImVec2 size, ImU32 borderColor)
 	    : ControlWidget(label, size, borderColor)
 	    , voltage(4.5f)
 	{}
@@ -21,9 +21,17 @@ public:
 	}
 
 	/// <summary>
+	/// Render help message in popup window
+	/// </summary>
+	void renderHelp() override
+	{
+		ImGui::Text("HELP HERE");
+	}
+
+	/// <summary>
 	/// Read multimeter from labrador board
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
 		
 	}

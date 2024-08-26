@@ -11,7 +11,7 @@
 /// <param name="id"></param>
 /// <param name="state"></param>
 /// <param name="accentColour"></param>
-void inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
+bool inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 	{
 		ImVec2 p = ImGui::GetCursorScreenPos();
 		ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -21,9 +21,14 @@ void inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 		float switch_width = width * 0.30f;
 	    float pad = 2.0f;
 	    float rounding = 0.0f;
-
-		if (ImGui::InvisibleButton(id, ImVec2(width, height)))
-			*state = !*state;
+	    bool switched = false;
+	    if (ImGui::InvisibleButton(id, ImVec2(width, height)))
+	    {
+		    *state = !*state;
+		    switched = true;
+		}
+			
+			
 
 		ImU32 col_bg = *state ? accentColour : IM_COL32(150, 150, 150, 255);
 
@@ -36,6 +41,8 @@ void inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 						ImVec2(p.x + pad + switch_width,			p.y + height - pad),  // OFF bottom-right
 			constants::PRIM_LIGHT, 
 			rounding);
+		
+		return switched;
 	}
 
 /// <summary>
@@ -48,9 +55,9 @@ void inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 /// <param name="size">Length of options</param>
 /// <returns></returns>
 template <typename T>
-    int inline ObjectDropDown(const char* id, T const options[], int* active, int size)
+    bool inline ObjectDropDown(const char* id, T const options[], int* active, int size)
     {
-	int changed = 0;
+	bool changed = false;
 	std::string preview = options[*active]->getLabel();
 	// std::cout << "size: " << size;
 	if (ImGui::BeginCombo(id, preview.c_str(), 0))
@@ -61,7 +68,7 @@ template <typename T>
 			if (ImGui::Selectable((options[n]->getLabel()).c_str(), is_selected))
 			{
 				*active = n;
-				changed = 1;
+				changed = true;
 			}
 			
 			// Set the initial focus when opening the combo (scrolling + keyboard
@@ -117,12 +124,23 @@ int inline DropDown(const char* id, char* const *options, int* active, int size)
 /// <param name="prompt">Prompt/format over slider</param>
 /// <param name="units">List of unit objects</param>
 /// <param name="unit_idx">Index of selected unit</param>
-void inline renderSliderwUnits(const std::string& label, float* result, float min, float max,
+bool inline renderSliderwUnits(const std::string& label, float* result, float min, float max,
     const char* prompt, Unit* const units[], int* unit_idx)
 {
-	ImGui::SliderFloat(("##" + label).c_str(), result, min, max, prompt);
+	bool changed = false;
+	changed |= ImGui::SliderFloat(("##" + label).c_str(), result, min, max, prompt);
 	ImGui::SameLine();
-	ObjectDropDown(("##" + label + "_unit").c_str(), units, unit_idx, 3);
+	changed |= ObjectDropDown(("##" + label + "_unit").c_str(), units, unit_idx, 3);
+	return changed;
+}
+
+void inline TextRight(std::string text)
+{
+	auto windowWidth = ImGui::GetWindowSize().x;
+	auto textWidth = ImGui::CalcTextSize(text.c_str()).x;
+
+	ImGui::SetCursorPosX(windowWidth - textWidth - 10);
+	ImGui::Text(text.c_str());
 }
 
 #endif

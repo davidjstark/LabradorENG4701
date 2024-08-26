@@ -12,25 +12,26 @@ class SGControl : public ControlWidget
 public:
 	
 	// Constructor
-	SGControl(const char* label, ImVec2 size, ImU32 accentColour, int channel)
+	SGControl(std::string label, ImVec2 size, ImU32 accentColour, int channel)
 	    : ControlWidget(label, size, accentColour)
 	    , channel(channel)
 	    , active(false)
+	    , switched(false)
 	    , label(label)
 	    , signal_idx(0)
 	{
 		signals[0] = new SineSignal("Sine");
-		// TODO: implement different signal classes
 		signals[1] = new SquareSignal("Square");
 		signals[2] = new SawtoothSignal("Sawtooth");
 		signals[3] = new TriangleSignal("Triangle");
+
 	}
 	
 	// Destructor
 	~SGControl()
 	{
 		for (int i = 0; i < 4; ++i)
-		{
+		{	
 			delete signals[i];
 		}
 	}
@@ -44,35 +45,62 @@ public:
 		ImGui::SameLine();
 		ImGui::Text("   OFF");
 		ImGui::SameLine();
-		ToggleSwitch((label + "_toggle").c_str(), &active, accentColour);
+		switched = ToggleSwitch((label + "_toggle").c_str(), &active, accentColour);
 		ImGui::SameLine();
 		ImGui::Text("ON");
 		
-		ObjectDropDown(("##" + label + "wt_selector").c_str(), signals,
+		switched |= ObjectDropDown(("##" + label + "wt_selector").c_str(), signals,
 		    &signal_idx, IM_ARRAYSIZE(constants::wavetypes));
 
 		ImGui::SeparatorText(
 		    ((signals[signal_idx]->getLabel()) + " Wave Properties").c_str());
 		
-		signals[signal_idx]-> renderControl();	
+		switched = (signals[signal_idx]->renderControl()) || switched;	
+	}
+
+	/// <summary>
+	/// Render help message in popup window
+	/// </summary>
+	void renderHelp() override
+	{
+		ImGui::Text("HELP HERE");
+		// Pinout image
+		ImGui::Image((void*)constants::sg_pinout_texture,
+		    ImVec2(constants::pinout_width, constants::pinout_height));
 	}
 
 	/// <summary>
 	/// Set the Signal Generator on the labrador board.
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
-		if (active)
+		if (switched)
 		{
-			signals[signal_idx] -> controlLab(channel);
+			if (!active)
+			{
+				signals[signal_idx]->turnOff(channel);
+				return true;
+			}
+			else
+			{
+				signals[signal_idx]->controlLab(channel);
+				return true;
+			}
 		}
+		return false;
 		
+	}
+
+	void reset()
+	{
+		signals[0]->turnOff(channel);
 	}
 
 private:
 	const std::string label;
 	int channel;
 	bool active;
+	bool switched;
 	int signal_idx = 0;
 	GenericSignal* signals[4];
 };

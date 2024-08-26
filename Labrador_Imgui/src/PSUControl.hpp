@@ -1,5 +1,6 @@
 #include "ControlWidget.hpp"
 #include "librador.h"
+#include "util.h"
 
 /// <summary>Power Suppy Unit Widget
 /// </summary>
@@ -7,7 +8,7 @@ class PSUControl : public ControlWidget
 {
 public:
 	
-	PSUControl(const char* label, ImVec2 size, ImU32 borderColor)
+	PSUControl(std::string label, ImVec2 size, ImU32 borderColor)
 	    : ControlWidget(label, size, borderColor)
 	    , voltage(4.5f)
 	{}
@@ -24,9 +25,20 @@ public:
 	}
 
 	/// <summary>
+	/// Render help message in popup window
+	/// </summary>
+	void renderHelp() override
+	{
+		ImGui::Text("HELP HERE");
+		// Pinout image
+		ImGui::Image((void*)constants::psu_pinout_texture,
+		    ImVec2(constants::pinout_width, constants::pinout_height));
+	}
+
+	/// <summary>
 	/// Set the Power Supply Voltage on the labrador board.
 	/// </summary>
-	void controlLab() override
+	bool controlLab() override
 	{
 		int error = librador_set_power_supply_voltage(voltage);
 		if (error)
@@ -34,9 +46,14 @@ public:
 			printf("librador_set_power_supply_voltage FAILED with error code "
 				    "%d\tExiting...",
 				error);
+			if (error == -1101)
+			{
+				return false;
+			}
 			std::exit(error);
 		}
-		//printf("Successfully set power supply voltage to %.2fV\n", voltage);
+		return true;
+		// printf("Successfully set power supply voltage to %.2fV\n", voltage);
 	}
 
 private:
