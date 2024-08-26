@@ -6,10 +6,14 @@
 class OSCControl : public ControlWidget
 {
 public:
-	
+	// ImGui State variables
+	bool DisplayCheck = true;
+	int KSComboCurrentItem = 0;
+	int AttenComboCurrentItem = 0;
+	float SliderVal = 0.0f;
+	bool ACCoupledCheck = false;
 	OSCControl(const char* label, ImVec2 size, ImU32 borderColor)
 	    : ControlWidget(label, size, borderColor)
-	    , voltage(4.5f)
 	{}
 
 	/// <summary> 
@@ -17,7 +21,7 @@ public:
 	/// </summary>
 	void renderControl() override
 	{
-		ImGui::SliderFloat("Voltage", &voltage, 4.5f, 6.0f, "%.1f V");	
+		ImGui::Text("Display");
 	}
 
 	/// <summary>
@@ -28,5 +32,8 @@ public:
 	}
 
 private:
-	float voltage;
+	// ImGui const data
+	// Drop down content
+	const char* KSComboList[2] = { "375 KSPS", "750 KSPS" };
+	const char* AttenComboList[3] = { "1x", "5x", "10x" };
 };

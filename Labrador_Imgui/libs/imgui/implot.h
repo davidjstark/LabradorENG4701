@@ -1028,7 +1028,7 @@ IMPLOT_API bool IsLegendEntryHovered(const char* label_id);
 IMPLOT_API bool BeginDragDropTargetPlot();
 // Turns the current plot's X-axis into a drag and drop target. Don't forget to call EndDragDropTarget!
 IMPLOT_API bool BeginDragDropTargetAxis(ImAxis axis);
-// Turns the current plot's legend into a drag and drop target. Don't forget to call EndDragDropTarget!
+// Turns the current plot's legend into a drag and drop target. Don't forget to call End    DragDropTarget!
 IMPLOT_API bool BeginDragDropTargetLegend();
 // Ends a drag and drop target (currently just an alias for ImGui::EndDragDropTarget).
 IMPLOT_API void EndDragDropTarget();

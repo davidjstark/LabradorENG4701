@@ -58,3 +58,10 @@ Librador_API/___librador/demo_qt/librademo/librademo
 Librador_API/___librador/librador_shared_library/a\.out
 
 *.vs/
+/Labrador_Imgui/Debug/Labrador_Imgui.tlog/CL.command.1.tlog
+/Labrador_Imgui/Debug/Labrador_Imgui.tlog/CL.read.1.tlog
+/Labrador_Imgui/Debug/Labrador_Imgui.tlog/CL.write.1.tlog
+/Labrador_Imgui/Debug/Labrador_Imgui.tlog/link.command.1.tlog
+/Labrador_Imgui/Debug/Labrador_Imgui.tlog/xdcmake.command.1.tlog
+/Labrador_Imgui/Debug/Labrador_Imgui.tlog/xdcmake.read.1.tlog
+/Labrador_Imgui/Debug/Labrador_Imgui.tlog/xdcmake.write.1.tlog
