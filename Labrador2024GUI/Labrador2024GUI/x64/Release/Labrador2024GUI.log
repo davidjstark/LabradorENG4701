@@ -7,50 +7,30 @@
   imgui_tables.cpp
   imgui_widgets.cpp
   main.cpp
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(86,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(87,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(88,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(165,115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(165,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,38): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,33): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,28): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(168,23): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,38): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,33): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,28): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(172,23): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(283,49): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,40): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,50): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,61): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,71): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(86,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(87,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(88,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(165,115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(165,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(168,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(168,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(168,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(168,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(172,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(172,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(172,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(172,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(283,49): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(284,40): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(284,50): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(284,61): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(284,71): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03BC' cannot be represented in the current code page (1252)
+C:\Users\David\LabradorENG4701\Labrador2024GUI\main.cpp(284,82): warning C4566: character represented by universal-character-name '\u03A9' cannot be represented in the current code page (1252)
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 1866 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  1858 of 1866 functions (99.6%) were compiled, the rest were copied from previous compilation.
+    30 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-glfw3.lib(input.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(input.obj)' or at ''; linking object as if no debug info
-glfw3.lib(window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_time.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_time.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_thread.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_thread.obj)' or at ''; linking object as if no debug info
-glfw3.lib(platform.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(platform.obj)' or at ''; linking object as if no debug info
-glfw3.lib(vulkan.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(vulkan.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(wgl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(wgl_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(egl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(egl_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(osmesa_context.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_module.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_module.obj)' or at ''; linking object as if no debug info
-glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_joystick.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_monitor.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_window.obj)' or at ''; linking object as if no debug info
-glfw3.lib(null_joystick.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(null_joystick.obj)' or at ''; linking object as if no debug info
-  Labrador2024GUI.vcxproj -> C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador2024GUI\x64\Release\Labrador2024GUI.exe
+  Labrador2024GUI.vcxproj -> C:\Users\David\LabradorENG4701\Labrador2024GUI\x64\Release\Labrador2024GUI.exe

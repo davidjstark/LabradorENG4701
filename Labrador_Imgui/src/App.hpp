@@ -94,15 +94,18 @@ class App : public AppBase<App>
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
 
-			// Render scope
-			// TODO: could potentially combine scope and scope controls because they will have a lot of shared responsibilities
-			PlotWidgetObj.setSize(ImVec2(plot_width, plot_height));
-			PlotWidgetObj.Render();
+			
 			
 
+			// Render scope
+			// TODO: could potentially combine scope and scope controls because they will
+			// have a lot of shared responsibilities
+			PlotWidgetObj.setSize(ImVec2(plot_width, plot_height));
+			PlotWidgetObj.Render();
+
 			// Render Oscilloscope controls
-			OSCWidget.setSize(ImVec2(plot_width, 0));
-			OSCWidget.Render();
+			OSC1Widget.setSize(ImVec2(plot_width, 0));
+			OSC1Widget.Render();
 			
 			ImGui::EndChild(); // End left column
 
@@ -204,8 +207,10 @@ class App : public AppBase<App>
 	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
 	SGControl SG2Widget
 	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
-	OSCControl OSCWidget
-	    = OSCControl("Scope Settings", ImVec2(0, 0), IM_COL32(0,0,0, 255));
+	OSCControl OSC1Widget
+	    = OSCControl("OSC1 Settings", ImVec2(0, 0), IM_COL32(0,0,0, 255));
+	OSCControl OSC2Widget
+	    = OSCControl("OSC2 Settings", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
 	PlotWidget PlotWidgetObj 
 		= PlotWidget("Plot Widget",ImVec2(0, 0));
 
