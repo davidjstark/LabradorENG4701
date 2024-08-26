@@ -91,13 +91,6 @@ class App : public AppBase<App>
 		IM_ASSERT(sg_ret);
 		IM_ASSERT(osc_ret);
 
-		if (deviceVariant == 1)
-		{
-			librador_jump_to_bootloader();
-			printf("Entered bootloader...");
-			std::exit(1);
-		}
-
 		init_constants();
 
     }
