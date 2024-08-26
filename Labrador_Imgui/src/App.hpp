@@ -198,8 +198,24 @@ class App : public AppBase<App>
 			PlotWidgetObj.Render();
 
 			// Render Oscilloscope controls
-			OSC1Widget.setSize(ImVec2(plot_width, 0));
+			// Left Sub Columns
+			// Oscilloscope 1
+			ImGui::BeginChild("OSC1 Child", ImVec2(plot_width / 3, 0),false);
+			OSC1Widget.setSize(ImVec2(plot_width/3, 0));
 			OSC1Widget.Render();
+			ImGui::EndChild();
+			// Oscilloscope 2
+			ImGui::SameLine();
+			ImGui::BeginChild("OSC2 Child", ImVec2(plot_width / 3, 0), false);
+			OSC2Widget.setSize(ImVec2(plot_width/3, 0));
+			OSC2Widget.Render();
+			ImGui::EndChild();
+			// Plot
+			ImGui::SameLine();
+			ImGui::BeginChild("Plot Controls Child", ImVec2(plot_width / 3, 0), false);
+			OSC2Widget.setSize(ImVec2(plot_width/3, 0));
+			OSC2Widget.Render();
+			ImGui::EndChild();
 			
 			ImGui::EndChild(); // End left column
 

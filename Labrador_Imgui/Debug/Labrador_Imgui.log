@@ -1,0 +1,2 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (C:\Users\David\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Labrador_Imgui.vcxproj -> C:\Users\David\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe
