@@ -1,5 +1,6 @@
 #pragma once
 #include "imgui.h"
+#include <string>
 
 /// <summary>
 /// Abstract class that draws child that can be populated by a control widget
@@ -73,11 +74,22 @@ public:
 		ImVec2 p2 = ImGui::GetCursorScreenPos();
 		draw->AddRect(p1, ImVec2(p2.x + ImGui::GetContentRegionAvail().x, p2.y),
 		    accentColour, border_radius, ImDrawFlags_RoundCornersAll, 1.0f);
-
 		// Empty Space
 		ImGui::Dummy(ImVec2(0, 6.0f));
 
 		ImGui::PopStyleColor();
+
+		WidgetHeight = p2.y - p1.y;
+	}
+
+	float GetHeight()
+	{
+		return WidgetHeight;
+	}
+
+	ImU32 GetAccentColour()
+	{
+		return accentColour;
 	}
 
 	// Customise for each widget, see PSUControl.hpp for example
@@ -93,4 +105,5 @@ protected:
 
 private:
 	const std::string help_popup_id;
+	float WidgetHeight = 0;
 };

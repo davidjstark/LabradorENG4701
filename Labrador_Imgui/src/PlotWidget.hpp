@@ -4,6 +4,8 @@
 #include "librador.h"
 #include "algorithm"
 #include <chrono>
+#include "OSCControl.hpp"
+
 
 /// <summary>
 /// Abstract class that draws child that can be populated by a control widget
@@ -16,9 +18,11 @@ public:
 	/// </summary>
 	/// <param name="label">Name of controller</param>
 	/// <param name="size">Child window size</param>
-	PlotWidget(const char* label, ImVec2 size)
+	PlotWidget(const char* label, ImVec2 size,OSCControl* OSC1,OSCControl* OSC2)
 	    : label(label)
 		, size(size)
+	    , OSC1(OSC1)
+	    , OSC2(OSC2)
 	{}
 
 	/// <summary>
@@ -36,51 +40,49 @@ public:
 	/// </summary>
 	void Render()
 	{
-		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255,255,255,255));
-		int channel = 1;
-		double sample_rate_hz = 375000;
-		double delay_s = 0;
-		int filter_mode = 0; // 1 for a moving average filter
-		librador_set_oscilloscope_gain(16);
-		ImGui::Checkbox("Pause", &paused);
-		if (!paused)
-		{
-			analog_data = librador_get_analog_data(
-			    channel, time_window_s, sample_rate_hz, delay_s, filter_mode);
-		}
-		
-		if (ImGui::Button("Autofit"))
+		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255, 255, 255, 255));
+		std::vector<double>* analog_data_osc1 = OSC1->Data.GetData();
+		std::vector<double>* analog_data_osc2 = OSC2->Data.GetData();
+		if (OSC1->AutofitNext)
 		{
 			ImPlot::SetNextAxesToFit();
+			OSC1->AutofitNext = false;
 		}
-		ImPlot::SetNextAxesLimits(0, time_window_s, 0, 5, ImPlotCond_Once);
+		if (OSC2->AutofitNext)
+		{
+			ImPlot::SetNextAxesToFit();
+			OSC2->AutofitNext = false;
+		}
+		ImPlot::SetNextAxesLimits(init_time_range_lower, init_time_range_upper,
+		    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Once);
 		if (ImPlot::BeginPlot("##Oscilloscopes",size,ImPlotFlags_NoFrame))
 		{
 			ImPlot::SetupAxes("", "",
 				ImPlotAxisFlags_NoLabel,
 				ImPlotAxisFlags_NoLabel);
-			if (analog_data)
+			if (analog_data_osc1)
 			{
-				// plot drawing code here
-				double time_step = time_window_s / analog_data->size();
-				std::vector<double> time(analog_data->size());
-				// linspace vector between 0 and time_window_s where n is number of
-				// samples in current frame
-				if (!paused)
+				std::vector<double> time_osc1
+				    = OSC1->Data.GetTime(ImPlot::GetPlotLimits().X.Min);
+				ImPlot::SetNextLineStyle(ImColor(OSC1->GetAccentColour()).Value);
+				if (OSC1->DisplayCheck)
 				{
-					time_start = ImPlot::GetPlotLimits().X.Min;
+					ImPlot::PlotLine("##Osc 1", time_osc1.data(),
+					    analog_data_osc1->data(), analog_data_osc1->size());
 				}
-				//printf("Left bound: %f\nRight bound: %f\n", time_left, time_right);
-				auto& local_time_start = time_start;
-				std::generate(time.begin(), time.end(),
-				    [n = 0, &time_step,&local_time_start]() mutable { return n++*time_step+local_time_start; });
-				ImPlot::PlotLine(
-				    "##Osc 1", time.data(), analog_data->data(), analog_data->size());
-				if (!paused)
+				OSC1->Data.SetTimeWindow(ImPlot::GetPlotLimits().X.Size());
+			}
+			if (analog_data_osc2)
+			{
+				std::vector<double> time_osc2
+				    = OSC2->Data.GetTime(ImPlot::GetPlotLimits().X.Min);
+				ImPlot::SetNextLineStyle(ImColor(OSC2->GetAccentColour()).Value);
+				if (OSC2->DisplayCheck)
 				{
-					time_window_s = ImPlot::GetPlotLimits().X.Size();
+					ImPlot::PlotLine("##Osc 2", time_osc2.data(),
+					    analog_data_osc2->data(), analog_data_osc2->size());
 				}
-				//printf("Time Window: %f\n", time_window_s);
+				OSC2->Data.SetTimeWindow(ImPlot::GetPlotLimits().X.Size());
 			}
 			ImPlot::EndPlot();
 		}
@@ -91,8 +93,11 @@ public:
 protected:
 	const char* label;
 	ImVec2 size;
-	std::vector<double>* analog_data = {};
 	bool paused = false;
-	double time_window_s = 0.03;
-	double time_start = 0;
+	double init_time_range_lower = 0;
+	double init_time_range_upper = 0.03;
+	double init_voltage_range_lower = 0;
+	double init_voltage_range_upper = 5.0;
+	OSCControl* OSC1;
+	OSCControl* OSC2;
 };

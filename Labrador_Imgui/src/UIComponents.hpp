@@ -5,6 +5,62 @@
 #include "util.h"
 #include <iostream>
 
+
+bool inline PauseButton(const char* id, float radius, bool* state, ImU32 accentColour)
+{
+	ImVec2 p = ImGui::GetCursorScreenPos();
+	ImDrawList* draw_list = ImGui::GetWindowDrawList();
+	bool switched = false;
+	ImGui::SetCursorPos(
+	    ImVec2(ImGui::GetCursorPosX() - radius, ImGui::GetCursorPosY() - radius));
+	if (ImGui::InvisibleButton(id, ImVec2(radius*2,radius*2)))
+	{
+		*state = !*state;
+		switched = true;
+	}
+	ImColor im_col_bg = ImColor(accentColour);
+	if (ImGui::IsItemActive())
+	{
+		float mul = 4.0/5;
+		im_col_bg.Value.x =  mul * im_col_bg.Value.x > 1 ? 1 : mul * im_col_bg.Value.x;
+		im_col_bg.Value.y = mul * im_col_bg.Value.y > 1 ? 1 : mul * im_col_bg.Value.y;
+		im_col_bg.Value.z = mul * im_col_bg.Value.z > 1 ? 1 : mul * im_col_bg.Value.z;
+	}
+	else if (ImGui::IsItemHovered())
+	{
+		float mul = 5.0/4;
+		im_col_bg.Value.x = mul * im_col_bg.Value.x > 1 ? 1 : mul * im_col_bg.Value.x;
+		im_col_bg.Value.y = mul * im_col_bg.Value.y > 1 ? 1 : mul * im_col_bg.Value.y;
+		im_col_bg.Value.z = mul * im_col_bg.Value.z > 1 ? 1 : mul * im_col_bg.Value.z;
+	}
+	ImU32 col_bg = ImU32(im_col_bg);
+
+	draw_list->AddCircleFilled(ImVec2(p.x,p.y), radius, col_bg);
+
+	ImU32 pp_col = IM_COL32(0, 0, 0, 255);
+
+	if (*state)
+	{
+		float left_offset_x = 3;
+		float right_offset_x = 7;
+		float offset_y = 7;
+		draw_list->AddTriangleFilled(ImVec2(p.x - left_offset_x, p.y - offset_y), ImVec2(p.x - left_offset_x, p.y + offset_y),
+		    ImVec2(p.x + offset_y, p.y), pp_col);
+	}
+	else
+	{
+		float offset_x = 5;
+		float twix_width = 4;
+		float offset_y = 7;
+		draw_list->AddRectFilled(ImVec2(p.x - offset_x, p.y - offset_y),
+		    ImVec2(p.x - offset_x + twix_width, p.y + offset_y), pp_col);
+		draw_list->AddRectFilled(ImVec2(p.x + offset_x-twix_width, p.y - offset_y),
+		    ImVec2(p.x + offset_x, p.y + offset_y), pp_col);
+	}
+
+	return switched;
+}
+
 /// <summary>
 /// Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 /// </summary>

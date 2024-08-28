@@ -4,6 +4,20 @@
         "Labrador_Imgui"
     </assembly>
     <members>
+        <member name="M:PlotControl.controlLab">
+            <summary>
+Control sampling settings on labrador board
+</summary>
+        </member>
+        <member name="M:PlotControl.renderControl">
+            <summary>
+Render UI elements for oscilloscope control
+</summary>
+        </member>
+        <member name="T:PlotControl">
+            <summary>Oscilloscope Control Widget
+</summary>
+        </member>
         <member name="M:PlotWidget.Render">
             <summary>
 Generic function to render plot widget with correct style
@@ -15,7 +29,7 @@ Update size of child window
 </summary>
             <param name="new_size">New size</param>
         </member>
-        <member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2)">
+        <member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,OSCControl*,OSCControl*)">
             <summary>
 Constructor
 </summary>
@@ -135,6 +149,44 @@ Generic UI elements for Signal Control
 Abstract class representing signal from signal generator
 </summary>
         </member>
+        <member name="M:PSUControl.controlLab">
+            <summary>
+Set the Power Supply Voltage on the labrador board.
+</summary>
+        </member>
+        <member name="M:PSUControl.renderHelp">
+            <summary>
+Render help message in popup window
+</summary>
+        </member>
+        <member name="M:PSUControl.renderControl">
+            <summary> 
+Render UI elements for power supply unit
+</summary>
+        </member>
+        <member name="T:PSUControl">
+            <summary>Power Suppy Unit Widget
+</summary>
+        </member>
+        <member name="M:OSCControl.controlLab">
+            <summary>
+Control sampling settings on labrador board
+</summary>
+        </member>
+        <member name="M:OSCControl.renderHelp">
+            <summary>
+Render help message in popup window
+</summary>
+        </member>
+        <member name="M:OSCControl.renderControl">
+            <summary> 
+Render UI elements for oscilloscope control
+</summary>
+        </member>
+        <member name="T:OSCControl">
+            <summary>Oscilloscope Control Widget
+</summary>
+        </member>
         <member name="M:renderSliderwUnits(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single*,System.Single,System.Single,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,Unit*!System.Runtime.CompilerServices.IsConst*,System.Int32*)">
             <summary>
 Generic Slider with Units
@@ -164,44 +216,6 @@ Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
             <param name="id" />
             <param name="state" />
             <param name="accentColour" />
-        </member>
-        <member name="M:OSCControl.controlLab">
-            <summary>
-Control sampling settings on labrador board
-</summary>
-        </member>
-        <member name="M:OSCControl.renderHelp">
-            <summary>
-Render help message in popup window
-</summary>
-        </member>
-        <member name="M:OSCControl.renderControl">
-            <summary> 
-Render UI elements for oscilloscope control
-</summary>
-        </member>
-        <member name="T:OSCControl">
-            <summary>Oscilloscope Control Widget
-</summary>
-        </member>
-        <member name="M:PSUControl.controlLab">
-            <summary>
-Set the Power Supply Voltage on the labrador board.
-</summary>
-        </member>
-        <member name="M:PSUControl.renderHelp">
-            <summary>
-Render help message in popup window
-</summary>
-        </member>
-        <member name="M:PSUControl.renderControl">
-            <summary> 
-Render UI elements for power supply unit
-</summary>
-        </member>
-        <member name="T:PSUControl">
-            <summary>Power Suppy Unit Widget
-</summary>
         </member>
         <member name="M:ControlWidget.Render">
             <summary>

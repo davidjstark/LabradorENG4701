@@ -9,6 +9,7 @@
 #include "SGControl.hpp"
 #include "MultimeterControl.hpp"
 #include "PlotWidget.hpp"
+#include "PlotControl.hpp"
 
 #include "util.h"
 
@@ -199,22 +200,23 @@ class App : public AppBase<App>
 
 			// Render Oscilloscope controls
 			// Left Sub Columns
+			float sub_column_width = (plot_width - 2 * padding) / 3;
 			// Oscilloscope 1
-			ImGui::BeginChild("OSC1 Child", ImVec2(plot_width / 3, 0),false);
-			OSC1Widget.setSize(ImVec2(plot_width/3, 0));
+			ImGui::BeginChild("OSC1 Child", ImVec2(sub_column_width, 0),false);
+			OSC1Widget.setSize(ImVec2(sub_column_width, 0));
 			OSC1Widget.Render();
 			ImGui::EndChild();
 			// Oscilloscope 2
 			ImGui::SameLine();
-			ImGui::BeginChild("OSC2 Child", ImVec2(plot_width / 3, 0), false);
-			OSC2Widget.setSize(ImVec2(plot_width/3, 0));
+			ImGui::BeginChild("OSC2 Child", ImVec2(sub_column_width, 0), false);
+			OSC2Widget.setSize(ImVec2(sub_column_width, 0));
 			OSC2Widget.Render();
 			ImGui::EndChild();
 			// Plot
 			ImGui::SameLine();
-			ImGui::BeginChild("Plot Controls Child", ImVec2(plot_width / 3, 0), false);
-			OSC2Widget.setSize(ImVec2(plot_width/3, 0));
-			OSC2Widget.Render();
+			ImGui::BeginChild("Plot Controls Child", ImVec2(sub_column_width, 0), false);
+			PlotControlWidget.setSize(ImVec2(sub_column_width, 0));
+			PlotControlWidget.Render();
 			ImGui::EndChild();
 			
 			ImGui::EndChild(); // End left column
@@ -334,11 +336,13 @@ class App : public AppBase<App>
 	SGControl SG2Widget
 	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
 	OSCControl OSC1Widget
-	    = OSCControl("OSC1 Settings", ImVec2(0, 0), IM_COL32(0,0,0, 255));
+	    = OSCControl("OSC1 Settings", ImVec2(0, 0), constants::OSC1_ACCENT,1);
 	OSCControl OSC2Widget
-	    = OSCControl("OSC2 Settings", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
+	    = OSCControl("OSC2 Settings", ImVec2(0, 0), constants::OSC2_ACCENT,2);
+	PlotControl PlotControlWidget
+	    = PlotControl("Plot Control", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
 	PlotWidget PlotWidgetObj 
-		= PlotWidget("Plot Widget",ImVec2(0, 0));
+		= PlotWidget("Plot Widget",ImVec2(0, 0),&OSC1Widget,&OSC2Widget);
 
 };
 

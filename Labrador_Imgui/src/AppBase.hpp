@@ -72,8 +72,8 @@ static void ErrorCallback(int error, const char* description)
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-const int window_width = 900;
-const int window_height = 600;
+const int window_width = 1200;
+const int window_height = 800;
 
 template <typename Derived>
 class AppBase

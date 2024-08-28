@@ -43,6 +43,8 @@ constexpr ImU32 SG1_ACCENT = IM_COL32(42, 39, 212, 255);
 constexpr ImU32 SG2_ACCENT = IM_COL32(203, 100, 4, 255);
 constexpr ImU32 PSU_ACCENT = IM_COL32(190, 54, 54, 255);
 constexpr ImVec4 GRAY_TEXT = ImVec4(0.6, 0.6, 0.6, 1);
+constexpr ImU32 OSC1_ACCENT = IM_COL32(230, 207, 2, 255);
+constexpr ImU32 OSC2_ACCENT = IM_COL32(255, 123, 250, 255);
 
     // Signal Generator Preview Waves
 constexpr char* wavetypes[4] = { "Sine", "Square", "Sawtooth", "Triangle" };
