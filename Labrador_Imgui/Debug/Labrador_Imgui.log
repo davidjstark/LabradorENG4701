@@ -27,22 +27,22 @@ C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp(35,50): warning
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp(35,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(24,13): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(29,12): warning C4305: '=': truncation from 'double' to 'float'
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(45,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(49,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(75,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(79,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(104,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(108,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(58,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(65,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(58,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(65,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(43,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -59,10 +59,15 @@ C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(69,50): warning 
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(69,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(71,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(27,23): warning C4458: declaration of 'time' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(49,22):
+  see declaration of 'OscData::time'
+  
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(66,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(83,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(78,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotControl.hpp(34,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -80,40 +85,40 @@ C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(162,24): warning C4244
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(186,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(296,85): warning C4100: 'mods': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(278,85): warning C4100: 'mods': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(296,73): warning C4100: 'action': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(278,73): warning C4100: 'action': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(296,61): warning C4100: 'button': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(278,61): warning C4100: 'button': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(296,49): warning C4100: 'window': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(278,49): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(306,75): warning C4100: 'ypos': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(288,75): warning C4100: 'ypos': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(306,62): warning C4100: 'xpos': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(288,62): warning C4100: 'xpos': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(306,47): warning C4100: 'window': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(288,47): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(316,89): warning C4100: 'mods': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(298,89): warning C4100: 'mods': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(316,76): warning C4100: 'actions': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(298,76): warning C4100: 'actions': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(316,62): warning C4100: 'scancode': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(298,62): warning C4100: 'scancode': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(316,53): warning C4100: 'key': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(298,53): warning C4100: 'key': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(316,41): warning C4100: 'window': unreferenced formal parameter
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(298,41): warning C4100: 'window': unreferenced formal parameter
   (compiling source file 'src/main.cpp')
   
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(197,33): warning C4305: 'argument': truncation from 'double' to 'float'

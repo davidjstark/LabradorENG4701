@@ -33,7 +33,6 @@
     <ClCompile Include="libs\imgui\implot_demo.cpp" />
     <ClCompile Include="libs\imgui\implot_items.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\OscData.cpp" />
     <ClCompile Include="src\UIComponents.hpp" />
     <ClCompile Include="src\util.cpp" />
   </ItemGroup>
@@ -60,7 +59,7 @@
     <ClInclude Include="src\ControlWidget.hpp" />
     <ClInclude Include="src\MultimeterControl.hpp" />
     <ClInclude Include="src\OSCControl.hpp" />
-    <ClInclude Include="src\OscData.h" />
+    <ClInclude Include="src\OscData.hpp" />
     <ClInclude Include="src\PlotControl.hpp" />
     <ClInclude Include="src\PlotWidget.hpp" />
     <ClInclude Include="src\PSUControl.hpp" />

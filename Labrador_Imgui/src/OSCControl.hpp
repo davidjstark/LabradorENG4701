@@ -2,7 +2,6 @@
 #include "ControlWidget.hpp"
 #include "librador.h"
 #include "UIComponents.hpp"
-#include "OscData.h"
 //class OscData;
 
 /// <summary>Oscilloscope Control Widget
@@ -11,18 +10,19 @@ class OSCControl : public ControlWidget
 {
 public:
 	// ImGui State variables
-	bool DisplayCheck = true;
+	bool DisplayCheckOSC1 = true;
+	bool DisplayCheckOSC2 = true;
 	/*int KSComboCurrentItem = 0;
 	int AttenComboCurrentItem = 0;*/
 	float OffsetVal = 0.0f;
 	bool ACCoupledCheck = false;
 	bool Paused = false;
 	bool AutofitNext = false;
-	OscData Data;
-	OSCControl(const char* label, ImVec2 size, ImU32 borderColor,int channel)
+	// Public consts
+	ImColor OSC1Colour = ImColor(constants::OSC1_ACCENT);
+	ImColor OSC2Colour = ImColor(constants::OSC2_ACCENT);
+	OSCControl(const char* label, ImVec2 size, ImU32 borderColor)
 	    : ControlWidget(label, size, borderColor)
-	    , channel(channel)   
-		, Data(OscData(this,channel))
 	{
 	}
 	/// <summary> 
@@ -30,11 +30,18 @@ public:
 	/// </summary>
 	void renderControl() override
 	{
-		ImGui::Text("Display");
+		ImGui::Text("Oscilloscope 1 (OSC1)");
 		ImGui::SameLine();
 		ImGui::Text("   OFF");
 		ImGui::SameLine();
-		ToggleSwitch((label + "Display_toggle").c_str(), &DisplayCheck, accentColour);
+		ToggleSwitch((label + "Display1_toggle").c_str(), &DisplayCheckOSC1, ImU32(OSC1Colour));
+		ImGui::SameLine();
+		ImGui::Text("ON");
+		ImGui::Text("Oscilloscope 2 (OSC2)");
+		ImGui::SameLine();
+		ImGui::Text("   OFF");
+		ImGui::SameLine();
+		ToggleSwitch((label + "Display2_toggle").c_str(), &DisplayCheckOSC2, ImU32(OSC2Colour));
 		ImGui::SameLine();
 		ImGui::Text("ON");
 		if (ImGui::Button("Autofit"))
@@ -44,7 +51,7 @@ public:
 		ImGui::Spacing();
 		ImGui::Spacing();
 		ImGui::SetCursorPosX(ImGui::GetWindowWidth()/2);
-		PauseButton("Pause", 15, &Paused, accentColour);
+		PauseButton("Pause", 15, &Paused);
 	}
 
 	/// <summary>
