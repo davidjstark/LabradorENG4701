@@ -18,6 +18,7 @@ public:
 	bool ACCoupledCheck = false;
 	bool Paused = false;
 	bool AutofitNext = false;
+	bool Trigger;
 	// Public consts
 	ImColor OSC1Colour = ImColor(constants::OSC1_ACCENT);
 	ImColor OSC2Colour = ImColor(constants::OSC2_ACCENT);
@@ -48,6 +49,7 @@ public:
 		{
 			AutofitNext = true;
 		}
+		ImGui::Checkbox("Trigger", &Trigger);
 		ImGui::Spacing();
 		ImGui::Spacing();
 		ImGui::SetCursorPosX(ImGui::GetWindowWidth()/2);

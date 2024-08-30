@@ -94,6 +94,9 @@ class App : public AppBase<App>
 
 		init_constants();
 
+		// need to move this somewhere better if we want to do this dynamically, but cannot run too often as this causes the usb sampling bug
+		librador_set_oscilloscope_gain(16);
+
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
@@ -197,6 +200,9 @@ class App : public AppBase<App>
 			// have a lot of shared responsibilities
 			PlotWidgetObj.setSize(ImVec2(plot_width, plot_height));
 			PlotWidgetObj.Render();
+
+			// Render Plot Settings Widget
+			PlotSettingsWidget.Render();
 			
 			ImGui::EndChild(); // End left column
 
@@ -225,8 +231,6 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
-			// Render Plot Settings Widget
-			PlotSettingsWidget.Render();
 
 			// Render Multimeter [REMOVED DUE TO LIMITED FUNCTIONALITY]
 			//MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
