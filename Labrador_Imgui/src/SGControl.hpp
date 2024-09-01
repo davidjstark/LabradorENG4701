@@ -12,7 +12,7 @@ class SGControl : public ControlWidget
 public:
 	
 	// Constructor
-	SGControl(std::string label, ImVec2 size, ImU32 accentColour, int channel)
+	SGControl(std::string label, ImVec2 size, const float* accentColour, int channel)
 	    : ControlWidget(label, size, accentColour)
 	    , channel(channel)
 	    , active(false)
@@ -45,7 +45,8 @@ public:
 		ImGui::SameLine();
 		ImGui::Text("   OFF");
 		ImGui::SameLine();
-		switched = ToggleSwitch((label + "_toggle").c_str(), &active, accentColour);
+		switched
+		    = ToggleSwitch((label + "_toggle").c_str(), &active, colourConvert(accentColour));
 		ImGui::SameLine();
 		ImGui::Text("ON");
 		
@@ -56,17 +57,6 @@ public:
 		    ((signals[signal_idx]->getLabel()) + " Wave Properties").c_str());
 		
 		switched = (signals[signal_idx]->renderControl()) || switched;	
-	}
-
-	/// <summary>
-	/// Render help message in popup window
-	/// </summary>
-	void renderHelp() override
-	{
-		ImGui::Text("HELP HERE");
-		// Pinout image
-		ImGui::Image((void*)constants::sg_pinout_texture,
-		    ImVec2(constants::pinout_width, constants::pinout_height));
 	}
 
 	/// <summary>

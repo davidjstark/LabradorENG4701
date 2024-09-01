@@ -7,7 +7,6 @@
 #include "PSUControl.hpp"
 #include "OSCControl.hpp"
 #include "SGControl.hpp"
-#include "MultimeterControl.hpp"
 #include "PlotWidget.hpp"
 #include "PlotControl.hpp"
 
@@ -73,20 +72,22 @@ class App : public AppBase<App>
 		GLuint psu_tmp_texture = 0;
 		GLuint sg_tmp_texture = 0;
 		GLuint osc_tmp_texture = 0;
-		int _not_needed = 0;
+		int w, h;
 
+		// All textures have the same width and height (for now)
 		bool psu_ret = LoadTextureFromFile(".\\misc\\media\\psu-pinout.png",
-			&psu_tmp_texture, &constants::pinout_width, &constants::pinout_height);
+			&psu_tmp_texture, &w, &h);
 
 		bool sg_ret = LoadTextureFromFile(".\\misc\\media\\sg-pinout.png",
-			&sg_tmp_texture, &_not_needed, &_not_needed);
+			&sg_tmp_texture, &w, &h);
 
 		bool osc_ret = LoadTextureFromFile(".\\misc\\media\\osc-pinout.png",
-			&osc_tmp_texture, &_not_needed, &_not_needed);
+			&osc_tmp_texture, &w, &h);
 
-		constants::psu_pinout_texture = (intptr_t)psu_tmp_texture;
-		constants::sg_pinout_texture = (intptr_t)sg_tmp_texture;
-		constants::osc_pinout_texture = (intptr_t)osc_tmp_texture;
+		PSUWidget.setPinoutImg((intptr_t)psu_tmp_texture, w, h);
+		SG1Widget.setPinoutImg((intptr_t)sg_tmp_texture, w, h);
+		SG2Widget.setPinoutImg((intptr_t)sg_tmp_texture, w, h);
+		PlotSettingsWidget.setPinoutImg((intptr_t)osc_tmp_texture, w, h);
 
 		IM_ASSERT(psu_ret);
 		IM_ASSERT(sg_ret);
@@ -109,7 +110,6 @@ class App : public AppBase<App>
 		std::stringstream buffer;
 		std::string line;
 		std::string curr_header = "";
-		bool found_header = false;
 
 		while (std::getline(file, line))
 		{
@@ -120,22 +120,23 @@ class App : public AppBase<App>
 				// Widget Label must be contained within README header
 				for (ControlWidget* w : widgets)
 				{
-					if (curr_header.find(w->getLabel()) != std::string::npos)
+					if ((w->getLabel()).find(curr_header) != std::string::npos)
 					{
 						w->setHelpText(buffer.str());
+						buffer.str("");
+						buffer.clear();
 					}
 				}
 				curr_header = line;
 			}
-			else if (line != "")
+			else if (line != "" && curr_header != "")
 			{
 				replace_all(line, "**", "");
 				buffer << line << '\n';
 			}
 		}
 		
-		
-
+		SetGlobalStyle();
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
@@ -270,11 +271,6 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
-
-			// Render Multimeter [REMOVED DUE TO LIMITED FUNCTIONALITY]
-			//MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
-			//MMWidget.Render();
-
 			// ImGui::PopStyleColor();
 
 			ImGui::EndChild(); // End right column
@@ -361,7 +357,7 @@ class App : public AppBase<App>
 	SGControl SG2Widget
 	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
 	OSCControl PlotSettingsWidget
-	    = OSCControl("Plot Settings", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
+	    = OSCControl("Plot Settings", ImVec2(0, 0), constants::OSC_ACCENT);
 	PlotWidget PlotWidgetObj 
 		= PlotWidget("Plot Widget",ImVec2(0, 0),&PlotSettingsWidget);
 	ControlWidget* widgets[4] = { &PSUWidget, &SG1Widget, &SG2Widget, &PlotSettingsWidget };

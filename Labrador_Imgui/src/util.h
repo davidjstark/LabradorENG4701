@@ -45,12 +45,13 @@ namespace constants
 {
 // Theme Colours
 constexpr ImU32 PRIM_LIGHT = IM_COL32(255, 255, 255, 255); // primary light
-constexpr ImU32 SG1_ACCENT = IM_COL32(42, 39, 212, 255);
-constexpr ImU32 SG2_ACCENT = IM_COL32(203, 100, 4, 255);
-constexpr ImU32 PSU_ACCENT = IM_COL32(190, 54, 54, 255);
+constexpr float SG1_ACCENT[3] = { 42. / 255, 39. / 255, 212. / 255 };
+constexpr float SG2_ACCENT[3] = { 203. / 255, 100. / 255, 4. / 255 };
+constexpr float PSU_ACCENT[3] = { 190. / 255, 54. / 255, 54. / 255 };
 constexpr ImVec4 GRAY_TEXT = ImVec4(0.6, 0.6, 0.6, 1);
-constexpr ImU32 OSC1_ACCENT = IM_COL32(230, 207, 2, 255);
-constexpr ImU32 OSC2_ACCENT = IM_COL32(255, 123, 250, 255);
+constexpr float OSC_ACCENT[3] = {0., 0., 0.};
+constexpr float OSC1_ACCENT[3] = { 230. / 255, 207. / 255, 2. / 255 };
+constexpr float OSC2_ACCENT[3] = { 255. / 255, 123. / 255, 250. / 255 };
 
     // Signal Generator Preview Waves
 constexpr char* wavetypes[4] = { "Sine", "Square", "Sawtooth", "Triangle" };
@@ -96,6 +97,9 @@ const std::vector<int> DIVISORS_375000 = { 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 
 
 void init_constants();
 void PreviewStyle();
+void SetControlWidgetStyle(const float ac[3]);
+void SetGlobalStyle();
+ImU32 colourConvert(const float c[3], float alpha=1.0f);
 void replace_all(
     std::string& s, std::string const& toReplace, std::string const& replaceWith);
 #endif

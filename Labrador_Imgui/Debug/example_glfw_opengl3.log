@@ -1,0 +1,7 @@
+﻿  main.cpp
+C:\University_offline\ENG4701\dev\examples\example_glfw_opengl3\main.cpp(81,24): warning C4244: '=': conversion from 'BOOL' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\dev\examples\example_glfw_opengl3\main.cpp(53,10): warning C4189: 'deviceCount': local variable is initialized but not referenced
+C:\University_offline\ENG4701\dev\examples\example_glfw_opengl3\main.cpp(135,42): warning C4244: '=': conversion from 'BOOL' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\dev\examples\example_glfw_opengl3\main.cpp(293,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\dev\examples\example_glfw_opengl3\main.cpp(295,40): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+  example_glfw_opengl3.vcxproj -> C:\University_offline\ENG4701\dev\examples\example_glfw_opengl3\Debug\example_glfw_opengl3.exe
