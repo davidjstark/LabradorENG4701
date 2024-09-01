@@ -54,6 +54,10 @@ class App : public AppBase<App>
 			SG1Widget.reset();
 			SG2Widget.reset();
 		}
+		librador_set_device_mode(2);
+		// need to move this somewhere better if we want to do this dynamically, but
+		// cannot run too often as this causes the usb sampling bug
+		librador_set_oscilloscope_gain(16);
 	}
 	
     // Anything that needs to be called once OUTSIDE of the main application loop
@@ -94,8 +98,6 @@ class App : public AppBase<App>
 
 		init_constants();
 
-		// need to move this somewhere better if we want to do this dynamically, but cannot run too often as this causes the usb sampling bug
-		librador_set_oscilloscope_gain(16);
 
     }
 

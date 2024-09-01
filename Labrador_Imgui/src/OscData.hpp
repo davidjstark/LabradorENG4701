@@ -12,7 +12,7 @@ public:
 	    : channel(channel)
 	{}
 
-	std::vector<double> GetData(bool paused, bool trigger=false,constants::TriggerType trigger_type=constants::TriggerType::FALLING_EDGE, double trigger_level=0,double trigger_hysteresis=0)
+	std::vector<double> GetData()
 	{
 		if (!paused)
 		{
@@ -66,6 +66,11 @@ public:
 					{
 						break;
 					}
+				    default:
+					{
+					    data = std::vector<double>(temp_data.begin(),
+					        temp_data.begin() + time_window * sample_rate_hz);
+					}
 				}
 			}
 			else
@@ -76,7 +81,7 @@ public:
 		}
 		return data;
 	}
-	std::vector<double> GetTime(double plot_min,bool paused)
+	std::vector<double> GetTime(double plot_min)
 	{
 		double time_step = time_window / data.size();
 		std::vector<double> time(data.size());
@@ -90,30 +95,30 @@ public:
 		    { return n++ * time_step + local_time_start; });
 		return time;
 	}
-	void SetTimeWindow(double t,bool paused)
+	void SetTimeWindow(double t)
 	{
 		if (!paused)
 		{
 			time_window = t;
 		}
 	}
-	double CalculateSampleRate()
+	void SetTrigger(bool trigger,
+	    constants::TriggerType trigger_type = constants::TriggerType::RISING_EDGE,
+	    double trigger_level = 0, double trigger_hysteresis = 0)
 	{
-		double sample_rate = max_plot_samples / time_window;
-		for (auto i = constants::DIVISORS_375000.rbegin(); i != constants::DIVISORS_375000.rend(); ++i)
-		{
-			int divisor = *i;
-			if (sample_rate > divisor)
-			{
-				return divisor;
-			}
-		}
-		return 1;
+		this->trigger = trigger;
+		this->trigger_type = trigger_type;
+		this->trigger_level = trigger_level;
+		this->trigger_hysteresis = trigger_hysteresis;
+	}
+	void SetPaused(bool paused)
+	{
+		this->paused = paused;
 	}
 
 private:
-	double time_window=0;
-	double time_start=0;
+	double time_window = 0;
+	double time_start = 0;
 	std::vector<double> time = {};
 	std::vector<double> data = {};
 	int channel;
@@ -123,6 +128,26 @@ private:
 	double trigger_timeout = 0.02; // seconds
 	int max_plot_samples = 2048;
 	double max_sample_rate = 375000;
+	// osc control parameters
+	bool paused = false;
+	bool trigger = false;
+	constants::TriggerType trigger_type = constants::TriggerType::RISING_EDGE;
+	double trigger_level = 0;
+	double trigger_hysteresis;
+	double CalculateSampleRate()
+	{
+		double sample_rate = max_plot_samples / time_window;
+		for (auto i = constants::DIVISORS_375000.rbegin();
+		     i != constants::DIVISORS_375000.rend(); ++i)
+		{
+			int divisor = *i;
+			if (sample_rate > divisor)
+			{
+				return divisor;
+			}
+		}
+		return 1;
+	}
 };
 
 

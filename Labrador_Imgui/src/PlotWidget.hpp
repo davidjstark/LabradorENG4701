@@ -19,7 +19,7 @@ public:
 	/// </summary>
 	/// <param name="label">Name of controller</param>
 	/// <param name="size">Child window size</param>
-	PlotWidget(const char* label, ImVec2 size,OSCControl* osc_control)
+	PlotWidget(const char* label, ImVec2 size, OSCControl* osc_control)
 	    : label(label)
 		, size(size)
 	    , osc_control(osc_control)
@@ -41,8 +41,14 @@ public:
 	void Render()
 	{
 		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255, 255, 255, 255));
-		std::vector<double> analog_data_osc1 = OSC1Data.GetData(osc_control->Paused,osc_control->Trigger,constants::TriggerType::RISING_EDGE,1.5,0.25);
-		std::vector<double> analog_data_osc2 = OSC2Data.GetData(osc_control->Paused);
+		OSC1Data.SetTrigger(osc_control->Trigger, osc_control->TriggerType,
+		    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+		OSC2Data.SetTrigger(osc_control->Trigger, osc_control->TriggerType,
+		    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+		OSC1Data.SetPaused(osc_control->Paused);
+		OSC2Data.SetPaused(osc_control->Paused);
+		std::vector<double> analog_data_osc1 = OSC1Data.GetData();
+		std::vector<double> analog_data_osc2 = OSC2Data.GetData();
 		if (osc_control->AutofitNext)
 		{
 			ImPlot::SetNextAxesToFit();
@@ -50,29 +56,29 @@ public:
 		}
 		ImPlot::SetNextAxesLimits(init_time_range_lower, init_time_range_upper,
 		    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Once);
-		if (ImPlot::BeginPlot("##Oscilloscopes",size,ImPlotFlags_NoFrame))
+		if (ImPlot::BeginPlot("##Oscilloscopes", ImVec2(ImGui::GetContentRegionAvail().x,size.y), ImPlotFlags_NoFrame))
 		{
 			ImPlot::SetupAxes("", "",
 			ImPlotAxisFlags_NoLabel,
 			ImPlotAxisFlags_NoLabel);
 			std::vector<double> time_osc1
-				= OSC1Data.GetTime(ImPlot::GetPlotLimits().X.Min,osc_control->Paused);
+				= OSC1Data.GetTime(ImPlot::GetPlotLimits().X.Min);
 			ImPlot::SetNextLineStyle(osc_control->OSC1Colour.Value);
 			if (osc_control->DisplayCheckOSC1)
 			{
 				ImPlot::PlotLine("##Osc 1", time_osc1.data(),
 					analog_data_osc1.data(), analog_data_osc1.size());
 			}
-			OSC1Data.SetTimeWindow(ImPlot::GetPlotLimits().X.Size(), osc_control->Paused);
+			OSC1Data.SetTimeWindow(ImPlot::GetPlotLimits().X.Size());
 			std::vector<double> time_osc2
-				= OSC2Data.GetTime(ImPlot::GetPlotLimits().X.Min, osc_control->Paused);
+				= OSC2Data.GetTime(ImPlot::GetPlotLimits().X.Min);
 			ImPlot::SetNextLineStyle(osc_control->OSC2Colour.Value);
 			if (osc_control->DisplayCheckOSC2)
 			{
 				ImPlot::PlotLine("##Osc 2", time_osc2.data(),
 					analog_data_osc2.data(), analog_data_osc2.size());
 			}
-			OSC2Data.SetTimeWindow(ImPlot::GetPlotLimits().X.Size(), osc_control->Paused);
+			OSC2Data.SetTimeWindow(ImPlot::GetPlotLimits().X.Size());
 			ImPlot::EndPlot();
 		}
 		ImGui::PopStyleColor();

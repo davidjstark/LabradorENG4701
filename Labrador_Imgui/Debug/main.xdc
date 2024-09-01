@@ -82,17 +82,17 @@ Generic Slider with Units
 <summary>Oscilloscope Control Widget
 </summary>
 </member>
-<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="29">
+<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="33">
 <summary> 
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.renderHelp" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="59">
+<member name="M:OSCControl.renderHelp" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="74">
 <summary>
 Render help message in popup window
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="71">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="86">
 <summary>
 Control sampling settings on labrador board
 </summary>
