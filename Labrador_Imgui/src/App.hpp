@@ -307,8 +307,8 @@ class App : public AppBase<App>
     {
         // For Dear ImGui to work it is necessary to queue if the mouse signal is already processed by Dear ImGui
         // Only if the mouse is not already captured it should be used here.
-        ImGuiIO& io = ImGui::GetIO();
-        if (!io.WantCaptureMouse)
+        ImGuiIO& ioa = ImGui::GetIO();
+        if (!ioa.WantCaptureMouse)
         {
         }
     }
