@@ -97,6 +97,45 @@ class App : public AppBase<App>
 		// need to move this somewhere better if we want to do this dynamically, but cannot run too often as this causes the usb sampling bug
 		librador_set_oscilloscope_gain(16);
 
+		// Load documentation
+		std::string filename = "README.md";
+		std::ifstream file(filename);
+
+		if (!file.is_open())
+		{
+			throw std::runtime_error("Unable to open file: " + filename);
+		}
+
+		std::stringstream buffer;
+		std::string line;
+		std::string curr_header = "";
+		bool found_header = false;
+
+		while (std::getline(file, line))
+		{
+			if (line.compare(0, 4, "### ") == 0)
+			{
+				line.erase(0, 4);
+				// Write the current buffer to the correct widget
+				// Widget Label must be contained within README header
+				for (ControlWidget* w : widgets)
+				{
+					if (curr_header.find(w->getLabel()) != std::string::npos)
+					{
+						w->setHelpText(buffer.str());
+					}
+				}
+				curr_header = line;
+			}
+			else if (line != "")
+			{
+				replace_all(line, "**", "");
+				buffer << line << '\n';
+			}
+		}
+		
+		
+
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
@@ -325,6 +364,7 @@ class App : public AppBase<App>
 	    = OSCControl("Plot Settings", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
 	PlotWidget PlotWidgetObj 
 		= PlotWidget("Plot Widget",ImVec2(0, 0),&PlotSettingsWidget);
+	ControlWidget* widgets[4] = { &PSUWidget, &SG1Widget, &SG2Widget, &PlotSettingsWidget };
 
 };
 

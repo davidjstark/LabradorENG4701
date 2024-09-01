@@ -1,6 +1,7 @@
 #pragma once
 #include "imgui.h"
 #include <string>
+#include <sstream>
 
 /// <summary>
 /// Abstract class that draws child that can be populated by a control widget
@@ -57,6 +58,7 @@ public:
 
 		if (ImGui::BeginPopup(help_popup_id.c_str(), ImGuiWindowFlags_NoResize))
 		{
+			renderHelpText();
 			renderHelp();
 			
 			if (ImGui::Button("Close"))
@@ -92,6 +94,80 @@ public:
 		return accentColour;
 	}
 
+	std::string getLabel()
+	{
+		return label;
+	}
+
+	void setHelpText(std::string text)
+	{
+		help_text = text;
+	}
+
+	void renderHelpText()
+	{
+		std::stringstream ss(help_text);
+		std::string line;
+		std::string next_header = "";
+		std::string to_write = "";
+		while (std::getline(ss, line))
+		{
+			if (line.compare(0, 5, "#### ") == 0 || (next_header != "" && next_header != "End"))
+			{
+				if (next_header != "")
+				{
+					to_write = line;
+					line = next_header;
+					next_header = "";
+				}
+				else
+				{
+					line.erase(0, 5);
+				}
+
+				ImGui::SetNextItemOpen(true, ImGuiCond_Once);
+				
+				if (ImGui::TreeNode(line.c_str()))
+				{
+					if (to_write != "")
+					{
+						if (to_write.compare(0, 2, "- ") == 0)
+						{
+							to_write.erase(0, 2);
+							ImGui::BulletText(to_write.c_str());
+						}
+						else
+						{
+							ImGui::Text(to_write.c_str());
+						}
+					}
+					while (std::getline(ss, line))
+					{
+						if (line.compare(0, 5, "#### ") == 0)
+						{
+							line.erase(0, 5);
+							next_header = line;
+							break;
+						}
+						else
+						{
+							if (line.compare(0, 2, "- ") == 0)
+							{
+								line.erase(0, 2);
+								ImGui::BulletText(line.c_str());
+							}
+							else
+							{
+								ImGui::Text(line.c_str());
+							}
+						}
+					}
+					ImGui::TreePop();
+				}
+			}
+		}
+	}
+
 	// Customise for each widget, see PSUControl.hpp for example
 	virtual void renderControl() = 0;
 	virtual void renderHelp() = 0;
@@ -102,8 +178,10 @@ protected:
 	const std::string label;
 	ImVec2 size;
 	const ImU32 accentColour;
+	std::string help_text;
 
 private:
 	const std::string help_popup_id;
 	float WidgetHeight = 0;
+	
 };

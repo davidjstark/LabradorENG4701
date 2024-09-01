@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="libs\imgui\.editorconfig" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Librador_API\___librador\librador_shared_library\librador.h" />
