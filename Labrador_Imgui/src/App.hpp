@@ -94,6 +94,9 @@ class App : public AppBase<App>
 
 		init_constants();
 
+		// need to move this somewhere better if we want to do this dynamically, but cannot run too often as this causes the usb sampling bug
+		librador_set_oscilloscope_gain(16);
+
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
@@ -198,26 +201,8 @@ class App : public AppBase<App>
 			PlotWidgetObj.setSize(ImVec2(plot_width, plot_height));
 			PlotWidgetObj.Render();
 
-			// Render Oscilloscope controls
-			// Left Sub Columns
-			float sub_column_width = (plot_width - 2 * padding) / 3;
-			// Oscilloscope 1
-			ImGui::BeginChild("OSC1 Child", ImVec2(sub_column_width, 0),false);
-			OSC1Widget.setSize(ImVec2(sub_column_width, 0));
-			OSC1Widget.Render();
-			ImGui::EndChild();
-			// Oscilloscope 2
-			ImGui::SameLine();
-			ImGui::BeginChild("OSC2 Child", ImVec2(sub_column_width, 0), false);
-			OSC2Widget.setSize(ImVec2(sub_column_width, 0));
-			OSC2Widget.Render();
-			ImGui::EndChild();
-			// Plot
-			ImGui::SameLine();
-			ImGui::BeginChild("Plot Controls Child", ImVec2(sub_column_width, 0), false);
-			PlotControlWidget.setSize(ImVec2(sub_column_width, 0));
-			PlotControlWidget.Render();
-			ImGui::EndChild();
+			// Render Plot Settings Widget
+			PlotSettingsWidget.Render();
 			
 			ImGui::EndChild(); // End left column
 
@@ -245,6 +230,7 @@ class App : public AppBase<App>
 			// Render Signal Gen 2
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
+
 
 			// Render Multimeter [REMOVED DUE TO LIMITED FUNCTIONALITY]
 			//MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
@@ -335,14 +321,10 @@ class App : public AppBase<App>
 	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
 	SGControl SG2Widget
 	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
-	OSCControl OSC1Widget
-	    = OSCControl("OSC1 Settings", ImVec2(0, 0), constants::OSC1_ACCENT,1);
-	OSCControl OSC2Widget
-	    = OSCControl("OSC2 Settings", ImVec2(0, 0), constants::OSC2_ACCENT,2);
-	PlotControl PlotControlWidget
-	    = PlotControl("Plot Control", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
+	OSCControl PlotSettingsWidget
+	    = OSCControl("Plot Settings", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
 	PlotWidget PlotWidgetObj 
-		= PlotWidget("Plot Widget",ImVec2(0, 0),&OSC1Widget,&OSC2Widget);
+		= PlotWidget("Plot Widget",ImVec2(0, 0),&PlotSettingsWidget);
 
 };
 

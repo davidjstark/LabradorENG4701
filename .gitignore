@@ -3,6 +3,7 @@
 *.obj
 /Desktop_Interface/android-build
 *.exe
+!JumpToBootloader/x64/Release/JumpToBootloader.exe
 Desktop_Interface/bin/libLabrador.so
 Desktop_Interface/build_android/package_source/gradle.properties
 *.properties~

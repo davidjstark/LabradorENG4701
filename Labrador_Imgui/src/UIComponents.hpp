@@ -6,8 +6,11 @@
 #include <iostream>
 
 
-bool inline PauseButton(const char* id, float radius, bool* state, ImU32 accentColour)
+bool inline PauseButton(const char* id, float radius, bool* state)
 {
+	ImU32 accentColour = IM_COL32(240,240,240, 255);
+	ImU32 pp_col = IM_COL32(0, 0, 0, 255);
+
 	ImVec2 p = ImGui::GetCursorScreenPos();
 	ImDrawList* draw_list = ImGui::GetWindowDrawList();
 	bool switched = false;
@@ -19,25 +22,26 @@ bool inline PauseButton(const char* id, float radius, bool* state, ImU32 accentC
 		switched = true;
 	}
 	ImColor im_col_bg = ImColor(accentColour);
+	ImColor im_pp_col = ImColor(pp_col);
+	float mul = 1.0;
 	if (ImGui::IsItemActive())
 	{
-		float mul = 4.0/5;
-		im_col_bg.Value.x =  mul * im_col_bg.Value.x > 1 ? 1 : mul * im_col_bg.Value.x;
-		im_col_bg.Value.y = mul * im_col_bg.Value.y > 1 ? 1 : mul * im_col_bg.Value.y;
-		im_col_bg.Value.z = mul * im_col_bg.Value.z > 1 ? 1 : mul * im_col_bg.Value.z;
+		mul = 4.0/5;
 	}
 	else if (ImGui::IsItemHovered())
 	{
-		float mul = 5.0/4;
-		im_col_bg.Value.x = mul * im_col_bg.Value.x > 1 ? 1 : mul * im_col_bg.Value.x;
-		im_col_bg.Value.y = mul * im_col_bg.Value.y > 1 ? 1 : mul * im_col_bg.Value.y;
-		im_col_bg.Value.z = mul * im_col_bg.Value.z > 1 ? 1 : mul * im_col_bg.Value.z;
+		mul = 5.0/4;
 	}
+	im_col_bg.Value.x = mul * im_col_bg.Value.x > 1 ? 1 : mul * im_col_bg.Value.x;
+	im_col_bg.Value.y = mul * im_col_bg.Value.y > 1 ? 1 : mul * im_col_bg.Value.y;
+	im_col_bg.Value.z = mul * im_col_bg.Value.z > 1 ? 1 : mul * im_col_bg.Value.z;
+	/*im_pp_col.Value.x = mul * im_pp_col.Value.x > 1 ? 1 : mul * im_pp_col.Value.x;
+	im_pp_col.Value.y = mul * im_pp_col.Value.y > 1 ? 1 : mul * im_pp_col.Value.y;
+	im_pp_col.Value.z = mul * im_pp_col.Value.z > 1 ? 1 : mul * im_pp_col.Value.z;*/
 	ImU32 col_bg = ImU32(im_col_bg);
+	pp_col = ImU32(im_pp_col);
 
 	draw_list->AddCircleFilled(ImVec2(p.x,p.y), radius, col_bg);
-
-	ImU32 pp_col = IM_COL32(0, 0, 0, 255);
 
 	if (*state)
 	{
