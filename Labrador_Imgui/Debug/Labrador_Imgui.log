@@ -69,6 +69,13 @@ C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(82,5): message : while compiling class template member function 'AppBase<App>::AppBase(void)'
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(29,8): message : see the first reference to 'AppBase<App>::AppBase' in 'App::App'
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(26,20): message : see reference to class template instantiation 'AppBase<App>' being compiled
+  util.cpp
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,37): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(67,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(68,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.cpp(18,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   LINK : C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe not found or not built by the last incremental link; performing full link
 LINK : warning LNK4217: symbol 'vsnprintf' defined in 'implot_demo.obj' is imported by 'glfw3.lib(init.obj)' in function '_glfwInputError'
