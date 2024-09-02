@@ -11,6 +11,8 @@
 class ControlWidget
 {
 public:
+	bool show_help = false;
+
 	/// <summary>
 	/// Constructor
 	/// </summary>
@@ -70,17 +72,10 @@ public:
 			ImGui::SetNextWindowPos(pos, ImGuiCond_Always, ImVec2(0.5f, 0.5f));
 			ImGui::SetNextWindowSize(pos, ImGuiCond_Always);
 
-			ImGui::OpenPopup(help_popup_id.c_str());
-			
+			show_help = true;
+			renderHelp();	
 		}
-		
-		if (BeginHelpPopup(help_popup_id.c_str(), ImGuiWindowFlags_None))
-		{
-			renderHelp();
-			//if (ImGui::Button("Close"))
-			//	ImGui::CloseCurrentPopup();
-			ImGui::EndPopup();
-		}
+
 		// Widget Body
 		if (treeopen)
 		{
@@ -131,8 +126,18 @@ public:
 	{
 		// Render Help Text from markdown format 
 		// Edit README.md to change help popup content
-
-		ImGui::Text((label + " Help").c_str());
+		if (!ImGui::Begin((help_popup_id).c_str(), &show_help))
+		{
+			ImGui::End();
+			return;
+		}
+		if (!ImGui::IsWindowFocused())
+		{
+			show_help = false;
+			ImGui::End();
+			return;
+		}
+		// ImGui::Text((label + " Help").c_str());
 
 		std::stringstream ss(help_text);
 		std::string line;
@@ -202,11 +207,14 @@ public:
 			    ImVec2(pinout_width, pinout_height));
 			ImGui::TreePop();
 		}
+
+		ImGui::End();
 		
 	}
 
 	bool BeginHelpPopup(const char* str_id, ImGuiWindowFlags flags)
 	{
+		
 		ImGuiContext& g = *GImGui;
 		if (g.OpenPopupStack.Size <= g.BeginPopupStack.Size) // Early out for performance
 		{
@@ -230,6 +238,7 @@ protected:
 	
 private:
 	const std::string help_popup_id;
+	
 	float WidgetHeight = 0;
 	std::string help_text;
 	intptr_t pinout_texture;

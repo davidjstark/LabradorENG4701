@@ -10,7 +10,7 @@ Handles conversion of unit and labelling.
 Abstract class that draws child that can be populated by a control widget
 </summary>
 </member>
-<member name="M:ControlWidget.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,ImVec2,System.Single!System.Runtime.CompilerServices.IsConst*)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="14">
+<member name="M:ControlWidget.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,ImVec2,System.Single!System.Runtime.CompilerServices.IsConst*)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="16">
 <summary>
 Constructor
 </summary>
@@ -18,13 +18,13 @@ Constructor
 <param name="size">Child window size</param>
 <param name="borderColor">Accent colour</param>
 </member>
-<member name="M:ControlWidget.setSize(ImVec2)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="31">
+<member name="M:ControlWidget.setSize(ImVec2)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="33">
 <summary>
 Update size of child window
 </summary>
 <param name="new_size">New size</param>
 </member>
-<member name="M:ControlWidget.Render" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="40">
+<member name="M:ControlWidget.Render" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="42">
 <summary>
 Generic function to render control widget with correct style
 </summary>
@@ -133,26 +133,26 @@ Set the Signal Generator on the labrador board.
 Square Signal Generator Widget
 </summary>
 </member>
-<member name="M:SquareSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="231">
+<member name="M:SquareSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="238">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:SawtoothSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="241">
+<member name="T:SawtoothSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="301">
 <summary>
 Sawtooth Signal Generator Widget
 </summary>
 </member>
-<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="293">
+<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="353">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:TriangleSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="303">
+<member name="T:TriangleSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="363">
 <summary>Triangle Signal Generator Widget
 </summary>
 </member>
-<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="354">
+<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="414">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>

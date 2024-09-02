@@ -95,6 +95,12 @@ const std::vector<int> DIVISORS_375000 = { 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 
 	18750, 25000, 31250, 37500, 46875, 62500, 75000, 93750, 125000, 187500, 375000 };
 }
 
+struct TreeNode
+{
+	std::string name;
+	std::vector<std::string> bullets;
+};
+
 void init_constants();
 void PreviewStyle();
 void SetControlWidgetStyle(const float ac[3]);

@@ -9,7 +9,7 @@
 #include "SGControl.hpp"
 #include "PlotWidget.hpp"
 #include "PlotControl.hpp"
-
+#include "HelpWindow.hpp"
 #include "util.h"
 
 // #define IMGUI_DEFINE_MATH_OPERATORS
@@ -155,6 +155,7 @@ class App : public AppBase<App>
 
 			// Menu Bar
 			static bool showDemoWindows = false;
+			static bool showHelpWindow = false;
 			if (ImGui::BeginMenuBar())
 			{
 				// Demo windows for styling/docs [TODO: REMOVE in finished product]
@@ -172,18 +173,18 @@ class App : public AppBase<App>
 						// Print firmware info
 						uint16_t deviceVersion = librador_get_device_firmware_version();
 						uint8_t deviceVariant = librador_get_device_firmware_variant();
-						ImGui::MenuItem("Help");
 						ImGui::TextColored(constants::GRAY_TEXT, "Version: %hu", deviceVersion);
 						ImGui::TextColored(constants::GRAY_TEXT, "Firmware: %hhu", deviceVariant);
-						
-					
 					}
 					else
 					{
-						ImGui::MenuItem("Help");
 						ImGui::TextColored(constants::GRAY_TEXT, "No Labrador board detected");
 					}
-					    
+					ImGui::EndMenu();
+				}
+				if (ImGui::BeginMenu("Help"))
+				{
+					ImGui::MenuItem("User Guide", NULL, &showHelpWindow);
 					ImGui::EndMenu();
 				}
 
@@ -298,7 +299,11 @@ class App : public AppBase<App>
 				ImGui::ShowDemoWindow();
 				ImPlot::ShowDemoWindow();
 			}
-				
+			if (showHelpWindow) renderHelpWindow(&showHelpWindow);
+			for (ControlWidget* w : widgets)
+			{
+				if (w->show_help) w->renderHelp();
+			}
 		}
 		frames++;
     }
