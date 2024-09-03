@@ -41,12 +41,7 @@ public:
 	void Render()
 	{
 		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255, 255, 255, 255));
-		OSC1Data.SetTrigger(osc_control->Trigger, osc_control->TriggerType,
-		    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
-		OSC2Data.SetTrigger(osc_control->Trigger, osc_control->TriggerType,
-		    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
-		OSC1Data.SetPaused(osc_control->Paused);
-		OSC2Data.SetPaused(osc_control->Paused);
+		UpdateOscData();
 		std::vector<double> analog_data_osc1 = OSC1Data.GetData();
 		std::vector<double> analog_data_osc2 = OSC2Data.GetData();
 		if (osc_control->AutofitNext)
@@ -82,6 +77,31 @@ public:
 			ImPlot::EndPlot();
 		}
 		ImGui::PopStyleColor();
+	}
+
+	void UpdateOscData()
+	{
+		OSC1Data.SetPaused(osc_control->Paused);
+		OSC2Data.SetPaused(osc_control->Paused);
+		OSC1Data.SetRawData();
+		OSC2Data.SetRawData();
+		constants::Channel trigger_channel
+		    = maps::ComboItemToChannelTriggerPair.at(osc_control->TriggerTypeComboCurrentItem).channel;
+		constants::TriggerType trigger_type
+		    = maps::ComboItemToChannelTriggerPair.at(osc_control->TriggerTypeComboCurrentItem).trigger_type;
+		double trigger_time = 0;
+		if (trigger_channel == constants::Channel::OSC1)
+		{
+			trigger_time = OSC1Data.GetTriggerTime(osc_control->Trigger, trigger_type,
+			    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+		}
+		if (trigger_channel == constants::Channel::OSC2)
+		{
+			trigger_time = OSC2Data.GetTriggerTime(osc_control->Trigger, trigger_type,
+			    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+		}
+		OSC1Data.SetTriggerTime(trigger_time);
+		OSC2Data.SetTriggerTime(trigger_time);
 	}
 
 

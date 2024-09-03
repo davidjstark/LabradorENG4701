@@ -6,6 +6,8 @@ float constants::square_preview[constants::PREVIEW_RES];
 float constants::sawtooth_preview[constants::PREVIEW_RES];
 float constants::triangle_preview[constants::PREVIEW_RES];
 
+
+
 /// <summary>
 /// Initialise global preview arrays
 /// </summary>

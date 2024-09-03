@@ -1,4 +1,5 @@
 // Source: https://github.com/ZenSepiol/Dear-ImGui-App-Framework/blob/main/src/app/sample_app/app.hpp
+#pragma once
 #include "AppBase.hpp"
 #include "implot_internal.h"
 #include <iostream>

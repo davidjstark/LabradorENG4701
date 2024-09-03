@@ -1,13 +1,13 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#pragma once
+#include <map>
 #include "imgui.h"
-#define _USE_MATH_DEFINES
-#include "math.h"
 #include <string>
 #include "implot.h"
 #include <vector>
+#define _USE_MATH_DEFINES
+#include "math.h"
 
 /// <summary>
 /// Handles conversion of unit and labelling.
@@ -82,12 +82,38 @@ enum TriggerType
 	RISING_EDGE,
 	FALLING_EDGE
 };
+enum Channel
+{
+	OSC1 = 1,
+	OSC2 = 2
+};
 
 // Sample Rate Divisor List
 const std::vector<int> DIVISORS_375000 = { 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 25,
 	30, 40, 50, 60, 75, 100, 120, 125, 150, 200, 250, 300, 375, 500, 600, 625, 750, 1000,
 	1250, 1500, 1875, 2500, 3000, 3125, 3750, 5000, 6250, 7500, 9375, 12500, 15000, 15625,
 	18750, 25000, 31250, 37500, 46875, 62500, 75000, 93750, 125000, 187500, 375000 };
+}
+namespace maps
+{
+class ChannelTriggerPair
+{
+public:
+	constants::Channel channel;
+	constants::TriggerType trigger_type;
+	ChannelTriggerPair(constants::Channel channel, constants::TriggerType trigger_type)
+	{
+		this->channel = channel;
+		this->trigger_type = trigger_type;
+	}
+};
+// map between trigger type combo item number, and channel trigger type pair
+const std::map<int, maps::ChannelTriggerPair> ComboItemToChannelTriggerPair = {
+	{ 0, maps::ChannelTriggerPair(constants::Channel::OSC1, constants::TriggerType::RISING_EDGE) },
+	{ 1, maps::ChannelTriggerPair(constants::Channel::OSC1, constants::TriggerType::FALLING_EDGE) },
+	{ 2, maps::ChannelTriggerPair(constants::Channel::OSC2, constants::TriggerType::RISING_EDGE) },
+	{ 3, maps::ChannelTriggerPair(constants::Channel::OSC2, constants::TriggerType::FALLING_EDGE) }
+};
 }
 
 void init_constants();

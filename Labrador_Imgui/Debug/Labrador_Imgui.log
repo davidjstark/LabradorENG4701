@@ -1,14 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  UIComponents.hpp
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,37): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(67,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(68,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(29,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(49,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(79,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(108): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
   main.cpp
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(54,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador_global.h(7,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -19,10 +9,10 @@ C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(68,27): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp(35,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp(35,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(29,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(49,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(79,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(108): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(30,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(50,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(80,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(109): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(82,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(82,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(43,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -30,56 +20,37 @@ C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(10,7): message : see declaration of 'GenericSignal'
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(69,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(69,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(51,52): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(60,51): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(72,46): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(79,57): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(87,23): warning C4458: declaration of 'time' hides class member
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(122,22): message : see declaration of 'OscData::time'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(105,23): warning C4458: declaration of 'trigger' hides class member
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(133,7): message : see declaration of 'OscData::trigger'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(106,29): warning C4458: declaration of 'trigger_type' hides class member
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(134,25): message : see declaration of 'OscData::trigger_type'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(107,13): warning C4458: declaration of 'trigger_level' hides class member
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(135,9): message : see declaration of 'OscData::trigger_level'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(107,39): warning C4458: declaration of 'trigger_hysteresis' hides class member
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(136,9): message : see declaration of 'OscData::trigger_hysteresis'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(114,22): warning C4458: declaration of 'paused' hides class member
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(132,7): message : see declaration of 'OscData::paused'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(70,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(79,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(47,40): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(47,101): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(54,23): warning C4458: declaration of 'time' hides class member
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(157,22): message : see declaration of 'OscData::time'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(138,29): warning C4458: declaration of 'trigger_time' hides class member
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(164,9): message : see declaration of 'OscData::trigger_time'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(145,32): warning C4458: declaration of 'trigger_timeout' hides class member
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(163,9): message : see declaration of 'OscData::trigger_timeout'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(149,22): warning C4458: declaration of 'paused' hides class member
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(168,7): message : see declaration of 'OscData::paused'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(65,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(74,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PlotControl.hpp(34,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\PlotControl.hpp(34,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(167,53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(167,24): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(191,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(284,85): warning C4100: 'mods': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(284,73): warning C4100: 'action': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(284,61): warning C4100: 'button': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(284,49): warning C4100: 'window': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(294,75): warning C4100: 'ypos': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(294,62): warning C4100: 'xpos': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(294,47): warning C4100: 'window': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(304,89): warning C4100: 'mods': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(304,76): warning C4100: 'actions': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(304,62): warning C4100: 'scancode': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(304,53): warning C4100: 'key': unreferenced formal parameter
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(304,41): warning C4100: 'window': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(168,53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(168,24): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(192,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(285,85): warning C4100: 'mods': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(285,73): warning C4100: 'action': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(285,61): warning C4100: 'button': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(285,49): warning C4100: 'window': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(295,75): warning C4100: 'ypos': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(295,62): warning C4100: 'xpos': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(295,47): warning C4100: 'window': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(305,89): warning C4100: 'mods': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(305,76): warning C4100: 'actions': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(305,62): warning C4100: 'scancode': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(305,53): warning C4100: 'key': unreferenced formal parameter
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(305,41): warning C4100: 'window': unreferenced formal parameter
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(197,33): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(82,5): message : while compiling class template member function 'AppBase<App>::AppBase(void)'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(29,8): message : see the first reference to 'AppBase<App>::AppBase' in 'App::App'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(26,20): message : see reference to class template instantiation 'AppBase<App>' being compiled
-  util.cpp
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,47): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(47,37): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(67,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.h(68,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\util.cpp(18,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  LINK : C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe not found or not built by the last incremental link; performing full link
-LINK : warning LNK4217: symbol 'vsnprintf' defined in 'implot_demo.obj' is imported by 'glfw3.lib(init.obj)' in function '_glfwInputError'
-LINK : warning LNK4286: symbol 'vsnprintf' defined in 'implot_demo.obj' is imported by 'MSVCRTD.lib(vsnprintf.obj)'
-LINK : warning LNK4217: symbol 'sscanf' defined in 'imgui_impl_opengl3.obj' is imported by 'glfw3.lib(context.obj)' in function 'parseVersionString'
-LINK : warning LNK4286: symbol '_vsnprintf' defined in 'imgui.obj' is imported by 'MSVCRTD.lib(vsnprintf.obj)'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(30,8): message : see the first reference to 'AppBase<App>::AppBase' in 'App::App'
+C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\App.hpp(27,20): message : see reference to class template instantiation 'AppBase<App>' being compiled
   Labrador_Imgui.vcxproj -> C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe

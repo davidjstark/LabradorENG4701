@@ -14,15 +14,15 @@ public:
 	bool DisplayCheckOSC2 = true;
 	/*int KSComboCurrentItem = 0;
 	int AttenComboCurrentItem = 0;*/
-	int TriggerTypeComboCurrentItem;
+
+	int TriggerTypeComboCurrentItem = 0;
 	float OffsetVal = 0.0f;
 	bool ACCoupledCheck = false;
 	bool Paused = false;
 	bool AutofitNext = false;
 	bool Trigger = false;
-	float TriggerLevel = 0;
+	float TriggerLevel = 1.5;
 	double TriggerHysteresis = 0.25;
-	constants::TriggerType TriggerType;
 	// Public consts
 	ImColor OSC1Colour = ImColor(constants::OSC1_ACCENT);
 	ImColor OSC2Colour = ImColor(constants::OSC2_ACCENT);
@@ -96,7 +96,7 @@ private:
 	// ImGui const data
 	const std::string label;
 	int channel;
-	int right_column_width = 300;
+	int right_column_width = 350;
 	float TriggerTypeComboWidth = 100.0;
 	float TriggerLevelSliderWidth = 100.0;
 	// Drop down content

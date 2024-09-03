@@ -48,7 +48,7 @@ Render help message in popup window
 Set the Power Supply Voltage on the labrador board.
 </summary>
 </member>
-<member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="68">
+<member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="69">
 <summary>
 Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 </summary>
@@ -56,7 +56,7 @@ Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 <param name="state"></param>
 <param name="accentColour"></param>
 </member>
-<member name="M:DropDown(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte*!System.Runtime.CompilerServices.IsConst*,System.Int32*,System.Int32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="144">
+<member name="M:DropDown(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte*!System.Runtime.CompilerServices.IsConst*,System.Int32*,System.Int32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="145">
 <summary>
 Generic dropdown for list of strings
 </summary>
@@ -66,7 +66,7 @@ Generic dropdown for list of strings
 <param name="size"></param>
 <returns></returns>
 </member>
-<member name="M:renderSliderwUnits(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single*,System.Single,System.Single,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,Unit*!System.Runtime.CompilerServices.IsConst*,System.Int32*)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="177">
+<member name="M:renderSliderwUnits(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single*,System.Single,System.Single,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,Unit*!System.Runtime.CompilerServices.IsConst*,System.Int32*)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="178">
 <summary>
 Generic Slider with Units
 </summary>
