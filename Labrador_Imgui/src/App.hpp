@@ -9,7 +9,6 @@
 #include "SGControl.hpp"
 #include "PlotWidget.hpp"
 #include "PlotControl.hpp"
-#include "HelpWindow.hpp"
 #include "util.h"
 
 // #define IMGUI_DEFINE_MATH_OPERATORS
@@ -98,43 +97,8 @@ class App : public AppBase<App>
 		// need to move this somewhere better if we want to do this dynamically, but cannot run too often as this causes the usb sampling bug
 		librador_set_oscilloscope_gain(16);
 
-		// Load documentation
-		std::string filename = "README.md";
-		std::ifstream file(filename);
-
-		if (!file.is_open())
-		{
-			throw std::runtime_error("Unable to open file: " + filename);
-		}
-
-		std::stringstream buffer;
-		std::string line;
-		std::string curr_header = "";
-
-		while (std::getline(file, line))
-		{
-			if (line.compare(0, 4, "### ") == 0)
-			{
-				line.erase(0, 4);
-				// Write the current buffer to the correct widget
-				// Widget Label must be contained within README header
-				for (ControlWidget* w : widgets)
-				{
-					if ((w->getLabel()).find(curr_header) != std::string::npos)
-					{
-						w->setHelpText(buffer.str());
-						buffer.str("");
-						buffer.clear();
-					}
-				}
-				curr_header = line;
-			}
-			else if (line != "" && curr_header != "")
-			{
-				replace_all(line, "**", "");
-				buffer << line << '\n';
-			}
-		}
+		// Loads README.md contents for in-app documentation
+		loadREADME();
 		
 		SetGlobalStyle();
     }
@@ -272,7 +236,7 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
-			// ImGui::PopStyleColor();
+			SetGlobalStyle();
 
 			ImGui::EndChild(); // End right column
 			ImGui::End();
@@ -315,6 +279,77 @@ class App : public AppBase<App>
 		// Turn off Signal Generators
 		SG1Widget.reset();
 		SG2Widget.reset();
+	}
+
+	void loadREADME()
+	{
+		// Load documentation
+		std::string filename = "README.md";
+		std::ifstream file(filename);
+
+		if (!file.is_open())
+		{
+			throw std::runtime_error("Unable to open file: " + filename);
+		}
+
+		std::stringstream buffer;
+		std::string line;
+		std::string curr_header = "";
+
+		while (std::getline(file, line))
+		{
+			if (line.compare(0, 4, "### ") == 0)
+			{
+				line.erase(0, 4);
+				// Write the current buffer to the correct widget
+				// Widget Label must be contained within README header
+				for (ControlWidget* w : widgets)
+				{
+					if ((w->getLabel()).find(curr_header) != std::string::npos)
+					{
+						w->setHelpText(buffer.str());
+					}	
+				}
+				buffer.str("");
+				buffer.clear();
+				curr_header = line;
+			}
+			else if (line != "" && curr_header != "")
+			{
+				replace_all(line, "**", "");
+				buffer << line << '\n';
+			}
+		}
+	}
+
+	void renderHelpWindow(bool* p_open)
+	{
+		
+		if (!ImGui::Begin("Labrador User Guide", p_open))
+		{
+			ImGui::End();
+			return;
+		}
+		if (!ImGui::IsWindowFocused())
+		{
+			*p_open = false;
+			ImGui::End();
+			return;
+		}
+
+		char search[50] = "";
+		ImGui::InputTextWithHint("##help_search", "Search...", search, 50);
+		ImGui::SameLine();
+		bool expand = ImGui::Button("Expand all");
+		ImGui::SameLine();
+		bool collapse = ImGui::Button("Collapse all");
+
+		for (ControlWidget* w : widgets)
+		{
+			ImGui::SeparatorText(w->getLabel().c_str());
+			w->renderHelpText(expand, collapse, search);
+		}
+		ImGui::End();
 	}
 
     // The callbacks are updated and called BEFORE the Update loop is entered

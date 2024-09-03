@@ -27,7 +27,6 @@ public:
 	    , pinout_height(0)
 	    , pinout_width(0)
 	    , pinout_texture((intptr_t)0)
-	    , help_text("")
 	{}
 
 	/// <summary>
@@ -67,13 +66,9 @@ public:
 		
 		if (ImGui::Button("?"))
 		{
-			ImGuiIO& io = ImGui::GetIO();
-			ImVec2 pos(io.DisplaySize.x * 0.5f, io.DisplaySize.y * 0.5f);
-			ImGui::SetNextWindowPos(pos, ImGuiCond_Always, ImVec2(0.5f, 0.5f));
-			ImGui::SetNextWindowSize(pos, ImGuiCond_Always);
+			
 
-			show_help = true;
-			renderHelp();	
+			show_help = true;	
 		}
 
 		// Widget Body
@@ -112,7 +107,21 @@ public:
 
 	void setHelpText(std::string text)
 	{
-		help_text = text;
+		std::stringstream ss(text);
+		std::string line;
+		while (std::getline(ss, line))
+		{
+			// Top-level heading
+			if (line.compare(0, 5, "#### ") == 0)
+			{
+				line.erase(0, 5);
+				TreeNode new_header;
+				new_header.name = line;
+				help_trees.push_back(new_header);
+			}
+			else help_trees.back().bullets.push_back(line);
+			
+		}
 	}
 
 	void setPinoutImg(intptr_t texture, int w, int h)
@@ -122,10 +131,53 @@ public:
 		pinout_height = h;
 	}
 
+	void renderHelpText(bool expandAll = false, bool collapseAll = false, char* search = "")
+	{
+		for (const TreeNode& t : help_trees)
+		{
+			if (ImGui::TreeNode((t.name + "##" + label).c_str()))
+			{
+				for (const std::string& l : t.bullets)
+				{
+					MarkdownToImGUIBullet(l);
+				}
+				ImGui::TreePop();
+			}
+		}
+	}
+
+	void MarkdownToImGUIBullet(std::string md_text)
+	{
+		if (md_text.compare(0, 2, "- ") == 0)
+		{
+			md_text.erase(0, 2);
+			ImGui::BulletText(md_text.c_str());
+		}
+		else if (md_text.compare(0, 4, "  - ") == 0)
+		{
+			md_text.erase(0, 4);
+			ImGui::Dummy(ImVec2(10, 0));
+			ImGui::SameLine();
+			ImGui::BulletText(md_text.c_str());
+		}
+		else
+		{
+			ImGui::Text(md_text.c_str());
+		}
+	}
+
 	void renderHelp()
 	{
 		// Render Help Text from markdown format 
 		// Edit README.md to change help popup content
+
+		// Center window
+		ImGuiIO& io = ImGui::GetIO();
+		// TODO: dynamically size based on size of window
+		ImVec2 pos(io.DisplaySize.x * 0.5f, io.DisplaySize.y * 0.5f);
+		ImGui::SetNextWindowPos(pos, ImGuiCond_Always, ImVec2(0.5f, 0.5f));
+		ImGui::SetNextWindowSize(pos, ImGuiCond_Always);
+
 		if (!ImGui::Begin((help_popup_id).c_str(), &show_help))
 		{
 			ImGui::End();
@@ -137,76 +189,8 @@ public:
 			ImGui::End();
 			return;
 		}
-		// ImGui::Text((label + " Help").c_str());
 
-		std::stringstream ss(help_text);
-		std::string line;
-		std::string next_header = "";
-		std::string to_write = "";
-		while (std::getline(ss, line))
-		{
-			if (line.compare(0, 5, "#### ") == 0 || (next_header != "" && next_header != "End"))
-			{
-				if (next_header != "")
-				{
-					to_write = line;
-					line = next_header;
-					next_header = "";
-				}
-				else
-				{
-					line.erase(0, 5);
-				}
-
-				// Open by default
-				// ImGui::SetNextItemOpen(true, ImGuiCond_Once);
-				
-				if (ImGui::TreeNode(line.c_str()))
-				{
-					if (to_write != "")
-					{
-						if (to_write.compare(0, 2, "- ") == 0)
-						{
-							to_write.erase(0, 2);
-							ImGui::BulletText(to_write.c_str());
-						}
-						else
-						{
-							ImGui::Text(to_write.c_str());
-						}
-					}
-					while (std::getline(ss, line))
-					{
-						if (line.compare(0, 5, "#### ") == 0)
-						{
-							line.erase(0, 5);
-							next_header = line;
-							break;
-						}
-						else
-						{
-							if (line.compare(0, 2, "- ") == 0)
-							{
-								line.erase(0, 2);
-								ImGui::BulletText(line.c_str());
-							}
-							else
-							{
-								ImGui::Text(line.c_str());
-							}
-						}
-					}
-					ImGui::TreePop();
-				}
-			}
-		}
-
-		// Pinout image
-		if (ImGui::TreeNode("Pinout")) {
-			ImGui::Image((void*) pinout_texture,
-			    ImVec2(pinout_width, pinout_height));
-			ImGui::TreePop();
-		}
+		renderHelpText();
 
 		ImGui::End();
 		
@@ -238,9 +222,8 @@ protected:
 	
 private:
 	const std::string help_popup_id;
-	
 	float WidgetHeight = 0;
-	std::string help_text;
+	std::vector<TreeNode> help_trees;
 	intptr_t pinout_texture;
 	int pinout_width, pinout_height;
 };

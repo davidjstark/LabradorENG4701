@@ -99,6 +99,7 @@ struct TreeNode
 {
 	std::string name;
 	std::vector<std::string> bullets;
+	std::vector<TreeNode> children;
 };
 
 void init_constants();

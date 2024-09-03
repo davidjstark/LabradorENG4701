@@ -18,13 +18,13 @@ Constructor
 <param name="size">Child window size</param>
 <param name="borderColor">Accent colour</param>
 </member>
-<member name="M:ControlWidget.setSize(ImVec2)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="33">
+<member name="M:ControlWidget.setSize(ImVec2)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="32">
 <summary>
 Update size of child window
 </summary>
 <param name="new_size">New size</param>
 </member>
-<member name="M:ControlWidget.Render" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="42">
+<member name="M:ControlWidget.Render" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="41">
 <summary>
 Generic function to render control widget with correct style
 </summary>
