@@ -43,8 +43,16 @@ public:
 			{
 				data.push_back(raw_data[i]);
 			}*/
-			data = std::vector<double>(
-			    raw_data.begin() + trigger_time * sample_rate_hz, raw_data.begin()+(trigger_time+time_window)*sample_rate_hz);
+			if (raw_data.size() == 0)
+			{
+				data = {};
+			}
+			else
+			{
+				data = std::vector<double>(raw_data.begin() + trigger_time * sample_rate_hz,
+				    raw_data.begin() + (trigger_time + time_window) * sample_rate_hz);
+			}
+			
 		}
 		return data;
 	}
@@ -77,7 +85,7 @@ public:
 		{
 			double sample_rate_hz = CalculateSampleRate();
 			std::vector<double> temp_data = raw_data;
-			if (trigger && time_window > 0)
+			if (trigger && time_window > 0 && raw_data.size() != 0)
 			{
 				switch (trigger_type)
 				{
