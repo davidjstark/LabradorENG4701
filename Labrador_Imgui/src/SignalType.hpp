@@ -125,14 +125,14 @@ public:
 		bool changed = false;
 		// Amplitude
 		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
-		    "Amplitude = %.2f", constants::volt_units, &amp_unit_idx);
+		    "Amplitude = %.3g", constants::volt_units, &amp_unit_idx);
 
 		// Frequency
 		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
-		    "Frequency = %.0f", constants::freq_units, &freq_unit_idx);
+		    "Frequency = %.3g", constants::freq_units, &freq_unit_idx);
 
 		// Offset
-		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
+		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.3g",
 		    constants::volt_units, &os_unit_idx);
 		return changed;
 	}
@@ -244,6 +244,8 @@ public:
 		// librador_send_square_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
 	}
 
+
+	// Could be integrated with librador
 	int librador_imgui_send_square_wave(int channel, double frequency_Hz, double amplitude_v, double offset_v, double duty_cycle = 0.5)
 	{
 		if ((amplitude_v + offset_v) > 9.6)
@@ -251,7 +253,7 @@ public:
 			return -1;
 			// Voltage range too high
 		}
-		if ((amplitude_v < 0) | (offset_v < 0))
+		if ((amplitude_v < 0) || (offset_v < 0))
 		{
 			return -2;
 			// Negative voltage

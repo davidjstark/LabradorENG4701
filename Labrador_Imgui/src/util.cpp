@@ -77,6 +77,8 @@ void SetGlobalStyle()
 	colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.06f, 0.06f, 1.00f);
 	colors[ImGuiCol_PopupBg] = ImVec4(0.16f, 0.16f, 0.16f, 1.00f);
 	colors[ImGuiCol_FrameBg] = ImVec4(0.16f, 0.16f, 0.16f, 0.62f);
+	colors[ImGuiCol_FrameBgHovered] = ImVec4(0.16f, 0.16f, 0.16f, 0.80f);
+	colors[ImGuiCol_FrameBgActive] = ImVec4(0.16f, 0.16f, 0.16f, 1.0f);
 	colors[ImGuiCol_CheckMark] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
 	colors[ImGuiCol_SliderGrab] = ImVec4(1.00f, 1.00f, 1.00f, 0.20f);
 	colors[ImGuiCol_SliderGrabActive] = ImVec4(1.00f, 1.00f, 1.00f, 0.78f);
@@ -150,6 +152,9 @@ void SetControlWidgetStyle(const float ac[3])
 	colors[ImGuiCol_FrameBg] = ImVec4(ac[0], ac[1], ac[2], 0.5f);
 	colors[ImGuiCol_FrameBgHovered] = ImVec4(ac[0], ac[1], ac[2], 0.65f);
 	colors[ImGuiCol_FrameBgActive] = ImVec4(ac[0], ac[1], ac[2], 1.0f);
+	colors[ImGuiCol_Button] = ImVec4(0, 0, 0, 0);
+	colors[ImGuiCol_HeaderHovered] = ImVec4(ac[0], ac[1], ac[2], 0.65f);
+	colors[ImGuiCol_HeaderActive] = ImVec4(ac[0], ac[1], ac[2], 1.0f);
 }
 
 ImU32 colourConvert(const float c[3], float alpha)

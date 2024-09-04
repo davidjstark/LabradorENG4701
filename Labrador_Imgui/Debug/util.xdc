@@ -23,12 +23,12 @@ Replaces all instances of a substring with a provided string
 Global styles set at the start of the application
 </summary>
 </member>
-<member name="M:PreviewStyle" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.cpp" line="91">
+<member name="M:PreviewStyle" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.cpp" line="93">
 <summary>
 Defines style for the Signal Generator Preview plot
 </summary>
 </member>
-<member name="M:SetControlWidgetStyle(System.Single!System.Runtime.CompilerServices.IsConst*)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.cpp" line="143">
+<member name="M:SetControlWidgetStyle(System.Single!System.Runtime.CompilerServices.IsConst*)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.cpp" line="145">
 <summary>
 Defines the style of the general control widget
 </summary>

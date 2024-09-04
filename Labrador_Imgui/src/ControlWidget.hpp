@@ -6,7 +6,7 @@
 
 
 /// <summary>
-/// Abstract class that draws child that can be populated by a control widget
+/// Abstract class that draws control widget such as PSU Control
 /// </summary>
 class ControlWidget
 {
@@ -61,14 +61,11 @@ public:
 		ImGui::AlignTextToFramePadding();
 		bool treeopen = ImGui::TreeNodeEx(label.c_str(),
 		    ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_DefaultOpen);
-		ImGui::SameLine(ImGui::GetContentRegionAvail().x);
-		
+		ImGui::SameLine(ImGui::GetContentRegionAvail().x - 5);
 		
 		if (ImGui::Button("?"))
 		{
-			
-
-			show_help = true;	
+			show_help = true;
 		}
 
 		// Widget Body
@@ -118,6 +115,7 @@ public:
 				TreeNode new_header;
 				new_header.name = line;
 				help_trees.push_back(new_header);
+				help_trees.back().expanded = false;
 			}
 			else help_trees.back().bullets.push_back(line);
 			
@@ -131,18 +129,51 @@ public:
 		pinout_height = h;
 	}
 
-	void renderHelpText(bool expandAll = false, bool collapseAll = false, char* search = "")
+	void renderHelpText(bool expandAll = false, bool collapseAll = false, std::string search = "")
 	{
-		for (const TreeNode& t : help_trees)
+		if (search.length() ==  0) for (TreeNode& t : help_trees)
 		{
+			if (expandAll) ImGui::SetNextItemOpen(true);
+			else if (collapseAll) ImGui::SetNextItemOpen(false);
+			else ImGui::SetNextItemOpen(t.expanded);
+
 			if (ImGui::TreeNode((t.name + "##" + label).c_str()))
 			{
+				t.expanded = true;
 				for (const std::string& l : t.bullets)
 				{
 					MarkdownToImGUIBullet(l);
 				}
 				ImGui::TreePop();
 			}
+			else
+				t.expanded = false;
+		}
+		// Filtered help list
+		else for (TreeNode& t : help_trees)
+		{
+			// Always expand when search string is long enough
+			ImGui::SetNextItemOpen(true);
+			
+			if (t.isFound(search) && ImGui::TreeNode((t.name + "##" + label).c_str()))
+			{
+				for (const std::string& l : t.bullets)
+				{
+					if (l.find(search) != std::string::npos)
+						MarkdownToImGUIBullet(l);
+				}
+				ImGui::TreePop();
+			}
+		}
+
+		if (expandAll)
+			ImGui::SetNextItemOpen(true);
+		else if (collapseAll)
+			ImGui::SetNextItemOpen(false);
+		if (ImGui::TreeNode(("Pinout##" + label).c_str()))
+		{
+			ImGui::Image((void*) pinout_texture, ImVec2(pinout_width, pinout_height));
+			ImGui::TreePop();
 		}
 	}
 

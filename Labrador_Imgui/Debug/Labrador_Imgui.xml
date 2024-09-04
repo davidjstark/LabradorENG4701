@@ -210,7 +210,7 @@ Constructor
         </member>
         <member name="T:ControlWidget">
             <summary>
-Abstract class that draws child that can be populated by a control widget
+Abstract class that draws control widget such as PSU Control
 </summary>
         </member>
         <member name="M:libusb_hotplug_get_user_data(libusb_context*,System.Int32)">

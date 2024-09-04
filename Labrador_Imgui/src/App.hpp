@@ -236,7 +236,7 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
-			SetGlobalStyle();
+			
 
 			ImGui::EndChild(); // End right column
 			ImGui::End();
@@ -263,6 +263,8 @@ class App : public AppBase<App>
 				ImGui::ShowDemoWindow();
 				ImPlot::ShowDemoWindow();
 			}
+			else SetGlobalStyle();
+
 			if (showHelpWindow) renderHelpWindow(&showHelpWindow);
 			for (ControlWidget* w : widgets)
 			{
@@ -337,17 +339,18 @@ class App : public AppBase<App>
 			return;
 		}
 
-		char search[50] = "";
+		static char search[50] = "";
 		ImGui::InputTextWithHint("##help_search", "Search...", search, 50);
 		ImGui::SameLine();
 		bool expand = ImGui::Button("Expand all");
 		ImGui::SameLine();
 		bool collapse = ImGui::Button("Collapse all");
+		std::string search_str = std::string(search);
 
 		for (ControlWidget* w : widgets)
 		{
 			ImGui::SeparatorText(w->getLabel().c_str());
-			w->renderHelpText(expand, collapse, search);
+			w->renderHelpText(expand, collapse, search_str.length() > 2 ? search_str : "");
 		}
 		ImGui::End();
 	}

@@ -7,7 +7,7 @@ Handles conversion of unit and labelling.
 </member>
 <member name="T:ControlWidget" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="8">
 <summary>
-Abstract class that draws child that can be populated by a control widget
+Abstract class that draws control widget such as PSU Control
 </summary>
 </member>
 <member name="M:ControlWidget.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,ImVec2,System.Single!System.Runtime.CompilerServices.IsConst*)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp" line="16">
@@ -138,21 +138,21 @@ Square Signal Generator Widget
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:SawtoothSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="301">
+<member name="T:SawtoothSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="303">
 <summary>
 Sawtooth Signal Generator Widget
 </summary>
 </member>
-<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="353">
+<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="355">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:TriangleSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="363">
+<member name="T:TriangleSignal" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="365">
 <summary>Triangle Signal Generator Widget
 </summary>
 </member>
-<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="414">
+<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="416">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>

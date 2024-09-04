@@ -74,7 +74,8 @@ static Unit mV_unit("mV", 1e-3);
 static Unit V_unit("V", 1);
 constexpr Unit* const volt_units[3] = { &uV_unit, &mV_unit, &V_unit };
 
-// Image textures
+// 
+//  textures
 extern int pinout_width;
 extern int pinout_height;
 extern intptr_t psu_pinout_texture;
@@ -100,6 +101,17 @@ struct TreeNode
 	std::string name;
 	std::vector<std::string> bullets;
 	std::vector<TreeNode> children;
+	bool expanded;
+	bool isFound(std::string search)
+	{
+		bool found = false;
+		for (const std::string s : bullets)
+		{
+			found |= s.find(search) != std::string::npos;
+			if (found) break;
+		}
+		return found;
+	};
 };
 
 void init_constants();
