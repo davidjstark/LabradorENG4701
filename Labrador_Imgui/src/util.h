@@ -6,6 +6,10 @@
 #include <string>
 #include "implot.h"
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <stdexcept>
+#include <vector>
 #define _USE_MATH_DEFINES
 #include "math.h"
 
@@ -41,12 +45,13 @@ namespace constants
 {
 // Theme Colours
 constexpr ImU32 PRIM_LIGHT = IM_COL32(255, 255, 255, 255); // primary light
-constexpr ImU32 SG1_ACCENT = IM_COL32(42, 39, 212, 255);
-constexpr ImU32 SG2_ACCENT = IM_COL32(203, 100, 4, 255);
-constexpr ImU32 PSU_ACCENT = IM_COL32(190, 54, 54, 255);
+constexpr float SG1_ACCENT[3] = { 42. / 255, 39. / 255, 212. / 255 };
+constexpr float SG2_ACCENT[3] = { 203. / 255, 100. / 255, 4. / 255 };
+constexpr float PSU_ACCENT[3] = { 190. / 255, 54. / 255, 54. / 255 };
 constexpr ImVec4 GRAY_TEXT = ImVec4(0.6, 0.6, 0.6, 1);
-constexpr ImU32 OSC1_ACCENT = IM_COL32(230, 207, 2, 255);
-constexpr ImU32 OSC2_ACCENT = IM_COL32(255, 123, 250, 255);
+constexpr float OSC_ACCENT[3] = {0., 0., 0.};
+constexpr float OSC1_ACCENT[3] = { 230. / 255, 207. / 255, 2. / 255 };
+constexpr float OSC2_ACCENT[3] = { 255. / 255, 123. / 255, 250. / 255 };
 
     // Signal Generator Preview Waves
 constexpr char* wavetypes[4] = { "Sine", "Square", "Sawtooth", "Triangle" };
@@ -69,7 +74,8 @@ static Unit mV_unit("mV", 1e-3);
 static Unit V_unit("V", 1);
 constexpr Unit* const volt_units[3] = { &uV_unit, &mV_unit, &V_unit };
 
-// Image textures
+// 
+//  textures
 extern int pinout_width;
 extern int pinout_height;
 extern intptr_t psu_pinout_texture;
@@ -94,6 +100,24 @@ const std::vector<int> DIVISORS_375000 = { 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 
 	1250, 1500, 1875, 2500, 3000, 3125, 3750, 5000, 6250, 7500, 9375, 12500, 15000, 15625,
 	18750, 25000, 31250, 37500, 46875, 62500, 75000, 93750, 125000, 187500, 375000 };
 }
+
+struct TreeNode
+{
+	std::string name;
+	std::vector<std::string> bullets;
+	std::vector<TreeNode> children;
+	bool expanded;
+	bool isFound(std::string search)
+	{
+		bool found = false;
+		for (const std::string s : bullets)
+		{
+			found |= s.find(search) != std::string::npos;
+			if (found) break;
+		}
+		return found;
+	};
+};
 namespace maps
 {
 class ChannelTriggerPair
@@ -118,5 +142,9 @@ const std::map<int, maps::ChannelTriggerPair> ComboItemToChannelTriggerPair = {
 
 void init_constants();
 void PreviewStyle();
-
+void SetControlWidgetStyle(const float ac[3]);
+void SetGlobalStyle();
+ImU32 colourConvert(const float c[3], float alpha=1.0f);
+void replace_all(
+    std::string& s, std::string const& toReplace, std::string const& replaceWith);
 #endif

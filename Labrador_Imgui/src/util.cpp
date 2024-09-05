@@ -1,5 +1,6 @@
 #include "util.h"
 
+
 float constants::x_preview[constants::PREVIEW_RES];
 float constants::sine_preview[constants::PREVIEW_RES];
 float constants::square_preview[constants::PREVIEW_RES];
@@ -33,6 +34,62 @@ void init_constants()
 		
 
 	}
+}
+
+/// <summary>
+/// Replaces all instances of a substring with a provided string
+/// </summary>
+/// <param name="s"></param>
+/// <param name="toReplace"></param>
+/// <param name="replaceWith"></param>
+void replace_all(std::string& s, std::string const& toReplace, std::string const& replaceWith)
+{
+	std::string buf;
+	std::size_t pos = 0;
+	std::size_t prevPos;
+
+	// Reserves rough estimate of final size of string.
+	buf.reserve(s.size());
+
+	while (true)
+	{
+		prevPos = pos;
+		pos = s.find(toReplace, pos);
+		if (pos == std::string::npos)
+			break;
+		buf.append(s, prevPos, pos - prevPos);
+		buf += replaceWith;
+		pos += toReplace.size();
+	}
+
+	buf.append(s, prevPos, s.size() - prevPos);
+	s.swap(buf);
+}
+
+/*
+STYLES
+*/
+
+/// <summary>
+/// Global styles set at the start of the application
+/// </summary>
+void SetGlobalStyle()
+{
+	ImVec4* colors = ImGui::GetStyle().Colors;
+	colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.06f, 0.06f, 1.00f);
+	colors[ImGuiCol_PopupBg] = ImVec4(0.16f, 0.16f, 0.16f, 1.00f);
+	colors[ImGuiCol_FrameBg] = ImVec4(0.16f, 0.16f, 0.16f, 0.62f);
+	colors[ImGuiCol_FrameBgHovered] = ImVec4(0.16f, 0.16f, 0.16f, 0.80f);
+	colors[ImGuiCol_FrameBgActive] = ImVec4(0.16f, 0.16f, 0.16f, 1.0f);
+	colors[ImGuiCol_CheckMark] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+	colors[ImGuiCol_SliderGrab] = ImVec4(1.00f, 1.00f, 1.00f, 0.20f);
+	colors[ImGuiCol_SliderGrabActive] = ImVec4(1.00f, 1.00f, 1.00f, 0.78f);
+	colors[ImGuiCol_Button] = ImVec4(1.00f, 1.00f, 1.00f, 0.20f);
+	colors[ImGuiCol_ButtonHovered] = ImVec4(1.00f, 1.00f, 1.00f, 0.39f);
+	colors[ImGuiCol_ButtonActive] = ImVec4(1.00f, 1.00f, 1.00f, 0.59f);
+	colors[ImGuiCol_Header] = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
+	colors[ImGuiCol_HeaderHovered] = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
+	colors[ImGuiCol_HeaderActive] = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
 }
 
 /// <summary>
@@ -86,3 +143,28 @@ void PreviewStyle()
 	//style.MousePosPadding = ImVec2(5, 5);
 	//style.PlotMinSize = ImVec2(300, 225);
 }
+
+/// <summary>
+/// Defines the style of the general control widget
+/// </summary>
+/// <param name="ac">Accent colour (RGB 0..1) </param>
+void SetControlWidgetStyle(const float ac[3])
+{
+	ImVec4* colors = ImGui::GetStyle().Colors;
+	colors[ImGuiCol_FrameBg] = ImVec4(ac[0], ac[1], ac[2], 0.5f);
+	colors[ImGuiCol_FrameBgHovered] = ImVec4(ac[0], ac[1], ac[2], 0.65f);
+	colors[ImGuiCol_FrameBgActive] = ImVec4(ac[0], ac[1], ac[2], 1.0f);
+	colors[ImGuiCol_Button] = ImVec4(0, 0, 0, 0);
+	colors[ImGuiCol_HeaderHovered] = ImVec4(ac[0], ac[1], ac[2], 0.65f);
+	colors[ImGuiCol_HeaderActive] = ImVec4(ac[0], ac[1], ac[2], 1.0f);
+}
+
+ImU32 colourConvert(const float c[3], float alpha)
+{
+	return ImGui::ColorConvertFloat4ToU32(ImVec4(c[0], c[1], c[2], alpha));
+}
+
+
+
+
+

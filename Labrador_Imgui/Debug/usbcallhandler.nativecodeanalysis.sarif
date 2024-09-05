@@ -1,0 +1,629 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'fGenSettings::samples' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.h"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "fGenSettings::{ctor}",
+                  "decoratedName": "??0fGenSettings@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "fGenSettings::samples"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'usbCallHandler::dataBuffer' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                },
+                "region": {
+                  "startLine": 117,
+                  "startColumn": 17
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "usbCallHandler::{ctor}",
+                  "decoratedName": "??0usbCallHandler@@QEAA@GG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "usbCallHandler::dataBuffer"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'usbCallHandler::inBuffer' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                },
+                "region": {
+                  "startLine": 117,
+                  "startColumn": 17
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "usbCallHandler::{ctor}",
+                  "decoratedName": "??0usbCallHandler@@QEAA@GG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "usbCallHandler::inBuffer"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'usbCallHandler::usb_polling_thread' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                },
+                "region": {
+                  "startLine": 117,
+                  "startColumn": 17
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "usbCallHandler::{ctor}",
+                  "decoratedName": "??0usbCallHandler@@QEAA@GG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "usbCallHandler::usb_polling_thread"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'usbCallHandler::isoCtx' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                },
+                "region": {
+                  "startLine": 117,
+                  "startColumn": 17
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "usbCallHandler::{ctor}",
+                  "decoratedName": "??0usbCallHandler@@QEAA@GG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "usbCallHandler::isoCtx"
+          }
+        },
+        {
+          "ruleId": "C26110",
+          "message": {
+            "text": "Caller failing to hold lock 'buffer_read_write_mutex' before calling function 'std::_Mutex_base::unlock'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                },
+                "region": {
+                  "startLine": 571,
+                  "startColumn": 9,
+                  "endLine": 571,
+                  "endColumn": 39
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "usbCallHandler::set_synchronous_pause_state",
+                  "decoratedName": "?set_synchronous_pause_state@usbCallHandler@@QEAAH_N@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 563,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 564,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'newState'. 'false' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 570,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'newState'. 'false' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 570,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'this->synchronous_pause_state'. 'true' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 571,
+                            "startColumn": 39
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26117",
+          "message": {
+            "text": "Releasing unheld lock 'buffer_read_write_mutex' in function 'usbCallHandler::set_synchronous_pause_state'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                },
+                "region": {
+                  "startLine": 572,
+                  "startColumn": 9,
+                  "endLine": 572,
+                  "endColumn": 16
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "usbCallHandler::set_synchronous_pause_state",
+                  "decoratedName": "?set_synchronous_pause_state@usbCallHandler@@QEAAH_N@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 563,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 564,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'newState'. 'false' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 570,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'newState'. 'false' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 570,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'this->synchronous_pause_state'. 'true' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 571,
+                            "startColumn": 39
+                          }
+                        },
+                        "message": {
+                          "text": "Lock count for 'buffer_read_write_mutex' has been decremented"
+                        }
+                      },
+                      "kinds": [
+                        "Assignment"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 572,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26115",
+          "message": {
+            "text": "Failing to release lock 'buffer_read_write_mutex' in function 'usbCallHandler::set_synchronous_pause_state'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                },
+                "region": {
+                  "startLine": 567,
+                  "startColumn": 9,
+                  "endLine": 567,
+                  "endColumn": 16
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "usbCallHandler::set_synchronous_pause_state",
+                  "decoratedName": "?set_synchronous_pause_state@usbCallHandler@@QEAAH_N@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 563,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 564,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'newState'. 'true' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 564,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'this->synchronous_pause_state'. 'false' branch is taken"
+                        }
+                      },
+                      "kinds": [
+                        "Branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 565,
+                            "startColumn": 37
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer_read_write_mutex' is a new lock\nLock count for 'buffer_read_write_mutex' has been incremented"
+                        }
+                      },
+                      "kinds": [
+                        "Assignment"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 566,
+                            "startColumn": 33
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+                          },
+                          "region": {
+                            "startLine": 567,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33523.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "dbc1bb6ad86901724d16aac6db4690eb9d1ea6a8d8306873ecb42efc35f1550c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/University_offline/ENG4701/Repo/LabradorENG4701/Librador_API/___librador/librador_shared_library/usbcallhandler.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "31cdfbc6b06565f9861a99be11046eac42ce61aa05375c60a7c3663b27b69f24"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/labrador_imgui/libs/libusb/libusb.h"
+          },
+          "hashes": {
+            "sha-256": "eee5f747f7e0f33f36581f9ff82872a99286269eb97df28ff1c9a135825f159f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/librador_api/___librador/librador_shared_library/o1buffer.h"
+          },
+          "hashes": {
+            "sha-256": "bc98e26981a990fdf1316fe6f321db5476581141687d80e0113956f12cb86280"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/librador_api/___librador/librador_shared_library/logging_internal.h"
+          },
+          "hashes": {
+            "sha-256": "0446506008b85fd4fe5096d6079c3d9e15fb0cb39deeb833bccc1a217ec36dca"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/university_offline/eng4701/repo/labradoreng4701/librador_api/___librador/librador_shared_library/logging.h"
+          },
+          "hashes": {
+            "sha-256": "2c1df7f5013440272246d1334067937e7642a1c2fd6a0bc3ad394125f465a10e"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -24,9 +24,10 @@ public:
 	float TriggerLevel = 1.5;
 	double TriggerHysteresis = 0.25;
 	// Public consts
-	ImColor OSC1Colour = ImColor(constants::OSC1_ACCENT);
-	ImColor OSC2Colour = ImColor(constants::OSC2_ACCENT);
-	OSCControl(const char* label, ImVec2 size, ImU32 borderColor)
+	ImColor OSC1Colour = colourConvert(constants::OSC1_ACCENT);
+	ImColor OSC2Colour = colourConvert(constants::OSC2_ACCENT);
+
+	OSCControl(const char* label, ImVec2 size, const float* borderColor)
 	    : ControlWidget(label, size, borderColor)
 	{
 	}
@@ -69,18 +70,7 @@ public:
 		ImGui::Spacing();
 		ImGui::SetCursorPosX(ImGui::GetWindowWidth()/2);
 		PauseButton("Pause", 15, &Paused);
-	}
-
-	/// <summary>
-	/// Render help message in popup window
-	/// </summary>
-	void renderHelp() override
-	{
-		ImGui::Text("HELP HERE");
-		// Pinout image
-		ImGui::Image((void*)constants::osc_pinout_texture,
-		    ImVec2(constants::pinout_width, constants::pinout_height));
-	}
+	}	
 
 
 	/// <summary>

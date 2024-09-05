@@ -8,10 +8,8 @@
 #include "PSUControl.hpp"
 #include "OSCControl.hpp"
 #include "SGControl.hpp"
-#include "MultimeterControl.hpp"
 #include "PlotWidget.hpp"
 #include "PlotControl.hpp"
-
 #include "util.h"
 
 // #define IMGUI_DEFINE_MATH_OPERATORS
@@ -78,20 +76,22 @@ class App : public AppBase<App>
 		GLuint psu_tmp_texture = 0;
 		GLuint sg_tmp_texture = 0;
 		GLuint osc_tmp_texture = 0;
-		int _not_needed = 0;
+		int w, h;
 
+		// All textures have the same width and height (for now)
 		bool psu_ret = LoadTextureFromFile(".\\misc\\media\\psu-pinout.png",
-			&psu_tmp_texture, &constants::pinout_width, &constants::pinout_height);
+			&psu_tmp_texture, &w, &h);
 
 		bool sg_ret = LoadTextureFromFile(".\\misc\\media\\sg-pinout.png",
-			&sg_tmp_texture, &_not_needed, &_not_needed);
+			&sg_tmp_texture, &w, &h);
 
 		bool osc_ret = LoadTextureFromFile(".\\misc\\media\\osc-pinout.png",
-			&osc_tmp_texture, &_not_needed, &_not_needed);
+			&osc_tmp_texture, &w, &h);
 
-		constants::psu_pinout_texture = (intptr_t)psu_tmp_texture;
-		constants::sg_pinout_texture = (intptr_t)sg_tmp_texture;
-		constants::osc_pinout_texture = (intptr_t)osc_tmp_texture;
+		PSUWidget.setPinoutImg((intptr_t)psu_tmp_texture, w, h);
+		SG1Widget.setPinoutImg((intptr_t)sg_tmp_texture, w, h);
+		SG2Widget.setPinoutImg((intptr_t)sg_tmp_texture, w, h);
+		PlotSettingsWidget.setPinoutImg((intptr_t)osc_tmp_texture, w, h);
 
 		IM_ASSERT(psu_ret);
 		IM_ASSERT(sg_ret);
@@ -100,6 +100,10 @@ class App : public AppBase<App>
 		init_constants();
 
 
+		// Loads README.md contents for in-app documentation
+		loadREADME();
+		
+		SetGlobalStyle();
     }
 
     // Anything that needs to be called cyclically INSIDE of the main application loop
@@ -118,6 +122,7 @@ class App : public AppBase<App>
 
 			// Menu Bar
 			static bool showDemoWindows = false;
+			static bool showHelpWindow = false;
 			if (ImGui::BeginMenuBar())
 			{
 				// Demo windows for styling/docs [TODO: REMOVE in finished product]
@@ -135,18 +140,18 @@ class App : public AppBase<App>
 						// Print firmware info
 						uint16_t deviceVersion = librador_get_device_firmware_version();
 						uint8_t deviceVariant = librador_get_device_firmware_variant();
-						ImGui::MenuItem("Help");
 						ImGui::TextColored(constants::GRAY_TEXT, "Version: %hu", deviceVersion);
 						ImGui::TextColored(constants::GRAY_TEXT, "Firmware: %hhu", deviceVariant);
-						
-					
 					}
 					else
 					{
-						ImGui::MenuItem("Help");
 						ImGui::TextColored(constants::GRAY_TEXT, "No Labrador board detected");
 					}
-					    
+					ImGui::EndMenu();
+				}
+				if (ImGui::BeginMenu("Help"))
+				{
+					ImGui::MenuItem("User Guide", NULL, &showHelpWindow);
 					ImGui::EndMenu();
 				}
 
@@ -234,12 +239,7 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
-
-			// Render Multimeter [REMOVED DUE TO LIMITED FUNCTIONALITY]
-			//MMWidget.setSize(ImVec2(0, 0)); // fill rest of space
-			//MMWidget.Render();
-
-			// ImGui::PopStyleColor();
+			
 
 			ImGui::EndChild(); // End right column
 			ImGui::End();
@@ -266,7 +266,13 @@ class App : public AppBase<App>
 				ImGui::ShowDemoWindow();
 				ImPlot::ShowDemoWindow();
 			}
-				
+			else SetGlobalStyle();
+
+			if (showHelpWindow) renderHelpWindow(&showHelpWindow);
+			for (ControlWidget* w : widgets)
+			{
+				if (w->show_help) w->renderHelp();
+			}
 		}
 		frames++;
     }
@@ -278,6 +284,78 @@ class App : public AppBase<App>
 		// Turn off Signal Generators
 		SG1Widget.reset();
 		SG2Widget.reset();
+	}
+
+	void loadREADME()
+	{
+		// Load documentation
+		std::string filename = "README.md";
+		std::ifstream file(filename);
+
+		if (!file.is_open())
+		{
+			throw std::runtime_error("Unable to open file: " + filename);
+		}
+
+		std::stringstream buffer;
+		std::string line;
+		std::string curr_header = "";
+
+		while (std::getline(file, line))
+		{
+			if (line.compare(0, 4, "### ") == 0)
+			{
+				line.erase(0, 4);
+				// Write the current buffer to the correct widget
+				// Widget Label must be contained within README header
+				for (ControlWidget* w : widgets)
+				{
+					if ((w->getLabel()).find(curr_header) != std::string::npos)
+					{
+						w->setHelpText(buffer.str());
+					}	
+				}
+				buffer.str("");
+				buffer.clear();
+				curr_header = line;
+			}
+			else if (line != "" && curr_header != "")
+			{
+				replace_all(line, "**", "");
+				buffer << line << '\n';
+			}
+		}
+	}
+
+	void renderHelpWindow(bool* p_open)
+	{
+		
+		if (!ImGui::Begin("Labrador User Guide", p_open))
+		{
+			ImGui::End();
+			return;
+		}
+		if (!ImGui::IsWindowFocused())
+		{
+			*p_open = false;
+			ImGui::End();
+			return;
+		}
+
+		static char search[50] = "";
+		ImGui::InputTextWithHint("##help_search", "Search...", search, 50);
+		ImGui::SameLine();
+		bool expand = ImGui::Button("Expand all");
+		ImGui::SameLine();
+		bool collapse = ImGui::Button("Collapse all");
+		std::string search_str = std::string(search);
+
+		for (ControlWidget* w : widgets)
+		{
+			ImGui::SeparatorText(w->getLabel().c_str());
+			w->renderHelpText(expand, collapse, search_str.length() > 2 ? search_str : "");
+		}
+		ImGui::End();
 	}
 
     // The callbacks are updated and called BEFORE the Update loop is entered
@@ -325,9 +403,10 @@ class App : public AppBase<App>
 	SGControl SG2Widget
 	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
 	OSCControl PlotSettingsWidget
-	    = OSCControl("Plot Settings", ImVec2(0, 0), IM_COL32(0, 0, 0, 255));
+	    = OSCControl("Plot Settings", ImVec2(0, 0), constants::OSC_ACCENT);
 	PlotWidget PlotWidgetObj 
 		= PlotWidget("Plot Widget",ImVec2(0, 0),&PlotSettingsWidget);
+	ControlWidget* widgets[4] = { &PSUWidget, &SG1Widget, &SG2Widget, &PlotSettingsWidget };
 
 };
 

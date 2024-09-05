@@ -43,7 +43,6 @@
     </ClCompile>
     <ClCompile Include="src\UIComponents.hpp" />
     <ClCompile Include="src\util.cpp" />
-    <ClCompile Include="src\OscData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libs\imgui\imstb_truetype.h">
@@ -92,14 +91,13 @@
     <ClInclude Include="src\App.hpp" />
     <ClInclude Include="src\ControlWidget.hpp" />
     <ClInclude Include="src\PSUControl.hpp" />
-    <ClInclude Include="src\MultimeterControl.hpp" />
     <ClInclude Include="src\OSCControl.hpp" />
     <ClInclude Include="src\SGControl.hpp" />
     <ClInclude Include="src\util.h" />
     <ClInclude Include="src\SignalType.hpp" />
     <ClInclude Include="src\PlotControl.hpp" />
     <ClInclude Include="src\PlotWidget.hpp" />
-    <ClInclude Include="src\OscData.h" />
+    <ClInclude Include="src\OscData.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
@@ -113,6 +111,7 @@
     <None Include="libs\imgui\.editorconfig">
       <Filter>ImGui</Filter>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt" />

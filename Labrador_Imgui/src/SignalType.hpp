@@ -125,14 +125,14 @@ public:
 		bool changed = false;
 		// Amplitude
 		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
-		    "Amplitude = %.2f", constants::volt_units, &amp_unit_idx);
+		    "Amplitude = %.3g", constants::volt_units, &amp_unit_idx);
 
 		// Frequency
 		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
-		    "Frequency = %.0f", constants::freq_units, &freq_unit_idx);
+		    "Frequency = %.3g", constants::freq_units, &freq_unit_idx);
 
 		// Offset
-		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
+		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.3g",
 		    constants::volt_units, &os_unit_idx);
 		return changed;
 	}
@@ -200,6 +200,13 @@ public:
 		// Offset
 		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
 		    constants::volt_units, &os_unit_idx);
+
+		// Duty Cycle
+		changed |= ImGui::SliderInt(
+		    ("##" + label + "_dc").c_str(), &dutycycle, 1, 100,
+		    "Duty Cycle = %d");
+		ImGui::SameLine();
+		ImGui::Text("%%");
 		return changed;
 	}
 
@@ -233,9 +240,64 @@ public:
 	/// </summary>
 	void controlLab(int channel) override
 	{
-		// TODO: convert to correct units
-		librador_send_square_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
+		librador_imgui_send_square_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset(), dutycycle/100.0);
+		// librador_send_square_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
 	}
+
+
+	// Could be integrated with librador
+	int librador_imgui_send_square_wave(int channel, double frequency_Hz, double amplitude_v, double offset_v, double duty_cycle = 0.5)
+	{
+		if ((amplitude_v + offset_v) > 9.6)
+		{
+			return -1;
+			// Voltage range too high
+		}
+		if ((amplitude_v < 0) || (offset_v < 0))
+		{
+			return -2;
+			// Negative voltage
+		}
+
+		if ((channel != 1) && (channel != 2))
+		{
+			return -3;
+			// Invalid channel
+		}
+		int num_samples = fmin(1000000.0 / frequency_Hz, 512);
+		// The maximum number of samples that Labrador's buffer holds is 512.
+		// The minimum time between samples is 1us.  Using T=1/f, this gives a maximum
+		// sample number of 10^6/f.
+		num_samples = 2 * (num_samples / 2);
+		// Square waves need an even number.  Others don't care.
+		double usecs_between_samples = 1000000.0 / ((double)num_samples * frequency_Hz);
+		// Again, from T=1/f.
+		unsigned char* sampleBuffer = (unsigned char*)malloc(num_samples);
+
+		int i;
+		double x_temp;
+		for (i = 0; i < num_samples; i++)
+		{
+			x_temp = (double)i * (2.0 * M_PI / (double)num_samples);
+			// Generate points at interval 2*pi/num_samples.
+			sampleBuffer[i] = sample_generator(x_temp, duty_cycle);
+		}
+
+		librador_update_signal_gen_settings(channel, sampleBuffer, num_samples,
+			usecs_between_samples, amplitude_v, offset_v);
+
+		free(sampleBuffer);
+		return 0;
+	}
+
+	unsigned char sample_generator(double x, double duty_cycle = 0.5)
+	{
+		return (x < 2*M_PI*duty_cycle) ? 255 : 0;
+	}
+	
+
+private:
+	int dutycycle = 50;
 };
 
 /// <summary>

@@ -6,7 +6,7 @@
 class PlotControl : public ControlWidget
 {
 public:
-	PlotControl(const char* label, ImVec2 size, ImU32 borderColor)
+	PlotControl(const char* label, ImVec2 size, const float* borderColor)
 	    : ControlWidget(label, size, borderColor)
 	{
 	}
@@ -24,14 +24,6 @@ public:
 	bool controlLab() override
 	{
 		return false;
-	}
-
-	void renderHelp() override
-	{
-		ImGui::Text("HELP HERE");
-		// Pinout image
-		ImGui::Image((void*)constants::osc_pinout_texture,
-		    ImVec2(constants::pinout_width, constants::pinout_height));
 	}
 
 private:

@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="libs\imgui\.editorconfig" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Librador_API\___librador\librador_shared_library\librador.h" />
@@ -57,7 +58,6 @@
     <ClInclude Include="src\AppBase.hpp" />
     <ClInclude Include="src\App.hpp" />
     <ClInclude Include="src\ControlWidget.hpp" />
-    <ClInclude Include="src\MultimeterControl.hpp" />
     <ClInclude Include="src\OSCControl.hpp" />
     <ClInclude Include="src\OscData.hpp" />
     <ClInclude Include="src\PlotControl.hpp" />

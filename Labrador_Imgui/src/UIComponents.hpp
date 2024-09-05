@@ -189,7 +189,7 @@ bool inline renderSliderwUnits(const std::string& label, float* result, float mi
     const char* prompt, Unit* const units[], int* unit_idx)
 {
 	bool changed = false;
-	changed |= ImGui::SliderFloat(("##" + label).c_str(), result, min, max, prompt);
+	changed |= ImGui::DragFloat(("##" + label).c_str(), result, *result/300, min, max, prompt, ImGuiSliderFlags_AlwaysClamp);
 	ImGui::SameLine();
 	changed |= ObjectDropDown(("##" + label + "_unit").c_str(), units, unit_idx, 3);
 	return changed;

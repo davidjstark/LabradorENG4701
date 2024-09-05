@@ -8,7 +8,7 @@ class PSUControl : public ControlWidget
 {
 public:
 	
-	PSUControl(std::string label, ImVec2 size, ImU32 borderColor)
+	PSUControl(std::string label, ImVec2 size, const float* borderColor)
 	    : ControlWidget(label, size, borderColor)
 	    , voltage(4.5f)
 	{}
@@ -22,17 +22,6 @@ public:
 		ImGui::Text("Voltage");
 		ImGui::SameLine();
 		ImGui::SliderFloat("##voltage", &voltage, 4.5f, 6.0f, "%.1f V");	
-	}
-
-	/// <summary>
-	/// Render help message in popup window
-	/// </summary>
-	void renderHelp() override
-	{
-		ImGui::Text("HELP HERE");
-		// Pinout image
-		ImGui::Image((void*)constants::psu_pinout_texture,
-		    ImVec2(constants::pinout_width, constants::pinout_height));
 	}
 
 	/// <summary>
