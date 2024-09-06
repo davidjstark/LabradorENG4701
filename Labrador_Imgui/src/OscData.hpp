@@ -92,19 +92,19 @@ public:
 				case constants::TriggerType::RISING_EDGE:
 				{
 					double hysteresis_level = trigger_level - trigger_hysteresis;
-					bool hysteresis_set = false;
-					for (int i = 0; i < trigger_timeout * sample_rate_hz; i++)
+					trigger_time = trigger_timeout+1;
+					for (int i = trigger_timeout*sample_rate_hz; i > 0; i--)
 					{
-						if (temp_data[i] < hysteresis_level
-						    && temp_data[i + 1] > hysteresis_level)
+						if (temp_data[i] > trigger_level
+						    && temp_data[i - 1] < trigger_level)
 						{
-							hysteresis_set = true;
-						}
-						if (hysteresis_set && temp_data[i] > trigger_level)
-						{
-							return i / sample_rate_hz; // returns the time in seconds
+							trigger_time = i / sample_rate_hz; // time in seconds
 							                           // after the beginning of the
 							                           // signal of the ith element
+						}
+						if (trigger_time <= trigger_timeout && temp_data[i] < hysteresis_level)
+						{
+							return trigger_time; 
 						}
 					}
 					break;
@@ -112,36 +112,35 @@ public:
 				case constants::TriggerType::FALLING_EDGE:
 				{
 					double hysteresis_level = trigger_level + trigger_hysteresis;
-					bool hysteresis_set = false;
-					for (int i = 0; i < trigger_timeout * sample_rate_hz; i++)
+					trigger_time = trigger_timeout + 1;
+					for (int i = trigger_timeout * sample_rate_hz; i > 0; i--)
 					{
-						if (temp_data[i] > hysteresis_level
-						    && temp_data[i + 1] < hysteresis_level)
+						if (temp_data[i] < trigger_level && temp_data[i - 1] > trigger_level)
 						{
-							hysteresis_set = true;
+							trigger_time = i / sample_rate_hz; // time in seconds
+							                                   // after the beginning of the
+							                                   // signal of the ith element
 						}
-						if (hysteresis_set && temp_data[i] < trigger_level)
+						if (trigger_time <= trigger_timeout && temp_data[i] > hysteresis_level)
 						{
-							return i / sample_rate_hz; // returns the time in seconds
-							                           // after the beginning of the
-							                           // signal of the ith element
+							return trigger_time;
 						}
 					}
 					break;
 				}
 				default:
 				{
-					return 0; // trigger immediately
+					return trigger_timeout; // trigger as late as possible
 				}
 				}
-				return trigger_timeout;
+				return trigger_timeout; // trigger as late as possible
 			}
 			else
 			{
-				return 0;
+				return trigger_timeout;
 			}
 		}
-		return 0;
+		return trigger_timeout;
 	}
 	void SetTriggerTime(double trigger_time)
 	{
@@ -169,7 +168,7 @@ private:
 	int filter_mode = 0;
 	double delay_s = 0;
 	double trigger_timeout = 0.02; // seconds
-	double trigger_time = 0; // seconds
+	double trigger_time = trigger_timeout; // seconds
 	int max_plot_samples = 2048;
 	double max_sample_rate = 375000;
 	// osc control parameters

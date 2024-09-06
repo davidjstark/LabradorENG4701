@@ -1,0 +1,7 @@
+Test signal oscilloscope output and signal generator output against scopy/oscilloscope to make sure it is accurate
+Create UI for Oscilloscope controls widget
+Implement features from Oscilloscope controls widget
+Make triggering level appear as a line when changed
+Calculate frequency of signal
+Auto triggering level
+
