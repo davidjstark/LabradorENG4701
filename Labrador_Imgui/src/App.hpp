@@ -91,7 +91,7 @@ class App : public AppBase<App>
 		PSUWidget.setPinoutImg((intptr_t)psu_tmp_texture, w, h);
 		SG1Widget.setPinoutImg((intptr_t)sg_tmp_texture, w, h);
 		SG2Widget.setPinoutImg((intptr_t)sg_tmp_texture, w, h);
-		PlotSettingsWidget.setPinoutImg((intptr_t)osc_tmp_texture, w, h);
+		OSCWidget.setPinoutImg((intptr_t)osc_tmp_texture, w, h);
 
 		IM_ASSERT(psu_ret);
 		IM_ASSERT(sg_ret);
@@ -209,8 +209,6 @@ class App : public AppBase<App>
 			PlotWidgetObj.setSize(ImVec2(plot_width, plot_height));
 			PlotWidgetObj.Render();
 
-			// Render Plot Settings Widget
-			PlotSettingsWidget.Render();
 			
 			ImGui::EndChild(); // End left column
 
@@ -239,6 +237,8 @@ class App : public AppBase<App>
 			SG2Widget.setSize(ImVec2(0, control_widget_height));
 			SG2Widget.Render();
 
+			// Render Oscilloscope Widget
+			OSCWidget.Render();
 			
 
 			ImGui::EndChild(); // End right column
@@ -402,11 +402,11 @@ class App : public AppBase<App>
 	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
 	SGControl SG2Widget
 	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
-	OSCControl PlotSettingsWidget
+	OSCControl OSCWidget
 	    = OSCControl("Plot Settings", ImVec2(0, 0), constants::OSC_ACCENT);
 	PlotWidget PlotWidgetObj 
-		= PlotWidget("Plot Widget",ImVec2(0, 0),&PlotSettingsWidget);
-	ControlWidget* widgets[4] = { &PSUWidget, &SG1Widget, &SG2Widget, &PlotSettingsWidget };
+		= PlotWidget("Plot Widget",ImVec2(0, 0),&OSCWidget);
+	ControlWidget* widgets[4] = { &PSUWidget, &SG1Widget, &SG2Widget, &OSCWidget };
 
 };
 

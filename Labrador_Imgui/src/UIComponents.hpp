@@ -89,7 +89,6 @@ bool inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 		    switched = true;
 		}
 			
-			
 
 		ImU32 col_bg = *state ? accentColour : IM_COL32(150, 150, 150, 255);
 
@@ -105,6 +104,50 @@ bool inline ToggleSwitch(const char* id, bool* state, ImU32 accentColour)
 		
 		return switched;
 	}
+
+
+/// <summary>
+/// Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+/// </summary>
+/// <param name="id"></param>
+/// <param name="state"></param>
+/// <param name="accentColour"></param>
+bool inline ToggleButton(const char* id, ImVec2 size, bool* state, ImU32 trueColour, ImU32 falseColour)
+{
+	ImVec2 p = ImGui::GetCursorScreenPos();
+	ImDrawList* draw_list = ImGui::GetWindowDrawList();
+
+	ImU32 ButtonColour = *state ? trueColour : falseColour;
+
+	float height = 30;
+	float width = 100;
+	float rounding = 0.0f;
+	bool switched = false;
+	if (ImGui::InvisibleButton(id, ImVec2(width, height)))
+	{
+		*state = !*state;
+		switched = true;
+	}
+
+	if (ImGui::IsItemActive())
+	{
+		MultiplyButtonColour(&ButtonColour, 0.8);
+	}
+	else if (ImGui::IsItemHovered())
+	{
+		MultiplyButtonColour(&ButtonColour, 1.25);
+	}
+
+
+	draw_list->AddRectFilled(p, ImVec2(p.x + width, p.y + height), ButtonColour, rounding);
+	ImVec2 text_size = ImGui::CalcTextSize(id);
+	ImVec2 text_p
+	    = ImVec2(p.x + width/2 - text_size.x / 2, p.y + height/2 - text_size.y / 2);
+	draw_list->AddText(text_p, IM_COL32(255, 255, 255, 255), id);
+
+
+	return switched;
+}
 
 /// <summary>
 /// Generic dropdown menu for list of objects
@@ -186,7 +229,7 @@ int inline DropDown(const char* id, char* const *options, int* active, int size)
 /// <param name="units">List of unit objects</param>
 /// <param name="unit_idx">Index of selected unit</param>
 bool inline renderSliderwUnits(const std::string& label, float* result, float min, float max,
-    const char* prompt, Unit* const units[], int* unit_idx)
+    const char* prompt, Unit* const units[], int* unit_idx) // todo: create overload function so we can input a vector for min and max so that min and max depends on input unit_idx
 {
 	bool changed = false;
 	changed |= ImGui::DragFloat(("##" + label).c_str(), result, *result/300, min, max, prompt, ImGuiSliderFlags_AlwaysClamp);

@@ -1,4 +1,4 @@
-#ifndef UTIL_H
+﻿#ifndef UTIL_H
 #define UTIL_H
 
 #include <map>
@@ -52,6 +52,7 @@ constexpr ImVec4 GRAY_TEXT = ImVec4(0.6, 0.6, 0.6, 1);
 constexpr float OSC_ACCENT[3] = {0., 0., 0.};
 constexpr float OSC1_ACCENT[3] = { 230. / 255, 207. / 255, 2. / 255 };
 constexpr float OSC2_ACCENT[3] = { 255. / 255, 123. / 255, 250. / 255 };
+constexpr float GEN_ACCENT[3] = { 210. / 255, 210. / 255, 210. / 255 };
 
     // Signal Generator Preview Waves
 constexpr char* wavetypes[4] = { "Sine", "Square", "Sawtooth", "Triangle" };
@@ -73,6 +74,12 @@ static Unit uV_unit("uV", 1e-6);
 static Unit mV_unit("mV", 1e-3);
 static Unit V_unit("V", 1);
 constexpr Unit* const volt_units[3] = { &uV_unit, &mV_unit, &V_unit };
+
+// Time Units
+static Unit us_unit("uV",1e-6);
+static Unit ms_unit("ms", 1e-3);
+static Unit s_unit("s", 1);
+constexpr Unit* const time_units[3] = { &us_unit, &ms_unit, &s_unit };
 
 // 
 //  textures
@@ -147,4 +154,5 @@ void SetGlobalStyle();
 ImU32 colourConvert(const float c[3], float alpha=1.0f);
 void replace_all(
     std::string& s, std::string const& toReplace, std::string const& replaceWith);
+void MultiplyButtonColour(ImU32* ButtonColour, float multiplier);
 #endif

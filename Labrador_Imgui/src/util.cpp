@@ -164,6 +164,17 @@ ImU32 colourConvert(const float c[3], float alpha)
 	return ImGui::ColorConvertFloat4ToU32(ImVec4(c[0], c[1], c[2], alpha));
 }
 
+void MultiplyButtonColour(ImU32* ButtonColour, float multiplier)
+{
+	ImColor im_ButtonColour = ImColor(*ButtonColour);
+
+	im_ButtonColour.Value.x = multiplier * im_ButtonColour.Value.x > 1 ? 1 : multiplier * im_ButtonColour.Value.x;
+	im_ButtonColour.Value.y = multiplier * im_ButtonColour.Value.y > 1 ? 1 : multiplier * im_ButtonColour.Value.y;
+	im_ButtonColour.Value.z = multiplier * im_ButtonColour.Value.z > 1 ? 1 : multiplier * im_ButtonColour.Value.z;
+
+
+	*ButtonColour = ImU32(im_ButtonColour);
+}
 
 
 

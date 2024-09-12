@@ -1839,6 +1839,14 @@ Generic dropdown for list of strings
             <param name="size" />
             <returns />
         </member>
+        <member name="M:ToggleButton(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.Boolean*,System.UInt32,System.UInt32)">
+            <summary>
+Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+</summary>
+            <param name="id" />
+            <param name="state" />
+            <param name="accentColour" />
+        </member>
         <member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)">
             <summary>
 Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097

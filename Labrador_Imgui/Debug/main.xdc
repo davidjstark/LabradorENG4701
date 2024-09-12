@@ -51,7 +51,15 @@ Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
 <param name="state"></param>
 <param name="accentColour"></param>
 </member>
-<member name="M:DropDown(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte*!System.Runtime.CompilerServices.IsConst*,System.Int32*,System.Int32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="145">
+<member name="M:ToggleButton(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.Boolean*,System.UInt32,System.UInt32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="109">
+<summary>
+Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+</summary>
+<param name="id"></param>
+<param name="state"></param>
+<param name="accentColour"></param>
+</member>
+<member name="M:DropDown(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte*!System.Runtime.CompilerServices.IsConst*,System.Int32*,System.Int32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="188">
 <summary>
 Generic dropdown for list of strings
 </summary>
@@ -61,7 +69,7 @@ Generic dropdown for list of strings
 <param name="size"></param>
 <returns></returns>
 </member>
-<member name="M:renderSliderwUnits(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single*,System.Single,System.Single,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,Unit*!System.Runtime.CompilerServices.IsConst*,System.Int32*)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="178">
+<member name="M:renderSliderwUnits(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Single*,System.Single,System.Single,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,Unit*!System.Runtime.CompilerServices.IsConst*,System.Int32*)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="221">
 <summary>
 Generic Slider with Units
 </summary>
@@ -77,12 +85,12 @@ Generic Slider with Units
 <summary>Oscilloscope Control Widget
 </summary>
 </member>
-<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="34">
+<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="60">
 <summary> 
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="76">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="208">
 <summary>
 Control sampling settings on labrador board
 </summary>
