@@ -124,7 +124,7 @@ public:
 	{
 		bool changed = false;
 		// Amplitude
-		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
+		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 9.0f,
 		    "Amplitude = %.3g", constants::volt_units, &amp_unit_idx);
 
 		// Frequency

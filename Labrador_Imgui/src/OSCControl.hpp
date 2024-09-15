@@ -21,7 +21,7 @@ public:
 	bool Paused = false;
 	bool AutofitNext = false;
 	bool Trigger = false;
-	float TriggerLevel = 1.5;
+	float TriggerLevel = 3.3 /2;
 	float TriggerHysteresis = 0.25;
 	float osc1_time_scale = 5;
 	float osc1_voltage_scale = 1;
@@ -165,7 +165,7 @@ public:
 				ImGui::TableNextColumn();
 				ImGui::Text("Level");
 				ImGui::SameLine();
-				renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.0f",
+				renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
 				    constants::volt_units, &tl_unit_idx);
 				ImGui::TableNextColumn();
 				ImGui::Text("Auto");
@@ -180,7 +180,7 @@ public:
 				{
 					ImGui::Text("Hysteresis Level");
 					ImGui::TableNextColumn();
-					renderSliderwUnits(label + "_trigger_hysteresis", &TriggerHysteresis, 0, 2, "%.0f",
+					renderSliderwUnits(label + "_trigger_hysteresis", &TriggerHysteresis, 0, 2, "%.2f",
 					    constants::volt_units, &tl_unit_idx);
 					ImGui::Text("Auto");
 					ImGui::SameLine();
