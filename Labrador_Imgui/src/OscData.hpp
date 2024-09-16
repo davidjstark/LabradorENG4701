@@ -214,16 +214,7 @@ public:
 			return 0;
 		}
 	}
-	void ApplyFFT()
-	{
-		std::copy(raw_data.begin(),raw_data.end(),data_ft_in);
-		fftw_execute(plan);
-		double freq_step = 1 / ft_time_window;
-		frequency_ft.resize(ft_size);
-		std::generate(frequency_ft.begin(), frequency_ft.end(),
-		    [n = 0, &freq_step]() mutable { return n++ * freq_step; });
-	}
-	std::vector<double> GetFilteredData() // this will get the raw data with a low pass filter applied, to be used in determining max for osc gain, but removing spikes
+	std::vector<double> GetFilteredData() // applies low pass filter, unused currently but kept just in case
 	{
 		ApplyFFT();
 		double filter_cutoff = 50000; // hz
@@ -247,18 +238,6 @@ public:
 		std::transform(filtered_data.begin(), filtered_data.end(), filtered_data.begin(),
 		    [&norm_factor](auto& c) { return c * norm_factor; });
 		return filtered_data;
-	}
-	void FillMiniBuffer()
-	{
-		std::vector<double>* buffer_update_ptr = librador_get_analog_data_sincelast(
-		    channel, 5, max_sample_rate, delay_s, filter_mode);
-		int buffer_update_size = buffer_update_ptr->size();
-		for (int i = 0; i < buffer_update_size; i++)
-		{
-			int mini_buffer_idx = (mini_buffer_next_index + i) % mini_buffer.size();
-			mini_buffer[mini_buffer_idx] = buffer_update_ptr->at(buffer_update_size-1-i);
-		}
-		mini_buffer_next_index = (mini_buffer_next_index + buffer_update_size) % mini_buffer.size();
 	}
 	std::vector<double> GetMiniBuffer()
 	{
@@ -357,6 +336,28 @@ private:
 		double ft_sample_im = ft_sample[1];
 		double ft_sample_mag = std::sqrt(ft_sample[0] * ft_sample[0] + ft_sample[1] * ft_sample[1]);
 		return ft_sample_mag;
+	}
+	void FillMiniBuffer()
+	{
+		std::vector<double>* buffer_update_ptr = librador_get_analog_data_sincelast(
+		    channel, 5, max_sample_rate, delay_s, filter_mode);
+		int buffer_update_size = buffer_update_ptr->size();
+		for (int i = 0; i < buffer_update_size; i++)
+		{
+			int mini_buffer_idx = (mini_buffer_next_index + i) % mini_buffer.size();
+			mini_buffer[mini_buffer_idx] = buffer_update_ptr->at(buffer_update_size - 1 - i);
+		}
+		mini_buffer_next_index
+		    = (mini_buffer_next_index + buffer_update_size) % mini_buffer.size();
+	}
+	void ApplyFFT()
+	{
+		std::copy(raw_data.begin(), raw_data.end(), data_ft_in);
+		fftw_execute(plan);
+		double freq_step = 1 / ft_time_window;
+		frequency_ft.resize(ft_size);
+		std::generate(frequency_ft.begin(), frequency_ft.end(),
+		    [n = 0, &freq_step]() mutable { return n++ * freq_step; });
 	}
 };
 

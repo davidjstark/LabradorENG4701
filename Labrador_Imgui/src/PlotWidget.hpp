@@ -15,6 +15,9 @@ class PlotWidget
 {
 public:
 	int currentLabOscGain = 16;
+	int gain_idx = 0;
+	const char* gains[7] = { "1", "2", "4", "8", "16", "32", "64" };
+
 	/// <summary>
 	/// Constructor
 	/// </summary>
@@ -108,26 +111,53 @@ public:
 		OSC1Data.SetRawData();
 		OSC2Data.SetRawData();
 		double frequency = OSC1Data.GetFrequency();
-		printf("%f\n", frequency);
-		//UpdateOscGain();
+		//printf("%f\n", frequency);
+		UpdateOscGain();
+		ImGui::Combo("##Gain", &gain_idx, gains,IM_ARRAYSIZE(gains));
+		int desired_gain = 1;
+		switch (gain_idx)
+		{
+		case 0:
+			desired_gain = 1;
+			break;
+		case 1:
+			desired_gain = 2;
+			break;
+		case 2:
+			desired_gain = 4;
+			break;
+		case 3:
+			desired_gain = 8;
+			break;
+		case 4:
+			desired_gain = 16;
+			break;
+		case 5:
+			desired_gain = 32;
+			break;
+		case 6:
+			desired_gain = 64;
+			break;
+		}
+		if (desired_gain != currentLabOscGain)
+		{
+			/*currentLabOscGain = desired_gain;
+			librador_set_oscilloscope_gain(int(currentLabOscGain));*/
+		}
 	}
 	void UpdateOscGain()
 	{
 		double adc_center = 3.3 / 2;
-		double adc_width = 0.7;
 		double osc1_max = adc_center;
 		double osc1_min = adc_center;
 		double osc2_max = adc_center;
 		double osc2_min = adc_center;
+		double max_limits[7] = { 25.0, 13.4, 7.5, 4.5, 3.1, 2.4, 2.0 };
+		double min_limits[7] = { -22.0, -10.1, -4.2, -1.3, 0.17, 0.91, 1.3 };
+		double grace = 0.1;
 		if (OSC1Data.GetDataSize() != 0)
 		{
 			std::vector<double> osc1_data = OSC1Data.GetMiniBuffer();
-			/*ImPlot::SetNextAxesLimits(0, osc1_data.size(), -1, 3, ImPlotCond_Once);
-			if (ImPlot::BeginPlot("##Osc1Filtered",ImVec2(600,600)))
-			{
-				ImPlot::PlotLine("##Osc1Filtered",osc1_data.data(),osc1_data.size());
-				ImPlot::EndPlot();
-			}*/
 			osc1_max = *std::max_element(osc1_data.begin(), osc1_data.end());
 			osc1_min = *std::min_element(osc1_data.begin(), osc1_data.end());
 		}
@@ -139,33 +169,32 @@ public:
 		}
 		double osc_max = osc1_max > osc2_max ? osc1_max : osc2_max;
 		double osc_min = osc1_min < osc2_min ? osc1_min : osc2_min;
-		int min_gain = 64;
-		int max_gain = 64;
+		int min_gain = 1;
+		int max_gain = 1;
 
-		// floor function hackery to find desired oscilloscope gain for various ranges
-		// of osc_max if confused about how to arrive at this, we start with a
-		// standard floor function and perform dilations/translations to center around
-		// desired spot with desired width, the log2 and pow2 is just to ensure
-		// numbers get rounded down to nearest power of 2, (instead of every integer
-		// with the floor function)
-		if (!(osc_max < adc_center + adc_width / 2))
+		for (int i = 1; i < sizeof(max_limits) / sizeof(double); i++)
 		{
-			max_gain = int(32 * 
-				std::pow(2, 
-					-std::floor(
-						std::log2(
-							2 * (osc_max - adc_center - 3 / 4 * adc_width) / adc_width + 1.5))));
-			//printf("%f\n", osc_max);
+			if (osc_max < max_limits[i]-grace)
+			{
+				max_gain = std::pow(2,i);
+			}
+			else
+			{
+				break;
+			}
 		}
-		if (!(osc_min > adc_center - adc_width / 2))
+		for (int i = 1; i < sizeof(min_limits) / sizeof(double); i++)
 		{
-			min_gain = int(32 * 
-				std::pow(2,
-					-std::floor(
-						std::log2(
-							-2 * (osc_min - adc_center + 3 / 4 * adc_width) / adc_width + 1.5))));
+			if (osc_min > min_limits[i] + grace)
+			{
+				min_gain = std::pow(2, i);
+			}
+			else
+			{
+				break;
+			}
 		}
-		int desired_gain = max_gain > min_gain ? max_gain : min_gain;
+		int desired_gain = max_gain < min_gain ? max_gain : min_gain;
 		desired_gain = desired_gain < 1 ? 1 : desired_gain; // insure gain does not go
 			                                                // lower than 1
 		if (desired_gain != currentLabOscGain)
@@ -174,15 +203,6 @@ public:
 		    printf("%d\n", currentLabOscGain);
 			librador_set_oscilloscope_gain(int(currentLabOscGain));
 		}
-		/*ImGui::Checkbox("Change Gain", &set_gain);
-		if (set_gain)
-		{
-			librador_set_oscilloscope_gain(64);
-		}
-		else
-		{
-			librador_set_oscilloscope_gain(1);
-		}*/
 		
 	}
 
