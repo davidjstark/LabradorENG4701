@@ -13,34 +13,6 @@
 #define _USE_MATH_DEFINES
 #include "math.h"
 
-/// <summary>
-/// Handles conversion of unit and labelling.
-/// </summary>
-class Unit
-{
-public:
-	Unit(const std::string& label, float multiplier)
-	    : label(label)
-	    , multiplier(multiplier) {}
-
-	std::string getLabel() const
-	{
-		return label;
-	}
-	float toSI(float value) const
-	{
-		return value * multiplier;
-	}
-	float fromSI(float value) const
-	{
-		return value / multiplier;
-	}
-
-private:
-	std::string label;
-	float multiplier;
-};
-
 namespace constants
 {
 // Theme Colours
@@ -64,24 +36,11 @@ extern float sawtooth_preview[PREVIEW_RES];
 extern float triangle_preview[PREVIEW_RES];
 
 // Frequency Units
-static Unit Hz_unit("Hz", 1);
-static Unit kHz_unit("kHz", 1e3);
-static Unit MHz_unit("MHz", 1e6);
-constexpr Unit* const freq_units[3] = { &Hz_unit, &kHz_unit, &MHz_unit };
+static std::vector<std::string> freq_prefs = { "", "k" };
 
 // Voltage Units
-static Unit uV_unit("uV", 1e-6);
-static Unit mV_unit("mV", 1e-3);
-static Unit V_unit("V", 1);
-constexpr Unit* const volt_units[3] = { &uV_unit, &mV_unit, &V_unit };
+static std::vector<std::string> volt_prefs = { "", "m" };
 
-// Time Units
-static Unit us_unit("uV",1e-6);
-static Unit ms_unit("ms", 1e-3);
-static Unit s_unit("s", 1);
-constexpr Unit* const time_units[3] = { &us_unit, &ms_unit, &s_unit };
-
-// 
 //  textures
 extern int pinout_width;
 extern int pinout_height;

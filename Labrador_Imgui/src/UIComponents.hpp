@@ -193,16 +193,16 @@ template <typename T>
 /// <param name="active"></param>
 /// <param name="size"></param>
 /// <returns></returns>
-int inline DropDown(const char* id, char* const *options, int* active, int size)
+int inline DropDown(const char* id, std::vector<std::string> options, int* active)
 {
 	int changed = 0;
-	const char* preview = options[*active];
-	if (ImGui::BeginCombo(id, preview, 0))
+	const char* preview = options[*active].c_str();
+	if (ImGui::BeginCombo(id, preview, ImGuiComboFlags_NoArrowButton))
 	{
-		for (int n = 0; n < size; n++)
+		for (int n = 0; n < options.size(); n++)
 		{
 			const bool is_selected = (*active == n);
-			if (ImGui::Selectable(options[n], is_selected))
+			if (ImGui::Selectable(options[n].c_str(), is_selected))
 			{
 				*active = n;
 				changed = 1;
@@ -218,26 +218,6 @@ int inline DropDown(const char* id, char* const *options, int* active, int size)
 	return changed;
 }
 
-/// <summary>
-/// Generic Slider with Units
-/// </summary>
-/// <param name="type">Type of slider</param>
-/// <param name="result">Resulting float</param>
-/// <param name="min">Lower bound</param>
-/// <param name="max">Upper bound</param>
-/// <param name="prompt">Prompt/format over slider</param>
-/// <param name="units">List of unit objects</param>
-/// <param name="unit_idx">Index of selected unit</param>
-bool inline renderSliderwUnits(const std::string& label, float* result, float min, float max,
-    const char* prompt, Unit* const units[], int* unit_idx) // todo: create overload function so we can input a vector for min and max so that min and max depends on input unit_idx
-{
-	bool changed = false;
-	changed |= ImGui::DragFloat(("##" + label).c_str(), result, *result/300, min, max, prompt, ImGuiSliderFlags_AlwaysClamp);
-	ImGui::SameLine();
-	changed |= ObjectDropDown(("##" + label + "_unit").c_str(), units, unit_idx, 3);
-	return changed;
-}
-
 void inline TextRight(std::string text)
 {
 	auto windowWidth = ImGui::GetWindowSize().x;
@@ -246,5 +226,100 @@ void inline TextRight(std::string text)
 	ImGui::SetCursorPosX(windowWidth - textWidth - 10);
 	ImGui::Text(text.c_str());
 }
+
+class SIValue
+{
+public:
+	SIValue(std::string id, std::string label, float default_val, float min_val, float max_val,
+	    std::string symbol, std::vector<std::string> prefixs, std::string format)
+	    : id(id)
+		, label(label)
+	    , value(default_val)
+	    , min_val(min_val)
+	    , max_val(max_val)
+	    , symbol(symbol)
+	    , prefixs(prefixs)
+	    , format(format)
+	{
+		updateDisplayValue();
+		for (int i = 0; i < prefixs.size(); i++)
+		{
+			options.push_back(prefixs[i] + symbol);
+		}
+	}
+
+	bool renderInTable(float inpWidth)
+	{
+		bool changed = false;
+		ImGui::TableNextColumn();
+		ImGui::Text(label.c_str());
+		ImGui::TableNextColumn();
+		ImGui::SetNextItemWidth(inpWidth);
+		changed |= ImGui::DragFloat(id.c_str(), &display_value, std::abs(display_value) < 0.01 ? 0.01 : 0.01f * std::abs(display_value), display_min_val, display_max_val,
+		    format.c_str(), ImGuiSliderFlags_AlwaysClamp);
+		//if (ImGui::IsItemHovered(ImGuiHoveredFlags_DelayNormal))
+		//{
+		//	ImGui::BeginTooltip();
+		//	ImGui::Text("Double click to enter value or drag to adjust value.");
+		//	ImGui::EndTooltip();
+		//}
+
+		ImGui::TableNextColumn();
+		if (options.size() > 1 && DropDown(("##" + id + "dd").c_str(), options, &prefix_idx))
+		{
+			updateDisplayValue();
+		}
+		else if (options.size() == 1) ImGui::Text(options[0].c_str());
+		// ImGui::TableNextColumn();
+		if (changed) updateValue();
+		return changed;
+	}
+
+	float getValue()
+	{
+		return value;
+	}
+
+private:
+	const std::string label;
+	const std::string id;
+	float value; // SI value (always in standard unit, eg volts)
+	float display_value; // Value to display with unit conversion
+	float display_max_val;
+	float display_min_val;
+	float min_val;
+	float max_val;
+	std::string symbol;
+	std::string format;
+	int prefix_idx = 0;
+	std::vector<std::string> prefixs;
+	std::vector<std::string> options;
+	int n_prefix;
+
+	/// <summary>
+	/// Multiplier to convert prefixed SI unit to standard SI unit, eg mV -> V
+	/// </summary>
+	/// <returns></returns>
+	float getMutliplier()
+	{
+		std::string prefix = prefixs[prefix_idx];
+		if (prefix.empty()) return 1;
+		else if (!prefix.compare("m")) return 1e-3;
+		else if (!prefix.compare("k")) return 1e3;
+		else return 1;
+	}
+	void updateDisplayValue()
+	{
+		const float m = getMutliplier();
+		display_value = value / m;
+		display_min_val = min_val / m;
+		display_max_val = max_val / m;
+	}
+	void updateValue()
+	{
+		value = display_value * getMutliplier();
+	}
+
+};
 
 #endif

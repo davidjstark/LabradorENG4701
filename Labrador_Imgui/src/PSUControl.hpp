@@ -21,7 +21,7 @@ public:
 		ImGui::Dummy(ImVec2(0.0f, 5.0f));
 		ImGui::Text("Voltage");
 		ImGui::SameLine();
-		ImGui::SliderFloat("##voltage", &voltage, 4.5f, 6.0f, "%.1f V");	
+		ImGui::SliderFloat("##voltage", &voltage, 4.5f, 12.0f, "%.1f V");	
 	}
 
 	/// <summary>

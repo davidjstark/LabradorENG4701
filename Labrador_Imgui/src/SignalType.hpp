@@ -13,6 +13,12 @@ public:
 	GenericSignal(const std::string& label, const float* preview)
 	    : label(label)
 	    , preview(preview)
+	    , amplitude(label + "amp", "Amplitude", 1.0f, 0.15f, 9.0f,
+	          "V", constants::volt_prefs, "%.3g")
+	    , frequency(label + "freq", "Frequncy", 100.f, 1.0f, 1e6f, "Hz",
+	          constants::freq_prefs, "%.3g")
+	    , offset(label + "os", "Offset", 0.0f, -9.0f, 9.0f, "V",
+	          constants::volt_prefs, "%.3g")
 	{
 	}
 
@@ -27,10 +33,10 @@ public:
 	bool renderControl()
 	{
 		const float width = ImGui::GetContentRegionAvail().x;
-		const float height = ImGui::GetFrameHeightWithSpacing();
+		const float height = ImGui::GetFrameHeightWithSpacing() * (label=="Square" ? 4.0f : 3.0f);
 
 		// Controls
-		ImGui::BeginChild((label + "_control").c_str(), ImVec2(width * 0.5f, height * 3.0f));
+		ImGui::BeginChild((label + "_control").c_str(), ImVec2(width * 0.6, height));
 
 		bool changed = renderProperties();
 
@@ -40,7 +46,7 @@ public:
 		ImGui::SameLine();
 		ImPlotStyle backup = ImPlot::GetStyle();
 		PreviewStyle();
-		if (ImPlot::BeginPlot((label + "_preview").c_str(), ImVec2(width * 0.4, 3 * height),
+		if (ImPlot::BeginPlot((label + "_preview").c_str(), ImVec2(width * 0.35, height),
 		        ImPlotFlags_CanvasOnly | ImPlotFlags_NoInputs))
 		{
 			renderPreview();
@@ -67,7 +73,52 @@ public:
 	}
 
 
-	virtual bool renderProperties() = 0;
+	virtual bool renderProperties()
+	{
+		bool changed = false;
+		//// Amplitude
+		// changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 9.0f,
+		//     "Amplitude = %.3g", constants::volt_units, &amp_unit_idx);
+
+		//// Frequency
+		// changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
+		//     "Frequency = %.3g", constants::freq_units, &freq_unit_idx);
+
+		//// Offset
+		// changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset =
+		// %.3g",
+		//     constants::volt_units, &os_unit_idx);
+		const float width = ImGui::GetContentRegionAvail().x * 0.9;
+		const float labWidth = 80.0f;
+		const float unitWidth = 50.0f;
+		const float inpWidth = width - labWidth - unitWidth;
+
+		if (ImGui::BeginTable((label + "_prop_table").c_str(), 3))
+		{
+			ImGui::TableSetupColumn("One", ImGuiTableColumnFlags_WidthFixed, labWidth);
+			ImGui::TableSetupColumn("Two", ImGuiTableColumnFlags_WidthFixed, inpWidth);
+			ImGui::TableSetupColumn("three", ImGuiTableColumnFlags_WidthFixed, unitWidth);
+
+			changed |= amplitude.renderInTable(inpWidth);
+			changed |= frequency.renderInTable(inpWidth);
+			changed |= offset.renderInTable(inpWidth);
+
+			if (label == "Square")
+			{
+				ImGui::TableNextColumn();
+				ImGui::Text("Duty Cycle");
+				ImGui::TableNextColumn();
+				ImGui::SetNextItemWidth(inpWidth);
+				ImGui::DragInt(("##dc_control_" + label).c_str(), &dutycycle, 1, 1,
+				    100, "%d", ImGuiSliderFlags_AlwaysClamp);
+				ImGui::TableNextColumn();
+				ImGui::Text("%%");
+			}
+
+			ImGui::EndTable();
+		}
+		return changed;
+	}
 	
 	virtual void renderAnnotations() = 0;
 
@@ -85,27 +136,16 @@ public:
 		librador_send_sin_wave(channel, 100, 0.0, 0.0);
 	}
 
+private:
+	
+
 protected:
 	std::string label;
 	const float* preview;
-	float amplitude = 1.0f;
-	float offset = 0.0f;
-	float frequency = 100.0f;
-	int amp_unit_idx = 2;
-	int freq_unit_idx = 0;
-	int os_unit_idx = 2;
-	float getSIFrequency()
-	{
-		return constants::freq_units[freq_unit_idx]->toSI(frequency);
-	}
-	float getSIAmp()
-	{
-		return constants::volt_units[amp_unit_idx]->toSI(amplitude);
-	}
-	float getSIOffset()
-	{
-		return constants::volt_units[os_unit_idx]->toSI(offset);
-	}
+	SIValue amplitude;
+	SIValue frequency;
+	SIValue offset;
+	int dutycycle = 50;
 };
 
 
@@ -119,23 +159,6 @@ public:
 	SineSignal(const std::string& label)
 	    : GenericSignal(label, constants::sine_preview)
 	{}
-
-	bool renderProperties() override
-	{
-		bool changed = false;
-		// Amplitude
-		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 9.0f,
-		    "Amplitude = %.3g", constants::volt_units, &amp_unit_idx);
-
-		// Frequency
-		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
-		    "Frequency = %.3g", constants::freq_units, &freq_unit_idx);
-
-		// Offset
-		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.3g",
-		    constants::volt_units, &os_unit_idx);
-		return changed;
-	}
 
 	/// <summary>
 	/// Render annotations on preview
@@ -152,7 +175,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "A = %.2E V", getSIAmp());
+		    "A = %.2E V", amplitude.getValue());
 
 		float per_label_x[2] = { 0, period };
 		float per_label_y[2] = { 0.0f, 0.0f };
@@ -161,7 +184,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
 		// Annotate frequency
 		ImPlot::Annotation(3 * period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, -5), true,
-		    "T = %.2E s", 1 / getSIFrequency());
+		    "T = %.2E s", frequency.getValue() /100);
 	}
 	/// <summary>
 	/// Set the Signal Generator on the labrador board.
@@ -169,7 +192,7 @@ public:
 	void controlLab(int channel) override
 	{
 		// TODO: convert to correct units
-		librador_send_sin_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
+		librador_send_sin_wave(channel, frequency.getValue(), amplitude.getValue(), offset.getValue());
 	}
 	
 };
@@ -185,31 +208,6 @@ public:
 	{
 	}
 
-	bool renderProperties() override
-	{
-		bool changed = false;
-		// Amplitude
-		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f, "Amplitude = %.2f",
-		    constants::volt_units, &amp_unit_idx);
-
-		// Frequency
-		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
-		    "Frequency = %.0f",
-		    constants::freq_units, &freq_unit_idx);
-
-		// Offset
-		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
-		    constants::volt_units, &os_unit_idx);
-
-		// Duty Cycle
-		changed |= ImGui::SliderInt(
-		    ("##" + label + "_dc").c_str(), &dutycycle, 1, 100,
-		    "Duty Cycle = %d");
-		ImGui::SameLine();
-		ImGui::Text("%%");
-		return changed;
-	}
-
 	void renderAnnotations() override
 	{
 		float period = constants::PREVIEW_RES;
@@ -222,7 +220,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(amp_label_x[0], 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "A = %.2f V", getSIAmp());
+		    "A = %.2f V", amplitude.getValue());
 
 		float per_label_x[2] = { 0, period };
 		float per_label_y[2] = { 0.0f, 0.0f };
@@ -231,7 +229,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, -5), true,
-		    "T = %.2f s", 1 / getSIFrequency());
+		    "T = %.2f s", 1 / 100);
 	}
 
 
@@ -240,7 +238,8 @@ public:
 	/// </summary>
 	void controlLab(int channel) override
 	{
-		librador_imgui_send_square_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset(), dutycycle/100.0);
+		librador_imgui_send_square_wave(
+		    channel, frequency.getValue(), amplitude.getValue(), offset.getValue(), dutycycle / 100.0);
 		// librador_send_square_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
 	}
 
@@ -311,23 +310,6 @@ public:
 	{
 	}
 
-	bool renderProperties() override
-	{
-		bool changed = false;
-		// Amplitude
-		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
-		    "Amplitude = %.2f", constants::volt_units, &amp_unit_idx);
-
-		// Frequency
-		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
-		    "Frequency = %.0f", constants::freq_units, &freq_unit_idx);
-
-		// Offset
-		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
-		    constants::volt_units, &os_unit_idx);
-		return changed;
-	}
-
 	void renderAnnotations() override
 	{
 		float period = constants::PREVIEW_RES;
@@ -340,7 +322,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(3 * period/4, plt_amp/2, ImVec4(0, 0, 0, 0), ImVec2(0, 0), true,
-		    "A = %.2f V", getSIAmp());
+		    "A = %.2f V", amplitude.getValue());
 
 		float per_label_x[2] = { 0, period };
 		float per_label_y[2] = { 0.0f, 0.0f };
@@ -349,7 +331,7 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 4, 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "T = %.2f s", 1 / getSIFrequency());
+		    "T = %.2f s", 1 / 100);
 	}
 
 	/// <summary>
@@ -358,7 +340,8 @@ public:
 	void controlLab(int channel) override
 	{
 		// TODO: convert to correct units
-		librador_send_sawtooth_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
+		librador_send_sawtooth_wave(
+		    channel, frequency.getValue(), amplitude.getValue(), offset.getValue());
 	}
 };
 
@@ -370,23 +353,6 @@ public:
 	TriangleSignal(const std::string& label)
 	    : GenericSignal(label, constants::triangle_preview)
 	{
-	}
-
-	bool renderProperties() override
-	{
-		bool changed = false;
-		// Amplitude
-		changed |= renderSliderwUnits(label + "_amp", &amplitude, 0.0f, 3.0f,
-		    "Amplitude = %.2f", constants::volt_units, &amp_unit_idx);
-
-		// Frequency
-		changed |= renderSliderwUnits(label + "_freq", &frequency, 0.0f, 999.0f,
-		    "Frequency = %.0f", constants::freq_units, &freq_unit_idx);
-
-		// Offset
-		changed |= renderSliderwUnits(label + "_os", &offset, 0.0f, 3.0f, "Offset = %.2f",
-		    constants::volt_units, &os_unit_idx);
-		return changed;
 	}
 
 	void renderAnnotations() override
@@ -401,16 +367,16 @@ public:
 		ImPlot::PlotScatter(("##" + label + "_amp_pnt").c_str(), amp_label_x, amp_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(amp_label_x[0], 0, ImVec4(0, 0, 0, 0), ImVec2(0, 5), true,
-		    "A = %.2f V", getSIAmp());
+		    "A = %.2f V", amplitude.getValue());
 
 		float per_label_x[2] = { 0, period };
-		float per_label_y[2] = { -amplitude, -amplitude };
+		float per_label_y[2] = { -amplitude.getValue(), -amplitude.getValue() };
 
 		ImPlot::PlotLine(("##" + label + "_per").c_str(), per_label_x, per_label_y, 2);
 		ImPlot::PlotScatter(("##" + label + "_per_pnt").c_str(), per_label_x, per_label_y, 2);
 		// Annotate amplitude
 		ImPlot::Annotation(period / 2, 0, ImVec4(0, 0, 0, 0), ImVec2(0, -5), true,
-		    "T = %.2f s", 1 / getSIFrequency());
+		    "T = %.2f s", 1 / 100);
 	}
 
 	/// <summary>
@@ -418,6 +384,6 @@ public:
 	/// </summary>
 	void controlLab(int channel) override
 	{
-		librador_send_triangle_wave(channel, getSIFrequency(), getSIAmp(), getSIOffset());
+		librador_send_triangle_wave(channel, frequency.getValue(), amplitude.getValue(), offset.getValue());
 	}
 };

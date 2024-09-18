@@ -105,30 +105,30 @@ public:
 				ImGui::TableNextColumn();
 				ImGui::Text("Time Scale");
 				ImGui::TableNextColumn();
-				renderSliderwUnits(label+"_ts1",&osc1_time_scale,1,1000,"%.2f",constants::time_units,&osc1_ts_unit_idx);
+				// renderSliderwUnits(label+"_ts1",&osc1_time_scale,1,1000,"%.2f",constants::time_units,&osc1_ts_unit_idx);
 				ImGui::TableNextColumn();
-				renderSliderwUnits(label + "_ts2", &osc2_time_scale, 1, 1000, "%.2f",
-				    constants::time_units, &osc2_ts_unit_idx);
+				// renderSliderwUnits(label + "_ts2", &osc2_time_scale, 1, 1000, "%.2f",
+				//    constants::time_units, &osc2_ts_unit_idx);
 				ImGui::TableNextColumn();
 				ImGui::Checkbox("##Equalise", &ts_equalise);
 				ImGui::TableNextColumn();
 				ImGui::Text("Voltage Scale");
 				ImGui::TableNextColumn();
-				renderSliderwUnits(label + "_vs1", &osc1_voltage_scale, 1, 1000, "%.2f",
-				    constants::volt_units, &osc1_vs_unit_idx);
+				// renderSliderwUnits(label + "_vs1", &osc1_voltage_scale, 1, 1000, "%.2f",
+				//     constants::volt_units, &osc1_vs_unit_idx);
 				ImGui::TableNextColumn();
-				renderSliderwUnits(label + "_vs2", &osc2_voltage_scale, 1, 1000, "%.2f",
-				    constants::volt_units, &osc2_vs_unit_idx);
+				// renderSliderwUnits(label + "_vs2", &osc2_voltage_scale, 1, 1000, "%.2f",
+				//    constants::volt_units, &osc2_vs_unit_idx);
 				ImGui::TableNextColumn();
 				ImGui::Checkbox("##Equalise", &vs_equalise);
 				ImGui::TableNextColumn();
 				ImGui::Text("Offset");
 				ImGui::TableNextColumn();
-				renderSliderwUnits(label + "_os1", &osc1_offset, 1, 1000, "%.2f",
-				    constants::time_units, &osc1_os_unit_idx);
+				// renderSliderwUnits(label + "_os1", &osc1_offset, 1, 1000, "%.2f",
+				//    constants::time_units, &osc1_os_unit_idx);
 				ImGui::TableNextColumn();
-				renderSliderwUnits(label + "_os2", &osc2_offset, 1, 1000, "%.2f",
-				    constants::time_units, &osc2_os_unit_idx);
+				// renderSliderwUnits(label + "_os2", &osc2_offset, 1, 1000, "%.2f",
+				//    constants::time_units, &osc2_os_unit_idx);
 				ImGui::TableNextColumn();
 				ImGui::Checkbox("##Equalise", &os_equalise);
 				ImGui::EndTable();
@@ -165,8 +165,8 @@ public:
 				ImGui::TableNextColumn();
 				ImGui::Text("Level");
 				ImGui::SameLine();
-				renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
-				    constants::volt_units, &tl_unit_idx);
+				// renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
+				//    constants::volt_units, &tl_unit_idx);
 				ImGui::TableNextColumn();
 				ImGui::Text("Auto");
 				ImGui::SameLine();
@@ -180,8 +180,8 @@ public:
 				{
 					ImGui::Text("Hysteresis Level");
 					ImGui::TableNextColumn();
-					renderSliderwUnits(label + "_trigger_hysteresis", &TriggerHysteresis, 0, 2, "%.2f",
-					    constants::volt_units, &tl_unit_idx);
+				//	renderSliderwUnits(label + "_trigger_hysteresis", &TriggerHysteresis, 0, 2, "%.2f",
+				//	    constants::volt_units, &tl_unit_idx);
 					ImGui::Text("Auto");
 					ImGui::SameLine();
 					ImGui::Text("ON");
