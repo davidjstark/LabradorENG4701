@@ -15,8 +15,6 @@ class PlotWidget
 {
 public:
 	int currentLabOscGain = 16;
-	int gain_idx = 0;
-	const char* gains[7] = { "1", "2", "4", "8", "16", "32", "64" };
 
 
 	/// <summary>
@@ -115,42 +113,35 @@ public:
 		OSC2Data.SetData();
 		OSC1Data.SetRawData();
 		OSC2Data.SetRawData();
-		double frequency = OSC1Data.GetFrequency();
-		//printf("%f\n", frequency);
-		UpdateOscGain();
-		ImGui::Combo("##Gain", &gain_idx, gains,IM_ARRAYSIZE(gains));
-		int desired_gain = 1;
-		switch (gain_idx)
+		OSC1Data.ApplyFFT();
+		OSC2Data.ApplyFFT();
+		AutoSetOscGain();
+		if (osc_control->AutoTriggerLevel)
 		{
-		case 0:
-			desired_gain = 1;
-			break;
-		case 1:
-			desired_gain = 2;
-			break;
-		case 2:
-			desired_gain = 4;
-			break;
-		case 3:
-			desired_gain = 8;
-			break;
-		case 4:
-			desired_gain = 16;
-			break;
-		case 5:
-			desired_gain = 32;
-			break;
-		case 6:
-			desired_gain = 64;
-			break;
-		}
-		if (desired_gain != currentLabOscGain)
-		{
-			/*currentLabOscGain = desired_gain;
-			librador_set_oscilloscope_gain(int(currentLabOscGain));*/
+			AutoSetTriggerLevel(trigger_channel,trigger_type, &osc_control->TriggerLevel,&osc_control->TriggerHysteresis);
 		}
 	}
-	void UpdateOscGain()
+	void AutoSetTriggerLevel(constants::Channel trigger_channel,constants::TriggerType trigger_type, float* TriggerLevel,float* TriggerHysteresis)
+	{
+		double hysteresis_factor = 0.4;
+		if (trigger_channel == constants::Channel::OSC1)
+		{
+			*TriggerLevel = OSC1Data.GetDCComponent();
+		}
+		if (trigger_channel == constants::Channel::OSC2)
+		{
+			*TriggerLevel = OSC2Data.GetDCComponent();
+		}
+		if (trigger_type == constants::TriggerType::RISING_EDGE)
+		{
+			*TriggerHysteresis = hysteresis_factor * std::abs((*TriggerLevel- OSC1Data.GetDataMin()));
+		}
+		if (trigger_type == constants::TriggerType::FALLING_EDGE)
+		{
+			*TriggerHysteresis = hysteresis_factor * std::abs((OSC1Data.GetDataMax() - *TriggerLevel));
+		}
+	}
+	void AutoSetOscGain()
 	{
 		double adc_center = 3.3 / 2;
 		double osc1_max = adc_center;

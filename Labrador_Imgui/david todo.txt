@@ -6,5 +6,3 @@ Allow Greek characters (mu)
 Add Cursors
 Add getting plot information
 Exporting plot information (jd handling)
-
-

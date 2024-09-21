@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <chrono>
 #include "fftw3.h"
+#include <complex>
+#include <array>
 class OSCControl;
 
 class OscData
@@ -22,6 +24,7 @@ public:
 		// init mini buffer to all 1.65 (adc_center)
 		mini_buffer.resize(int(max_sample_rate * mini_buffer_length));
 		std::fill(mini_buffer.begin(), mini_buffer.end(), 1.65);
+		data_ft_out_normalized.resize(ft_size);
 	}
 	void SetRawData() // sets the raw_data vector to be used for fourier analysis (frequency stuff)
 	{
@@ -195,13 +198,36 @@ public:
 	{
 		return data.size();
 	}
-	double GetFrequency()
+	double GetDataMax()
+	{
+		if (data.size() != 0)
+		{
+			return *std::max_element(data.begin(), data.end());
+		}
+		else
+		{
+			return 0;
+		}
+			
+	}
+	double GetDataMin()
+	{
+		if (data.size() != 0)
+		{
+			return *std::min_element(data.begin(), data.end());
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	double GetDominantFrequency()
 	{
 		std::vector<double> ft_mag;
 		ApplyFFT();
 		for (int i = 0; i < ft_size; i++)
 		{
-			ft_mag.push_back(GetComplexMagnitude(data_ft_out[i]));
+			ft_mag.push_back(std::abs(data_ft_out_normalized[i]));
 		}
 		if (ft_mag.size() > 0)
 		{
@@ -214,9 +240,32 @@ public:
 			return 0;
 		}
 	}
+	double GetPeriod()
+	{
+		return 0;
+	}
+	void ApplyFFT()
+	{
+		std::copy(raw_data.begin(), raw_data.end(), data_ft_in);
+		fftw_execute(plan);
+		double freq_step = 1 / ft_time_window;
+		frequency_ft.resize(ft_size);
+		std::generate(frequency_ft.begin(), frequency_ft.end(),
+		    [n = 0, &freq_step]() mutable { return n++ * freq_step; });
+		// Normalize FFT
+		data_ft_out_normalized.resize(ft_size);
+		for (int i = 0; i < ft_size; i++)
+		{
+			data_ft_out_normalized[i].real(data_ft_out[i][0] / (ft_size));
+			data_ft_out_normalized[i].imag(data_ft_out[i][1] / (ft_size));
+		}
+	}
+	double GetDCComponent()
+	{
+		return std::abs(data_ft_out_normalized[0]);
+	}
 	std::vector<double> GetFilteredData() // applies low pass filter, unused currently but kept just in case
 	{
-		ApplyFFT();
 		double filter_cutoff = 50000; // hz
 		for (int i = 0; i < raw_data.size(); i++)
 		{
@@ -264,11 +313,12 @@ private:
 	int max_plot_samples = 2048;
 	double max_sample_rate = 375000;
 	// frequency stuff
-	std::vector<double> raw_data = {};
-	std::vector<double> raw_time = {};
+	std::vector<double> raw_data = {}; // to be copied to data_ft_in and used in frequency transform
+	std::vector<double> raw_time = {}; // time associated with raw_data
 	int ft_size = 16384; // 2^15
-	double* data_ft_in;
-	fftw_complex* data_ft_out;
+	double* data_ft_in; // raw_data copied to double array
+	fftw_complex* data_ft_out; // fft is output into this complex number array
+	std::vector<std::complex<double>> data_ft_out_normalized = {}; // std vector which we copy data_ft_out to, normalized, uses std::complex instead of fftw_complex which gives us handy functions
 	std::vector<double> time_ft = {}; // currently unused as is the time vector for the resampling
 	std::vector<double> frequency_ft = {};
 	fftw_plan plan;
@@ -330,14 +380,14 @@ private:
 			}
 		}
 	}
-	double GetComplexMagnitude(fftw_complex ft_sample)
+	double GetComplexMagnitude(fftw_complex ft_sample) // for fftw_complex
 	{
 		double ft_sample_re = ft_sample[0];
 		double ft_sample_im = ft_sample[1];
 		double ft_sample_mag = std::sqrt(ft_sample[0] * ft_sample[0] + ft_sample[1] * ft_sample[1]);
 		return ft_sample_mag;
 	}
-	void FillMiniBuffer()
+	void FillMiniBuffer() // used for auto osc gain and that's all
 	{
 		std::vector<double>* buffer_update_ptr = librador_get_analog_data_sincelast(
 		    channel, 5, max_sample_rate, delay_s, filter_mode);
@@ -349,15 +399,6 @@ private:
 		}
 		mini_buffer_next_index
 		    = (mini_buffer_next_index + buffer_update_size) % mini_buffer.size();
-	}
-	void ApplyFFT()
-	{
-		std::copy(raw_data.begin(), raw_data.end(), data_ft_in);
-		fftw_execute(plan);
-		double freq_step = 1 / ft_time_window;
-		frequency_ft.resize(ft_size);
-		std::generate(frequency_ft.begin(), frequency_ft.end(),
-		    [n = 0, &freq_step]() mutable { return n++ * freq_step; });
 	}
 };
 
