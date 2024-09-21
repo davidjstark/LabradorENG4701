@@ -18,6 +18,7 @@ public:
 	int gain_idx = 0;
 	const char* gains[7] = { "1", "2", "4", "8", "16", "32", "64" };
 
+
 	/// <summary>
 	/// Constructor
 	/// </summary>
@@ -60,6 +61,7 @@ public:
 			ImPlot::SetupAxes("", "",
 			ImPlotAxisFlags_NoLabel,
 			ImPlotAxisFlags_NoLabel);
+			// Plot oscilloscope 1 signal
 			std::vector<double> time_osc1
 				= OSC1Data.GetTime();
 			ImPlot::SetNextLineStyle(osc_control->OSC1Colour.Value);
@@ -69,6 +71,7 @@ public:
 					analog_data_osc1.data(), analog_data_osc1.size());
 			}
 			OSC1Data.SetTime(ImPlot::GetPlotLimits().X.Size(),ImPlot::GetPlotLimits().X.Min);
+			// Plot Oscilloscope 2 Signal
 			std::vector<double> time_osc2
 				= OSC2Data.GetTime();
 			ImPlot::SetNextLineStyle(osc_control->OSC2Colour.Value);
@@ -78,6 +81,8 @@ public:
 					analog_data_osc2.data(), analog_data_osc2.size());
 			}
 			OSC2Data.SetTime(ImPlot::GetPlotLimits().X.Size(), ImPlot::GetPlotLimits().X.Min);
+			// Plot cursor 1
+			ImPlot::DragPoint(0, &cursor1_x,&cursor1_y, ImVec4(1, 1, 1, 1));
 			ImPlot::EndPlot();
 		}
 		ImGui::PopStyleColor();
@@ -200,7 +205,6 @@ public:
 		if (desired_gain != currentLabOscGain)
 		{
 			currentLabOscGain = desired_gain;
-		    printf("%d\n", currentLabOscGain);
 			librador_set_oscilloscope_gain(int(currentLabOscGain));
 		}
 		
@@ -218,5 +222,7 @@ protected:
 	OSCControl* osc_control;
 	OscData OSC1Data = OscData(1);
 	OscData OSC2Data = OscData(2);
-	bool set_gain = false;
+	double cursor1_x = 0;
+	double cursor1_y = 0;
+
 };
