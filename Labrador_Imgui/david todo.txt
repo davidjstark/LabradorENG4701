@@ -6,3 +6,4 @@ Calculate frequency of signal
 Auto triggering level
 Allow Greek characters (mu)
 Create overload for renderSliderwUnits so we can input different min and maxes for different units
+rendersliderwunits seems buggy to me for the oscilloscope widget. It drags 2 at a time for some reason.
