@@ -42,7 +42,7 @@ public:
 	bool os_equalise = false;
 	bool Cursor1toggle = false;
 	bool Cursor2toggle = false;
-	bool AutoTriggerLevelToggle = true;
+	bool AutoTriggerLevel = true;
 	bool AutoTriggerHysteresisToggle = true;
 	bool HysteresisDisplayOptionEnabled = false;
 
@@ -164,18 +164,13 @@ public:
 				    TriggerTypeComboList, IM_ARRAYSIZE(TriggerTypeComboList));
 				ImGui::TableNextColumn();
 				ImGui::Text("Level");
-				ImGui::SameLine();
-				// renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
-				//    constants::volt_units, &tl_unit_idx);
-				ImGui::TableNextColumn();
 				ImGui::Text("Auto");
 				ImGui::SameLine();
-				ImGui::Text("ON");
-				ImGui::SameLine();
-				ToggleSwitch((label + "Auto_trigger_level_toggle").c_str(),
-				    &AutoTriggerLevelToggle, GenColour);
-				ImGui::SameLine();
-				ImGui::Text("OFF");
+				ImGui::Checkbox("##Auto", &AutoTriggerLevel);
+				ImGui::TableNextColumn();
+				renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
+				    constants::volt_units, &tl_unit_idx);
+				
 				if (HysteresisDisplayOptionEnabled)
 				{
 					ImGui::Text("Hysteresis Level");

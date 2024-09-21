@@ -1,15 +1,24 @@
 <?xml version="1.0"?><doc>
 <members>
+<<<<<<< Updated upstream
 <member name="M:librador_set_device_mode(System.Int32)" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.h" line="28">
 As above, a1 and a2
 </member>
 <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->
 <member name="F:LIBUSB_CLASS_PER_INTERFACE" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="219">
+=======
+<member name="M:librador_set_device_mode(System.Int32)" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.h" line="28">
+As above, a1 and a2
+</member>
+<!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->
+<member name="F:LIBUSB_CLASS_PER_INTERFACE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="219">
+>>>>>>> Stashed changes
 In the context of a \ref libusb_device_descriptor "device descriptor",
 	 * this bDeviceClass value indicates that each interface specifies its
 	 * own class information and all interfaces operate independently.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_CLASS_AUDIO" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="225">
 Audio class 
 </member>
@@ -65,6 +74,63 @@ Application class
 Class is vendor-specific 
 </member>
 <member name="T:libusb_class_code" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="204">
+=======
+<member name="F:LIBUSB_CLASS_AUDIO" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="225">
+Audio class 
+</member>
+<member name="F:LIBUSB_CLASS_COMM" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="228">
+Communications class 
+</member>
+<member name="F:LIBUSB_CLASS_HID" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="231">
+Human Interface Device class 
+</member>
+<member name="F:LIBUSB_CLASS_PHYSICAL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="234">
+Physical 
+</member>
+<member name="F:LIBUSB_CLASS_IMAGE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="237">
+Image class 
+</member>
+<member name="F:LIBUSB_CLASS_PRINTER" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="241">
+Printer class 
+</member>
+<member name="F:LIBUSB_CLASS_MASS_STORAGE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="244">
+Mass storage class 
+</member>
+<member name="F:LIBUSB_CLASS_HUB" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="247">
+Hub class 
+</member>
+<member name="F:LIBUSB_CLASS_DATA" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="250">
+Data class 
+</member>
+<member name="F:LIBUSB_CLASS_SMART_CARD" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="253">
+Smart Card 
+</member>
+<member name="F:LIBUSB_CLASS_CONTENT_SECURITY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="256">
+Content Security 
+</member>
+<member name="F:LIBUSB_CLASS_VIDEO" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="259">
+Video 
+</member>
+<member name="F:LIBUSB_CLASS_PERSONAL_HEALTHCARE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="262">
+Personal Healthcare 
+</member>
+<member name="F:LIBUSB_CLASS_DIAGNOSTIC_DEVICE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="265">
+Diagnostic Device 
+</member>
+<member name="F:LIBUSB_CLASS_WIRELESS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="268">
+Wireless class 
+</member>
+<member name="F:LIBUSB_CLASS_MISCELLANEOUS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="271">
+Miscellaneous class 
+</member>
+<member name="F:LIBUSB_CLASS_APPLICATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="274">
+Application class 
+</member>
+<member name="F:LIBUSB_CLASS_VENDOR_SPEC" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="277">
+Class is vendor-specific 
+</member>
+<member name="T:libusb_class_code" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="204">
+>>>>>>> Stashed changes
 \def libusb_le16_to_cpu
  * \ingroup libusb_misc
  * Convert a 16-bit value from little-endian to host-endian format. On
@@ -76,6 +142,7 @@ Class is vendor-specific
 \ingroup libusb_desc
  * Device and/or Interface Class codes 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_DT_DEVICE" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="284">
 Device descriptor. See libusb_device_descriptor. 
 </member>
@@ -130,11 +197,68 @@ Out: host-to-device
 In: device-to-host 
 </member>
 <member name="T:libusb_endpoint_direction" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="355">
+=======
+<member name="F:LIBUSB_DT_DEVICE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="284">
+Device descriptor. See libusb_device_descriptor. 
+</member>
+<member name="F:LIBUSB_DT_CONFIG" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="287">
+Configuration descriptor. See libusb_config_descriptor. 
+</member>
+<member name="F:LIBUSB_DT_STRING" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="290">
+String descriptor 
+</member>
+<member name="F:LIBUSB_DT_INTERFACE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="293">
+Interface descriptor. See libusb_interface_descriptor. 
+</member>
+<member name="F:LIBUSB_DT_ENDPOINT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="296">
+Endpoint descriptor. See libusb_endpoint_descriptor. 
+</member>
+<member name="F:LIBUSB_DT_INTERFACE_ASSOCIATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="299">
+Interface Association Descriptor.
+	* See libusb_interface_association_descriptor 
+</member>
+<member name="F:LIBUSB_DT_BOS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="303">
+BOS descriptor 
+</member>
+<member name="F:LIBUSB_DT_DEVICE_CAPABILITY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="306">
+Device Capability descriptor 
+</member>
+<member name="F:LIBUSB_DT_HID" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="309">
+HID descriptor 
+</member>
+<member name="F:LIBUSB_DT_REPORT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="312">
+HID report descriptor 
+</member>
+<member name="F:LIBUSB_DT_PHYSICAL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="315">
+Physical descriptor 
+</member>
+<member name="F:LIBUSB_DT_HUB" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="318">
+Hub descriptor 
+</member>
+<member name="F:LIBUSB_DT_SUPERSPEED_HUB" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="321">
+SuperSpeed Hub descriptor 
+</member>
+<member name="F:LIBUSB_DT_SS_ENDPOINT_COMPANION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="324">
+SuperSpeed Endpoint Companion descriptor 
+</member>
+<member name="T:libusb_descriptor_type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="281">
+\ingroup libusb_desc
+ * Descriptor types as defined by the USB specification. 
+</member>
+<member name="F:LIBUSB_ENDPOINT_OUT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="360">
+Out: host-to-device 
+</member>
+<member name="F:LIBUSB_ENDPOINT_IN" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="363">
+In: device-to-host 
+</member>
+<member name="T:libusb_endpoint_direction" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="355">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Endpoint direction. Values for bit 7 of the
  * \ref libusb_endpoint_descriptor::bEndpointAddress "endpoint address" scheme.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_ENDPOINT_TRANSFER_TYPE_CONTROL" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="374">
 Control endpoint 
 </member>
@@ -148,11 +272,27 @@ Bulk endpoint
 Interrupt endpoint 
 </member>
 <member name="T:libusb_endpoint_transfer_type" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="369">
+=======
+<member name="F:LIBUSB_ENDPOINT_TRANSFER_TYPE_CONTROL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="374">
+Control endpoint 
+</member>
+<member name="F:LIBUSB_ENDPOINT_TRANSFER_TYPE_ISOCHRONOUS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="377">
+Isochronous endpoint 
+</member>
+<member name="F:LIBUSB_ENDPOINT_TRANSFER_TYPE_BULK" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="380">
+Bulk endpoint 
+</member>
+<member name="F:LIBUSB_ENDPOINT_TRANSFER_TYPE_INTERRUPT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="383">
+Interrupt endpoint 
+</member>
+<member name="T:libusb_endpoint_transfer_type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="369">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Endpoint transfer type. Values for bits 0:1 of the
  * \ref libusb_endpoint_descriptor::bmAttributes "endpoint attributes" field.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_REQUEST_GET_STATUS" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="390">
 Request status of the specific recipient 
 </member>
@@ -210,11 +350,71 @@ Vendor
 Reserved 
 </member>
 <member name="T:libusb_request_type" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="435">
+=======
+<member name="F:LIBUSB_REQUEST_GET_STATUS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="390">
+Request status of the specific recipient 
+</member>
+<member name="F:LIBUSB_REQUEST_CLEAR_FEATURE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="393">
+Clear or disable a specific feature 
+</member>
+<member name="F:LIBUSB_REQUEST_SET_FEATURE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="398">
+Set or enable a specific feature 
+</member>
+<member name="F:LIBUSB_REQUEST_SET_ADDRESS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="403">
+Set device address for all future accesses 
+</member>
+<member name="F:LIBUSB_REQUEST_GET_DESCRIPTOR" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="406">
+Get the specified descriptor 
+</member>
+<member name="F:LIBUSB_REQUEST_SET_DESCRIPTOR" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="409">
+Used to update existing descriptors or add new descriptors 
+</member>
+<member name="F:LIBUSB_REQUEST_GET_CONFIGURATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="412">
+Get the current device configuration value 
+</member>
+<member name="F:LIBUSB_REQUEST_SET_CONFIGURATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="415">
+Set device configuration 
+</member>
+<member name="F:LIBUSB_REQUEST_GET_INTERFACE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="418">
+Return the selected alternate setting for the specified interface 
+</member>
+<member name="F:LIBUSB_REQUEST_SET_INTERFACE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="421">
+Select an alternate interface for the specified interface 
+</member>
+<member name="F:LIBUSB_REQUEST_SYNCH_FRAME" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="424">
+Set then report an endpoint's synchronization frame 
+</member>
+<member name="F:LIBUSB_REQUEST_SET_SEL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="427">
+Sets both the U1 and U2 Exit Latency 
+</member>
+<member name="F:LIBUSB_SET_ISOCH_DELAY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="430">
+Delay from the time a host transmits a packet to the time it is
+	  * received by the device. 
+</member>
+<member name="T:libusb_standard_request" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="387">
+\ingroup libusb_misc
+ * Standard requests, as defined in table 9-5 of the USB 3.0 specifications 
+</member>
+<member name="F:LIBUSB_REQUEST_TYPE_STANDARD" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="440">
+Standard 
+</member>
+<member name="F:LIBUSB_REQUEST_TYPE_CLASS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="443">
+Class 
+</member>
+<member name="F:LIBUSB_REQUEST_TYPE_VENDOR" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="446">
+Vendor 
+</member>
+<member name="F:LIBUSB_REQUEST_TYPE_RESERVED" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="449">
+Reserved 
+</member>
+<member name="T:libusb_request_type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="435">
+>>>>>>> Stashed changes
 \ingroup libusb_misc
  * Request type bits of the
  * \ref libusb_control_setup::bmRequestType "bmRequestType" field in control
  * transfers. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_RECIPIENT_DEVICE" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="458">
 Device 
 </member>
@@ -228,11 +428,27 @@ Endpoint
 Other 
 </member>
 <member name="T:libusb_request_recipient" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="453">
+=======
+<member name="F:LIBUSB_RECIPIENT_DEVICE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="458">
+Device 
+</member>
+<member name="F:LIBUSB_RECIPIENT_INTERFACE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="461">
+Interface 
+</member>
+<member name="F:LIBUSB_RECIPIENT_ENDPOINT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="464">
+Endpoint 
+</member>
+<member name="F:LIBUSB_RECIPIENT_OTHER" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="467">
+Other 
+</member>
+<member name="T:libusb_request_recipient" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="453">
+>>>>>>> Stashed changes
 \ingroup libusb_misc
  * Recipient bits of the
  * \ref libusb_control_setup::bmRequestType "bmRequestType" field in control
  * transfers. Values 4 through 31 are reserved. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_ISO_SYNC_TYPE_NONE" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="479">
 No synchronization 
 </member>
@@ -246,12 +462,28 @@ Adaptive
 Synchronous 
 </member>
 <member name="T:libusb_iso_sync_type" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="473">
+=======
+<member name="F:LIBUSB_ISO_SYNC_TYPE_NONE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="479">
+No synchronization 
+</member>
+<member name="F:LIBUSB_ISO_SYNC_TYPE_ASYNC" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="482">
+Asynchronous 
+</member>
+<member name="F:LIBUSB_ISO_SYNC_TYPE_ADAPTIVE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="485">
+Adaptive 
+</member>
+<member name="F:LIBUSB_ISO_SYNC_TYPE_SYNC" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="488">
+Synchronous 
+</member>
+<member name="T:libusb_iso_sync_type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="473">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Synchronization type for isochronous endpoints. Values for bits 2:3 of the
  * \ref libusb_endpoint_descriptor::bmAttributes "bmAttributes" field in
  * libusb_endpoint_descriptor.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_ISO_USAGE_TYPE_DATA" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="500">
 Data endpoint 
 </member>
@@ -262,12 +494,25 @@ Feedback endpoint
 Implicit feedback Data endpoint 
 </member>
 <member name="T:libusb_iso_usage_type" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="494">
+=======
+<member name="F:LIBUSB_ISO_USAGE_TYPE_DATA" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="500">
+Data endpoint 
+</member>
+<member name="F:LIBUSB_ISO_USAGE_TYPE_FEEDBACK" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="503">
+Feedback endpoint 
+</member>
+<member name="F:LIBUSB_ISO_USAGE_TYPE_IMPLICIT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="506">
+Implicit feedback Data endpoint 
+</member>
+<member name="T:libusb_iso_usage_type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="494">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Usage type for isochronous endpoints. Values for bits 4:5 of the
  * \ref libusb_endpoint_descriptor::bmAttributes "bmAttributes" field in
  * libusb_endpoint_descriptor.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_LOW_SPEED_OPERATION" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="515">
 Low speed operation supported (1.5MBit/s). 
 </member>
@@ -281,31 +526,61 @@ High speed operation supported (480MBit/s).
 Superspeed operation supported (5000MBit/s). 
 </member>
 <member name="T:libusb_supported_speed" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="510">
+=======
+<member name="F:LIBUSB_LOW_SPEED_OPERATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="515">
+Low speed operation supported (1.5MBit/s). 
+</member>
+<member name="F:LIBUSB_FULL_SPEED_OPERATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="518">
+Full speed operation supported (12MBit/s). 
+</member>
+<member name="F:LIBUSB_HIGH_SPEED_OPERATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="521">
+High speed operation supported (480MBit/s). 
+</member>
+<member name="F:LIBUSB_SUPER_SPEED_OPERATION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="524">
+Superspeed operation supported (5000MBit/s). 
+</member>
+<member name="T:libusb_supported_speed" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="510">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Supported speeds (wSpeedSupported) bitfield. Indicates what
  * speeds the device supports.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_BM_LPM_SUPPORT" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="534">
 Supports Link Power Management (LPM) 
 </member>
 <member name="T:libusb_usb_2_0_extension_attributes" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="528">
+=======
+<member name="F:LIBUSB_BM_LPM_SUPPORT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="534">
+Supports Link Power Management (LPM) 
+</member>
+<member name="T:libusb_usb_2_0_extension_attributes" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="528">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Masks for the bits of the
  * \ref libusb_usb_2_0_extension_descriptor::bmAttributes "bmAttributes" field
  * of the USB 2.0 Extension descriptor.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_BM_LTM_SUPPORT" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="544">
 Supports Latency Tolerance Messages (LTM) 
 </member>
 <member name="T:libusb_ss_usb_device_capability_attributes" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="538">
+=======
+<member name="F:LIBUSB_BM_LTM_SUPPORT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="544">
+Supports Latency Tolerance Messages (LTM) 
+</member>
+<member name="T:libusb_ss_usb_device_capability_attributes" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="538">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Masks for the bits of the
  * \ref libusb_ss_usb_device_capability_descriptor::bmAttributes "bmAttributes" field
  * field of the SuperSpeed USB Device Capability descriptor.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_BT_WIRELESS_USB_DEVICE_CAPABILITY" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="552">
 Wireless USB device capability 
 </member>
@@ -322,25 +597,55 @@ Container ID type
 Platform descriptor 
 </member>
 <member name="T:libusb_bos_type" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="548">
+=======
+<member name="F:LIBUSB_BT_WIRELESS_USB_DEVICE_CAPABILITY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="552">
+Wireless USB device capability 
+</member>
+<member name="F:LIBUSB_BT_USB_2_0_EXTENSION" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="555">
+USB 2.0 extensions 
+</member>
+<member name="F:LIBUSB_BT_SS_USB_DEVICE_CAPABILITY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="558">
+SuperSpeed USB device capability 
+</member>
+<member name="F:LIBUSB_BT_CONTAINER_ID" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="561">
+Container ID type 
+</member>
+<member name="F:LIBUSB_BT_PLATFORM_DESCRIPTOR" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="564">
+Platform descriptor 
+</member>
+<member name="T:libusb_bos_type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="548">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * USB capability types
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_device_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="568">
+=======
+<member name="T:libusb_device_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="568">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the standard USB device descriptor. This
  * descriptor is documented in section 9.6.1 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_device_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="574">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_device_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="577">
+=======
+<member name="F:libusb_device_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="574">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_device_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="577">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_DEVICE LIBUSB_DT_DEVICE in this
 	 * context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_device_descriptor.bcdUSB" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="582">
 USB specification release number in binary-coded decimal. A value of
 	 * 0x0200 indicates USB 2.0, 0x0110 indicates USB 1.1, etc. 
@@ -381,26 +686,83 @@ Index of string descriptor containing device serial number
 Number of possible configurations 
 </member>
 <member name="T:libusb_endpoint_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="622">
+=======
+<member name="F:libusb_device_descriptor.bcdUSB" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="582">
+USB specification release number in binary-coded decimal. A value of
+	 * 0x0200 indicates USB 2.0, 0x0110 indicates USB 1.1, etc. 
+</member>
+<member name="F:libusb_device_descriptor.bDeviceClass" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="586">
+USB-IF class code for the device. See \ref libusb_class_code. 
+</member>
+<member name="F:libusb_device_descriptor.bDeviceSubClass" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="589">
+USB-IF subclass code for the device, qualified by the bDeviceClass
+	 * value 
+</member>
+<member name="F:libusb_device_descriptor.bDeviceProtocol" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="593">
+USB-IF protocol code for the device, qualified by the bDeviceClass and
+	 * bDeviceSubClass values 
+</member>
+<member name="F:libusb_device_descriptor.bMaxPacketSize0" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="597">
+Maximum packet size for endpoint 0 
+</member>
+<member name="F:libusb_device_descriptor.idVendor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="600">
+USB-IF vendor ID 
+</member>
+<member name="F:libusb_device_descriptor.idProduct" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="603">
+USB-IF product ID 
+</member>
+<member name="F:libusb_device_descriptor.bcdDevice" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="606">
+Device release number in binary-coded decimal 
+</member>
+<member name="F:libusb_device_descriptor.iManufacturer" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="609">
+Index of string descriptor describing manufacturer 
+</member>
+<member name="F:libusb_device_descriptor.iProduct" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="612">
+Index of string descriptor describing product 
+</member>
+<member name="F:libusb_device_descriptor.iSerialNumber" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="615">
+Index of string descriptor containing device serial number 
+</member>
+<member name="F:libusb_device_descriptor.bNumConfigurations" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="618">
+Number of possible configurations 
+</member>
+<member name="T:libusb_endpoint_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="622">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the standard USB endpoint descriptor. This
  * descriptor is documented in section 9.6.6 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_endpoint_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="628">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_endpoint_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="631">
+=======
+<member name="F:libusb_endpoint_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="628">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_endpoint_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="631">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_ENDPOINT LIBUSB_DT_ENDPOINT in
 	 * this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_endpoint_descriptor.bEndpointAddress" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="636">
+=======
+<member name="F:libusb_endpoint_descriptor.bEndpointAddress" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="636">
+>>>>>>> Stashed changes
 The address of the endpoint described by this descriptor. Bits 0:3 are
 	 * the endpoint number. Bits 4:6 are reserved. Bit 7 indicates direction,
 	 * see \ref libusb_endpoint_direction. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_endpoint_descriptor.bmAttributes" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="641">
+=======
+<member name="F:libusb_endpoint_descriptor.bmAttributes" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="641">
+>>>>>>> Stashed changes
 Attributes which apply to the endpoint when it is configured using
 	 * the bConfigurationValue. Bits 0:1 determine the transfer type and
 	 * correspond to \ref libusb_endpoint_transfer_type. Bits 2:3 are only used
@@ -408,6 +770,7 @@ Attributes which apply to the endpoint when it is configured using
 	 * Bits 4:5 are also only used for isochronous endpoints and correspond to
 	 * \ref libusb_iso_usage_type. Bits 6:7 are reserved. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_endpoint_descriptor.wMaxPacketSize" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="649">
 Maximum packet size this endpoint is capable of sending/receiving. 
 </member>
@@ -429,20 +792,51 @@ Extra descriptors. If libusb encounters unknown endpoint descriptors,
 Length of the extra descriptors, in bytes. Must be non-negative. 
 </member>
 <member name="T:libusb_interface_association_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="670">
+=======
+<member name="F:libusb_endpoint_descriptor.wMaxPacketSize" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="649">
+Maximum packet size this endpoint is capable of sending/receiving. 
+</member>
+<member name="F:libusb_endpoint_descriptor.bInterval" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="652">
+Interval for polling endpoint for data transfers. 
+</member>
+<member name="F:libusb_endpoint_descriptor.bRefresh" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="655">
+For audio devices only: the rate at which synchronization feedback
+	 * is provided. 
+</member>
+<member name="F:libusb_endpoint_descriptor.bSynchAddress" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="659">
+For audio devices only: the address if the synch endpoint 
+</member>
+<member name="F:libusb_endpoint_descriptor.extra" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="662">
+Extra descriptors. If libusb encounters unknown endpoint descriptors,
+	 * it will store them here, should you wish to parse them. 
+</member>
+<member name="F:libusb_endpoint_descriptor.extra_length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="666">
+Length of the extra descriptors, in bytes. Must be non-negative. 
+</member>
+<member name="T:libusb_interface_association_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="670">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the standard USB interface association descriptor.
  * This descriptor is documented in section 9.6.4 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_association_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="676">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_interface_association_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="679">
+=======
+<member name="F:libusb_interface_association_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="676">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_interface_association_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="679">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	* \ref libusb_descriptor_type::LIBUSB_DT_INTERFACE_ASSOCIATION
 	* LIBUSB_DT_INTERFACE_ASSOCIATION in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_association_descriptor.bFirstInterface" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="684">
 Interface number of the first interface that is associated
 	* with this function 
@@ -452,56 +846,101 @@ Number of contiguous interfaces that are associated with
 	* this function 
 </member>
 <member name="F:libusb_interface_association_descriptor.bFunctionClass" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="692">
+=======
+<member name="F:libusb_interface_association_descriptor.bFirstInterface" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="684">
+Interface number of the first interface that is associated
+	* with this function 
+</member>
+<member name="F:libusb_interface_association_descriptor.bInterfaceCount" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="688">
+Number of contiguous interfaces that are associated with
+	* this function 
+</member>
+<member name="F:libusb_interface_association_descriptor.bFunctionClass" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="692">
+>>>>>>> Stashed changes
 USB-IF class code for this function.
 	* A value of zero is not allowed in this descriptor.
 	* If this field is 0xff, the function class is vendor-specific.
 	* All other values are reserved for assignment by the USB-IF.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_association_descriptor.bFunctionSubClass" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="699">
+=======
+<member name="F:libusb_interface_association_descriptor.bFunctionSubClass" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="699">
+>>>>>>> Stashed changes
 USB-IF subclass code for this function.
 	* If this field is not set to 0xff, all values are reserved
 	* for assignment by the USB-IF
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_association_descriptor.bFunctionProtocol" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="705">
+=======
+<member name="F:libusb_interface_association_descriptor.bFunctionProtocol" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="705">
+>>>>>>> Stashed changes
 USB-IF protocol code for this function.
 	* These codes are qualified by the values of the bFunctionClass
 	* and bFunctionSubClass fields.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_association_descriptor.iFunction" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="711">
 Index of string descriptor describing this function 
 </member>
 <member name="T:libusb_interface_association_descriptor_array" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="715">
+=======
+<member name="F:libusb_interface_association_descriptor.iFunction" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="711">
+Index of string descriptor describing this function 
+</member>
+<member name="T:libusb_interface_association_descriptor_array" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="715">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Structure containing an array of 0 or more interface association
  * descriptors
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_interface_association_descriptor" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="720">
+=======
+<member name="T:libusb_interface_association_descriptor" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="720">
+>>>>>>> Stashed changes
 Array of interface association descriptors. The size of this array
 	 * is determined by the length field.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_association_descriptor_array.length" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="725">
 Number of interface association descriptors contained. Read-only. 
 </member>
 <member name="T:libusb_interface_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="729">
+=======
+<member name="F:libusb_interface_association_descriptor_array.length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="725">
+Number of interface association descriptors contained. Read-only. 
+</member>
+<member name="T:libusb_interface_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="729">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the standard USB interface descriptor. This
  * descriptor is documented in section 9.6.5 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="735">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_interface_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="738">
+=======
+<member name="F:libusb_interface_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="735">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_interface_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="738">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_INTERFACE LIBUSB_DT_INTERFACE
 	 * in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_interface_descriptor.bInterfaceNumber" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="743">
 Number of this interface 
 </member>
@@ -538,10 +977,49 @@ Extra descriptors. If libusb encounters unknown interface descriptors,
 Length of the extra descriptors, in bytes. Must be non-negative. 
 </member>
 <member name="T:libusb_interface" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="779">
+=======
+<member name="F:libusb_interface_descriptor.bInterfaceNumber" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="743">
+Number of this interface 
+</member>
+<member name="F:libusb_interface_descriptor.bAlternateSetting" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="746">
+Value used to select this alternate setting for this interface 
+</member>
+<member name="F:libusb_interface_descriptor.bNumEndpoints" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="749">
+Number of endpoints used by this interface (excluding the control
+	 * endpoint). 
+</member>
+<member name="F:libusb_interface_descriptor.bInterfaceClass" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="753">
+USB-IF class code for this interface. See \ref libusb_class_code. 
+</member>
+<member name="F:libusb_interface_descriptor.bInterfaceSubClass" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="756">
+USB-IF subclass code for this interface, qualified by the
+	 * bInterfaceClass value 
+</member>
+<member name="F:libusb_interface_descriptor.bInterfaceProtocol" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="760">
+USB-IF protocol code for this interface, qualified by the
+	 * bInterfaceClass and bInterfaceSubClass values 
+</member>
+<member name="F:libusb_interface_descriptor.iInterface" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="764">
+Index of string descriptor describing this interface 
+</member>
+<member name="T:libusb_endpoint_descriptor" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="767">
+Array of endpoint descriptors. This length of this array is determined
+	 * by the bNumEndpoints field. 
+</member>
+<member name="F:libusb_interface_descriptor.extra" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="771">
+Extra descriptors. If libusb encounters unknown interface descriptors,
+	 * it will store them here, should you wish to parse them. 
+</member>
+<member name="F:libusb_interface_descriptor.extra_length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="775">
+Length of the extra descriptors, in bytes. Must be non-negative. 
+</member>
+<member name="T:libusb_interface" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="779">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A collection of alternate settings for a particular USB interface.
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_interface_descriptor" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="783">
 Array of interface descriptors. The length of this array is determined
 	 * by the num_altsetting field. 
@@ -551,20 +1029,39 @@ The number of alternate settings that belong to this interface.
 	 * Must be non-negative. 
 </member>
 <member name="T:libusb_config_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="792">
+=======
+<member name="T:libusb_interface_descriptor" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="783">
+Array of interface descriptors. The length of this array is determined
+	 * by the num_altsetting field. 
+</member>
+<member name="F:libusb_interface.num_altsetting" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="787">
+The number of alternate settings that belong to this interface.
+	 * Must be non-negative. 
+</member>
+<member name="T:libusb_config_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="792">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the standard USB configuration descriptor. This
  * descriptor is documented in section 9.6.3 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_config_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="798">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_config_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="801">
+=======
+<member name="F:libusb_config_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="798">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_config_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="801">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_CONFIG LIBUSB_DT_CONFIG
 	 * in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_config_descriptor.wTotalLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="806">
 Total length of data returned for this configuration 
 </member>
@@ -581,11 +1078,30 @@ Index of string descriptor describing this configuration
 Configuration characteristics 
 </member>
 <member name="F:libusb_config_descriptor.MaxPower" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="821">
+=======
+<member name="F:libusb_config_descriptor.wTotalLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="806">
+Total length of data returned for this configuration 
+</member>
+<member name="F:libusb_config_descriptor.bNumInterfaces" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="809">
+Number of interfaces supported by this configuration 
+</member>
+<member name="F:libusb_config_descriptor.bConfigurationValue" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="812">
+Identifier value for this configuration 
+</member>
+<member name="F:libusb_config_descriptor.iConfiguration" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="815">
+Index of string descriptor describing this configuration 
+</member>
+<member name="F:libusb_config_descriptor.bmAttributes" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="818">
+Configuration characteristics 
+</member>
+<member name="F:libusb_config_descriptor.MaxPower" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="821">
+>>>>>>> Stashed changes
 Maximum power consumption of the USB device from this bus in this
 	 * configuration when the device is fully operation. Expressed in units
 	 * of 2 mA when the device is operating in high-speed mode and in units
 	 * of 8 mA when the device is operating in super-speed mode. 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_interface" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="827">
 Array of interfaces supported by this configuration. The length of
 	 * this array is determined by the bNumInterfaces field. 
@@ -598,6 +1114,20 @@ Extra descriptors. If libusb encounters unknown configuration
 Length of the extra descriptors, in bytes. Must be non-negative. 
 </member>
 <member name="T:libusb_ss_endpoint_companion_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="839">
+=======
+<member name="T:libusb_interface" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="827">
+Array of interfaces supported by this configuration. The length of
+	 * this array is determined by the bNumInterfaces field. 
+</member>
+<member name="F:libusb_config_descriptor.extra" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="831">
+Extra descriptors. If libusb encounters unknown configuration
+	 * descriptors, it will store them here, should you wish to parse them. 
+</member>
+<member name="F:libusb_config_descriptor.extra_length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="835">
+Length of the extra descriptors, in bytes. Must be non-negative. 
+</member>
+<member name="T:libusb_ss_endpoint_companion_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="839">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the superspeed endpoint companion
  * descriptor. This descriptor is documented in section 9.6.7 of
@@ -605,43 +1135,74 @@ Length of the extra descriptors, in bytes. Must be non-negative.
  * host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_endpoint_companion_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="846">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_ss_endpoint_companion_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="849">
+=======
+<member name="F:libusb_ss_endpoint_companion_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="846">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_ss_endpoint_companion_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="849">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_SS_ENDPOINT_COMPANION in
 	 * this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_endpoint_companion_descriptor.bMaxBurst" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="854">
 The maximum number of packets the endpoint can send or
 	 *  receive as part of a burst. 
 </member>
 <member name="F:libusb_ss_endpoint_companion_descriptor.bmAttributes" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="858">
+=======
+<member name="F:libusb_ss_endpoint_companion_descriptor.bMaxBurst" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="854">
+The maximum number of packets the endpoint can send or
+	 *  receive as part of a burst. 
+</member>
+<member name="F:libusb_ss_endpoint_companion_descriptor.bmAttributes" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="858">
+>>>>>>> Stashed changes
 In bulk EP: bits 4:0 represents the maximum number of
 	 *  streams the EP supports. In isochronous EP: bits 1:0
 	 *  represents the Mult - a zero based value that determines
 	 *  the maximum number of packets within a service interval  
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_endpoint_companion_descriptor.wBytesPerInterval" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="864">
 The total number of bytes this EP will transfer every
 	 *  service interval. Valid only for periodic EPs. 
 </member>
 <member name="T:libusb_bos_dev_capability_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="869">
+=======
+<member name="F:libusb_ss_endpoint_companion_descriptor.wBytesPerInterval" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="864">
+The total number of bytes this EP will transfer every
+	 *  service interval. Valid only for periodic EPs. 
+</member>
+<member name="T:libusb_bos_dev_capability_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="869">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A generic representation of a BOS Device Capability descriptor. It is
  * advised to check bDevCapabilityType and call the matching
  * libusb_get_*_descriptor function to get a structure fully matching the type.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_bos_dev_capability_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="875">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_bos_dev_capability_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="878">
+=======
+<member name="F:libusb_bos_dev_capability_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="875">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_bos_dev_capability_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="878">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_DEVICE_CAPABILITY
 	 * LIBUSB_DT_DEVICE_CAPABILITY in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_bos_dev_capability_descriptor.bDevCapabilityType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="883">
 Device Capability type 
 </member>
@@ -649,20 +1210,37 @@ Device Capability type
 Device Capability data (bLength - 3 bytes) 
 </member>
 <member name="T:libusb_bos_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="890">
+=======
+<member name="F:libusb_bos_dev_capability_descriptor.bDevCapabilityType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="883">
+Device Capability type 
+</member>
+<member name="F:libusb_bos_dev_capability_descriptor.dev_capability_data" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="886">
+Device Capability data (bLength - 3 bytes) 
+</member>
+<member name="T:libusb_bos_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="890">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the Binary Device Object Store (BOS) descriptor.
  * This descriptor is documented in section 9.6.2 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_bos_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="896">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_bos_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="899">
+=======
+<member name="F:libusb_bos_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="896">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_bos_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="899">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_BOS LIBUSB_DT_BOS
 	 * in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_bos_descriptor.wTotalLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="904">
 Length of this descriptor and all of its sub descriptors 
 </member>
@@ -674,67 +1252,123 @@ The number of separate device capability descriptors in
 bNumDeviceCap Device Capability Descriptors 
 </member>
 <member name="T:libusb_usb_2_0_extension_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="915">
+=======
+<member name="F:libusb_bos_descriptor.wTotalLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="904">
+Length of this descriptor and all of its sub descriptors 
+</member>
+<member name="F:libusb_bos_descriptor.bNumDeviceCaps" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="907">
+The number of separate device capability descriptors in
+	 * the BOS 
+</member>
+<member name="T:libusb_bos_dev_capability_descriptor" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="911">
+bNumDeviceCap Device Capability Descriptors 
+</member>
+<member name="T:libusb_usb_2_0_extension_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="915">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the USB 2.0 Extension descriptor
  * This descriptor is documented in section 9.6.2.1 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_usb_2_0_extension_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="921">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_usb_2_0_extension_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="924">
+=======
+<member name="F:libusb_usb_2_0_extension_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="921">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_usb_2_0_extension_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="924">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_DEVICE_CAPABILITY
 	 * LIBUSB_DT_DEVICE_CAPABILITY in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_usb_2_0_extension_descriptor.bDevCapabilityType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="929">
+=======
+<member name="F:libusb_usb_2_0_extension_descriptor.bDevCapabilityType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="929">
+>>>>>>> Stashed changes
 Capability type. Will have value
 	 * \ref libusb_capability_type::LIBUSB_BT_USB_2_0_EXTENSION
 	 * LIBUSB_BT_USB_2_0_EXTENSION in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_usb_2_0_extension_descriptor.bmAttributes" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="934">
+=======
+<member name="F:libusb_usb_2_0_extension_descriptor.bmAttributes" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="934">
+>>>>>>> Stashed changes
 Bitmap encoding of supported device level features.
 	 * A value of one in a bit location indicates a feature is
 	 * supported; a value of zero indicates it is not supported.
 	 * See \ref libusb_usb_2_0_extension_attributes. 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_ss_usb_device_capability_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="941">
+=======
+<member name="T:libusb_ss_usb_device_capability_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="941">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the SuperSpeed USB Device Capability descriptor
  * This descriptor is documented in section 9.6.2.2 of the USB 3.0 specification.
  * All multiple-byte fields are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_usb_device_capability_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="947">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_ss_usb_device_capability_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="950">
+=======
+<member name="F:libusb_ss_usb_device_capability_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="947">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_ss_usb_device_capability_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="950">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_DEVICE_CAPABILITY
 	 * LIBUSB_DT_DEVICE_CAPABILITY in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_usb_device_capability_descriptor.bDevCapabilityType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="955">
+=======
+<member name="F:libusb_ss_usb_device_capability_descriptor.bDevCapabilityType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="955">
+>>>>>>> Stashed changes
 Capability type. Will have value
 	 * \ref libusb_capability_type::LIBUSB_BT_SS_USB_DEVICE_CAPABILITY
 	 * LIBUSB_BT_SS_USB_DEVICE_CAPABILITY in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_usb_device_capability_descriptor.bmAttributes" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="960">
+=======
+<member name="F:libusb_ss_usb_device_capability_descriptor.bmAttributes" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="960">
+>>>>>>> Stashed changes
 Bitmap encoding of supported device level features.
 	 * A value of one in a bit location indicates a feature is
 	 * supported; a value of zero indicates it is not supported.
 	 * See \ref libusb_ss_usb_device_capability_attributes. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_usb_device_capability_descriptor.wSpeedSupported" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="966">
 Bitmap encoding of the speed supported by this device when
 	 * operating in SuperSpeed mode. See \ref libusb_supported_speed. 
 </member>
 <member name="F:libusb_ss_usb_device_capability_descriptor.bFunctionalitySupport" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="970">
+=======
+<member name="F:libusb_ss_usb_device_capability_descriptor.wSpeedSupported" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="966">
+Bitmap encoding of the speed supported by this device when
+	 * operating in SuperSpeed mode. See \ref libusb_supported_speed. 
+</member>
+<member name="F:libusb_ss_usb_device_capability_descriptor.bFunctionalitySupport" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="970">
+>>>>>>> Stashed changes
 The lowest speed at which all the functionality supported
 	 * by the device is available to the user. For example if the
 	 * device supports all its functionality when connected at
 	 * full speed and above then it sets this value to 1. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_ss_usb_device_capability_descriptor.bU1DevExitLat" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="976">
 U1 Device Exit Latency. 
 </member>
@@ -742,25 +1376,46 @@ U1 Device Exit Latency.
 U2 Device Exit Latency. 
 </member>
 <member name="T:libusb_container_id_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="983">
+=======
+<member name="F:libusb_ss_usb_device_capability_descriptor.bU1DevExitLat" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="976">
+U1 Device Exit Latency. 
+</member>
+<member name="F:libusb_ss_usb_device_capability_descriptor.bU2DevExitLat" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="979">
+U2 Device Exit Latency. 
+</member>
+<member name="T:libusb_container_id_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="983">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing the Container ID descriptor.
  * This descriptor is documented in section 9.6.2.3 of the USB 3.0 specification.
  * All multiple-byte fields, except UUIDs, are represented in host-endian format.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_container_id_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="989">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_container_id_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="992">
+=======
+<member name="F:libusb_container_id_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="989">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_container_id_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="992">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_DEVICE_CAPABILITY
 	 * LIBUSB_DT_DEVICE_CAPABILITY in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_container_id_descriptor.bDevCapabilityType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="997">
+=======
+<member name="F:libusb_container_id_descriptor.bDevCapabilityType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="997">
+>>>>>>> Stashed changes
 Capability type. Will have value
 	 * \ref libusb_capability_type::LIBUSB_BT_CONTAINER_ID
 	 * LIBUSB_BT_CONTAINER_ID in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_container_id_descriptor.bReserved" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1002">
 Reserved field 
 </member>
@@ -768,24 +1423,45 @@ Reserved field
 128 bit UUID 
 </member>
 <member name="T:libusb_platform_descriptor" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1009">
+=======
+<member name="F:libusb_container_id_descriptor.bReserved" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1002">
+Reserved field 
+</member>
+<member name="F:libusb_container_id_descriptor.ContainerID" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1005">
+128 bit UUID 
+</member>
+<member name="T:libusb_platform_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1009">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * A structure representing a Platform descriptor.
  * This descriptor is documented in section 9.6.2.4 of the USB 3.2 specification.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_platform_descriptor.bLength" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1014">
 Size of this descriptor (in bytes) 
 </member>
 <member name="F:libusb_platform_descriptor.bDescriptorType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1017">
+=======
+<member name="F:libusb_platform_descriptor.bLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1014">
+Size of this descriptor (in bytes) 
+</member>
+<member name="F:libusb_platform_descriptor.bDescriptorType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1017">
+>>>>>>> Stashed changes
 Descriptor type. Will have value
 	 * \ref libusb_descriptor_type::LIBUSB_DT_DEVICE_CAPABILITY
 	 * LIBUSB_DT_DEVICE_CAPABILITY in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_platform_descriptor.bDevCapabilityType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1022">
+=======
+<member name="F:libusb_platform_descriptor.bDevCapabilityType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1022">
+>>>>>>> Stashed changes
 Capability type. Will have value
 	 * \ref libusb_capability_type::LIBUSB_BT_PLATFORM_DESCRIPTOR
 	 * LIBUSB_BT_CONTAINER_ID in this context. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_platform_descriptor.bReserved" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1027">
 Reserved field 
 </member>
@@ -800,19 +1476,40 @@ Capability data (bLength - 20)
  * Setup packet for control transfers. 
 </member>
 <member name="F:libusb_control_setup.bmRequestType" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1043">
+=======
+<member name="F:libusb_platform_descriptor.bReserved" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1027">
+Reserved field 
+</member>
+<member name="F:libusb_platform_descriptor.PlatformCapabilityUUID" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1030">
+128 bit UUID 
+</member>
+<member name="F:libusb_platform_descriptor.CapabilityData" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1033">
+Capability data (bLength - 20) 
+</member>
+<member name="T:libusb_control_setup" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1037">
+\ingroup libusb_asyncio
+ * Setup packet for control transfers. 
+</member>
+<member name="F:libusb_control_setup.bmRequestType" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1043">
+>>>>>>> Stashed changes
 Request type. Bits 0:4 determine recipient, see
 	 * \ref libusb_request_recipient. Bits 5:6 determine type, see
 	 * \ref libusb_request_type. Bit 7 determines data transfer direction, see
 	 * \ref libusb_endpoint_direction.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_control_setup.bRequest" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1050">
+=======
+<member name="F:libusb_control_setup.bRequest" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1050">
+>>>>>>> Stashed changes
 Request. If the type bits of bmRequestType are equal to
 	 * \ref libusb_request_type::LIBUSB_REQUEST_TYPE_STANDARD
 	 * "LIBUSB_REQUEST_TYPE_STANDARD" then this field refers to
 	 * \ref libusb_standard_request. For other cases, use of this field is
 	 * application-specific. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_control_setup.wValue" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1057">
 Value. Varies according to request 
 </member>
@@ -824,10 +1521,24 @@ Index. Varies according to request, typically used to pass an index
 Number of bytes to transfer 
 </member>
 <member name="T:libusb_version" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1079">
+=======
+<member name="F:libusb_control_setup.wValue" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1057">
+Value. Varies according to request 
+</member>
+<member name="F:libusb_control_setup.wIndex" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1060">
+Index. Varies according to request, typically used to pass an index
+	 * or offset 
+</member>
+<member name="F:libusb_control_setup.wLength" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1064">
+Number of bytes to transfer 
+</member>
+<member name="T:libusb_version" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1079">
+>>>>>>> Stashed changes
 \ingroup libusb_lib
  * Structure providing the version of the libusb runtime
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_version.major" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1083">
 Library major version. 
 </member>
@@ -847,6 +1558,27 @@ Library release candidate suffix string, e.g. "-rc4".
 For ABI compatibility only. 
 </member>
 <member name="T:libusb_context" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1102">
+=======
+<member name="F:libusb_version.major" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1083">
+Library major version. 
+</member>
+<member name="F:libusb_version.minor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1086">
+Library minor version. 
+</member>
+<member name="F:libusb_version.micro" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1089">
+Library micro version. 
+</member>
+<member name="F:libusb_version.nano" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1092">
+Library nano version. 
+</member>
+<member name="F:libusb_version.rc" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1095">
+Library release candidate suffix string, e.g. "-rc4". 
+</member>
+<member name="F:libusb_version.describe" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1098">
+For ABI compatibility only. 
+</member>
+<member name="T:libusb_context" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1102">
+>>>>>>> Stashed changes
 \ingroup libusb_lib
  * Structure representing a libusb session. The concept of individual libusb
  * sessions allows for your program to use two libraries (or dynamically
@@ -866,7 +1598,11 @@ For ABI compatibility only.
  * For more information, see \ref libusb_contexts.
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_device" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1122">
+=======
+<member name="T:libusb_device" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1122">
+>>>>>>> Stashed changes
 \ingroup libusb_dev
  * Structure representing a USB device detected on the system. This is an
  * opaque type for which you are only ever provided with a pointer, usually
@@ -883,7 +1619,11 @@ For ABI compatibility only.
  * later destroyed by libusb_close().
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_device_handle" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1140">
+=======
+<member name="T:libusb_device_handle" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1140">
+>>>>>>> Stashed changes
 \ingroup libusb_dev
  * Structure representing a handle on a USB device. This is an opaque type for
  * which you are only ever provided with a pointer, usually originating from
@@ -893,6 +1633,7 @@ For ABI compatibility only.
  * with a device handle, you should call libusb_close().
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_SPEED_UNKNOWN" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1154">
 The OS doesn't report or know the device speed. 
 </member>
@@ -912,10 +1653,32 @@ The device is operating at super speed (5000MBit/s).
 The device is operating at super speed plus (10000MBit/s). 
 </member>
 <member name="T:libusb_speed" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1150">
+=======
+<member name="F:LIBUSB_SPEED_UNKNOWN" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1154">
+The OS doesn't report or know the device speed. 
+</member>
+<member name="F:LIBUSB_SPEED_LOW" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1157">
+The device is operating at low speed (1.5MBit/s). 
+</member>
+<member name="F:LIBUSB_SPEED_FULL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1160">
+The device is operating at full speed (12MBit/s). 
+</member>
+<member name="F:LIBUSB_SPEED_HIGH" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1163">
+The device is operating at high speed (480MBit/s). 
+</member>
+<member name="F:LIBUSB_SPEED_SUPER" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1166">
+The device is operating at super speed (5000MBit/s). 
+</member>
+<member name="F:LIBUSB_SPEED_SUPER_PLUS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1169">
+The device is operating at super speed plus (10000MBit/s). 
+</member>
+<member name="T:libusb_speed" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1150">
+>>>>>>> Stashed changes
 \ingroup libusb_dev
  * Speed codes. Indicates the speed at which the device is operating.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_SUCCESS" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1181">
 Success (no error) 
 </member>
@@ -959,6 +1722,51 @@ Operation not supported or unimplemented on this platform
 Other error 
 </member>
 <member name="T:libusb_error" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1173">
+=======
+<member name="F:LIBUSB_SUCCESS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1181">
+Success (no error) 
+</member>
+<member name="F:LIBUSB_ERROR_IO" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1184">
+Input/output error 
+</member>
+<member name="F:LIBUSB_ERROR_INVALID_PARAM" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1187">
+Invalid parameter 
+</member>
+<member name="F:LIBUSB_ERROR_ACCESS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1190">
+Access denied (insufficient permissions) 
+</member>
+<member name="F:LIBUSB_ERROR_NO_DEVICE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1193">
+No such device (it may have been disconnected) 
+</member>
+<member name="F:LIBUSB_ERROR_NOT_FOUND" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1196">
+Entity not found 
+</member>
+<member name="F:LIBUSB_ERROR_BUSY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1199">
+Resource busy 
+</member>
+<member name="F:LIBUSB_ERROR_TIMEOUT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1202">
+Operation timed out 
+</member>
+<member name="F:LIBUSB_ERROR_OVERFLOW" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1205">
+Overflow 
+</member>
+<member name="F:LIBUSB_ERROR_PIPE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1208">
+Pipe error 
+</member>
+<member name="F:LIBUSB_ERROR_INTERRUPTED" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1211">
+System call interrupted (perhaps due to signal) 
+</member>
+<member name="F:LIBUSB_ERROR_NO_MEM" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1214">
+Insufficient memory 
+</member>
+<member name="F:LIBUSB_ERROR_NOT_SUPPORTED" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1217">
+Operation not supported or unimplemented on this platform 
+</member>
+<member name="F:LIBUSB_ERROR_OTHER" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1223">
+Other error 
+</member>
+<member name="T:libusb_error" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1173">
+>>>>>>> Stashed changes
 \ingroup libusb_misc
  * Error codes. Most libusb functions return 0 on success or one of these
  * codes on failure.
@@ -967,6 +1775,7 @@ Other error
  * an error code.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_TRANSFER_TYPE_CONTROL" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1233">
 Control transfer 
 </member>
@@ -1017,18 +1826,78 @@ Device sent more data than requested
 Report short frames as errors 
 </member>
 <member name="F:LIBUSB_TRANSFER_FREE_BUFFER" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1285">
+=======
+<member name="F:LIBUSB_TRANSFER_TYPE_CONTROL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1233">
+Control transfer 
+</member>
+<member name="F:LIBUSB_TRANSFER_TYPE_ISOCHRONOUS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1236">
+Isochronous transfer 
+</member>
+<member name="F:LIBUSB_TRANSFER_TYPE_BULK" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1239">
+Bulk transfer 
+</member>
+<member name="F:LIBUSB_TRANSFER_TYPE_INTERRUPT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1242">
+Interrupt transfer 
+</member>
+<member name="F:LIBUSB_TRANSFER_TYPE_BULK_STREAM" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1245">
+Bulk stream transfer 
+</member>
+<member name="T:libusb_transfer_type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1230">
+\ingroup libusb_asyncio
+ * Transfer type 
+</member>
+<member name="F:LIBUSB_TRANSFER_COMPLETED" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1252">
+Transfer completed without error. Note that this does not indicate
+	 * that the entire amount of requested data was transferred. 
+</member>
+<member name="F:LIBUSB_TRANSFER_ERROR" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1256">
+Transfer failed 
+</member>
+<member name="F:LIBUSB_TRANSFER_TIMED_OUT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1259">
+Transfer timed out 
+</member>
+<member name="F:LIBUSB_TRANSFER_CANCELLED" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1262">
+Transfer was cancelled 
+</member>
+<member name="F:LIBUSB_TRANSFER_STALL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1265">
+For bulk/interrupt endpoints: halt condition detected (endpoint
+	 * stalled). For control endpoints: control request not supported. 
+</member>
+<member name="F:LIBUSB_TRANSFER_NO_DEVICE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1269">
+Device was disconnected 
+</member>
+<member name="F:LIBUSB_TRANSFER_OVERFLOW" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1272">
+Device sent more data than requested 
+</member>
+<member name="T:libusb_transfer_status" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1249">
+\ingroup libusb_asyncio
+ * Transfer status codes 
+</member>
+<member name="F:LIBUSB_TRANSFER_SHORT_NOT_OK" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1282">
+Report short frames as errors 
+</member>
+<member name="F:LIBUSB_TRANSFER_FREE_BUFFER" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1285">
+>>>>>>> Stashed changes
 Automatically free() transfer buffer during libusb_free_transfer().
 	 * Note that buffers allocated with libusb_dev_mem_alloc() should not
 	 * be attempted freed in this way, since free() is not an appropriate
 	 * way to release such memory. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_TRANSFER_FREE_TRANSFER" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1291">
+=======
+<member name="F:LIBUSB_TRANSFER_FREE_TRANSFER" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1291">
+>>>>>>> Stashed changes
 Automatically call libusb_free_transfer() after callback returns.
 	 * If this flag is set, it is illegal to call libusb_free_transfer()
 	 * from your transfer callback, as this will result in a double-free
 	 * when this flag is acted upon. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_TRANSFER_ADD_ZERO_PACKET" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1297">
+=======
+<member name="F:LIBUSB_TRANSFER_ADD_ZERO_PACKET" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1297">
+>>>>>>> Stashed changes
 Terminate transfers that are a multiple of the endpoint's
 	 * wMaxPacketSize with an extra zero length packet. This is useful
 	 * when a device protocol mandates that each logical request is
@@ -1054,6 +1923,7 @@ Terminate transfers that are a multiple of the endpoint's
 	 * Available since libusb-1.0.9.
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer_flags" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1279">
 \ingroup libusb_asyncio
  * libusb_transfer.flags values 
@@ -1072,6 +1942,26 @@ Amount of data that was actually transferred
 Status code for this packet 
 </member>
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1339">
+=======
+<member name="T:libusb_transfer_flags" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1279">
+\ingroup libusb_asyncio
+ * libusb_transfer.flags values 
+</member>
+<member name="T:libusb_iso_packet_descriptor" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1324">
+\ingroup libusb_asyncio
+ * Isochronous packet descriptor. 
+</member>
+<member name="F:libusb_iso_packet_descriptor.length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1327">
+Length of data to request in this packet 
+</member>
+<member name="F:libusb_iso_packet_descriptor.actual_length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1330">
+Amount of data that was actually transferred 
+</member>
+<member name="T:libusb_transfer_status" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1333">
+Status code for this packet 
+</member>
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1339">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Asynchronous transfer callback function type. When submitting asynchronous
  * transfers, you pass a pointer to a callback function of this type via the
@@ -1082,7 +1972,11 @@ Status code for this packet
  * notified about.
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1350">
+=======
+<member name="T:libusb_transfer" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1350">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * The generic USB transfer structure. The user populates this structure and
  * then submits it in order to request a transfer. After the transfer has
@@ -1090,6 +1984,7 @@ Status code for this packet
  * it back to the user.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_transfer.dev_handle" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1357">
 Handle of the device that this transfer will be submitted to 
 </member>
@@ -1107,6 +2002,25 @@ Timeout for this transfer in milliseconds. A value of 0 indicates no
 	 * timeout. 
 </member>
 <member name="T:libusb_transfer_status" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1373">
+=======
+<member name="F:libusb_transfer.dev_handle" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1357">
+Handle of the device that this transfer will be submitted to 
+</member>
+<member name="F:libusb_transfer.flags" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1360">
+A bitwise OR combination of \ref libusb_transfer_flags. 
+</member>
+<member name="F:libusb_transfer.endpoint" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1363">
+Address of the endpoint where this transfer will be sent. 
+</member>
+<member name="F:libusb_transfer.type" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1366">
+Type of the transfer from \ref libusb_transfer_type 
+</member>
+<member name="F:libusb_transfer.timeout" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1369">
+Timeout for this transfer in milliseconds. A value of 0 indicates no
+	 * timeout. 
+</member>
+<member name="T:libusb_transfer_status" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1373">
+>>>>>>> Stashed changes
 The status of the transfer. Read-only, and only for use within
 	 * transfer callback function.
 	 *
@@ -1115,19 +2029,34 @@ The status of the transfer. Read-only, and only for use within
 	 * \ref libusb_iso_packet_descriptor::status "status" field in each packet
 	 * to determine if errors occurred. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_transfer.length" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1382">
 Length of the data buffer. Must be non-negative. 
 </member>
 <member name="F:libusb_transfer.actual_length" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1385">
+=======
+<member name="F:libusb_transfer.length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1382">
+Length of the data buffer. Must be non-negative. 
+</member>
+<member name="F:libusb_transfer.actual_length" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1385">
+>>>>>>> Stashed changes
 Actual length of data that was transferred. Read-only, and only for
 	 * use within transfer callback function. Not valid for isochronous
 	 * endpoint transfers. 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_transfer.callback" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1390">
 Callback function. This will be invoked when the transfer completes,
 	 * fails, or is cancelled. 
 </member>
 <member name="F:libusb_transfer.user_data" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1394">
+=======
+<member name="F:libusb_transfer.callback" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1390">
+Callback function. This will be invoked when the transfer completes,
+	 * fails, or is cancelled. 
+</member>
+<member name="F:libusb_transfer.user_data" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1394">
+>>>>>>> Stashed changes
 User context data. Useful for associating specific data to a transfer
 	 * that can be accessed from within the callback function.
 	 *
@@ -1139,6 +2068,7 @@ User context data. Useful for associating specific data to a transfer
 	 * - libusb_fill_interrupt_transfer()
 	 * - libusb_fill_iso_transfer() 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_transfer.buffer" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1406">
 Data buffer 
 </member>
@@ -1156,22 +2086,50 @@ The libusb_has_capability() API is available.
 Hotplug support is available on this platform. 
 </member>
 <member name="F:LIBUSB_CAP_HAS_HID_ACCESS" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1429">
+=======
+<member name="F:libusb_transfer.buffer" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1406">
+Data buffer 
+</member>
+<member name="F:libusb_transfer.num_iso_packets" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1409">
+Number of isochronous packets. Only used for I/O with isochronous
+	 * endpoints. Must be non-negative. 
+</member>
+<member name="T:libusb_iso_packet_descriptor" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1413">
+Isochronous packet descriptors, for isochronous transfers only. 
+</member>
+<member name="F:LIBUSB_CAP_HAS_CAPABILITY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1423">
+The libusb_has_capability() API is available. 
+</member>
+<member name="F:LIBUSB_CAP_HAS_HOTPLUG" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1426">
+Hotplug support is available on this platform. 
+</member>
+<member name="F:LIBUSB_CAP_HAS_HID_ACCESS" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1429">
+>>>>>>> Stashed changes
 The library can access HID devices without requiring user intervention.
 	 * Note that before being able to actually access an HID device, you may
 	 * still have to call additional libusb functions such as
 	 * \ref libusb_detach_kernel_driver(). 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_CAP_SUPPORTS_DETACH_KERNEL_DRIVER" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1435">
 The library supports detaching of the default USB driver, using
 	 * \ref libusb_detach_kernel_driver(), if one is set by the OS kernel 
 </member>
 <member name="T:libusb_capability" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1417">
+=======
+<member name="F:LIBUSB_CAP_SUPPORTS_DETACH_KERNEL_DRIVER" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1435">
+The library supports detaching of the default USB driver, using
+	 * \ref libusb_detach_kernel_driver(), if one is set by the OS kernel 
+</member>
+<member name="T:libusb_capability" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1417">
+>>>>>>> Stashed changes
 \ingroup libusb_misc
  * Capabilities supported by an instance of libusb on the current running
  * platform. Test if the loaded library supports a given capability by calling
  * \ref libusb_has_capability().
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_LOG_LEVEL_NONE" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1444">
 (0) : No messages ever emitted by the library (default) 
 </member>
@@ -1188,10 +2146,29 @@ The library supports detaching of the default USB driver, using
 (4) : All messages are emitted 
 </member>
 <member name="T:libusb_log_level" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1440">
+=======
+<member name="F:LIBUSB_LOG_LEVEL_NONE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1444">
+(0) : No messages ever emitted by the library (default) 
+</member>
+<member name="F:LIBUSB_LOG_LEVEL_ERROR" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1447">
+(1) : Error messages are emitted 
+</member>
+<member name="F:LIBUSB_LOG_LEVEL_WARNING" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1450">
+(2) : Warning and error messages are emitted 
+</member>
+<member name="F:LIBUSB_LOG_LEVEL_INFO" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1453">
+(3) : Informational, warning and error messages are emitted 
+</member>
+<member name="F:LIBUSB_LOG_LEVEL_DEBUG" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1456">
+(4) : All messages are emitted 
+</member>
+<member name="T:libusb_log_level" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1440">
+>>>>>>> Stashed changes
 \ingroup libusb_lib
  *  Log message levels.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_LOG_CB_GLOBAL" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1468">
 Callback function handling all log messages. 
 </member>
@@ -1199,6 +2176,15 @@ Callback function handling all log messages.
 Callback function handling context related log messages. 
 </member>
 <member name="T:libusb_log_cb_mode" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1460">
+=======
+<member name="F:LIBUSB_LOG_CB_GLOBAL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1468">
+Callback function handling all log messages. 
+</member>
+<member name="F:LIBUSB_LOG_CB_CONTEXT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1471">
+Callback function handling context related log messages. 
+</member>
+<member name="T:libusb_log_cb_mode" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1460">
+>>>>>>> Stashed changes
 \ingroup libusb_lib
  *  Log callback mode.
  *
@@ -1207,7 +2193,11 @@ Callback function handling context related log messages.
  * \see libusb_set_log_cb()
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_OPTION_LOG_LEVEL" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1479">
+=======
+<member name="F:LIBUSB_OPTION_LOG_LEVEL" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1479">
+>>>>>>> Stashed changes
 Set the log message verbosity.
 	 *
 	 * This option must be provided an argument of type \ref libusb_log_level.
@@ -1231,7 +2221,11 @@ Set the log message verbosity.
 	 * does nothing: you'll always get messages from all levels.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_OPTION_USE_USBDK" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1503">
+=======
+<member name="F:LIBUSB_OPTION_USE_USBDK" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1503">
+>>>>>>> Stashed changes
 Use the UsbDk backend for a specific context, if available.
 	 *
 	 * This option should be set at initialization with libusb_init_context()
@@ -1240,7 +2234,11 @@ Use the UsbDk backend for a specific context, if available.
 	 * Only valid on Windows. Ignored on all other platforms.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_OPTION_NO_DEVICE_DISCOVERY" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1512">
+=======
+<member name="F:LIBUSB_OPTION_NO_DEVICE_DISCOVERY" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1512">
+>>>>>>> Stashed changes
 Do not scan for devices
 	 *
 	 * With this option set, libusb will skip scanning devices in
@@ -1260,7 +2258,11 @@ Do not scan for devices
 	 * Only valid on Linux. Ignored on all other platforms.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_OPTION_LOG_CB" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1534">
+=======
+<member name="F:LIBUSB_OPTION_LOG_CB" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1534">
+>>>>>>> Stashed changes
 Set the context log callback function.
 	 *
 	 * Set the log callback function either on a context or globally. This
@@ -1271,12 +2273,20 @@ Set the context log callback function.
 	 * libusb_set_log_cb() with mode \ref LIBUSB_LOG_CB_CONTEXT.
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_option" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1475">
+=======
+<member name="T:libusb_option" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1475">
+>>>>>>> Stashed changes
 \ingroup libusb_lib
  * Available option values for libusb_set_option() and libusb_init_context().
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_log_level" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1548">
+=======
+<member name="T:libusb_log_level" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1548">
+>>>>>>> Stashed changes
 \ingroup libusb_lib
  * Callback function for handling log messages.
  * \param ctx the context which is related to the log message, or NULL if it
@@ -1289,16 +2299,27 @@ Set the context log callback function.
  * \see libusb_set_log_cb()
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_init_option" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1562">
+=======
+<member name="T:libusb_init_option" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1562">
+>>>>>>> Stashed changes
 \ingroup libusb_lib
  * Structure used for setting options through \ref libusb_init_context.
  *
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_option" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1567">
 Which option to set 
 </member>
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1702">
+=======
+<member name="T:libusb_option" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1567">
+Which option to set 
+</member>
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1702">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Get the data section of a control transfer. This convenience function is here
  * to remind you that the data does not start until 8 bytes into the actual
@@ -1312,7 +2333,11 @@ Which option to set
  * \returns pointer to the first byte of the data section
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_control_setup" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1720">
+=======
+<member name="T:libusb_control_setup" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1720">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Get the control setup packet of a control transfer. This convenience
  * function is here to remind you that the control setup occupies the first
@@ -1326,7 +2351,11 @@ Which option to set
  * \returns a casted pointer to the start of the transfer data buffer
 
 </member>
+<<<<<<< Updated upstream
 <member name="M:libusb_fill_control_setup(System.Byte*,System.Byte,System.Byte,System.UInt16,System.UInt16,System.UInt16)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1738">
+=======
+<member name="M:libusb_fill_control_setup(System.Byte*,System.Byte,System.Byte,System.UInt16,System.UInt16,System.UInt16)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1738">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Helper function to populate the setup packet (first 8 bytes of the data
  * buffer) for a control transfer. The wIndex, wValue and wLength values should
@@ -1351,7 +2380,11 @@ Which option to set
  * \ref libusb_control_setup
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1782">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1782">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Helper function to populate the required \ref libusb_transfer fields
  * for a control transfer.
@@ -1381,7 +2414,11 @@ Which option to set
  * \param timeout timeout for the transfer in milliseconds
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1828">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1828">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Helper function to populate the required \ref libusb_transfer fields
  * for a bulk transfer.
@@ -1396,7 +2433,11 @@ Which option to set
  * \param timeout timeout for the transfer in milliseconds
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1856">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1856">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Helper function to populate the required \ref libusb_transfer fields
  * for a bulk transfer using bulk streams.
@@ -1414,7 +2455,11 @@ Which option to set
  * \param timeout timeout for the transfer in milliseconds
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1884">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1884">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Helper function to populate the required \ref libusb_transfer fields
  * for an interrupt transfer.
@@ -1429,7 +2474,11 @@ Which option to set
  * \param timeout timeout for the transfer in milliseconds
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1912">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1912">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Helper function to populate the required \ref libusb_transfer fields
  * for an isochronous transfer.
@@ -1445,7 +2494,11 @@ Which option to set
  * \param timeout timeout for the transfer in milliseconds
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1942">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1942">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Convenience function to set the length of all packets in an isochronous
  * transfer, based on the num_iso_packets field in the transfer structure.
@@ -1455,7 +2508,11 @@ Which option to set
  * \see libusb_get_max_packet_size()
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1959">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1959">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Convenience function to locate the position of an isochronous packet
  * within the buffer of an isochronous transfer.
@@ -1473,7 +2530,11 @@ Which option to set
  * \see libusb_get_iso_packet_buffer_simple()
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_transfer" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1998">
+=======
+<member name="T:libusb_transfer" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="1998">
+>>>>>>> Stashed changes
 \ingroup libusb_asyncio
  * Convenience function to locate the position of an isochronous packet
  * within the buffer of an isochronous transfer, for transfers where each
@@ -1494,7 +2555,11 @@ Which option to set
  * \see libusb_get_iso_packet_buffer()
 
 </member>
+<<<<<<< Updated upstream
 <member name="M:libusb_get_descriptor(libusb_device_handle*,System.Byte,System.Byte,System.Byte*,System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2049">
+=======
+<member name="M:libusb_get_descriptor(libusb_device_handle*,System.Byte,System.Byte,System.Byte*,System.Int32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2049">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Retrieve a descriptor from the default control pipe.
  * This is a convenience function which formulates the appropriate control
@@ -1508,7 +2573,11 @@ Which option to set
  * \returns number of bytes returned in data, or LIBUSB_ERROR code on failure
 
 </member>
+<<<<<<< Updated upstream
 <member name="M:libusb_get_string_descriptor(libusb_device_handle*,System.Byte,System.UInt16,System.Byte*,System.Int32)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2069">
+=======
+<member name="M:libusb_get_string_descriptor(libusb_device_handle*,System.Byte,System.UInt16,System.Byte*,System.Int32)" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2069">
+>>>>>>> Stashed changes
 \ingroup libusb_desc
  * Retrieve a descriptor from a device.
  * This is a convenience function which formulates the appropriate control
@@ -1524,16 +2593,28 @@ Which option to set
  * \see libusb_get_string_descriptor_ascii()
 
 </member>
+<<<<<<< Updated upstream
 <member name="T:libusb_pollfd" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2118">
+=======
+<member name="T:libusb_pollfd" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2118">
+>>>>>>> Stashed changes
 \ingroup libusb_poll
  * File descriptor for polling
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:libusb_pollfd.fd" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2122">
 Numeric file descriptor 
 </member>
 <!-- Discarding badly formed XML document comment for member 'F:libusb_pollfd.events'. -->
 <member name="D:libusb_pollfd_added_cb" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2132">
+=======
+<member name="F:libusb_pollfd.fd" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2122">
+Numeric file descriptor 
+</member>
+<!-- Discarding badly formed XML document comment for member 'F:libusb_pollfd.events'. -->
+<member name="D:libusb_pollfd_added_cb" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2132">
+>>>>>>> Stashed changes
 \ingroup libusb_poll
  * Callback function, invoked when a new file descriptor should be added
  * to the set of file descriptors monitored for events.
@@ -1545,7 +2626,11 @@ Numeric file descriptor
  * \see libusb_set_pollfd_notifiers()
 
 </member>
+<<<<<<< Updated upstream
 <member name="D:libusb_pollfd_removed_cb" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2145">
+=======
+<member name="D:libusb_pollfd_removed_cb" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2145">
+>>>>>>> Stashed changes
 \ingroup libusb_poll
  * Callback function, invoked when a file descriptor should be removed from
  * the set of file descriptors being monitored for events. After returning
@@ -1556,7 +2641,11 @@ Numeric file descriptor
  * \see libusb_set_pollfd_notifiers()
 
 </member>
+<<<<<<< Updated upstream
 <member name="D:libusb_hotplug_callback_handle" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2163">
+=======
+<member name="D:libusb_hotplug_callback_handle" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2163">
+>>>>>>> Stashed changes
 \ingroup libusb_hotplug
  * Callback handle.
  *
@@ -1570,18 +2659,32 @@ Numeric file descriptor
  * For more information, see \ref libusb_hotplug.
 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2183">
 A device has been plugged in and is ready to use 
 </member>
 <member name="F:LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2186">
+=======
+<member name="F:LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2183">
+A device has been plugged in and is ready to use 
+</member>
+<member name="F:LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2186">
+>>>>>>> Stashed changes
 A device has left and is no longer available.
 	 * It is the user's responsibility to call libusb_close on any handle associated with a disconnected device.
 	 * It is safe to call libusb_get_device_descriptor on a device that has left 
 </member>
+<<<<<<< Updated upstream
 <member name="F:LIBUSB_HOTPLUG_ENUMERATE" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2198">
 Arm the callback and fire it for all matching currently attached devices. 
 </member>
 <member name="D:libusb_hotplug_callback_fn" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2202">
+=======
+<member name="F:LIBUSB_HOTPLUG_ENUMERATE" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2198">
+Arm the callback and fire it for all matching currently attached devices. 
+</member>
+<member name="D:libusb_hotplug_callback_fn" decl="false" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2202">
+>>>>>>> Stashed changes
 \ingroup libusb_hotplug
  * Convenience macro when not using any flags 
 \ingroup libusb_hotplug
@@ -1609,7 +2712,11 @@ Arm the callback and fire it for all matching currently attached devices.
  *                       returning 1 will cause this callback to be deregistered
 
 </member>
+<<<<<<< Updated upstream
 <member name="M:libusb_hotplug_register_callback(libusb_context*,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,=FUNC:System.Int32(libusb_context*,libusb_device*,libusb_hotplug_event,System.Void*),System.Void*,System.Int32*)" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2235">
+=======
+<member name="M:libusb_hotplug_register_callback(libusb_context*,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,=FUNC:System.Int32(libusb_context*,libusb_device*,libusb_hotplug_event,System.Void*),System.Void*,System.Int32*)" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2235">
+>>>>>>> Stashed changes
 \ingroup libusb_hotplug
  * Register a hotplug callback function
  *
@@ -1646,7 +2753,11 @@ Arm the callback and fire it for all matching currently attached devices.
  * \returns \ref LIBUSB_SUCCESS on success LIBUSB_ERROR code on failure
 
 </member>
+<<<<<<< Updated upstream
 <member name="M:libusb_hotplug_deregister_callback(libusb_context*,System.Int32)" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2276">
+=======
+<member name="M:libusb_hotplug_deregister_callback(libusb_context*,System.Int32)" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2276">
+>>>>>>> Stashed changes
 \ingroup libusb_hotplug
  * Deregisters a hotplug callback.
  *
@@ -1659,7 +2770,11 @@ Arm the callback and fire it for all matching currently attached devices.
  * \param[in] callback_handle the handle of the callback to deregister
 
 </member>
+<<<<<<< Updated upstream
 <member name="M:libusb_hotplug_get_user_data(libusb_context*,System.Int32)" decl="true" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2290">
+=======
+<member name="M:libusb_hotplug_get_user_data(libusb_context*,System.Int32)" decl="true" source="C:\Users\david\OneDrive\Documents\Programming\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h" line="2290">
+>>>>>>> Stashed changes
 \ingroup libusb_hotplug
  * Gets the user_data associated with a hotplug callback.
  *
