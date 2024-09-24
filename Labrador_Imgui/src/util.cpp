@@ -1,4 +1,7 @@
 #include "util.h"
+#include <iostream>
+#include <sstream>
+#include <iomanip>
 
 
 float constants::x_preview[constants::PREVIEW_RES];
@@ -174,6 +177,14 @@ void MultiplyButtonColour(ImU32* ButtonColour, float multiplier)
 
 
 	*ButtonColour = ImU32(im_ButtonColour);
+}
+
+std::string NumToString(double num, int precision)
+{
+	std::stringstream stream;
+	stream << std::fixed << std::setprecision(precision) << num;
+	std::string str = stream.str();
+	return str;
 }
 
 

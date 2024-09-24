@@ -256,41 +256,55 @@ public:
 	///  Get time between triggers
 	/// </summary>
 	/// <returns></returns>
-	double GetPeriod(double trigger_level, double trigger_hysteresis)
+	double GetPeriod()
 	{
-		int find_this_many_max = 4;
-
-		// Pass these through as parameters maybe?
-		constants::TriggerType type = constants::TriggerType::RISING_EDGE;
-
-		double og_timeout = trigger_timeout;
-
-		// Search for trigger events from the end of the time window
-		trigger_timeout = time_window;
-		double prev_time = GetTriggerTime(true, type, trigger_level, trigger_hysteresis);
-		if (prev_time == trigger_timeout)
+		// i'm going to use raw_data vector here for maximum accuracy, this is the one we used for fft - it has high sample rate and a large time window
+		double period = 0;
+		if (raw_data.size() != 0)
 		{
-			return -1; // no triggers found
-		}
-
-		double res = 0; // cumulative sum
-		int triggers_found = 0;
-
-		while (triggers_found < find_this_many_max)
-		{
-			trigger_timeout = prev_time - 1e-8; // prevent detection of the previously found trigger
-			double next_time = GetTriggerTime(true, type, trigger_level, trigger_hysteresis);
-			if (next_time == trigger_timeout)
+			double trigger_level;
+			double hysteresis_level;
+			double hysteresis_factor = 0.3;
+			// calculate average of signal for setting of trigger level
+			double average = 0;
+			for (int i = 0; i < raw_data.size(); i++)
 			{
-				break; // all triggers found
+				average += raw_data[i];
 			}
-			res += prev_time - next_time; // sum all delta Ts
-			prev_time = next_time;
-			triggers_found++;
+			average = average / raw_data.size();
+			trigger_level = average;
+			// calculate min for setting of hysteresis level
+			double min = *std::min_element(raw_data.begin(), raw_data.end());
+			hysteresis_level
+			    = trigger_level + (min - trigger_level) * hysteresis_factor;
+			// use rising edge trigger functionality to find all phase-aligned points with the trigger
+			std::vector<double> phase_aligned_t = {};
+			bool hysteresis_hit = false;
+			for (int i = 0; i < raw_data.size() - 1; i++)
+			{
+				if (raw_data[i] < hysteresis_level && raw_data[i + 1] > hysteresis_level)
+				{
+					hysteresis_hit = true;
+				}
+				if (hysteresis_hit && raw_data[i] > trigger_level)
+				{
+					phase_aligned_t.push_back(raw_time[i]);
+					hysteresis_hit = false;
+				}
+			}
+			// calculate average of difference between phase-aligned times to get the
+			// average period
+			double sum_of_periods = 0;
+			if (phase_aligned_t.size() > 1)
+			{
+				for (int i = 0; i < phase_aligned_t.size() - 1; i++)
+				{
+					sum_of_periods += phase_aligned_t[i + 1] - phase_aligned_t[i];
+				}
+			}
+			period = sum_of_periods / (phase_aligned_t.size() - 1);
 		}
-
-		trigger_timeout = og_timeout; // reset original timeout
-		return triggers_found == 0 ? -1 : res / triggers_found; // avg delta Ts
+		return period;
 	}
 	void ApplyFFT()
 	{

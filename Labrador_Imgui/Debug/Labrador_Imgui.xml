@@ -4,12 +4,6 @@
         "Labrador_Imgui"
     </assembly>
     <members>
-        <member name="M:librador_set_device_mode(System.Int32)">
-As above, a1 and a2
-</member>
-        <member name="T:ImPlot.GetterFuncPtr">
-Interprets a user's function pointer as ImPlotPoints
-</member>
         <member name="M:PlotControl.controlLab">
             <summary>
 Control sampling settings on labrador board
@@ -47,7 +41,7 @@ Constructor
 Abstract class that draws child that can be populated by a control widget
 </summary>
         </member>
-        <member name="M:OscData.GetPeriod(System.Double,System.Double)">
+        <member name="M:OscData.GetPeriod">
             <summary>
  Get time between triggers
 </summary>
@@ -143,7 +137,7 @@ Control sampling settings on labrador board
 </summary>
         </member>
         <member name="M:OSCControl.renderControl">
-            <summary> 
+            <summary>
 Render UI elements for oscilloscope control
 </summary>
         </member>
@@ -221,6 +215,38 @@ Constructor
 Abstract class that draws control widget such as PSU Control
 </summary>
         </member>
+        <member name="M:SetControlWidgetStyle(System.Single!System.Runtime.CompilerServices.IsConst*)">
+            <summary>
+Defines the style of the general control widget
+</summary>
+            <param name="ac">Accent colour (RGB 0..1) </param>
+        </member>
+        <member name="M:PreviewStyle">
+            <summary>
+Defines style for the Signal Generator Preview plot
+</summary>
+        </member>
+        <member name="M:SetGlobalStyle">
+            <summary>
+Global styles set at the start of the application
+</summary>
+        </member>
+        <member name="M:replace_all(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{Syste">
+            <summary>
+Replaces all instances of a substring with a provided string
+</summary>
+            <param name="s" />
+            <param name="toReplace" />
+            <param name="replaceWith" />
+        </member>
+        <member name="M:init_constants">
+            <summary>
+Initialise global preview arrays
+</summary>
+        </member>
+        <member name="T:ImPlot.GetterFuncPtr">
+Interprets a user's function pointer as ImPlotPoints
+</member>
         <member name="M:libusb_hotplug_get_user_data(libusb_context*,System.Int32)">
 \ingroup libusb_hotplug
  * Gets the user_data associated with a hotplug callback.
@@ -1864,35 +1890,9 @@ In the context of a \ref libusb_device_descriptor "device descriptor",
 	 * own class information and all interfaces operate independently.
 
 </member>
-        <member name="M:SetControlWidgetStyle(System.Single!System.Runtime.CompilerServices.IsConst*)">
-            <summary>
-Defines the style of the general control widget
-</summary>
-            <param name="ac">Accent colour (RGB 0..1) </param>
-        </member>
-        <member name="M:PreviewStyle">
-            <summary>
-Defines style for the Signal Generator Preview plot
-</summary>
-        </member>
-        <member name="M:SetGlobalStyle">
-            <summary>
-Global styles set at the start of the application
-</summary>
-        </member>
-        <member name="M:replace_all(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{Syste">
-            <summary>
-Replaces all instances of a substring with a provided string
-</summary>
-            <param name="s" />
-            <param name="toReplace" />
-            <param name="replaceWith" />
-        </member>
-        <member name="M:init_constants">
-            <summary>
-Initialise global preview arrays
-</summary>
-        </member>
+        <member name="M:librador_set_device_mode(System.Int32)">
+As above, a1 and a2
+</member>
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->
         <!-- Discarding badly formed XML document comment for member 'F:libusb_pollfd.events'. -->
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->

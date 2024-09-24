@@ -10,6 +10,7 @@
 #include "SGControl.hpp"
 #include "PlotWidget.hpp"
 #include "PlotControl.hpp"
+#include "CursorProperties.hpp"
 #include "util.h"
 
 // #define IMGUI_DEFINE_MATH_OPERATORS
@@ -205,7 +206,6 @@ class App : public AppBase<App>
 			// have a lot of shared responsibilities
 			PlotWidgetObj.setSize(ImVec2(plot_width, plot_height));
 			PlotWidgetObj.Render();
-
 			
 			ImGui::EndChild(); // End left column
 
@@ -404,6 +404,6 @@ class App : public AppBase<App>
 	PlotWidget PlotWidgetObj 
 		= PlotWidget("Plot Widget",ImVec2(0, 0),&OSCWidget);
 	ControlWidget* widgets[4] = { &PSUWidget, &SG1Widget, &SG2Widget, &OSCWidget };
-
+	CursorProperties CursorPropertiesObj = CursorProperties();
 };
 

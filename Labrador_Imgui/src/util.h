@@ -59,6 +59,11 @@ enum Channel
 	OSC1 = 1,
 	OSC2 = 2
 };
+enum LineType
+{
+	Vertical,
+	Horizontal
+};
 
 
 // Sample Rate Divisor List
@@ -115,4 +120,5 @@ ImU32 colourConvert(const float c[3], float alpha=1.0f);
 void replace_all(
     std::string& s, std::string const& toReplace, std::string const& replaceWith);
 void MultiplyButtonColour(ImU32* ButtonColour, float multiplier);
+std::string NumToString(double num,int precision);
 #endif

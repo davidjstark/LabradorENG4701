@@ -58,7 +58,7 @@ public:
 	    : ControlWidget(label, size, borderColor)
 	{
 	}
-	/// <summary> 
+	/// <summary>
 	/// Render UI elements for oscilloscope control
 	/// </summary>
 	void renderControl() override
@@ -133,7 +133,7 @@ public:
 				ImGui::TableNextColumn();
 				ImGui::Checkbox("##Equalise", &os_equalise);
 				ImGui::EndTable();
-			}	
+			}
 		}
 		if (ImGui::CollapsingHeader("General", ImGuiTreeNodeFlags_DefaultOpen))
 		{
@@ -171,7 +171,7 @@ public:
 				ImGui::TableNextColumn();
 				// renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
 				//    constants::volt_units, &tl_unit_idx);
-				
+
 				if (HysteresisDisplayOptionEnabled)
 				{
 					ImGui::Text("Hysteresis Level");
@@ -203,7 +203,7 @@ public:
 		{
 			AutofitNext = true;
 		}
-	}	
+	}
 
 
 	/// <summary>
@@ -228,4 +228,3 @@ private:
 	/*const char* KSComboList[2] = { "375 KSPS", "750 KSPS" };
 	const char* AttenComboList[3] = { "1x", "5x", "10x" };*/
 };
-

@@ -7,6 +7,7 @@
 #include "OSCControl.hpp"
 #include "OscData.hpp"
 #include "fftw3.h"
+#include "Cursor.hpp"
 
 /// <summary>
 /// Abstract class that draws child that can be populated by a control widget
@@ -16,7 +17,6 @@ class PlotWidget
 public:
 	int currentLabOscGain = 16;
 
-
 	/// <summary>
 	/// Constructor
 	/// </summary>
@@ -24,9 +24,10 @@ public:
 	/// <param name="size">Child window size</param>
 	PlotWidget(const char* label, ImVec2 size, OSCControl* osc_control)
 	    : label(label)
-		, size(size)
+	    , size(size)
 	    , osc_control(osc_control)
-	{}
+	{
+	}
 
 	/// <summary>
 	/// Update size of child window
@@ -36,7 +37,6 @@ public:
 	{
 		size = new_size;
 	}
-	
 
 	/// <summary>
 	/// Generic function to render plot widget with correct style
@@ -49,7 +49,8 @@ public:
 		bool text_window = show_cursor_props || osc_control->SignalPropertiesToggle;
 		ImVec2 region_size = ImGui::GetContentRegionAvail();
 		float row_height = ImGui::GetFrameHeight();
-		ImVec2 plot_size = ImVec2(region_size.x, region_size.y - (text_window ? 3*row_height : 0));
+		ImVec2 plot_size
+		    = ImVec2(region_size.x, region_size.y - (text_window ? 3 * row_height : 0));
 
 		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255, 255, 255, 255));
 		UpdateOscData();
@@ -62,29 +63,26 @@ public:
 		}
 		ImPlot::SetNextAxesLimits(init_time_range_lower, init_time_range_upper,
 		    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Once);
-		if (ImPlot::BeginPlot("##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend))
+		if (ImPlot::BeginPlot(
+		        "##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend))
 		{
-			ImPlot::SetupAxes("", "",
-			ImPlotAxisFlags_NoLabel,
-			ImPlotAxisFlags_NoLabel);
+			ImPlot::SetupAxes("", "", ImPlotAxisFlags_NoLabel, ImPlotAxisFlags_NoLabel);
 			// Plot oscilloscope 1 signal
-			std::vector<double> time_osc1
-				= OSC1Data.GetTime();
+			std::vector<double> time_osc1 = OSC1Data.GetTime();
 			ImPlot::SetNextLineStyle(osc_control->OSC1Colour.Value);
 			if (osc_control->DisplayCheckOSC1)
 			{
-				ImPlot::PlotLine("##Osc 1", time_osc1.data(),
-					analog_data_osc1.data(), analog_data_osc1.size());
+				ImPlot::PlotLine("##Osc 1", time_osc1.data(), analog_data_osc1.data(),
+				    analog_data_osc1.size());
 			}
-			OSC1Data.SetTime(ImPlot::GetPlotLimits().X.Size(),ImPlot::GetPlotLimits().X.Min);
+			OSC1Data.SetTime(ImPlot::GetPlotLimits().X.Size(), ImPlot::GetPlotLimits().X.Min);
 			// Plot Oscilloscope 2 Signal
-			std::vector<double> time_osc2
-				= OSC2Data.GetTime();
+			std::vector<double> time_osc2 = OSC2Data.GetTime();
 			ImPlot::SetNextLineStyle(osc_control->OSC2Colour.Value);
 			if (osc_control->DisplayCheckOSC2)
 			{
-				ImPlot::PlotLine("##Osc 2", time_osc2.data(),
-					analog_data_osc2.data(), analog_data_osc2.size());
+				ImPlot::PlotLine("##Osc 2", time_osc2.data(), analog_data_osc2.data(),
+				    analog_data_osc2.size());
 			}
 			OSC2Data.SetTime(ImPlot::GetPlotLimits().X.Size(), ImPlot::GetPlotLimits().X.Min);
 			// Plot cursor 1
@@ -92,7 +90,7 @@ public:
 				drawCursor(1, &cursor1_x, &cursor1_y);
 			if (osc_control->Cursor2toggle)
 				drawCursor(2, &cursor2_x, &cursor2_y);
-			
+
 			ImPlot::EndPlot();
 		}
 		if (show_cursor_props)
@@ -111,34 +109,23 @@ public:
 
 	void writeSignalProps(OscData data)
 	{
-		constants::Channel trigger_channel = maps::ComboItemToChannelTriggerPair.at(data.GetChannel())
-		                                         .channel;
-		
-		float prev_trig_level = osc_control->TriggerLevel;
-
-		// Default Measure times between rising edges with auto trigger level
-		AutoSetTriggerLevel(trigger_channel, constants::RISING_EDGE,
-		    &osc_control->TriggerLevel, &osc_control->TriggerHysteresis);
-
-		double T = data.GetPeriod(osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+		double T = data.GetPeriod();
 		double Vpp = data.GetDataMax() - data.GetDataMin();
 
 		if (T == (double)-1)
 		{
 			// No period found
 			ImGui::Text(
-			    "OSC%d Signal Properties: Vpp = %.2f V (no periodic waveform found)", data.GetChannel(), Vpp);
+			    "OSC%d Signal Properties: Vpp = %.2f V (no periodic waveform found)",
+			    data.GetChannel(), Vpp);
 		}
 		else
 		{
 			// Period found - show delta T property
 			ImGui::Text(
-			    "OSC%d Signal Properties:  dT = %.2E s   1/dT = %.2f Hz  Vpp = %.2f V",
-			    data.GetChannel(), T, 1 / T, Vpp);
+			    "OSC%d Signal Properties:  dT = %.2f ms   1/dT = %.2f Hz  Vpp = %.2f V",
+			    data.GetChannel(), 1000*T, 1 / T, Vpp);
 		}
-
-		// Reset trigger level
-		osc_control->TriggerLevel = prev_trig_level;
 	}
 
 	void drawCursor(int id, double* cx, double* cy)
@@ -152,7 +139,7 @@ public:
 			*cx = (max.x + min.x) / 2;
 			*cy = (max.y + min.y) / 2;
 		}
-		
+
 		ImPlot::DragPoint(id, cx, cy, ImVec4(1, 1, 1, 1), 8.0f);
 		char cursor_label[20];
 		std::string label = std::to_string(id) + ":";
@@ -171,11 +158,14 @@ public:
 		OSC2Data.SetPaused(osc_control->Paused);
 		OSC1Data.SetExtendedData();
 		OSC2Data.SetExtendedData();
-		
-		constants::Channel trigger_channel
-		    = maps::ComboItemToChannelTriggerPair.at(osc_control->TriggerTypeComboCurrentItem).channel;
+
+		constants::Channel trigger_channel = maps::ComboItemToChannelTriggerPair
+		                                         .at(osc_control->TriggerTypeComboCurrentItem)
+		                                         .channel;
 		constants::TriggerType trigger_type
-		    = maps::ComboItemToChannelTriggerPair.at(osc_control->TriggerTypeComboCurrentItem).trigger_type;
+		    = maps::ComboItemToChannelTriggerPair
+		          .at(osc_control->TriggerTypeComboCurrentItem)
+		          .trigger_type;
 		double trigger_time = 0;
 		if (trigger_channel == constants::Channel::OSC1)
 		{
@@ -198,10 +188,12 @@ public:
 		AutoSetOscGain();
 		if (osc_control->AutoTriggerLevel)
 		{
-			AutoSetTriggerLevel(trigger_channel,trigger_type, &osc_control->TriggerLevel,&osc_control->TriggerHysteresis);
+			AutoSetTriggerLevel(trigger_channel, trigger_type, &osc_control->TriggerLevel,
+			    &osc_control->TriggerHysteresis);
 		}
 	}
-	void AutoSetTriggerLevel(constants::Channel trigger_channel,constants::TriggerType trigger_type, float* TriggerLevel,float* TriggerHysteresis)
+	void AutoSetTriggerLevel(constants::Channel trigger_channel,
+	    constants::TriggerType trigger_type, float* TriggerLevel, float* TriggerHysteresis)
 	{
 		double hysteresis_factor = 0.4;
 		if (trigger_channel == constants::Channel::OSC1)
@@ -214,11 +206,13 @@ public:
 		}
 		if (trigger_type == constants::TriggerType::RISING_EDGE)
 		{
-			*TriggerHysteresis = hysteresis_factor * std::abs((*TriggerLevel- OSC1Data.GetDataMin()));
+			*TriggerHysteresis
+			    = hysteresis_factor * std::abs((*TriggerLevel - OSC1Data.GetDataMin()));
 		}
 		if (trigger_type == constants::TriggerType::FALLING_EDGE)
 		{
-			*TriggerHysteresis = hysteresis_factor * std::abs((OSC1Data.GetDataMax() - *TriggerLevel));
+			*TriggerHysteresis
+			    = hysteresis_factor * std::abs((OSC1Data.GetDataMax() - *TriggerLevel));
 		}
 	}
 	void AutoSetOscGain()
@@ -250,9 +244,9 @@ public:
 
 		for (int i = 1; i < sizeof(max_limits) / sizeof(double); i++)
 		{
-			if (osc_max < max_limits[i]-grace)
+			if (osc_max < max_limits[i] - grace)
 			{
-				max_gain = std::pow(2,i);
+				max_gain = std::pow(2, i);
 			}
 			else
 			{
@@ -272,15 +266,13 @@ public:
 		}
 		int desired_gain = max_gain < min_gain ? max_gain : min_gain;
 		desired_gain = desired_gain < 1 ? 1 : desired_gain; // insure gain does not go
-			                                                // lower than 1
+		                                                    // lower than 1
 		if (desired_gain != currentLabOscGain)
 		{
 			currentLabOscGain = desired_gain;
 			librador_set_oscilloscope_gain(int(currentLabOscGain));
 		}
-		
 	}
-
 
 protected:
 	const char* label;
@@ -297,5 +289,4 @@ protected:
 	double cursor1_y = -1000;
 	double cursor2_x = -1000;
 	double cursor2_y = -1000;
-
 };
