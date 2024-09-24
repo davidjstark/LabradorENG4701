@@ -3936,7 +3936,7 @@ bool DragPoint(int n_id, double* x, double* y, const ImVec4& col, float radius, 
         ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
     if (modified && no_delay)
         pos = PlotToPixels(*x,*y,IMPLOT_AUTO,IMPLOT_AUTO);
-    DrawList.AddCircleFilled(pos, radius, col32);
+    DrawList.AddCircle(pos, radius, col32);
     PopPlotClipRect();
 
     ImGui::PopID();

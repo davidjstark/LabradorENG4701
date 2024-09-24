@@ -42,6 +42,7 @@ public:
 	bool os_equalise = false;
 	bool Cursor1toggle = false;
 	bool Cursor2toggle = false;
+	bool SignalPropertiesToggle = false;
 	bool AutoTriggerLevel = true;
 	bool AutoTriggerHysteresisToggle = true;
 	bool HysteresisDisplayOptionEnabled = false;
@@ -168,8 +169,8 @@ public:
 				ImGui::SameLine();
 				ImGui::Checkbox("##Auto", &AutoTriggerLevel);
 				ImGui::TableNextColumn();
-				renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
-				    constants::volt_units, &tl_unit_idx);
+				// renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
+				//    constants::volt_units, &tl_unit_idx);
 				
 				if (HysteresisDisplayOptionEnabled)
 				{
@@ -186,6 +187,11 @@ public:
 					ImGui::SameLine();
 					ImGui::Text("OFF");
 				}
+				ImGui::TableNextColumn();
+				ImGui::Text("Signal Properties");
+				ImGui::TableNextColumn();
+				ToggleSwitch((label + "sig_prop_toggle").c_str(), &SignalPropertiesToggle,
+				    GenColour);
 				ImGui::EndTable();
 			}
 		}

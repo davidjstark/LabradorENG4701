@@ -190,7 +190,7 @@ class App : public AppBase<App>
 			// Get window dimensions
 			ImVec2 window_size = ImGui::GetWindowSize();
 			float plot_width = (window_size.x - 2*style.WindowPadding.x) * 0.60f - padding;
-			float plot_height = (window_size.y - 2*style.WindowPadding.y) * 0.75f - padding;
+			float plot_height = (window_size.y - 2*style.WindowPadding.y) * 1.00f - padding;
 			
 			// Left Column Widgets
 			style.ItemSpacing = ImVec2(0, 0); // No padding for left and right columns
@@ -199,9 +199,6 @@ class App : public AppBase<App>
 			    ImVec2(plot_width, window_size.y - 2*style.WindowPadding.y - menu_height),
 			    false);
 			style.ItemSpacing = ImVec2(padding, padding);
-
-			
-			
 
 			// Render scope
 			// TODO: could potentially combine scope and scope controls because they will

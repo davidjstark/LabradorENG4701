@@ -82,8 +82,20 @@ public:
 			}
 			else
 			{
-				data = std::vector<double>(extended_data.begin() + trigger_time * sample_rate_hz,
-				    extended_data.begin() + (trigger_time + time_window) * sample_rate_hz);
+				if ((trigger_time + time_window) * sample_rate_hz < extended_data.size())
+				{
+					// Trigger within timewindow
+					data = std::vector<double>(
+					    extended_data.begin() + trigger_time * sample_rate_hz,
+					    extended_data.begin() + (trigger_time + time_window) * sample_rate_hz);
+				}
+				else
+				{
+					data = std::vector<double>(
+					    extended_data.begin() + 0,
+					    extended_data.begin() + time_window * sample_rate_hz);
+				}
+				
 			}
 			this->time_step = this->time_window / data.size();
 			double time_step = time_window / data.size();
@@ -240,9 +252,45 @@ public:
 			return 0;
 		}
 	}
-	double GetPeriod()
+	/// <summary>
+	///  Get time between triggers
+	/// </summary>
+	/// <returns></returns>
+	double GetPeriod(double trigger_level, double trigger_hysteresis)
 	{
-		return 0;
+		int find_this_many_max = 4;
+
+		// Pass these through as parameters maybe?
+		constants::TriggerType type = constants::TriggerType::RISING_EDGE;
+
+		double og_timeout = trigger_timeout;
+
+		// Search for trigger events from the end of the time window
+		trigger_timeout = time_window;
+		double prev_time = GetTriggerTime(true, type, trigger_level, trigger_hysteresis);
+		if (prev_time == trigger_timeout)
+		{
+			return -1; // no triggers found
+		}
+
+		double res = 0; // cumulative sum
+		int triggers_found = 0;
+
+		while (triggers_found < find_this_many_max)
+		{
+			trigger_timeout = prev_time - 1e-8; // prevent detection of the previously found trigger
+			double next_time = GetTriggerTime(true, type, trigger_level, trigger_hysteresis);
+			if (next_time == trigger_timeout)
+			{
+				break; // all triggers found
+			}
+			res += prev_time - next_time; // sum all delta Ts
+			prev_time = next_time;
+			triggers_found++;
+		}
+
+		trigger_timeout = og_timeout; // reset original timeout
+		return triggers_found == 0 ? -1 : res / triggers_found; // avg delta Ts
 	}
 	void ApplyFFT()
 	{
@@ -295,6 +343,11 @@ public:
 			FillMiniBuffer();
 		}
 		return mini_buffer;
+	}
+
+	int GetChannel()
+	{
+		return channel;
 	}
 
 private:

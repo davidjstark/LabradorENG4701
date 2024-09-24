@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "imgui.h"
 #include "implot.h"
 #include "librador.h"
@@ -43,6 +43,14 @@ public:
 	/// </summary>
 	void Render()
 	{
+		// Show cursor deltas if they are both active
+		bool show_cursor_props = (osc_control->Cursor1toggle && osc_control->Cursor2toggle);
+		// Show text underneath if cursors or signal properties activated
+		bool text_window = show_cursor_props || osc_control->SignalPropertiesToggle;
+		ImVec2 region_size = ImGui::GetContentRegionAvail();
+		float row_height = ImGui::GetFrameHeight();
+		ImVec2 plot_size = ImVec2(region_size.x, region_size.y - (text_window ? 3*row_height : 0));
+
 		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255, 255, 255, 255));
 		UpdateOscData();
 		std::vector<double> analog_data_osc1 = OSC1Data.GetData();
@@ -54,7 +62,7 @@ public:
 		}
 		ImPlot::SetNextAxesLimits(init_time_range_lower, init_time_range_upper,
 		    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Once);
-		if (ImPlot::BeginPlot("##Oscilloscopes", ImVec2(ImGui::GetContentRegionAvail().x,size.y), ImPlotFlags_NoFrame))
+		if (ImPlot::BeginPlot("##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend))
 		{
 			ImPlot::SetupAxes("", "",
 			ImPlotAxisFlags_NoLabel,
@@ -80,10 +88,81 @@ public:
 			}
 			OSC2Data.SetTime(ImPlot::GetPlotLimits().X.Size(), ImPlot::GetPlotLimits().X.Min);
 			// Plot cursor 1
-			ImPlot::DragPoint(0, &cursor1_x,&cursor1_y, ImVec4(1, 1, 1, 1));
+			if (osc_control->Cursor1toggle)
+				drawCursor(1, &cursor1_x, &cursor1_y);
+			if (osc_control->Cursor2toggle)
+				drawCursor(2, &cursor2_x, &cursor2_y);
+			
 			ImPlot::EndPlot();
 		}
+		if (show_cursor_props)
+		{
+			ImGui::Text(
+			    "Cursor properties:    dT = %.2f s   1/dT = %.2f Hz    dV = %.2f V",
+			    cursor2_x - cursor1_x, 1 / (cursor2_x - cursor1_x), cursor2_y - cursor1_y);
+		}
+		if (osc_control->SignalPropertiesToggle)
+		{
+			writeSignalProps(OSC1Data);
+			writeSignalProps(OSC2Data);
+		}
 		ImGui::PopStyleColor();
+	}
+
+	void writeSignalProps(OscData data)
+	{
+		constants::Channel trigger_channel = maps::ComboItemToChannelTriggerPair.at(data.GetChannel())
+		                                         .channel;
+		
+		float prev_trig_level = osc_control->TriggerLevel;
+
+		// Default Measure times between rising edges with auto trigger level
+		AutoSetTriggerLevel(trigger_channel, constants::RISING_EDGE,
+		    &osc_control->TriggerLevel, &osc_control->TriggerHysteresis);
+
+		double T = data.GetPeriod(osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+		double Vpp = data.GetDataMax() - data.GetDataMin();
+
+		if (T == (double)-1)
+		{
+			// No period found
+			ImGui::Text(
+			    "OSC%d Signal Properties: Vpp = %.2f V (no periodic waveform found)", data.GetChannel(), Vpp);
+		}
+		else
+		{
+			// Period found - show delta T property
+			ImGui::Text(
+			    "OSC%d Signal Properties:  dT = %.2E s   1/dT = %.2f Hz  Vpp = %.2f V",
+			    data.GetChannel(), T, 1 / T, Vpp);
+		}
+
+		// Reset trigger level
+		osc_control->TriggerLevel = prev_trig_level;
+	}
+
+	void drawCursor(int id, double* cx, double* cy)
+	{
+		if (*cx == -1000 && *cy == -1000)
+		{
+			// Initial cursor centered
+			ImPlotRect lim = ImPlot::GetPlotLimits();
+			ImPlotPoint max = lim.Max();
+			ImPlotPoint min = lim.Min();
+			*cx = (max.x + min.x) / 2;
+			*cy = (max.y + min.y) / 2;
+		}
+		
+		ImPlot::DragPoint(id, cx, cy, ImVec4(1, 1, 1, 1), 8.0f);
+		char cursor_label[20];
+		std::string label = std::to_string(id) + ":";
+		// Label is in (ms, V) - TODO: change axis to ms instead of seconds
+		sprintf(cursor_label, (label + "(%.2f, %.2f)").c_str(), *cx, *cy);
+		ImPlot::PlotText(cursor_label, *cx, *cy, ImVec2(50, -12));
+		ImPlot::SetNextLineStyle(ImVec4(1, 1, 1, 0.8));
+		ImPlot::PlotInfLines((label + "vert").c_str(), cx, 1, ImPlotInfLinesFlags_None);
+		ImPlot::SetNextLineStyle(ImVec4(1, 1, 1, 0.8));
+		ImPlot::PlotInfLines((label + "vert").c_str(), cy, 1, ImPlotInfLinesFlags_Horizontal);
 	}
 
 	void UpdateOscData()
@@ -92,6 +171,7 @@ public:
 		OSC2Data.SetPaused(osc_control->Paused);
 		OSC1Data.SetExtendedData();
 		OSC2Data.SetExtendedData();
+		
 		constants::Channel trigger_channel
 		    = maps::ComboItemToChannelTriggerPair.at(osc_control->TriggerTypeComboCurrentItem).channel;
 		constants::TriggerType trigger_type
@@ -213,7 +293,9 @@ protected:
 	OSCControl* osc_control;
 	OscData OSC1Data = OscData(1);
 	OscData OSC2Data = OscData(2);
-	double cursor1_x = 0;
-	double cursor1_y = 0;
+	double cursor1_x = -1000;
+	double cursor1_y = -1000;
+	double cursor2_x = -1000;
+	double cursor2_y = -1000;
 
 };
