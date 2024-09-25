@@ -93,11 +93,10 @@ public:
 		const float unitWidth = 50.0f;
 		const float inpWidth = width - labWidth - unitWidth;
 
-		if (ImGui::BeginTable((label + "_prop_table").c_str(), 3))
+		if (ImGui::BeginTable((label + "_prop_table").c_str(), 2))
 		{
 			ImGui::TableSetupColumn("One", ImGuiTableColumnFlags_WidthFixed, labWidth);
-			ImGui::TableSetupColumn("Two", ImGuiTableColumnFlags_WidthFixed, inpWidth);
-			ImGui::TableSetupColumn("three", ImGuiTableColumnFlags_WidthFixed, unitWidth);
+			ImGui::TableSetupColumn("Two", ImGuiTableColumnFlags_WidthFixed, inpWidth + unitWidth);
 
 			changed |= amplitude.renderInTable(inpWidth);
 			changed |= frequency.renderInTable(inpWidth);

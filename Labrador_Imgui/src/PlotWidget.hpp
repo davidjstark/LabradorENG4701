@@ -169,13 +169,13 @@ public:
 		double trigger_time = 0;
 		if (trigger_channel == constants::Channel::OSC1)
 		{
-			trigger_time = OSC1Data.GetTriggerTime(osc_control->Trigger, trigger_type,
-			    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+			trigger_time = OSC1Data.GetTriggerTime(osc_control->TriggerLevel.getValue(), trigger_type,
+			    osc_control->TriggerLevel.getValue(), osc_control->TriggerHysteresis);
 		}
 		if (trigger_channel == constants::Channel::OSC2)
 		{
 			trigger_time = OSC2Data.GetTriggerTime(osc_control->Trigger, trigger_type,
-			    osc_control->TriggerLevel, osc_control->TriggerHysteresis);
+			    osc_control->TriggerLevel.getValue(), osc_control->TriggerHysteresis);
 		}
 		OSC1Data.SetTriggerTime(trigger_time);
 		OSC2Data.SetTriggerTime(trigger_time);
@@ -193,26 +193,26 @@ public:
 		}
 	}
 	void AutoSetTriggerLevel(constants::Channel trigger_channel,
-	    constants::TriggerType trigger_type, float* TriggerLevel, float* TriggerHysteresis)
+	    constants::TriggerType trigger_type, SIValue* TriggerLevel, float* TriggerHysteresis)
 	{
 		double hysteresis_factor = 0.4;
 		if (trigger_channel == constants::Channel::OSC1)
 		{
-			*TriggerLevel = OSC1Data.GetDCComponent();
+			TriggerLevel->setLevel(OSC1Data.GetDCComponent());
 		}
 		if (trigger_channel == constants::Channel::OSC2)
 		{
-			*TriggerLevel = OSC2Data.GetDCComponent();
+			TriggerLevel->setLevel(OSC2Data.GetDCComponent());
 		}
 		if (trigger_type == constants::TriggerType::RISING_EDGE)
 		{
 			*TriggerHysteresis
-			    = hysteresis_factor * std::abs((*TriggerLevel - OSC1Data.GetDataMin()));
+			    = hysteresis_factor * std::abs((TriggerLevel->getValue() - OSC1Data.GetDataMin()));
 		}
 		if (trigger_type == constants::TriggerType::FALLING_EDGE)
 		{
 			*TriggerHysteresis
-			    = hysteresis_factor * std::abs((OSC1Data.GetDataMax() - *TriggerLevel));
+			    = hysteresis_factor * std::abs((OSC1Data.GetDataMax() - TriggerLevel->getValue()));
 		}
 	}
 	void AutoSetOscGain()

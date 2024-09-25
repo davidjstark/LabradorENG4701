@@ -21,7 +21,7 @@ public:
 	bool Paused = false;
 	bool AutofitNext = false;
 	bool Trigger = false;
-	float TriggerLevel = 3.3 /2;
+	SIValue TriggerLevel = SIValue("##trigger_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
 	float TriggerHysteresis = 0.25;
 	float osc1_time_scale = 5;
 	float osc1_voltage_scale = 1;
@@ -63,145 +63,124 @@ public:
 	/// </summary>
 	void renderControl() override
 	{
-		if (ImGui::BeginTable("Buttons", 4))
+		if (ImGui::BeginTable("Buttons", 3))
 		{
 			ImGui::TableNextColumn();
-			ToggleButton("Run/Stop", ImVec2(100,30), & Paused, Red, Green);
+			ToggleButton("Run/Stop", ImVec2(120,30), & Paused, Red, Green);
 			ImGui::TableNextColumn();
-			ImGui::Button("Auto", ImVec2(100, 30));
+			// TODO: Implement Single Capture (Stop after one trigger event is found)
+			ImGui::Button("Single", ImVec2(120, 30));
 			ImGui::TableNextColumn();
-			ImGui::Button("Normal", ImVec2(100, 30));
-			ImGui::TableNextColumn();
-			ImGui::Button("Single", ImVec2(100, 30));
+			AutofitNext = ImGui::Button("Auto Fit", ImVec2(120, 30));
 			ImGui::EndTable();
 		}
-		if (ImGui::CollapsingHeader("Channels", ImGuiTreeNodeFlags_DefaultOpen))
+
+		const float width = ImGui::GetContentRegionAvail().x * 0.95;
+		float labWidth = 120.0f;
+		float controlWidth = (width - 2*labWidth) / 2;
+
+		ImGui::SeparatorText("Display");
+		if (ImGui::BeginTable("ChannelsTable", 4))
 		{
-			if (ImGui::BeginTable("ChannelsTable", 4))
-			{
-				ImGui::TableNextColumn();
-				ImGui::TableNextColumn();
-				ImGui::Text("Channel 1 (OSC1)");
-				ImGui::TableNextColumn();
-				ImGui::Text("Channel 2 (OSC2)");
-				ImGui::TableNextColumn();
-				ImGui::Text("Equalise");
-				ImGui::TableNextColumn();
-				ImGui::Text("Display");
-				ImGui::TableNextColumn();
-				ImGui::Text("   OFF");
-				ImGui::SameLine();
-				ToggleSwitch((label + "Display1_toggle").c_str(), &DisplayCheckOSC1,
-				    ImU32(OSC1Colour));
-				ImGui::SameLine();
-				ImGui::Text("ON");
-				ImGui::TableNextColumn();
-				ImGui::Text("   OFF");
-				ImGui::SameLine();
-				ToggleSwitch((label + "Display2_toggle").c_str(), &DisplayCheckOSC2,
-				    ImU32(OSC2Colour));
-				ImGui::SameLine();
-				ImGui::Text("ON");
-				ImGui::TableNextColumn();
-				ImGui::TableNextColumn();
-				ImGui::Text("Time Scale");
-				ImGui::TableNextColumn();
-				// renderSliderwUnits(label+"_ts1",&osc1_time_scale,1,1000,"%.2f",constants::time_units,&osc1_ts_unit_idx);
-				ImGui::TableNextColumn();
-				// renderSliderwUnits(label + "_ts2", &osc2_time_scale, 1, 1000, "%.2f",
-				//    constants::time_units, &osc2_ts_unit_idx);
-				ImGui::TableNextColumn();
-				ImGui::Checkbox("##Equalise", &ts_equalise);
-				ImGui::TableNextColumn();
-				ImGui::Text("Voltage Scale");
-				ImGui::TableNextColumn();
-				// renderSliderwUnits(label + "_vs1", &osc1_voltage_scale, 1, 1000, "%.2f",
-				//     constants::volt_units, &osc1_vs_unit_idx);
-				ImGui::TableNextColumn();
-				// renderSliderwUnits(label + "_vs2", &osc2_voltage_scale, 1, 1000, "%.2f",
-				//    constants::volt_units, &osc2_vs_unit_idx);
-				ImGui::TableNextColumn();
-				ImGui::Checkbox("##Equalise", &vs_equalise);
-				ImGui::TableNextColumn();
-				ImGui::Text("Offset");
-				ImGui::TableNextColumn();
-				// renderSliderwUnits(label + "_os1", &osc1_offset, 1, 1000, "%.2f",
-				//    constants::time_units, &osc1_os_unit_idx);
-				ImGui::TableNextColumn();
-				// renderSliderwUnits(label + "_os2", &osc2_offset, 1, 1000, "%.2f",
-				//    constants::time_units, &osc2_os_unit_idx);
-				ImGui::TableNextColumn();
-				ImGui::Checkbox("##Equalise", &os_equalise);
-				ImGui::EndTable();
-			}
+			ImGui::TableSetupColumn("One", ImGuiTableColumnFlags_WidthFixed, labWidth);
+			ImGui::TableSetupColumn("Two", ImGuiTableColumnFlags_WidthFixed, controlWidth);
+			ImGui::TableSetupColumn("Three", ImGuiTableColumnFlags_WidthFixed, labWidth);
+			ImGui::TableSetupColumn("Four", ImGuiTableColumnFlags_WidthFixed, controlWidth);
+
+			// Channel 1 Toggle
+			ImGui::TableNextColumn();
+			ImGui::Text("Channel 1 (OSC1)");
+			ImGui::TableNextColumn();
+			ToggleSwitch((label + "Display1_toggle").c_str(), &DisplayCheckOSC1,
+				ImU32(OSC1Colour));
+
+			// Channel 2 Toggle
+			ImGui::TableNextColumn();
+			ImGui::Text("Channel 2 (OSC2)");
+			ImGui::TableNextColumn();
+			ToggleSwitch((label + "Display2_toggle").c_str(), &DisplayCheckOSC2,
+				ImU32(OSC2Colour));
+			
+			// Cursor 1 Toggle
+			ImGui::TableNextColumn();
+			ImGui::Text("Cursor 1");
+			ImGui::TableNextColumn();
+			ToggleSwitch((label + "Cursor1_toggle").c_str(), &Cursor1toggle, GenColour);
+
+			// Cursor 2 Toggle
+			ImGui::TableNextColumn();
+			ImGui::Text("Cursor 2");
+			ImGui::TableNextColumn();
+			ToggleSwitch((label + "Cursor2_toggle").c_str(), &Cursor2toggle, GenColour);
+
+			// Signal Properties Toggle
+			ImGui::TableNextColumn();
+			ImGui::Text("Signal Properties");
+			ImGui::TableNextColumn();
+			ToggleSwitch(
+			    (label + "sig_prop_toggle").c_str(), &SignalPropertiesToggle, GenColour);
+
+			ImGui::EndTable();
 		}
-		if (ImGui::CollapsingHeader("General", ImGuiTreeNodeFlags_DefaultOpen))
+
+		labWidth = 50.0f;
+		float labWidth2 = 70.0f;
+		controlWidth = (width - labWidth - labWidth2) / 2;
+
+		// Vertical space
+		ImGui::Dummy(ImVec2(0, 10.0f));
+		ImGui::SeparatorText("General");
+		if (ImGui::BeginTable("GeneralTable", 4))
 		{
-			if (ImGui::BeginTable("GeneralTable", 4))
+			ImGui::TableSetupColumn("One", ImGuiTableColumnFlags_WidthFixed, labWidth);
+			ImGui::TableSetupColumn("Two", ImGuiTableColumnFlags_WidthFixed, controlWidth);
+			ImGui::TableSetupColumn("Three", ImGuiTableColumnFlags_WidthFixed, labWidth2);
+			ImGui::TableSetupColumn("Four", ImGuiTableColumnFlags_WidthFixed, controlWidth);
+
+			// Trigger Properties
+			ImGui::TableNextColumn();
+			ImGui::Text("Trigger");
+			ImGui::TableNextColumn();
+			ToggleSwitch((label + "Trigger_toggle").c_str(), &Trigger, GenColour);
+			ImGui::TableNextColumn();
+			ImGui::Text("Type");
+			ImGui::TableNextColumn();
+			ImGui::SetNextItemWidth(controlWidth);
+
+			ImGui::Combo("##Trigger Type", &TriggerTypeComboCurrentItem,
+				TriggerTypeComboList, IM_ARRAYSIZE(TriggerTypeComboList));
+			
+			if (!AutoTriggerLevel) TriggerLevel.renderInTable(100.0f);
+			else
 			{
-				ImGui::TableNextColumn();
-				ImGui::Text("Cursor 1");
-				ImGui::TableNextColumn();
-				ImGui::Text("OFF");
-				ImGui::SameLine();
-				ToggleSwitch((label + "Cursor1_toggle").c_str(), &Cursor1toggle, GenColour);
-				ImGui::SameLine();
-				ImGui::Text("ON");
-				ImGui::TableNextColumn();
-				ImGui::Text("Cursor 2");
-				ImGui::TableNextColumn();
-				ImGui::Text("OFF");
-				ImGui::SameLine();
-				ToggleSwitch((label + "Cursor2_toggle").c_str(), &Cursor2toggle, GenColour);
-				ImGui::SameLine();
-				ImGui::Text("ON");
-				ImGui::TableNextColumn();
-				ImGui::Text("Trigger");
-				ImGui::SameLine();
-				ToggleSwitch((label + "Trigger_toggle").c_str(), &Trigger, GenColour);
-				ImGui::TableNextColumn();
-				ImGui::SetNextItemWidth(TriggerTypeComboWidth);
-				ImGui::Combo("##Trigger Type", &TriggerTypeComboCurrentItem,
-				    TriggerTypeComboList, IM_ARRAYSIZE(TriggerTypeComboList));
 				ImGui::TableNextColumn();
 				ImGui::Text("Level");
+				ImGui::TableNextColumn();
+				// TODO: Write display function that formats text in the appropriate unit
+				ImGui::Text("%.2f V", TriggerLevel.getValue());
+			}
+			ImGui::TableNextColumn();
+			ImGui::Text("Auto Level");
+			ImGui::TableNextColumn();
+			ToggleSwitch("##Auto", &AutoTriggerLevel, GenColour);
+
+			if (HysteresisDisplayOptionEnabled)
+			{
+				ImGui::Text("Hysteresis Level");
+				ImGui::TableNextColumn();
+			//	renderSliderwUnits(label + "_trigger_hysteresis", &TriggerHysteresis, 0, 2, "%.2f",
+			//	    constants::volt_units, &tl_unit_idx);
 				ImGui::Text("Auto");
 				ImGui::SameLine();
-				ImGui::Checkbox("##Auto", &AutoTriggerLevel);
-				ImGui::TableNextColumn();
-				// renderSliderwUnits(label + "_trigger_level", &TriggerLevel, 0, 3, "%.2f",
-				//    constants::volt_units, &tl_unit_idx);
-
-				if (HysteresisDisplayOptionEnabled)
-				{
-					ImGui::Text("Hysteresis Level");
-					ImGui::TableNextColumn();
-				//	renderSliderwUnits(label + "_trigger_hysteresis", &TriggerHysteresis, 0, 2, "%.2f",
-				//	    constants::volt_units, &tl_unit_idx);
-					ImGui::Text("Auto");
-					ImGui::SameLine();
-					ImGui::Text("ON");
-					ImGui::SameLine();
-					ToggleSwitch((label + "Auto_trigger_hysteresis_toggle").c_str(),
-					    &AutoTriggerHysteresisToggle, GenColour);
-					ImGui::SameLine();
-					ImGui::Text("OFF");
-				}
-				ImGui::TableNextColumn();
-				ImGui::Text("Signal Properties");
-				ImGui::TableNextColumn();
-				ToggleSwitch((label + "sig_prop_toggle").c_str(), &SignalPropertiesToggle,
-				    GenColour);
-				ImGui::EndTable();
+				ImGui::Text("ON");
+				ImGui::SameLine();
+				ToggleSwitch((label + "Auto_trigger_hysteresis_toggle").c_str(),
+					&AutoTriggerHysteresisToggle, GenColour);
+				ImGui::SameLine();
+				ImGui::Text("OFF");
 			}
-		}
-
-
-
-
-		if (ImGui::Button("Autofit"))
-		{
-			AutofitNext = true;
+			
+			ImGui::EndTable();
 		}
 	}
 

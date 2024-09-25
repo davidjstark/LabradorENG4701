@@ -21,10 +21,10 @@ constexpr float SG1_ACCENT[3] = { 42. / 255, 39. / 255, 212. / 255 };
 constexpr float SG2_ACCENT[3] = { 203. / 255, 100. / 255, 4. / 255 };
 constexpr float PSU_ACCENT[3] = { 190. / 255, 54. / 255, 54. / 255 };
 constexpr ImVec4 GRAY_TEXT = ImVec4(0.6, 0.6, 0.6, 1);
-constexpr float OSC_ACCENT[3] = {0., 0., 0.};
+constexpr float OSC_ACCENT[3] = { 0.4, 0.4, 0.4 };
 constexpr float OSC1_ACCENT[3] = { 230. / 255, 207. / 255, 2. / 255 };
 constexpr float OSC2_ACCENT[3] = { 255. / 255, 123. / 255, 250. / 255 };
-constexpr float GEN_ACCENT[3] = { 210. / 255, 210. / 255, 210. / 255 };
+constexpr float GEN_ACCENT[3] = { 150. / 255, 150. / 255, 150. / 255 };
 
     // Signal Generator Preview Waves
 constexpr char* wavetypes[4] = { "Sine", "Square", "Sawtooth", "Triangle" };

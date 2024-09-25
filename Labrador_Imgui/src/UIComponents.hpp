@@ -264,7 +264,7 @@ public:
 		//	ImGui::EndTooltip();
 		//}
 
-		ImGui::TableNextColumn();
+		ImGui::SameLine();
 		if (options.size() > 1 && DropDown(("##" + id + "dd").c_str(), options, &prefix_idx))
 		{
 			updateDisplayValue();
@@ -278,6 +278,11 @@ public:
 	float getValue()
 	{
 		return value;
+	}
+
+	void setLevel(float newValue)
+	{
+		value = newValue;
 	}
 
 private:
