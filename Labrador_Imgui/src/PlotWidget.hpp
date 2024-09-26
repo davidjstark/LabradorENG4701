@@ -15,7 +15,8 @@
 class PlotWidget
 {
 public:
-	int currentLabOscGain = 16;
+	int currentLabOscGain = 4;
+	double time_of_last_gain_update = 0;
 
 	/// <summary>
 	/// Constructor
@@ -27,6 +28,7 @@ public:
 	    , size(size)
 	    , osc_control(osc_control)
 	{
+		librador_set_oscilloscope_gain(1<<currentLabOscGain);
 	}
 
 	/// <summary>
@@ -169,7 +171,7 @@ public:
 		double trigger_time = 0;
 		if (trigger_channel == constants::Channel::OSC1)
 		{
-			trigger_time = OSC1Data.GetTriggerTime(osc_control->TriggerLevel.getValue(), trigger_type,
+			trigger_time = OSC1Data.GetTriggerTime(osc_control->Trigger, trigger_type,
 			    osc_control->TriggerLevel.getValue(), osc_control->TriggerHysteresis);
 		}
 		if (trigger_channel == constants::Channel::OSC2)
@@ -218,60 +220,116 @@ public:
 	void AutoSetOscGain()
 	{
 		double adc_center = 3.3 / 2;
-		double osc1_max = adc_center;
-		double osc1_min = adc_center;
-		double osc2_max = adc_center;
-		double osc2_min = adc_center;
-		double max_limits[7] = { 25.0, 13.4, 7.5, 4.5, 3.1, 2.4, 2.0 };
-		double min_limits[7] = { -22.0, -10.1, -4.2, -1.3, 0.17, 0.91, 1.3 };
-		double grace = 0.1;
-		if (OSC1Data.GetDataSize() != 0)
+		double scale = 0.35;
+		double threshold_samples_frac = 0.05;
+		
+		int frame = ImGui::GetFrameCount();
+		if (frame - last_update_frame < 0)
 		{
-			std::vector<double> osc1_data = OSC1Data.GetMiniBuffer();
-			osc1_max = *std::max_element(osc1_data.begin(), osc1_data.end());
-			osc1_min = *std::min_element(osc1_data.begin(), osc1_data.end());
+			return;
 		}
-		if (OSC2Data.GetDataSize() != 0)
-		{
-			std::vector<double> osc2_data = OSC2Data.GetMiniBuffer();
-			double osc2_max = *std::max_element(osc2_data.begin(), osc2_data.end());
-			double osc2_min = *std::min_element(osc2_data.begin(), osc2_data.end());
-		}
-		double osc_max = osc1_max > osc2_max ? osc1_max : osc2_max;
-		double osc_min = osc1_min < osc2_min ? osc1_min : osc2_min;
-		int min_gain = 1;
-		int max_gain = 1;
 
-		for (int i = 1; i < sizeof(max_limits) / sizeof(double); i++)
+		// Check whether gain needs to increase
+		if (currentLabOscGain > 1)
 		{
-			if (osc_max < max_limits[i] - grace)
+			double offset = (1 << (6 - currentLabOscGain)) * scale;
+			double max_thresh = offset + adc_center;
+			double min_thresh = adc_center - offset;
+
+			std::vector<double> osc1_data = OSC1Data.GetMiniBuffer();
+
+			// counts number of values which we identify to potentially be clipping
+			int max_count = std::count_if(osc1_data.begin(), osc1_data.end(),
+			    [max_thresh](double x) { return x > max_thresh; });
+			int min_count = std::count_if(osc1_data.begin(), osc1_data.end(),
+			    [min_thresh](double x) { return x < min_thresh; });
+			if (max_count > threshold_samples_frac * osc1_data.size()
+			    || min_count > threshold_samples_frac * osc1_data.size())
 			{
-				max_gain = std::pow(2, i);
-			}
-			else
-			{
-				break;
+				currentLabOscGain--;
+				librador_set_oscilloscope_gain(1 << currentLabOscGain);
+				printf("%d\n", 1 << currentLabOscGain);
 			}
 		}
-		for (int i = 1; i < sizeof(min_limits) / sizeof(double); i++)
+		// Check if gain needs to decrease
+	    if (currentLabOscGain < 6)
 		{
-			if (osc_min > min_limits[i] + grace)
+			double offset = (1 << (5 - currentLabOscGain)) * scale;
+			double max_thresh = offset + adc_center;
+			double min_thresh = adc_center - offset;
+
+			std::vector<double> osc1_data = OSC1Data.GetMiniBuffer();
+
+			// counts number of values which we identify to potentially be clipping
+			int max_count = std::count_if(osc1_data.begin(), osc1_data.end(),
+			    [max_thresh](double x) { return x > max_thresh; });
+			int min_count = std::count_if(osc1_data.begin(), osc1_data.end(),
+			    [min_thresh](double x) { return x < min_thresh; });
+			if (max_count < threshold_samples_frac * osc1_data.size()
+			    && min_count < threshold_samples_frac * osc1_data.size())
 			{
-				min_gain = std::pow(2, i);
-			}
-			else
-			{
-				break;
+				currentLabOscGain++;
+				librador_set_oscilloscope_gain(1<<currentLabOscGain);
+				printf("%d\n", 1<<currentLabOscGain);
 			}
 		}
-		int desired_gain = max_gain < min_gain ? max_gain : min_gain;
-		desired_gain = desired_gain < 1 ? 1 : desired_gain; // insure gain does not go
-		                                                    // lower than 1
-		if (desired_gain != currentLabOscGain)
-		{
-			currentLabOscGain = desired_gain;
-			librador_set_oscilloscope_gain(int(currentLabOscGain));
-		}
+
+
+
+		//double adc_center = 3.3 / 2;
+		//double osc1_max = adc_center;
+		//double osc1_min = adc_center;
+		//double osc2_max = adc_center;
+		//double osc2_min = adc_center;
+		//double max_limits[7] = { 25.0, 13.4, 7.5, 4.5, 3.1, 2.4, 2.0 };
+		//double min_limits[7] = { -22.0, -10.1, -4.2, -1.3, 0.17, 0.91, 1.3 };
+		//double grace = 0.1;
+		//
+		//if (OSC1Data.GetDataSize() != 0 && osc_control->DisplayCheckOSC1)
+		//{
+		//	std::vector<double> osc1_data = OSC1Data.GetRawData();
+		//	for (int)
+		//	osc1_max = *std::max_element(osc1_data.begin(), osc1_data.end());
+		//	osc1_min = *std::min_element(osc1_data.begin(), osc1_data.end());
+		//}
+		//if (OSC2Data.GetDataSize() != 0 && osc_control->DisplayCheckOSC2)
+		//{
+		//	std::vector<double> osc2_data = OSC2Data.GetMiniBuffer();
+		//	osc2_max = *std::max_element(osc2_data.begin(), osc2_data.end());
+		//	osc2_min = *std::min_element(osc2_data.begin(), osc2_data.end());
+		//}
+		//double osc_max = osc1_max > osc2_max ? osc1_max : osc2_max;
+		//double osc_min = osc1_min < osc2_min ? osc1_min : osc2_min;
+		//int min_gain = 1;
+		//int max_gain = 1;
+
+		//for (int i = 1; i < sizeof(max_limits) / sizeof(double); i++)
+		//{
+		//	if (osc_max < max_limits[i] - grace)
+		//	{
+		//		max_gain = std::pow(2, i);
+		//	}
+		//	else
+		//	{
+		//		break;
+		//	}
+		//}
+		//for (int i = 1; i < sizeof(min_limits) / sizeof(double); i++)
+		//{
+		//	if (osc_min > min_limits[i] + grace)
+		//	{
+		//		min_gain = std::pow(2, i);
+		//	}
+		//	else
+		//	{
+		//		break;
+		//	}
+		//}
+		//int desired_gain = max_gain < min_gain ? max_gain : min_gain;
+		//desired_gain = desired_gain < 1 ? 1 : desired_gain; // insure gain does not go
+		//                                                    // lower than 1
+		
+		
 	}
 
 protected:
@@ -289,4 +347,5 @@ protected:
 	double cursor1_y = -1000;
 	double cursor2_x = -1000;
 	double cursor2_y = -1000;
+	int last_update_frame = 10;
 };

@@ -283,6 +283,7 @@ public:
 	void setLevel(float newValue)
 	{
 		value = newValue;
+		updateDisplayValue();
 	}
 
 private:

@@ -363,6 +363,10 @@ public:
 	{
 		return channel;
 	}
+	std::vector<double> GetRawData()
+	{
+		return raw_data;
+	}
 
 private:
 	// time domain (plot) stuff
@@ -397,7 +401,7 @@ private:
 	double raw_time_step = 1 / ft_sample_rate;
 	// mini buffer (used for determining gain of oscilloscope)
 	std::vector<double> mini_buffer = {};
-	double mini_buffer_length = 0.2; // seconds
+	double mini_buffer_length = 0.05; // seconds
 	int mini_buffer_next_index = 0;
 	
 	// osc control parameters
@@ -457,7 +461,7 @@ private:
 	void FillMiniBuffer() // used for auto osc gain and that's all
 	{
 		std::vector<double>* buffer_update_ptr = librador_get_analog_data_sincelast(
-		    channel, 5, max_sample_rate, delay_s, filter_mode);
+		    channel, 5, ft_sample_rate, delay_s, filter_mode);
 		int buffer_update_size = buffer_update_ptr->size();
 		for (int i = 0; i < buffer_update_size; i++)
 		{

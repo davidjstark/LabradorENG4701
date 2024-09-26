@@ -145,6 +145,38 @@ Render UI elements for oscilloscope control
             <summary>Oscilloscope Control Widget
 </summary>
         </member>
+        <member name="M:SIValue.getMutliplier">
+            <summary>
+Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
+</summary>
+            <returns />
+        </member>
+        <member name="M:DropDown(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,std.vector&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.allocator&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;&gt;&gt;,System.Int32*)">
+            <summary>
+Generic dropdown for list of strings
+</summary>
+            <param name="id" />
+            <param name="options" />
+            <param name="active" />
+            <param name="size" />
+            <returns />
+        </member>
+        <member name="M:ToggleButton(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.Boolean*,System.UInt32,System.UInt32)">
+            <summary>
+Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+</summary>
+            <param name="id" />
+            <param name="state" />
+            <param name="accentColour" />
+        </member>
+        <member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)">
+            <summary>
+Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
+</summary>
+            <param name="id" />
+            <param name="state" />
+            <param name="accentColour" />
+        </member>
         <member name="M:PSUControl.controlLab">
             <summary>
 Set the Power Supply Voltage on the labrador board.
@@ -183,8 +215,37 @@ Constructor
 Abstract class that draws control widget such as PSU Control
 </summary>
         </member>
-        <member name="M:librador_set_device_mode(System.Int32)">
-As above, a1 and a2
+        <member name="M:SetControlWidgetStyle(System.Single!System.Runtime.CompilerServices.IsConst*)">
+            <summary>
+Defines the style of the general control widget
+</summary>
+            <param name="ac">Accent colour (RGB 0..1) </param>
+        </member>
+        <member name="M:PreviewStyle">
+            <summary>
+Defines style for the Signal Generator Preview plot
+</summary>
+        </member>
+        <member name="M:SetGlobalStyle">
+            <summary>
+Global styles set at the start of the application
+</summary>
+        </member>
+        <member name="M:replace_all(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{Syste">
+            <summary>
+Replaces all instances of a substring with a provided string
+</summary>
+            <param name="s" />
+            <param name="toReplace" />
+            <param name="replaceWith" />
+        </member>
+        <member name="M:init_constants">
+            <summary>
+Initialise global preview arrays
+</summary>
+        </member>
+        <member name="T:ImPlot.GetterFuncPtr">
+Interprets a user's function pointer as ImPlotPoints
 </member>
         <member name="M:libusb_hotplug_get_user_data(libusb_context*,System.Int32)">
 \ingroup libusb_hotplug
@@ -1829,70 +1890,9 @@ In the context of a \ref libusb_device_descriptor "device descriptor",
 	 * own class information and all interfaces operate independently.
 
 </member>
-        <member name="T:ImPlot.GetterFuncPtr">
-Interprets a user's function pointer as ImPlotPoints
+        <member name="M:librador_set_device_mode(System.Int32)">
+As above, a1 and a2
 </member>
-        <member name="M:SetControlWidgetStyle(System.Single!System.Runtime.CompilerServices.IsConst*)">
-            <summary>
-Defines the style of the general control widget
-</summary>
-            <param name="ac">Accent colour (RGB 0..1) </param>
-        </member>
-        <member name="M:PreviewStyle">
-            <summary>
-Defines style for the Signal Generator Preview plot
-</summary>
-        </member>
-        <member name="M:SetGlobalStyle">
-            <summary>
-Global styles set at the start of the application
-</summary>
-        </member>
-        <member name="M:replace_all(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{Syste">
-            <summary>
-Replaces all instances of a substring with a provided string
-</summary>
-            <param name="s" />
-            <param name="toReplace" />
-            <param name="replaceWith" />
-        </member>
-        <member name="M:init_constants">
-            <summary>
-Initialise global preview arrays
-</summary>
-        </member>
-        <member name="M:SIValue.getMutliplier">
-            <summary>
-Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
-</summary>
-            <returns />
-        </member>
-        <member name="M:DropDown(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,std.vector&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.allocator&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;&gt;&gt;,System.Int32*)">
-            <summary>
-Generic dropdown for list of strings
-</summary>
-            <param name="id" />
-            <param name="options" />
-            <param name="active" />
-            <param name="size" />
-            <returns />
-        </member>
-        <member name="M:ToggleButton(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,System.Boolean*,System.UInt32,System.UInt32)">
-            <summary>
-Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
-</summary>
-            <param name="id" />
-            <param name="state" />
-            <param name="accentColour" />
-        </member>
-        <member name="M:ToggleSwitch(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.Boolean*,System.UInt32)">
-            <summary>
-Adapted from https://github.com/ocornut/imgui/issues/1537#issuecomment-355562097
-</summary>
-            <param name="id" />
-            <param name="state" />
-            <param name="accentColour" />
-        </member>
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->
         <!-- Discarding badly formed XML document comment for member 'F:libusb_pollfd.events'. -->
         <!-- Discarding badly formed XML document comment for member 'M:libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)'. -->

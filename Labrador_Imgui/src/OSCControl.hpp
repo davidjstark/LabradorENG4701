@@ -20,7 +20,7 @@ public:
 	bool ACCoupledCheck = false;
 	bool Paused = false;
 	bool AutofitNext = false;
-	bool Trigger = false;
+	bool Trigger = true;
 	SIValue TriggerLevel = SIValue("##trigger_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
 	float TriggerHysteresis = 0.25;
 	float osc1_time_scale = 5;
