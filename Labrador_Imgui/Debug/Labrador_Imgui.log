@@ -1,200 +1,579 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Msbuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (C:\Users\David\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\) contains files shared from another project (example_glfw_opengl3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   librador.cpp
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador_global.h(7,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89): warning C4635: XML document comment applied to 'libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)': badly-formed XML: Invalid at the top level of the document.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(1569): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125): warning C4635: XML document comment applied to 'libusb_pollfd.events': badly-formed XML: Invalid at the top level of the document.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2177): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2192): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(77,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(79,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(80,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(95,29): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(96,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(97,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(116,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(117,29): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(118,31): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(186,5): warning C4245: 'return': conversion from 'int' to 'uint16_t', signed/unsigned mismatch
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(187,5): warning C4245: 'return': conversion from 'int' to 'uint16_t', signed/unsigned mismatch
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(192,5): warning C4245: 'return': conversion from 'int' to 'uint8_t', signed/unsigned mismatch
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(192,5): warning C4309: 'return': truncation of constant value
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(193,5): warning C4245: 'return': conversion from 'int' to 'uint8_t', signed/unsigned mismatch
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(193,5): warning C4309: 'return': truncation of constant value
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(199,17): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(215,17): warning C4244: 'return': conversion from 'double' to 'unsigned char', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(221,21): warning C4244: 'return': conversion from 'double' to 'unsigned char', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(223,21): warning C4244: 'return': conversion from 'double' to 'unsigned char', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(242,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(326,31): warning C4100: 'userdata': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador_global.h(7,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../Librador_API/___librador/librador_shared_library/librador.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89,1): warning C4635: XML document comment applied to 'libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)': badly-formed XML: Invalid at the top level of the document.
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89,1): warning C4635: 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/librador.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(1569,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/librador.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125,1): warning C4635: XML document comment applied to 'libusb_pollfd.events': badly-formed XML: Invalid at the top level of the document.
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125,1): warning C4635: 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/librador.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2177,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/librador.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2192,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/librador.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(77,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(79,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(80,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(95,29): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(96,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(97,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(116,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(117,29): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(118,31): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(186,5): warning C4245: 'return': conversion from 'int' to 'uint16_t', signed/unsigned mismatch
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(187,5): warning C4245: 'return': conversion from 'int' to 'uint16_t', signed/unsigned mismatch
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(192,5): warning C4245: 'return': conversion from 'int' to 'uint8_t', signed/unsigned mismatch
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(192,5): warning C4309: 'return': truncation of constant value
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(193,5): warning C4245: 'return': conversion from 'int' to 'uint8_t', signed/unsigned mismatch
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(193,5): warning C4309: 'return': truncation of constant value
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(199,17): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(215,17): warning C4244: 'return': conversion from 'double' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(221,21): warning C4244: 'return': conversion from 'double' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(223,21): warning C4244: 'return': conversion from 'double' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(242,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador.cpp(326,31): warning C4100: 'userdata': unreferenced formal parameter
   o1buffer.cpp
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\o1buffer.cpp(227,39): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\o1buffer.cpp(227,39): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Hack here.Do not know why this line works, but it does.
   usbcallhandler.cpp
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89): warning C4635: XML document comment applied to 'libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)': badly-formed XML: Invalid at the top level of the document.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(1569): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125): warning C4635: XML document comment applied to 'libusb_pollfd.events': badly-formed XML: Invalid at the top level of the document.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2177): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2192): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(123,25): warning C4244: '=': conversion from 'int' to 'unsigned char', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(281,14): warning C4189: 'counter': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(278,14): warning C4189: 'trfcnt1': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(282,14): warning C4189: 'dma_ch0_cnt': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(277,14): warning C4189: 'trfcnt0': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(279,14): warning C4189: 'medianTrfcnt': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(283,14): warning C4189: 'dma_ch1_cnt': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(280,14): warning C4189: 'outOfRange': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(385,5): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(414,5): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(484,75): warning C4244: '=': conversion from 'double' to 'uint16_t', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(485,52): warning C4244: '=': conversion from 'int' to 'uint8_t', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(495,9): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(500,9): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(533,5): warning C4244: 'return': conversion from 'int' to 'uint16_t', possible loss of data
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(538,5): warning C4244: 'return': conversion from 'int' to 'uint8_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89,1): warning C4635: XML document comment applied to 'libusb_cpu_to_le16(System.UInt16!System.Runtime.CompilerServices.IsConst)': badly-formed XML: Invalid at the top level of the document.
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(89,1): warning C4635: 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(1569,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125,1): warning C4635: XML document comment applied to 'libusb_pollfd.events': badly-formed XML: Invalid at the top level of the document.
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2125,1): warning C4635: 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2177,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\libusb\libusb.h(2192,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file '../Librador_API/___librador/librador_shared_library/usbcallhandler.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(123,25): warning C4244: '=': conversion from 'int' to 'unsigned char', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(281,14): warning C4189: 'counter': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(278,14): warning C4189: 'trfcnt1': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(282,14): warning C4189: 'dma_ch0_cnt': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(277,14): warning C4189: 'trfcnt0': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(279,14): warning C4189: 'medianTrfcnt': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(283,14): warning C4189: 'dma_ch1_cnt': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(280,14): warning C4189: 'outOfRange': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(385,5): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(414,5): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(484,75): warning C4244: '=': conversion from 'double' to 'uint16_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(485,52): warning C4244: '=': conversion from 'int' to 'uint8_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(495,9): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(500,9): warning C4244: 'argument': conversion from 'int' to 'uint16_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(533,5): warning C4244: 'return': conversion from 'int' to 'uint16_t', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\usbcallhandler.cpp(538,5): warning C4244: 'return': conversion from 'int' to 'uint8_t', possible loss of data
   imgui_impl_glfw.cpp
   imgui_impl_opengl3.cpp
   imgui.cpp
   imgui_demo.cpp
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\imgui\imgui_demo.cpp(938): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\imgui\imgui_demo.cpp(938,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
   imgui_draw.cpp
   imgui_tables.cpp
   imgui_widgets.cpp
   implot.cpp
   implot_demo.cpp
   implot_items.cpp
-C:\Users\David\LabradorENG4701\Labrador_Imgui\libs\imgui\implot_items.cpp(1359): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\libs\imgui\implot_items.cpp(1359,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
   main.cpp
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(54,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\David\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador_global.h(7,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(20,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(21,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(22,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(23,53): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(24,49): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(25,69): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(26,71): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(27,70): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp(175,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp(175,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(30,14): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(50,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(80,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(134,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(115,49): warning C4100: 'size': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(152): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(258,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(313,1): warning C4305: 'return': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(24,23): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(78,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(78,21): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(39,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(49,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(91,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(91,21): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(265,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(35,4): warning C5205: delete of an abstract class 'GenericSignal' that has a non-virtual destructor results in undefined behavior
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(10): message : see declaration of 'GenericSignal'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(45,1): warning C4458: declaration of 'time_step' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(375,9): message : see declaration of 'OscData::time_step'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(89,47): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(90,63): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(96,46): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(101,1): warning C4458: declaration of 'time_step' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(375,9): message : see declaration of 'OscData::time_step'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(113,22): warning C4458: declaration of 'time_window' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(373,9): message : see declaration of 'OscData::time_window'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(113,41): warning C4458: declaration of 'time_start' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(374,9): message : see declaration of 'OscData::time_start'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(122,1): warning C4458: declaration of 'time_step' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(375,9): message : see declaration of 'OscData::time_step'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(123,1): warning C4458: declaration of 'time' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(376,22): message : see declaration of 'OscData::time'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(145,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(165,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(194,29): warning C4458: declaration of 'trigger_time' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(383,9): message : see declaration of 'OscData::trigger_time'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(201,32): warning C4458: declaration of 'trigger_timeout' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(382,9): message : see declaration of 'OscData::trigger_timeout'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(205,22): warning C4458: declaration of 'paused' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(408,7): message : see declaration of 'OscData::paused'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(211,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(247,21): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(331,10): warning C4189: 'filter_cutoff': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(442,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(457,10): warning C4189: 'ft_sample_im': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(456,10): warning C4189: 'ft_sample_re': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(465,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(18,52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(22,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,92): warning C4100: 'line_type': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,44): warning C4100: 'gap_size': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,27): warning C4100: 'dash_size': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(78,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(147,1): warning C4458: declaration of 'label' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(336,14): message : see declaration of 'PlotWidget::label'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(151,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(153,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(149,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(203,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(207,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(212,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(217,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(242,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(244,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(264,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(266,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(174,53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(174,24): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(198,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,85): warning C4100: 'mods': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,73): warning C4100: 'action': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,61): warning C4100: 'button': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,49): warning C4100: 'window': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(370,75): warning C4100: 'ypos': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(370,62): warning C4100: 'xpos': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(370,47): warning C4100: 'window': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,89): warning C4100: 'mods': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,76): warning C4100: 'actions': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,62): warning C4100: 'scancode': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,53): warning C4100: 'key': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,41): warning C4100: 'window': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(197,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(82): message : while compiling class template member function 'AppBase<App>::AppBase(void)'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(29): message : see reference to function template instantiation 'AppBase<App>::AppBase(void)' being compiled
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(27): message : see reference to class template instantiation 'AppBase<App>' being compiled
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(54,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Librador_API\___librador\librador_shared_library\librador_global.h(7,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,39): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,50): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,52): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,51): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,47): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,42): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,37): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,35): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,45): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,41): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,53): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,63): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(26,53): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(26,65): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,52): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,64): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp(175,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\ControlWidget.hpp(175,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(30,12): warning C4305: '=': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(50,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(80,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(134,39): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(115,49): warning C4100: 'size': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(152,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(258,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(313,41): warning C4305: 'return': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(24,65): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(78,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(78,21): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(39,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(49,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(91,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(91,21): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(270,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp(37,4): warning C5205: delete of an abstract class 'GenericSignal' that has a non-virtual destructor results in undefined behavior
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(10,7):
+  see declaration of 'GenericSignal'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(45,11): warning C4458: declaration of 'time_step' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(375,9):
+  see declaration of 'OscData::time_step'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(89,47): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(90,63): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(96,46): warning C4244: 'argument': conversion from 'double' to 'const __int64', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(101,11): warning C4458: declaration of 'time_step' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(375,9):
+  see declaration of 'OscData::time_step'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(113,22): warning C4458: declaration of 'time_window' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(373,9):
+  see declaration of 'OscData::time_window'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(113,41): warning C4458: declaration of 'time_start' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(374,9):
+  see declaration of 'OscData::time_start'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(122,10): warning C4458: declaration of 'time_step' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(375,9):
+  see declaration of 'OscData::time_step'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(123,23): warning C4458: declaration of 'time' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(376,22):
+  see declaration of 'OscData::time'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(145,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(165,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(194,29): warning C4458: declaration of 'trigger_time' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(383,9):
+  see declaration of 'OscData::trigger_time'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(201,32): warning C4458: declaration of 'trigger_timeout' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(382,9):
+  see declaration of 'OscData::trigger_timeout'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(205,22): warning C4458: declaration of 'paused' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(408,7):
+  see declaration of 'OscData::paused'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(211,19): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(247,21): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(331,10): warning C4189: 'filter_cutoff': local variable is initialized but not referenced
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(442,38): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(457,10): warning C4189: 'ft_sample_im': local variable is initialized but not referenced
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(456,10): warning C4189: 'ft_sample_re': local variable is initialized but not referenced
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(465,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(18,52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(22,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,92): warning C4100: 'line_type': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,44): warning C4100: 'gap_size': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,27): warning C4100: 'dash_size': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(78,30): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(87,30): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(147,15): warning C4458: declaration of 'label' hides class member
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(339,14):
+  see declaration of 'PlotWidget::label'
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(151,44): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(153,44): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(149,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(203,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(207,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(212,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(217,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(243,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(245,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(266,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(268,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(174,53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(174,24): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(198,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,85): warning C4100: 'mods': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,73): warning C4100: 'action': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,61): warning C4100: 'button': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(360,49): warning C4100: 'window': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(370,75): warning C4100: 'ypos': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(370,62): warning C4100: 'xpos': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(370,47): warning C4100: 'window': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,89): warning C4100: 'mods': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,76): warning C4100: 'actions': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,62): warning C4100: 'scancode': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,53): warning C4100: 'key': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(380,41): warning C4100: 'window': unreferenced formal parameter
+  (compiling source file 'src/main.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(197,33): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/main.cpp')
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(197,33):
+  the template instantiation context (the oldest one first) is
+  	C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(26,20):
+  	see reference to class template instantiation 'AppBase<App>' being compiled
+  	C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\AppBase.hpp(82,5):
+  	while compiling class template member function 'AppBase<App>::AppBase(void)'
+  		C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(29,8):
+  		see the first reference to 'AppBase<App>::AppBase' in 'App::App'
+  
   UIComponents.hpp
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(20,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(21,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(22,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(23,53): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(24,49): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(25,69): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(26,71): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(27,70): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(30,14): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(50,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(80,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(134,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(115,49): warning C4100: 'size': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(152): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(258,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(313,1): warning C4305: 'return': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,39): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,50): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,52): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,51): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,47): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,42): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,37): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,35): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,45): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,41): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,53): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,63): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(26,53): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(26,65): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,52): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,64): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/UIComponents.hpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(30,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(50,9): warning C4189: 'right_offset_x': local variable is initialized but not referenced
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(80,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(134,39): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(115,49): warning C4100: 'size': unreferenced formal parameter
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(152,1): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target. 
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(258,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(313,41): warning C4305: 'return': truncation from 'double' to 'float'
   util.cpp
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(20,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(21,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(22,68): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(23,53): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(24,49): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(25,69): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(26,71): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.h(27,70): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\util.cpp(24,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,39): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,50): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(20,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,52): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(21,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,51): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(22,62): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,47): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,42): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(23,37): warning C4305: 'argument': truncation from 'double' to 'float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,35): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(24,45): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,41): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,53): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(25,63): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(26,53): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(26,65): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,40): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,52): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.h(27,64): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'src/util.cpp')
+  
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\util.cpp(24,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
-C:\Users\David\LabradorENG4701\Labrador_Imgui\backends\imgui_impl_opengl3.cpp(928): warning C4701: potentially uninitialized local variable 'last_pixel_unpack_buffer' used
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\backends\imgui_impl_opengl3.cpp(928,1): warning C4701: potentially uninitialized local variable 'last_pixel_unpack_buffer' used
 LINK : warning LNK4217: symbol 'vsnprintf' defined in 'implot_demo.obj' is imported by 'glfw3.lib(init.obj)' in function '_glfwInputError'
 LINK : warning LNK4286: symbol 'vsnprintf' defined in 'implot_demo.obj' is imported by 'MSVCRTD.lib(vsnprintf.obj)'
 LINK : warning LNK4217: symbol 'sscanf' defined in 'imgui_impl_opengl3.obj' is imported by 'glfw3.lib(context.obj)' in function 'parseVersionString'
 LINK : warning LNK4286: symbol '_vsnprintf' defined in 'imgui.obj' is imported by 'MSVCRTD.lib(vsnprintf.obj)'
-  Labrador_Imgui.vcxproj -> C:\Users\David\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe
+  Labrador_Imgui.vcxproj -> C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\Debug\Labrador_Imgui.exe

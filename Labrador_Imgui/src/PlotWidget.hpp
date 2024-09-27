@@ -222,9 +222,10 @@ public:
 		double adc_center = 3.3 / 2;
 		double scale = 0.35;
 		double threshold_samples_frac = 0.05;
+		double grace = 0.1;
 		
 		int frame = ImGui::GetFrameCount();
-		if (frame - last_update_frame < 0)
+		if (frame - last_update_frame < 5)
 		{
 			return;
 		}
@@ -248,7 +249,8 @@ public:
 			{
 				currentLabOscGain--;
 				librador_set_oscilloscope_gain(1 << currentLabOscGain);
-				printf("%d\n", 1 << currentLabOscGain);
+				last_update_frame = frame;
+				printf("Frame: %03d, gain: %02d\n", frame, 1 << currentLabOscGain);
 			}
 		}
 		// Check if gain needs to decrease
@@ -260,17 +262,18 @@ public:
 
 			std::vector<double> osc1_data = OSC1Data.GetMiniBuffer();
 
-			// counts number of values which we identify to potentially be clipping
+			// counts number of values outside of the thresholds of the smaller gain
 			int max_count = std::count_if(osc1_data.begin(), osc1_data.end(),
-			    [max_thresh](double x) { return x > max_thresh; });
+			    [max_thresh, grace](double x) { return x > max_thresh - grace; });
 			int min_count = std::count_if(osc1_data.begin(), osc1_data.end(),
-			    [min_thresh](double x) { return x < min_thresh; });
+			    [min_thresh, grace](double x) { return x < min_thresh + grace; });
 			if (max_count < threshold_samples_frac * osc1_data.size()
 			    && min_count < threshold_samples_frac * osc1_data.size())
 			{
 				currentLabOscGain++;
 				librador_set_oscilloscope_gain(1<<currentLabOscGain);
-				printf("%d\n", 1<<currentLabOscGain);
+				last_update_frame = frame;
+				printf("Frame: %03d, gain: %02d\n", frame, 1<<currentLabOscGain);
 			}
 		}
 

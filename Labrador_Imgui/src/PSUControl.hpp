@@ -7,10 +7,11 @@
 class PSUControl : public ControlWidget
 {
 public:
-	
+	float voltage;
+
 	PSUControl(std::string label, ImVec2 size, const float* borderColor)
 	    : ControlWidget(label, size, borderColor)
-	    , voltage(4.5f)
+	    , voltage(8.0f) // Default voltage
 	{}
 
 	/// <summary> 
@@ -35,6 +36,7 @@ public:
 			printf("librador_set_power_supply_voltage FAILED with error code "
 				    "%d\tExiting...",
 				error);
+			// Board not connected (continue to run)
 			if (error == -1101)
 			{
 				return false;
@@ -44,7 +46,4 @@ public:
 		return true;
 		// printf("Successfully set power supply voltage to %.2fV\n", voltage);
 	}
-
-private:
-	float voltage;
 };
