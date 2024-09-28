@@ -329,7 +329,7 @@ C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget
   
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(147,15): warning C4458: declaration of 'label' hides class member
   (compiling source file 'src/main.cpp')
-  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(339,14):
+  C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(321,14):
   see declaration of 'PlotWidget::label'
   
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(151,44): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -353,16 +353,16 @@ C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(217,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(243,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(286,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(245,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(288,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(266,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(305,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(268,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(307,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
 C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\App.hpp(174,53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
