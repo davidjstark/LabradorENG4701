@@ -395,10 +395,10 @@ class App : public AppBase<App>
 	PSUControl PSUWidget = PSUControl("Power Supply Unit (PSU)", ImVec2(0,0), constants::PSU_ACCENT);
 	//MultimeterControl MMWidget
 	//    = MultimeterControl("Multimeter", ImVec2(0, 0), IM_COL32(0,0,0, 255));
-	SGControl SG1Widget
-	    = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0), constants::SG1_ACCENT, 1);
-	SGControl SG2Widget
-	    = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0), constants::SG2_ACCENT, 2);
+	SGControl SG1Widget = SGControl("Signal Generator 1 (SG1)", ImVec2(0, 0),
+	    constants::SG1_ACCENT, 1, &PSUWidget.voltage);
+	SGControl SG2Widget = SGControl("Signal Generator 2 (SG2)", ImVec2(0, 0),
+	    constants::SG2_ACCENT, 2, &PSUWidget.voltage);
 	OSCControl OSCWidget
 	    = OSCControl("Plot Settings", ImVec2(0, 0), constants::OSC_ACCENT);
 	PlotWidget PlotWidgetObj 

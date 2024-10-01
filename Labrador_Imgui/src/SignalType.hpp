@@ -135,6 +135,11 @@ public:
 		librador_send_sin_wave(channel, 100, 0.0, 0.0);
 	}
 
+	float getSignalMax()
+	{
+		return amplitude.getValue() + offset.getValue();
+	}
+
 private:
 	
 
