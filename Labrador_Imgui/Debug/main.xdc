@@ -70,16 +70,16 @@ Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
 </summary>
 <returns></returns>
 </member>
-<member name="T:OSCControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="7">
+<member name="T:OSCControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="8">
 <summary>Oscilloscope Control Widget
 </summary>
 </member>
-<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="61">
+<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="71">
 <summary>
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="188">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="281">
 <summary>
 Control sampling settings on labrador board
 </summary>
@@ -174,25 +174,25 @@ Set the Signal Generator on the labrador board.
 </summary>
 <returns></returns>
 </member>
-<member name="T:PlotWidget" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="12">
+<member name="T:PlotWidget" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="15">
 <summary>
 Abstract class that draws child that can be populated by a control widget
 </summary>
 </member>
-<member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,OSCControl*)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="21">
+<member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,OSCControl*)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="24">
 <summary>
 Constructor
 </summary>
 <param name="label">Name of controller</param>
 <param name="size">Child window size</param>
 </member>
-<member name="M:PlotWidget.setSize(ImVec2)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="34">
+<member name="M:PlotWidget.setSize(ImVec2)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="37">
 <summary>
 Update size of child window
 </summary>
 <param name="new_size">New size</param>
 </member>
-<member name="M:PlotWidget.Render" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="43">
+<member name="M:PlotWidget.Render" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="46">
 <summary>
 Generic function to render plot widget with correct style
 </summary>

@@ -462,14 +462,19 @@ private:
 	{
 		std::vector<double>* buffer_update_ptr = librador_get_analog_data_sincelast(
 		    channel, 5, ft_sample_rate, delay_s, filter_mode);
-		int buffer_update_size = buffer_update_ptr->size();
-		for (int i = 0; i < buffer_update_size; i++)
+		if (buffer_update_ptr)
 		{
-			int mini_buffer_idx = (mini_buffer_next_index + i) % mini_buffer.size();
-			mini_buffer[mini_buffer_idx] = buffer_update_ptr->at(buffer_update_size - 1 - i);
+			int buffer_update_size = buffer_update_ptr->size();
+			for (int i = 0; i < buffer_update_size; i++)
+			{
+				int mini_buffer_idx = (mini_buffer_next_index + i) % mini_buffer.size();
+				mini_buffer[mini_buffer_idx]
+				    = buffer_update_ptr->at(buffer_update_size - 1 - i);
+			}
+			mini_buffer_next_index
+			    = (mini_buffer_next_index + buffer_update_size) % mini_buffer.size();
 		}
-		mini_buffer_next_index
-		    = (mini_buffer_next_index + buffer_update_size) % mini_buffer.size();
+			
 	}
 };
 

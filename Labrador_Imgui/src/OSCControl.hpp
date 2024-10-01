@@ -3,6 +3,7 @@
 #include "librador.h"
 #include "UIComponents.hpp"
 #include "util.h"
+#include "nfd.h"
 
 /// <summary>Oscilloscope Control Widget
 /// </summary>
@@ -14,7 +15,17 @@ public:
 	bool DisplayCheckOSC2 = true;
 	/*int KSComboCurrentItem = 0;
 	int AttenComboCurrentItem = 0;*/
-
+	// Export stuff
+	nfdchar_t* OSC1WritePath = NULL;
+	nfdchar_t* OSC2WritePath = NULL;
+	int OSC1WritePathComboCurrentItem = 0;
+	int OSC2WritePathComboCurrentItem = 0;
+	bool OSC1ClipboardCopyNext = false;
+	bool OSC2ClipboardCopyNext = false;
+	bool OSC1ClipboardCopied = false;
+	bool OSC2ClipboardCopied = false;
+	nfdchar_t* FileExtension = "csv";
+	//
 	int TriggerTypeComboCurrentItem = 0;
 	float OffsetVal = 0.0f;
 	bool ACCoupledCheck = false;
@@ -182,6 +193,89 @@ public:
 			
 			ImGui::EndTable();
 		}
+		
+		// Handle Clipboard Copied Feedback
+		std::string OSC1ExportButtonText = "Export OSC1";
+		if (OSC1ClipboardCopied == true)
+		{
+			OSC1ClipboardCopiedFrame = ImGui::GetFrameCount();
+			OSC1ClipboardCopied = false;
+		}
+		if ((ImGui::GetFrameCount() - OSC1ClipboardCopiedFrame) < OSCClipboardCopiedLinger)
+		{
+			OSC1ExportButtonText = "Copied!";
+		}
+		if (ImGui::Button((OSC1ExportButtonText+ "##OSC1ExportButton").c_str(),ImVec2(100,30)))
+		{
+			if (OSC1WritePathComboCurrentItem == 0) // Copy to Clipboard
+			{
+				OSC1ClipboardCopyNext = true; // state variable to tell PlotWidget to Copy
+				                              // to clipboard on the next render
+			}
+			if (OSC1WritePathComboCurrentItem == 1) // Write to csv
+			{
+				nfdresult_t result = NFD_SaveDialog(FileExtension, NULL, &OSC2WritePath);
+				if (result == NFD_OKAY)
+				{
+					puts("Success!");
+					puts(OSC2WritePath);
+				}
+				else if (result == NFD_CANCEL)
+				{
+					puts("User pressed cancel.");
+				}
+				else
+				{
+					printf("Error: %s\n", NFD_GetError());
+				}
+			}
+		}
+		ImGui::SameLine();
+		ImGui::Text("to");
+		ImGui::SameLine();
+		ImGui::SetNextItemWidth(OSCWritePathComboWidth);
+		ImGui::Combo("##OSC1WritePathCombo",&OSC1WritePathComboCurrentItem,OSCWritePathComboList,IM_ARRAYSIZE(OSCWritePathComboList));
+
+		
+		std::string OSC2ExportButtonText = "Export OSC2";
+		if (OSC2ClipboardCopied == true)
+		{
+			OSC2ClipboardCopiedFrame = ImGui::GetFrameCount();
+			OSC2ClipboardCopied = false;
+		}
+		if ((ImGui::GetFrameCount() - OSC2ClipboardCopiedFrame) < OSCClipboardCopiedLinger)
+		{
+			OSC2ExportButtonText = "Copied!";
+		}
+		if (ImGui::Button((OSC2ExportButtonText + "##OSC2ExportButton").c_str(),ImVec2(100,30)))
+		{
+			if (OSC2WritePathComboCurrentItem == 0) // Copy to Clipboard
+			{
+				OSC2ClipboardCopyNext = true; // state variable to tell PlotWidget to Copy to clipboard on the next render
+			}
+			if (OSC2WritePathComboCurrentItem == 1) // Write to csv
+			{
+				nfdresult_t result = NFD_SaveDialog(FileExtension, NULL, &OSC2WritePath);
+				if (result == NFD_OKAY)
+				{
+					puts("Success!");
+					puts(OSC2WritePath);
+				}
+				else if (result == NFD_CANCEL)
+				{
+					puts("User pressed cancel.");
+				}
+				else
+				{
+					printf("Error: %s\n", NFD_GetError());
+				}
+			}
+		}
+		ImGui::SameLine();
+		ImGui::Text("to");
+		ImGui::SameLine();
+		ImGui::SetNextItemWidth(OSCWritePathComboWidth);
+		ImGui::Combo("##OSC2WritePathCombo",&OSC2WritePathComboCurrentItem,OSCWritePathComboList,IM_ARRAYSIZE(OSCWritePathComboList));
 	}
 
 
@@ -204,6 +298,13 @@ private:
 	// Drop down content
 	const char* TriggerTypeComboList[4]
 	    = { "OSC1 Rising Edge", "OSC1 Falling Edge", "OSC2 Rising Edge", "OSC2 Falling Edge" };
+	// Export stuff
+	float OSCWritePathComboWidth = 100;
+	const char* OSCWritePathComboList[2] = { "clipboard", "csv" };
+	int OSC1ClipboardCopiedFrame = -1000;
+	int OSC2ClipboardCopiedFrame = -1000;
+	int OSCClipboardCopiedLinger = 50;
+	float OSCExportButtonWidth = 150;
 	/*const char* KSComboList[2] = { "375 KSPS", "750 KSPS" };
 	const char* AttenComboList[3] = { "1x", "5x", "10x" };*/
 };

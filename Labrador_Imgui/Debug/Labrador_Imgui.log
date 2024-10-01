@@ -85,9 +85,9 @@ C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(115,49): warn
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(152): warning C4634: XML document comment: cannot be applied:  Discarding XML document comment for invalid target.
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(258,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp(313,1): warning C4305: 'return': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(24,23): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(78,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(78,21): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(34,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(88,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp(88,21): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(39,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(49,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp(91,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
@@ -124,27 +124,27 @@ C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(331,10): warning C
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(442,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(457,10): warning C4189: 'ft_sample_im': local variable is initialized but not referenced
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(456,10): warning C4189: 'ft_sample_re': local variable is initialized but not referenced
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(465,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp(467,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(18,52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(22,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,92): warning C4100: 'line_type': unreferenced formal parameter
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,44): warning C4100: 'gap_size': unreferenced formal parameter
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\Cursor.hpp(26,27): warning C4100: 'dash_size': unreferenced formal parameter
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(78,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(147,1): warning C4458: declaration of 'label' hides class member
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(336,14): message : see declaration of 'PlotWidget::label'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(151,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(153,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(149,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(203,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(207,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(212,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(217,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(242,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(244,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(264,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(266,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(81,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(150,1): warning C4458: declaration of 'label' hides class member
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(417,14): message : see declaration of 'PlotWidget::label'
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(154,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(156,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(152,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(284,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(288,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(293,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(298,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(323,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(325,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(345,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp(347,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(174,53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(174,24): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
 C:\Users\David\LabradorENG4701\Labrador_Imgui\src\App.hpp(198,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data

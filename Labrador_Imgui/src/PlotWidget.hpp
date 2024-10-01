@@ -8,6 +8,9 @@
 #include "OscData.hpp"
 #include "fftw3.h"
 #include "Cursor.hpp"
+#include "nfd.h"
+#include <fstream>
+#include <iostream>
 
 /// <summary>
 /// Abstract class that draws child that can be populated by a control widget
@@ -192,6 +195,84 @@ public:
 		{
 			AutoSetTriggerLevel(trigger_channel, trigger_type, &osc_control->TriggerLevel,
 			    &osc_control->TriggerHysteresis);
+		}
+		HandleWrites();
+	}
+	void HandleWrites()
+	{
+		bool* OSCClipboardCopyNext_p = NULL; // pointer to the bool for OSC which needs copying to clipboard (only one wll need copying at a time, prevents rewriting of code)
+		bool* OSCClipboardCopied_p = NULL; // pointer to a status for whether copying was successful
+		nfdchar_t** OSCWritePath_p = NULL; // pointer to the OSCWritePath which needs writing to file (one at a time as well)
+		OscData* OSCData_p = NULL;
+
+		// set up pointers based what we are doing to which osc
+		if (osc_control->OSC1ClipboardCopyNext) // if we are copying osc1 to clipboard
+		{
+			OSCClipboardCopyNext_p = &osc_control->OSC1ClipboardCopyNext; // sets the pointer to the clipboard bool
+			OSCClipboardCopied_p = &osc_control->OSC1ClipboardCopied; // sets the pointer to the clipboard success
+			OSCData_p = &OSC1Data; // sets the pointer to the OSC we are copying
+		}
+		if (osc_control->OSC2ClipboardCopyNext) // if we are copying osc2 to clipboard
+		{
+			OSCClipboardCopyNext_p = &osc_control->OSC2ClipboardCopyNext; // sets the pointer to the clipboard bool
+			OSCClipboardCopied_p = &osc_control->OSC2ClipboardCopied; // sets the pointer to the clipboard success
+			OSCData_p = &OSC1Data; // sets the pointer to the OSC we are copying
+		}
+		if (osc_control->OSC1WritePath != NULL) // if we are writing osc1 to csv file
+		{
+			OSCWritePath_p = &osc_control->OSC1WritePath; // sets the pointer to the write path var
+			OSCData_p = &OSC1Data; // sets the pointer to the OSC we are copying
+		}
+		if (osc_control->OSC2WritePath != NULL) // if we are writing osc2 to csv file
+		{
+			OSCWritePath_p = &osc_control->OSC2WritePath; // sets the pointer to the write path var
+			OSCData_p = &OSC1Data; // sets the pointer to the OSC we are copying
+		}
+
+		// once pointers are set up, perform desired task on desired osc
+		if (OSCClipboardCopyNext_p != NULL) // if we are copying to clipboard
+		{
+			// get OSCData signal and time vectors
+			std::vector<double> data = OSCData_p->GetData();
+			std::vector<double> time = OSCData_p->GetTime();
+			// write osc to string
+			std::string clipboard_str = ""; // define empty string which we will add to
+			clipboard_str += "Time\tVoltage\n"; // header
+			if (data.size() != 0)
+			{
+				for (int i = 0; i < data.size(); i++)
+				{
+					std::string time_str = std::to_string(time[i]); // convert time point to string
+					std::string data_str = std::to_string(data[i]); // convert data point to string
+					clipboard_str += time_str + "\t" + data_str + "\n"; // write to the clipboard string
+				}
+				ImGui::SetClipboardText(clipboard_str.c_str());
+				*OSCClipboardCopied_p = true;
+			}
+			*OSCClipboardCopyNext_p = false; // reset state so we don't repeat on next render
+		}
+		if (OSCWritePath_p != NULL) // if we are writing to a csv file
+		{
+			// get OSCData signal and time vectors
+			std::vector<double> data = OSCData_p->GetData();
+			std::vector<double> time = OSCData_p->GetTime();
+			// write osc to string
+			std::string file_str = ""; // define empty string which we will add to
+			file_str += "Time,Voltage\n"; // header
+			if (data.size() != 0)
+			{
+				for (int i = 0; i < data.size(); i++)
+				{
+					std::string time_str = std::to_string(time[i]); // convert time point to string
+					std::string data_str = std::to_string(data[i]); // convert data point to string
+					file_str += time_str + "," + data_str + "\n"; // write to the clipboard string
+				}
+				std::ofstream file;
+				file.open(*OSCWritePath_p);
+				file << file_str.c_str();
+				file.close();
+			}
+			*OSCWritePath_p = NULL; // reset state so we don't repeat on next render
 		}
 	}
 	void AutoSetTriggerLevel(constants::Channel trigger_channel,
