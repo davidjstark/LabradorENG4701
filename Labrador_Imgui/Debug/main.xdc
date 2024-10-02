@@ -28,12 +28,12 @@ Generic function to render control widget with correct style
 <summary>Power Suppy Unit Widget
 </summary>
 </member>
-<member name="M:PSUControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="16">
+<member name="M:PSUControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="17">
 <summary> 
 Render UI elements for power supply unit
 </summary>
 </member>
-<member name="M:PSUControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="27">
+<member name="M:PSUControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PSUControl.hpp" line="28">
 <summary>
 Set the Power Supply Voltage on the labrador board.
 </summary>
@@ -74,12 +74,12 @@ Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
 <summary>Oscilloscope Control Widget
 </summary>
 </member>
-<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="71">
+<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="73">
 <summary>
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="281">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="285">
 <summary>
 Control sampling settings on labrador board
 </summary>
@@ -110,46 +110,46 @@ Set signal generator amplitude to zero
 </summary>
 <param name="channel"></param>
 </member>
-<member name="T:SineSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="151">
+<member name="T:SineSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="156">
 <summary>
 Sine Signal Generator Widget
 </summary>
 </member>
-<member name="M:SineSignal.renderAnnotations" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="162">
+<member name="M:SineSignal.renderAnnotations" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="167">
 <summary>
 Render annotations on preview
 </summary>
 </member>
-<member name="M:SineSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="188">
+<member name="M:SineSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="193">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:SquareSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="199">
+<member name="T:SquareSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="204">
 <summary>
 Square Signal Generator Widget
 </summary>
 </member>
-<member name="M:SquareSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="235">
+<member name="M:SquareSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="240">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:SawtoothSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="301">
+<member name="T:SawtoothSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="306">
 <summary>
 Sawtooth Signal Generator Widget
 </summary>
 </member>
-<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="336">
+<member name="M:SawtoothSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="341">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="T:TriangleSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="347">
+<member name="T:TriangleSignal" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="352">
 <summary>Triangle Signal Generator Widget
 </summary>
 </member>
-<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="381">
+<member name="M:TriangleSignal.controlLab(System.Int32)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SignalType.hpp" line="386">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
@@ -158,41 +158,41 @@ Set the Signal Generator on the labrador board.
 <summary>Signal Generator Widget
 </summary>
 </member>
-<member name="M:SGControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="38">
+<member name="M:SGControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="40">
 <summary> 
 Render UI elements for Signal Generator
 </summary>
 </member>
-<member name="M:SGControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="62">
+<member name="M:SGControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\SGControl.hpp" line="71">
 <summary>
 Set the Signal Generator on the labrador board.
 </summary>
 </member>
-<member name="M:OscData.GetPeriod" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp" line="255">
+<member name="M:OscData.GetPeriod" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OscData.hpp" line="256">
 <summary>
  Get time between triggers
 </summary>
 <returns></returns>
 </member>
-<member name="T:PlotWidget" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="15">
+<member name="T:PlotWidget" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="16">
 <summary>
 Abstract class that draws child that can be populated by a control widget
 </summary>
 </member>
-<member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,OSCControl*)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="24">
+<member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,OSCControl*)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="25">
 <summary>
 Constructor
 </summary>
 <param name="label">Name of controller</param>
 <param name="size">Child window size</param>
 </member>
-<member name="M:PlotWidget.setSize(ImVec2)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="37">
+<member name="M:PlotWidget.setSize(ImVec2)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="38">
 <summary>
 Update size of child window
 </summary>
 <param name="new_size">New size</param>
 </member>
-<member name="M:PlotWidget.Render" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="46">
+<member name="M:PlotWidget.Render" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="47">
 <summary>
 Generic function to render plot widget with correct style
 </summary>

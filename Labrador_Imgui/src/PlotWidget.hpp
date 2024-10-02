@@ -11,6 +11,7 @@
 #include "nfd.h"
 #include <fstream>
 #include <iostream>
+#include <float.h>
 
 /// <summary>
 /// Abstract class that draws child that can be populated by a control widget
@@ -61,17 +62,54 @@ public:
 		UpdateOscData();
 		std::vector<double> analog_data_osc1 = OSC1Data.GetData();
 		std::vector<double> analog_data_osc2 = OSC2Data.GetData();
-		if (osc_control->AutofitNext)
-		{
-			ImPlot::SetNextAxesToFit();
-			osc_control->AutofitNext = false;
-		}
 		ImPlot::SetNextAxesLimits(init_time_range_lower, init_time_range_upper,
 		    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Once);
-		if (ImPlot::BeginPlot(
-		        "##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend))
+		if (ImPlot::BeginPlot("##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend))
 		{
 			ImPlot::SetupAxes("", "", ImPlotAxisFlags_NoLabel, ImPlotAxisFlags_NoLabel);
+			if (osc_control->ResetLimits) // Resets to the inital plot limits
+			{
+				ImPlot::SetupAxesLimits(init_time_range_lower, init_time_range_upper,
+				    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Always);
+				osc_control->AutofitNext = true; // After Reset I want to autofit plot in
+				                                  // the y-axis (i think this is better)
+			}
+			if (osc_control->AutofitNext) // Autofits so that data is centered and takes up 1/3 of the screen (this can be written way better)
+			{
+				double osc1_max;
+				double osc2_max;
+				double osc1_min;
+				double osc2_min;
+				if (osc_control->DisplayCheckOSC1) // set to actual max and min only if the oscilloscope channel is visible
+				{
+					osc1_max = OSC1Data.GetDataMax();
+					osc1_min = OSC1Data.GetDataMin();
+				}
+				else // else set to opposite extremes so that it always loses on comparison
+				{
+					osc1_max = DBL_MIN;
+					osc1_min = DBL_MAX;
+				}
+				if (osc_control->DisplayCheckOSC2) // set to actual max and min only if the oscilloscope channel is visible
+				{
+					osc2_max = OSC2Data.GetDataMax();
+					osc2_min = OSC2Data.GetDataMin();
+				}
+				else // else set to opposite extremes so that it always loses on comparison
+				{
+					osc2_max = DBL_MIN;
+					osc2_min = DBL_MAX;
+				}
+				double osc_max = osc1_max > osc2_max ? osc1_max : osc2_max;
+				double osc_min = osc1_min < osc2_min ? osc1_min : osc2_min;
+				double osc_range = osc_max - osc_min;
+				if (osc_control->DisplayCheckOSC1 || osc_control->DisplayCheckOSC2) // only autofit if there is visible data
+				{
+					ImPlot::SetupAxisLimits(ImAxis_Y1, osc_min - osc_range, osc_max + osc_range,ImPlotCond_Always);
+				}
+				osc_control->AutofitNext = false;
+			}
+			ImPlot::SetupAxisZoomConstraints(ImAxis_X1,0,60);// ensure plot cannot be expanded larger than the size of the buffer
 			// Plot oscilloscope 1 signal
 			std::vector<double> time_osc1 = OSC1Data.GetTime();
 			ImPlot::SetNextLineStyle(osc_control->OSC1Colour.Value);
@@ -325,6 +363,11 @@ public:
 		{
 			gainUpdate2 = GetChangeToGain(OSC2Data.GetMiniBuffer());
 		}
+		if (osc_control->DisplayCheckOSC1 == false && osc_control->DisplayCheckOSC2 == false)
+		{
+			gainUpdate1 = 0;
+			gainUpdate2 = 0;
+		}
 
 		bool changed = false;
 		// Zoom out if either OSC data is clipping
@@ -404,7 +447,7 @@ protected:
 	bool paused = false;
 	double init_time_range_lower = 0;
 	double init_time_range_upper = 0.03;
-	double init_voltage_range_lower = 0;
+	double init_voltage_range_lower = -1.0;
 	double init_voltage_range_upper = 5.0;
 	OSCControl* osc_control;
 	OscData OSC1Data = OscData(1);

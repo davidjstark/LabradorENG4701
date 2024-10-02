@@ -6,6 +6,7 @@
 #include "fftw3.h"
 #include <complex>
 #include <array>
+#include <float.h>
 class OSCControl;
 
 class OscData
@@ -218,7 +219,7 @@ public:
 		}
 		else
 		{
-			return 0;
+			return DBL_MIN; // if there is no data, we want anything that compares with it to have a higher max
 		}
 			
 	}
@@ -230,7 +231,7 @@ public:
 		}
 		else
 		{
-			return 0;
+			return DBL_MAX; // if there is no data, we want anything that compares with it to have a lower min
 		}
 	}
 	double GetDominantFrequency()

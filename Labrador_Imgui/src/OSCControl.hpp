@@ -31,6 +31,7 @@ public:
 	bool ACCoupledCheck = false;
 	bool Paused = false;
 	bool AutofitNext = false;
+	bool ResetLimits = false;
 	bool Trigger = true;
 	SIValue TriggerLevel = SIValue("##trigger_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
 	float TriggerHysteresis = 0.25;
@@ -79,10 +80,12 @@ public:
 			ImGui::TableNextColumn();
 			ToggleButton("Run/Stop", ImVec2(120,30), & Paused, Red, Green);
 			ImGui::TableNextColumn();
-			// TODO: Implement Single Capture (Stop after one trigger event is found)
-			ImGui::Button("Single", ImVec2(120, 30));
-			ImGui::TableNextColumn();
+			//// TODO: Implement Single Capture (Stop after one trigger event is found)
+			//ImGui::Button("Single", ImVec2(120, 30));
+			//ImGui::TableNextColumn();
 			AutofitNext = ImGui::Button("Auto Fit", ImVec2(120, 30));
+			ImGui::TableNextColumn();
+			ResetLimits = ImGui::Button("Reset Plot", ImVec2(120, 30));
 			ImGui::EndTable();
 		}
 
