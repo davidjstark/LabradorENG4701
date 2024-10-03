@@ -33,7 +33,7 @@ public:
 	bool AutofitNext = false;
 	bool ResetLimits = false;
 	bool Trigger = true;
-	SIValue TriggerLevel = SIValue("##trigger_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
+	SIValue TriggerLevel = SIValue("##trigger_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, constants::volt_formats);
 	float TriggerHysteresis = 0.25;
 	float osc1_time_scale = 5;
 	float osc1_voltage_scale = 1;

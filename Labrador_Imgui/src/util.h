@@ -37,9 +37,13 @@ extern float triangle_preview[PREVIEW_RES];
 
 // Frequency Units
 static std::vector<std::string> freq_prefs = { "", "k" };
+// Frequency formats
+static std::vector<std::string> freq_formats = { "%.1f", "%.0f" };
 
 // Voltage Units
 static std::vector<std::string> volt_prefs = { "", "m" };
+// Voltage Units
+static std::vector<std::string> volt_formats = { "%.2f", "%.0f" };
 
 //  textures
 extern int pinout_width;
