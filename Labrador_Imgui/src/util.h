@@ -120,7 +120,7 @@ void init_constants();
 void PreviewStyle();
 void SetControlWidgetStyle(const float ac[3]);
 void SetGlobalStyle();
-ImU32 colourConvert(const float c[3], float alpha=1.0f);
+ImU32 colourConvert(const float c[3], float alpha = 1.0f);
 void replace_all(
     std::string& s, std::string const& toReplace, std::string const& replaceWith);
 void MultiplyButtonColour(ImU32* ButtonColour, float multiplier);

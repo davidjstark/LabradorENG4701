@@ -335,4 +335,14 @@ private:
 
 };
 
+bool inline WhiteOutlineButton(const char* id, ImVec2 size=ImVec2(0, 0))
+{
+	ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(1, 1, 1, 0.5)); // White border for buttons
+	ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 1);
+	bool result = ImGui::Button(id, size);
+	ImGui::PopStyleVar();
+	ImGui::PopStyleColor();
+	return result;
+}
+
 #endif

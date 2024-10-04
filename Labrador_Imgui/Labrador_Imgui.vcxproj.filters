@@ -98,7 +98,6 @@
     <ClInclude Include="src\PlotControl.hpp" />
     <ClInclude Include="src\PlotWidget.hpp" />
     <ClInclude Include="src\OscData.hpp" />
-    <ClInclude Include="src\Cursor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

@@ -44,7 +44,7 @@ Constructor
         </member>
         <member name="T:PlotWidget">
             <summary>
-Abstract class that draws child that can be populated by a control widget
+Renders oscilloscope data
 </summary>
         </member>
         <member name="M:OscData.GetPeriod">

@@ -47,16 +47,35 @@ For each channel (Channel 1 and Channel 2):
 #### General Settings
 
 - **Cursor 1 & 2**: Enables/disables measurement cursors
-- **Trigger**: 
-  - Sets the condition to start waveform capture (e.g. OSC1 Rising)
+- **Trigger**:
+  - Aligns a 'trigger' event with the left most point in the plot window (e.g. OSC1 Rising)
   - **Level**: Sets the voltage level for triggering (in mV)
 - **Signal Properties**: Shows detailed signal information when ON
 - **Plot Properties**: Displays graph details when ON
 - **Capture to**: Selects destination for captured data (e.g. Clipboard)
 
 #### Specifications
+
 - **Sample Rate** 750 ksps
 - **Input Voltage Range** -20 V to +20 V
 
+### Plot Window
+
+#### Controls
+
+- **Panning**: Click and drag to pan anywhere on the plot. Click and drag on any axis to pan in one direction.
+- **Zooming**: Scroll to zoom anywhere on the plot. Scroll on any axis to zoom on solely on that axis.
+
+
+#### Measurments
+
+- **Cursors**:
+  - Activate cursors in Plot Settings or by right clicking inside the plot window and selecting desired cursors
+  - Measurements between the two cursors are displayed below the plot when they are both activated
+  - Use these to measure the frequency/amplitude of displayed waveforms
+- **Signal Properties**
+  - Signal properties are calculated based on the plot window data
+  - dT values represent an average time between trigger events (see more info in Plot Settings)
+  - dV values represent the difference between Vmin and Vmax
 
 ### End

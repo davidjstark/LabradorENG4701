@@ -7,16 +7,16 @@
 #include "OSCControl.hpp"
 #include "OscData.hpp"
 #include "fftw3.h"
-#include "Cursor.hpp"
 #include "nfd.h"
 #include <fstream>
 #include <iostream>
 #include <float.h>
+#include "ControlWidget.hpp"
 
 /// <summary>
-/// Abstract class that draws child that can be populated by a control widget
+/// Renders oscilloscope data
 /// </summary>
-class PlotWidget
+class PlotWidget : public ControlWidget
 {
 public:
 	int currentLabOscGain = 4;
@@ -28,7 +28,7 @@ public:
 	/// <param name="label">Name of controller</param>
 	/// <param name="size">Child window size</param>
 	PlotWidget(const char* label, ImVec2 size, OSCControl* osc_control)
-	    : label(label)
+	    : ControlWidget(label, size, accentColour)
 	    , size(size)
 	    , osc_control(osc_control)
 	{
@@ -47,24 +47,24 @@ public:
 	/// <summary>
 	/// Generic function to render plot widget with correct style
 	/// </summary>
-	void Render()
+	void Render() override
 	{
 		// Show cursor deltas if they are both active
 		bool show_cursor_props = (osc_control->Cursor1toggle && osc_control->Cursor2toggle);
 		// Show text underneath if cursors or signal properties activated
 		bool text_window = show_cursor_props || osc_control->SignalPropertiesToggle;
 		ImVec2 region_size = ImGui::GetContentRegionAvail();
-		float row_height = ImGui::GetFrameHeight();
+		float row_height = ImGui::GetFrameHeightWithSpacing();
 		ImVec2 plot_size
-		    = ImVec2(region_size.x, region_size.y - (text_window ? 3 * row_height : 0));
-
+		    = ImVec2(region_size.x, region_size.y - (text_window ? 3 * row_height : row_height));
+		
 		ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(255, 255, 255, 255));
 		UpdateOscData();
 		std::vector<double> analog_data_osc1 = OSC1Data.GetData();
 		std::vector<double> analog_data_osc2 = OSC2Data.GetData();
 		ImPlot::SetNextAxesLimits(init_time_range_lower, init_time_range_upper,
 		    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Once);
-		if (ImPlot::BeginPlot("##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend))
+		if (ImPlot::BeginPlot("##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend | ImPlotFlags_NoMenus))
 		{
 			ImPlot::SetupAxes("", "", ImPlotAxisFlags_NoLabel, ImPlotAxisFlags_NoLabel);
 			if (osc_control->ResetLimits) // Resets to the inital plot limits
@@ -136,38 +136,73 @@ public:
 
 			ImPlot::EndPlot();
 		}
-		if (show_cursor_props)
+
+		if (ImGui::BeginTable("signal_props", 4))
 		{
-			ImGui::Text(
-			    "Cursor properties:    dT = %.2f s   1/dT = %.2f Hz    dV = %.2f V",
-			    cursor2_x - cursor1_x, 1 / (cursor2_x - cursor1_x), cursor2_y - cursor1_y);
+			ImGui::TableSetupColumn("One", ImGuiTableColumnFlags_WidthFixed, 180);
+			if (show_cursor_props)
+			{
+				ImGui::TableNextColumn();
+				ImGui::Text("Cursor properties:");
+				ImGui::TableNextColumn();
+				ImGui::Text("dT = %.2f s", cursor2_x - cursor1_x);
+				ImGui::TableNextColumn();
+				ImGui::Text("1/dT = %.2f Hz", 1 / (cursor2_x - cursor1_x));
+				ImGui::TableNextColumn();
+				ImGui::Text("dV = %.2f V",cursor2_y - cursor1_y);
+				ImGui::TableNextRow();
+			}
+			
+			if (osc_control->SignalPropertiesToggle)
+			{
+				writeSignalProps(OSC1Data, osc_control->OSC1Colour);
+				ImGui::TableNextRow();
+				writeSignalProps(OSC2Data, osc_control->OSC2Colour);
+			}
+			
+			ImGui::EndTable();
 		}
-		if (osc_control->SignalPropertiesToggle)
+		ImGui::SameLine(region_size.x - 25);
+		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
+		if (ImGui::Button("?"))
 		{
-			writeSignalProps(OSC1Data);
-			writeSignalProps(OSC2Data);
+			show_help = true;
 		}
+
+		ImGui::PopStyleColor();
 		ImGui::PopStyleColor();
 	}
 
-	void writeSignalProps(OscData data)
+	void writeSignalProps(OscData data, ImVec4 col)
 	{
 		double T = data.GetPeriod();
 		double Vpp = data.GetDataMax() - data.GetDataMin();
 
-		if (T == (double)-1)
+		ImGui::TableNextColumn();
+		ImGui::TextColored(col, "OSC%d Signal Properties: ", data.GetChannel());
+
+		if (T != (double)-1 && T != 0)
 		{
-			// No period found
-			ImGui::Text(
-			    "OSC%d Signal Properties: Vpp = %.2f V (no periodic waveform found)",
-			    data.GetChannel(), Vpp);
+			// Period found
+			ImGui::TableNextColumn();
+			ImGui::Text("dT = % .2f ms", 1000 * T);
+			ImGui::TableNextColumn();
+			ImGui::Text("1/dT = %.2f Hz", 1 / T);
 		}
 		else
 		{
-			// Period found - show delta T property
-			ImGui::Text(
-			    "OSC%d Signal Properties:  dT = %.2f ms   1/dT = %.2f Hz  Vpp = %.2f V",
-			    data.GetChannel(), 1000*T, 1 / T, Vpp);
+			ImGui::TableNextColumn();
+			ImGui::Text("[No periodicity detected] ");
+		}
+		if (Vpp < 100 && Vpp > 0)
+		{
+			ImGui::TableNextColumn();
+			ImGui::Text("Vpp = %.2f V", Vpp);
+		}
+		else
+		{
+			ImGui::TableNextColumn();
+			ImGui::Text(" [No voltage min/max detected] ");
 		}
 	}
 
@@ -391,6 +426,16 @@ public:
 		}
 	}
 
+	void renderControl() override
+	{
+		return; // no control
+	}
+
+	bool controlLab() override
+	{
+		return false; // no control
+	}
+
 private:
 	const double adc_center = 3.3 / 2;
 	const double gain_scale = 0.35;
@@ -457,6 +502,4 @@ protected:
 	double cursor2_x = -1000;
 	double cursor2_y = -1000;
 	int last_update_frame = 10;
-
-	
 };

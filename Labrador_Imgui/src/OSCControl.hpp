@@ -83,9 +83,10 @@ public:
 			//// TODO: Implement Single Capture (Stop after one trigger event is found)
 			//ImGui::Button("Single", ImVec2(120, 30));
 			//ImGui::TableNextColumn();
-			AutofitNext = ImGui::Button("Auto Fit", ImVec2(120, 30));
+			AutofitNext = WhiteOutlineButton("Auto Fit", ImVec2(120, 30));
 			ImGui::TableNextColumn();
-			ResetLimits = ImGui::Button("Reset Plot", ImVec2(120, 30));
+			ResetLimits = WhiteOutlineButton("Reset Plot", ImVec2(120, 30));
+			
 			ImGui::EndTable();
 		}
 
@@ -208,7 +209,8 @@ public:
 		{
 			OSC1ExportButtonText = "Copied!";
 		}
-		if (ImGui::Button((OSC1ExportButtonText+ "##OSC1ExportButton").c_str(),ImVec2(100,30)))
+
+		if (WhiteOutlineButton((OSC1ExportButtonText+ "##OSC1ExportButton").c_str(),ImVec2(100,30)))
 		{
 			if (OSC1WritePathComboCurrentItem == 0) // Copy to Clipboard
 			{
@@ -250,7 +252,7 @@ public:
 		{
 			OSC2ExportButtonText = "Copied!";
 		}
-		if (ImGui::Button((OSC2ExportButtonText + "##OSC2ExportButton").c_str(),ImVec2(100,30)))
+		if (WhiteOutlineButton((OSC2ExportButtonText + "##OSC2ExportButton").c_str(),ImVec2(100,30)))
 		{
 			if (OSC2WritePathComboCurrentItem == 0) // Copy to Clipboard
 			{

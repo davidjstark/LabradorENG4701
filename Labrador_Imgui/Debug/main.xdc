@@ -79,7 +79,7 @@ Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="285">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="287">
 <summary>
 Control sampling settings on labrador board
 </summary>
@@ -176,7 +176,7 @@ Set the Signal Generator on the labrador board.
 </member>
 <member name="T:PlotWidget" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="16">
 <summary>
-Abstract class that draws child that can be populated by a control widget
+Renders oscilloscope data
 </summary>
 </member>
 <member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,OSCControl*)" decl="false" source="C:\University_offline\ENG4701\Repo\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="25">
