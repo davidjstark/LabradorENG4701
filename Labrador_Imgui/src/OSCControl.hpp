@@ -4,6 +4,8 @@
 #include "UIComponents.hpp"
 #include "util.h"
 #include "nfd.h"
+#include <cstring>
+#include <cstddef>
 
 /// <summary>Oscilloscope Control Widget
 /// </summary>
@@ -26,15 +28,21 @@ public:
 	bool OSC2ClipboardCopied = false;
 	nfdchar_t* FileExtension = "csv";
 	//
-	int TriggerTypeComboCurrentItem = 0;
 	float OffsetVal = 0.0f;
 	bool ACCoupledCheck = false;
 	bool Paused = false;
-	bool AutofitNext = false;
-	bool ResetLimits = false;
-	bool Trigger = true;
-	SIValue TriggerLevel = SIValue("##trigger_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
-	float TriggerHysteresis = 0.25;
+	bool AutofitY = false;
+	bool AutofitX = false;
+	int Trigger1TypeComboCurrentItem = 0;
+	bool Trigger1 = true;
+	SIValue Trigger1Level = SIValue("##trigger1_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
+	bool AutoTrigger1Level = true;
+	float Trigger1Hysteresis = 0.25;
+	int Trigger2TypeComboCurrentItem = 0;
+	bool Trigger2 = true;
+	SIValue Trigger2Level = SIValue("##trigger2_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
+	bool AutoTrigger2Level = true;
+	float Trigger2Hysteresis = 0.25;
 	float osc1_time_scale = 5;
 	float osc1_voltage_scale = 1;
 	float osc1_offset = 0;
@@ -55,9 +63,10 @@ public:
 	bool Cursor1toggle = false;
 	bool Cursor2toggle = false;
 	bool SignalPropertiesToggle = false;
-	bool AutoTriggerLevel = true;
-	bool AutoTriggerHysteresisToggle = true;
-	bool HysteresisDisplayOptionEnabled = false;
+	bool AutoTrigger1HysteresisToggle = true;
+	bool Hysteresis1DisplayOptionEnabled = false;
+	bool AutoTrigger2HysteresisToggle = true;
+	bool Hysteresis2DisplayOptionEnabled = false;
 
 	// Public consts
 	ImColor OSC1Colour = colourConvert(constants::OSC1_ACCENT);
@@ -83,9 +92,9 @@ public:
 			//// TODO: Implement Single Capture (Stop after one trigger event is found)
 			//ImGui::Button("Single", ImVec2(120, 30));
 			//ImGui::TableNextColumn();
-			AutofitNext = ImGui::Button("Auto Fit", ImVec2(120, 30));
+			AutofitY = ImGui::Button("Auto Fit (Voltage)", ImVec2(150, 30));
 			ImGui::TableNextColumn();
-			ResetLimits = ImGui::Button("Reset Plot", ImVec2(120, 30));
+			AutofitX = ImGui::Button("Auto Fit (Time)", ImVec2(150, 30));
 			ImGui::EndTable();
 		}
 
@@ -137,7 +146,7 @@ public:
 			ImGui::EndTable();
 		}
 
-		labWidth = 50.0f;
+		labWidth = 100.0f;
 		float labWidth2 = 70.0f;
 		controlWidth = (width - labWidth - labWidth2) / 2;
 
@@ -151,34 +160,34 @@ public:
 			ImGui::TableSetupColumn("Three", ImGuiTableColumnFlags_WidthFixed, labWidth2);
 			ImGui::TableSetupColumn("Four", ImGuiTableColumnFlags_WidthFixed, controlWidth);
 
-			// Trigger Properties
+			// Trigger 1 Properties
 			ImGui::TableNextColumn();
-			ImGui::Text("Trigger");
+			ImGui::Text("Trigger (OSC1)");
 			ImGui::TableNextColumn();
-			ToggleSwitch((label + "Trigger_toggle").c_str(), &Trigger, GenColour);
+			ToggleSwitch((label + "Trigger1_toggle").c_str(), &Trigger1, GenColour);
 			ImGui::TableNextColumn();
 			ImGui::Text("Type");
 			ImGui::TableNextColumn();
 			ImGui::SetNextItemWidth(controlWidth);
 
-			ImGui::Combo("##Trigger Type", &TriggerTypeComboCurrentItem,
+			ImGui::Combo("##Trigger Type OSC1", &Trigger1TypeComboCurrentItem,
 				TriggerTypeComboList, IM_ARRAYSIZE(TriggerTypeComboList));
 			
-			if (!AutoTriggerLevel) TriggerLevel.renderInTable(100.0f);
+			if (!AutoTrigger1Level) Trigger1Level.renderInTable(100.0f);
 			else
 			{
 				ImGui::TableNextColumn();
 				ImGui::Text("Level");
 				ImGui::TableNextColumn();
 				// TODO: Write display function that formats text in the appropriate unit
-				ImGui::Text("%.2f V", TriggerLevel.getValue());
+				ImGui::Text("%.2f V", Trigger1Level.getValue());
 			}
 			ImGui::TableNextColumn();
 			ImGui::Text("Auto Level");
 			ImGui::TableNextColumn();
-			ToggleSwitch("##Auto", &AutoTriggerLevel, GenColour);
+			ToggleSwitch("##Auto1", &AutoTrigger1Level, GenColour);
 
-			if (HysteresisDisplayOptionEnabled)
+			if (Hysteresis1DisplayOptionEnabled)
 			{
 				ImGui::Text("Hysteresis Level");
 				ImGui::TableNextColumn();
@@ -188,8 +197,51 @@ public:
 				ImGui::SameLine();
 				ImGui::Text("ON");
 				ImGui::SameLine();
-				ToggleSwitch((label + "Auto_trigger_hysteresis_toggle").c_str(),
-					&AutoTriggerHysteresisToggle, GenColour);
+				ToggleSwitch((label + "Auto_trigger1_hysteresis_toggle").c_str(),
+					&AutoTrigger1HysteresisToggle, GenColour);
+				ImGui::SameLine();
+				ImGui::Text("OFF");
+			}
+
+			// Trigger 2 Properties
+			ImGui::TableNextColumn();
+			ImGui::Text("Trigger (OSC2)");
+			ImGui::TableNextColumn();
+			ToggleSwitch((label + "Trigger2_toggle").c_str(), &Trigger2, GenColour);
+			ImGui::TableNextColumn();
+			ImGui::Text("Type");
+			ImGui::TableNextColumn();
+			ImGui::SetNextItemWidth(controlWidth);
+
+			ImGui::Combo("##Trigger Type OSC2", &Trigger2TypeComboCurrentItem,
+			    TriggerTypeComboList, IM_ARRAYSIZE(TriggerTypeComboList));
+
+			if (!AutoTrigger2Level) Trigger2Level.renderInTable(100.0f);
+			else
+			{
+				ImGui::TableNextColumn();
+				ImGui::Text("Level");
+				ImGui::TableNextColumn();
+				// TODO: Write display function that formats text in the appropriate unit
+				ImGui::Text("%.2f V", Trigger2Level.getValue());
+			}
+			ImGui::TableNextColumn();
+			ImGui::Text("Auto Level");
+			ImGui::TableNextColumn();
+			ToggleSwitch("##Auto2", &AutoTrigger2Level, GenColour);
+
+			if (Hysteresis2DisplayOptionEnabled)
+			{
+				ImGui::Text("Hysteresis Level");
+				ImGui::TableNextColumn();
+				//	renderSliderwUnits(label + "_trigger_hysteresis", &TriggerHysteresis,
+				//0, 2, "%.2f", 	    constants::volt_units, &tl_unit_idx);
+				ImGui::Text("Auto");
+				ImGui::SameLine();
+				ImGui::Text("ON");
+				ImGui::SameLine();
+				ToggleSwitch((label + "Auto_trigger2_hysteresis_toggle").c_str(),
+				    &AutoTrigger2HysteresisToggle, GenColour);
 				ImGui::SameLine();
 				ImGui::Text("OFF");
 			}
@@ -299,8 +351,8 @@ private:
 	float TriggerTypeComboWidth = 100.0;
 	float TriggerLevelSliderWidth = 100.0;
 	// Drop down content
-	const char* TriggerTypeComboList[4]
-	    = { "OSC1 Rising Edge", "OSC1 Falling Edge", "OSC2 Rising Edge", "OSC2 Falling Edge" };
+	const char* TriggerTypeComboList[2]
+	    = { "Rising Edge", "Falling Edge"};
 	// Export stuff
 	float OSCWritePathComboWidth = 100;
 	const char* OSCWritePathComboList[2] = { "clipboard", "csv" };

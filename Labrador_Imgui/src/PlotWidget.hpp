@@ -67,14 +67,36 @@ public:
 		if (ImPlot::BeginPlot("##Oscilloscopes", plot_size, ImPlotFlags_NoFrame | ImPlotFlags_NoLegend))
 		{
 			ImPlot::SetupAxes("", "", ImPlotAxisFlags_NoLabel, ImPlotAxisFlags_NoLabel);
-			if (osc_control->ResetLimits) // Resets to the inital plot limits
-			{
-				ImPlot::SetupAxesLimits(init_time_range_lower, init_time_range_upper,
-				    init_voltage_range_lower, init_voltage_range_upper, ImPlotCond_Always);
-				osc_control->AutofitNext = true; // After Reset I want to autofit plot in
-				                                  // the y-axis (i think this is better)
+			// Autofit so that 3 periods occur in a time window
+			// If there are 2 oscs visible use the one with the larger period
+			// If none are visible, reset to default
+			if (osc_control->AutofitX) 
+			{	
+				double T_osc1 = OSC1Data.GetPeriod();
+				double T_osc2 = OSC2Data.GetPeriod();
+				double T = 0;
+				if (osc_control->DisplayCheckOSC1 && !osc_control->DisplayCheckOSC2)
+				{
+					T = T_osc1;
+					T *= 3;
+				}
+				else if (osc_control->DisplayCheckOSC2 && !osc_control->DisplayCheckOSC1)
+				{
+					T = T_osc2;
+					T *= 3;
+				}
+				else if (osc_control->DisplayCheckOSC2 && osc_control->DisplayCheckOSC1)
+				{
+					T = T_osc1 > T_osc2 ? T_osc1 : T_osc2;
+					T *= 3;
+				}
+				else if (!osc_control->DisplayCheckOSC2 && !osc_control->DisplayCheckOSC1)
+				{
+					T = init_time_range_upper;
+				}
+				ImPlot::SetupAxisLimits(ImAxis_X1,init_time_range_lower,T,ImPlotCond_Always);
 			}
-			if (osc_control->AutofitNext) // Autofits so that data is centered and takes up 1/3 of the screen (this can be written way better)
+			if (osc_control->AutofitY) // Autofits so that data is centered and takes up 1/3 of the screen (this can be written way cleaner)
 			{
 				double osc1_max;
 				double osc2_max;
@@ -107,7 +129,11 @@ public:
 				{
 					ImPlot::SetupAxisLimits(ImAxis_Y1, osc_min - osc_range, osc_max + osc_range,ImPlotCond_Always);
 				}
-				osc_control->AutofitNext = false;
+				else // else reset to default (start-up) range
+				{
+					ImPlot::SetupAxisLimits(ImAxis_Y1, init_voltage_range_lower,init_voltage_range_upper,ImPlotCond_Always);
+				}
+				osc_control->AutofitY = false;
 			}
 			ImPlot::SetupAxisZoomConstraints(ImAxis_X1,0,60);// ensure plot cannot be expanded larger than the size of the buffer
 			// Plot oscilloscope 1 signal
@@ -201,27 +227,12 @@ public:
 		OSC2Data.SetPaused(osc_control->Paused);
 		OSC1Data.SetExtendedData();
 		OSC2Data.SetExtendedData();
-
-		constants::Channel trigger_channel = maps::ComboItemToChannelTriggerPair
-		                                         .at(osc_control->TriggerTypeComboCurrentItem)
-		                                         .channel;
-		constants::TriggerType trigger_type
-		    = maps::ComboItemToChannelTriggerPair
-		          .at(osc_control->TriggerTypeComboCurrentItem)
-		          .trigger_type;
-		double trigger_time = 0;
-		if (trigger_channel == constants::Channel::OSC1)
-		{
-			trigger_time = OSC1Data.GetTriggerTime(osc_control->Trigger, trigger_type,
-			    osc_control->TriggerLevel.getValue(), osc_control->TriggerHysteresis);
-		}
-		if (trigger_channel == constants::Channel::OSC2)
-		{
-			trigger_time = OSC2Data.GetTriggerTime(osc_control->Trigger, trigger_type,
-			    osc_control->TriggerLevel.getValue(), osc_control->TriggerHysteresis);
-		}
-		OSC1Data.SetTriggerTime(trigger_time);
-		OSC2Data.SetTriggerTime(trigger_time);
+		double trigger_time_osc1 = OSC1Data.GetTriggerTime(osc_control->Trigger1, static_cast<constants::TriggerType>(osc_control->Trigger1TypeComboCurrentItem),
+			    osc_control->Trigger1Level.getValue(), osc_control->Trigger1Hysteresis);
+		double trigger_time_osc2 = OSC2Data.GetTriggerTime(osc_control->Trigger2, static_cast<constants::TriggerType>(osc_control->Trigger2TypeComboCurrentItem),
+			    osc_control->Trigger2Level.getValue(), osc_control->Trigger2Hysteresis);
+		OSC1Data.SetTriggerTime(trigger_time_osc1);
+		OSC2Data.SetTriggerTime(trigger_time_osc2);
 		OSC1Data.SetData();
 		OSC2Data.SetData();
 		OSC1Data.SetRawData();
@@ -229,10 +240,19 @@ public:
 		OSC1Data.ApplyFFT();
 		OSC2Data.ApplyFFT();
 		AutoSetOscGain();
-		if (osc_control->AutoTriggerLevel)
+		if (osc_control->AutoTrigger1Level)
 		{
-			AutoSetTriggerLevel(trigger_channel, trigger_type, &osc_control->TriggerLevel,
-			    &osc_control->TriggerHysteresis);
+			AutoSetTriggerLevel(constants::Channel::OSC1,
+			    static_cast<constants::TriggerType>(osc_control->Trigger1TypeComboCurrentItem),
+			    &osc_control->Trigger1Level,
+			    &osc_control->Trigger1Hysteresis);
+		}
+		if (osc_control->AutoTrigger2Level)
+		{
+			AutoSetTriggerLevel(constants::Channel::OSC2,
+			    static_cast<constants::TriggerType>(osc_control->Trigger2TypeComboCurrentItem),
+			    &osc_control->Trigger2Level,
+			    &osc_control->Trigger2Hysteresis);
 		}
 		HandleWrites();
 	}
@@ -306,6 +326,29 @@ public:
 					file_str += time_str + "," + data_str + "\n"; // write to the clipboard string
 				}
 				std::ofstream file;
+				// Automatically add the file extension to the end of the directory string if it isn't already there
+				// NOTE: This is not an ideal implementation. It doesn't behave entirely how file saving should work in windows
+				// For example, usually if you overwriting a file, it will warn you that you are overwriting a file
+				// But because we add the extension afterwards, it doesn't do this
+				// There may be a workaround, perhaps by rewriting some of nfd source code to fit our needs
+				// or perhaps we may just need to use a windows library and then create separate code for handling file saving 
+				// on macOS and linux.
+				size_t path_length = strlen(*OSCWritePath_p);
+				std::string extension_str = "." + std::string(osc_control->FileExtension);
+				if (path_length > extension_str.length())
+				{
+					// get last n characters (where n is the length of the extension)
+					int extension_start_index = path_length - extension_str.length();
+					if (std::strncmp(*OSCWritePath_p + extension_start_index, extension_str.c_str(), extension_str.length()) != 0) // checks if file path string does not end in the file extension
+					{
+						// append the file extension since it is not there already
+						std::string file_path_str = std::string(*OSCWritePath_p); // convert file path to std::string
+						file_path_str += extension_str; // append the extension
+						delete[] *OSCWritePath_p; // deallocate the old OSCWritePath memory as we are about to reallocate it
+						*OSCWritePath_p = new char[file_path_str.length() + 1]; // allocates the memory for OSCWritePath
+						std::strcpy(*OSCWritePath_p, file_path_str.c_str()); // copies the string to the OSCWritePath
+					}
+				}
 				file.open(*OSCWritePath_p);
 				file << file_str.c_str();
 				file.close();
@@ -317,23 +360,25 @@ public:
 	    constants::TriggerType trigger_type, SIValue* TriggerLevel, float* TriggerHysteresis)
 	{
 		double hysteresis_factor = 0.4;
+		OscData* OSCData_ptr;
 		if (trigger_channel == constants::Channel::OSC1)
 		{
-			TriggerLevel->setLevel(OSC1Data.GetDCComponent());
+			OSCData_ptr = &OSC1Data;
 		}
 		if (trigger_channel == constants::Channel::OSC2)
 		{
-			TriggerLevel->setLevel(OSC2Data.GetDCComponent());
+			OSCData_ptr = &OSC2Data;
 		}
+		TriggerLevel->setLevel(OSCData_ptr->GetDCComponent());
 		if (trigger_type == constants::TriggerType::RISING_EDGE)
 		{
 			*TriggerHysteresis
-			    = hysteresis_factor * std::abs((TriggerLevel->getValue() - OSC1Data.GetDataMin()));
+			    = hysteresis_factor * std::abs((TriggerLevel->getValue() - OSCData_ptr->GetDataMin()));
 		}
 		if (trigger_type == constants::TriggerType::FALLING_EDGE)
 		{
 			*TriggerHysteresis
-			    = hysteresis_factor * std::abs((OSC1Data.GetDataMax() - TriggerLevel->getValue()));
+			    = hysteresis_factor * std::abs((OSCData_ptr->GetDataMax() - TriggerLevel->getValue()));
 		}
 	}
 

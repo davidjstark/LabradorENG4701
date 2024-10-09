@@ -70,16 +70,16 @@ Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
 </summary>
 <returns></returns>
 </member>
-<member name="T:OSCControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="8">
+<member name="T:OSCControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="10">
 <summary>Oscilloscope Control Widget
 </summary>
 </member>
-<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="73">
+<member name="M:OSCControl.renderControl" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="82">
 <summary>
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="285">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="337">
 <summary>
 Control sampling settings on labrador board
 </summary>
