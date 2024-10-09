@@ -35,12 +35,12 @@ public:
 	bool AutofitX = false;
 	int Trigger1TypeComboCurrentItem = 0;
 	bool Trigger1 = true;
-	SIValue Trigger1Level = SIValue("##trigger1_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
+	SIValue Trigger1Level = SIValue("##trigger1_level", "Level", 3.3 / 2, -20.0, 20.0, "V", constants::volt_prefs, constants::volt_formats);
 	bool AutoTrigger1Level = true;
 	float Trigger1Hysteresis = 0.25;
 	int Trigger2TypeComboCurrentItem = 0;
 	bool Trigger2 = true;
-	SIValue Trigger2Level = SIValue("##trigger2_level", "Level", 3.3 / 2, -9.0, 9.0, "V", constants::volt_prefs, "%.2f");
+	SIValue Trigger2Level = SIValue("##trigger2_level", "Level", 3.3 / 2, -20.0, 20.0, "V", constants::volt_prefs, constants::volt_formats);
 	bool AutoTrigger2Level = true;
 	float Trigger2Hysteresis = 0.25;
 	float osc1_time_scale = 5;
@@ -86,15 +86,16 @@ public:
 	{
 		if (ImGui::BeginTable("Buttons", 3))
 		{
+			float button_width = 100;
 			ImGui::TableNextColumn();
-			ToggleButton("Run/Stop", ImVec2(120,30), & Paused, Red, Green);
+			ToggleButton("Run/Stop", ImVec2(button_width,30), & Paused, Red, Green);
 			ImGui::TableNextColumn();
 			//// TODO: Implement Single Capture (Stop after one trigger event is found)
 			//ImGui::Button("Single", ImVec2(120, 30));
 			//ImGui::TableNextColumn();
-			AutofitY = ImGui::Button("Auto Fit (Voltage)", ImVec2(150, 30));
+			AutofitY = WhiteOutlineButton("Auto Fit  \u2195", ImVec2(button_width, 30));
 			ImGui::TableNextColumn();
-			AutofitX = ImGui::Button("Auto Fit (Time)", ImVec2(150, 30));
+			AutofitX = WhiteOutlineButton("Auto Fit  \u2194", ImVec2(button_width, 30));
 			ImGui::EndTable();
 		}
 

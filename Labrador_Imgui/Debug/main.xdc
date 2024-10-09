@@ -64,7 +64,7 @@ Generic dropdown for list of strings
 <param name="size"></param>
 <returns></returns>
 </member>
-<member name="M:SIValue.getMutliplier" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="305">
+<member name="M:SIValue.getMutliplier" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\UIComponents.hpp" line="306">
 <summary>
 Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
 </summary>
@@ -79,7 +79,7 @@ Multiplier to convert prefixed SI unit to standard SI unit, eg mV -&gt; V
 Render UI elements for oscilloscope control
 </summary>
 </member>
-<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="337">
+<member name="M:OSCControl.controlLab" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\OSCControl.hpp" line="339">
 <summary>
 Control sampling settings on labrador board
 </summary>
@@ -176,7 +176,7 @@ Set the Signal Generator on the labrador board.
 </member>
 <member name="T:PlotWidget" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="16">
 <summary>
-Abstract class that draws child that can be populated by a control widget
+Renders oscilloscope data
 </summary>
 </member>
 <member name="M:PlotWidget.#ctor(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,ImVec2,OSCControl*)" decl="false" source="C:\Users\David\LabradorENG4701\Labrador_Imgui\src\PlotWidget.hpp" line="25">

@@ -8,6 +8,7 @@
 #include <functional>
 #include <iostream>
 #include <stdio.h>
+#include "util.h"
 
 #define _CRT_SECURE_NO_WARNINGS
 #define STB_IMAGE_IMPLEMENTATION
@@ -125,8 +126,20 @@ class AppBase
 
         // Add custom fonts
         ImGuiIO& io = ImGui::GetIO();
-        io.Fonts->AddFontFromFileTTF("./misc/fonts/Roboto-Medium.ttf", 18.0f);
-
+        ImFont* default_font = io.Fonts->AddFontFromFileTTF("./misc/fonts/Roboto-Medium.ttf", 18.0f,nullptr,io.Fonts->GetGlyphRangesDefault());
+        if (!default_font)
+        {
+			printf("Error loading default font");
+        }
+        ImFontConfig config;
+		config.MergeMode = true;
+		ImWchar arrow_ranges[] = { 0x2190, 0x21FF, 0 };
+        ImFont* arrow_font = io.Fonts->AddFontFromFileTTF("./misc/fonts/arial.ttf", 24.0f,&config,arrow_ranges);
+        if (!arrow_font)
+        {
+			printf("Error loading arrow font");
+        }
+		io.Fonts->Build();
         // Load Images
 
     }

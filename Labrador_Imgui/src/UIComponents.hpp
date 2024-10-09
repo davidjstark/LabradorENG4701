@@ -119,11 +119,11 @@ bool inline ToggleButton(const char* id, ImVec2 size, bool* state, ImU32 trueCol
 
 	ImU32 ButtonColour = *state ? trueColour : falseColour;
 
-	float height = 30;
-	float width = 100;
+	float height = size.y;
+	float width = size.x;
 	float rounding = 0.0f;
 	bool switched = false;
-	if (ImGui::InvisibleButton(id, ImVec2(width, height)))
+	if (ImGui::InvisibleButton(id, size))
 	{
 		*state = !*state;
 		switched = true;
