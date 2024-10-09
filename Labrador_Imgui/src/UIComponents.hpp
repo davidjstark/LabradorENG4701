@@ -230,8 +230,8 @@ void inline TextRight(std::string text)
 class SIValue
 {
 public:
-	SIValue(std::string id, std::string label, float default_val, float min_val, float max_val,
-	    std::string symbol, std::vector<std::string> prefixs, std::string format)
+	SIValue(std::string id, std::string label, float default_val, float min_val, float max_val, std::string symbol, std::vector<std::string> prefixs,
+	    std::vector<std::string> format)
 	    : id(id)
 		, label(label)
 	    , value(default_val)
@@ -239,7 +239,7 @@ public:
 	    , max_val(max_val)
 	    , symbol(symbol)
 	    , prefixs(prefixs)
-	    , format(format)
+	    , formats(format)
 	{
 		updateDisplayValue();
 		for (int i = 0; i < prefixs.size(); i++)
@@ -255,14 +255,15 @@ public:
 		ImGui::Text(label.c_str());
 		ImGui::TableNextColumn();
 		ImGui::SetNextItemWidth(inpWidth);
-		changed |= ImGui::DragFloat(id.c_str(), &display_value, std::abs(display_value) < 0.01 ? 0.01 : 0.01f * std::abs(display_value), display_min_val, display_max_val,
-		    format.c_str(), ImGuiSliderFlags_AlwaysClamp);
-		//if (ImGui::IsItemHovered(ImGuiHoveredFlags_DelayNormal))
-		//{
-		//	ImGui::BeginTooltip();
-		//	ImGui::Text("Double click to enter value or drag to adjust value.");
-		//	ImGui::EndTooltip();
-		//}
+		changed |= ImGui::DragFloat(
+			id.c_str(), 
+			&display_value, 
+			std::abs(display_value) < 0.01 ? 0.01 : 0.01f * std::abs(display_value), // variable speed slider 
+			display_min_val, 
+			display_max_val, 
+			getFormat(), 
+			ImGuiSliderFlags_AlwaysClamp // clamp even with manual input
+		);
 
 		ImGui::SameLine();
 		if (options.size() > 1 && DropDown(("##" + id + "dd").c_str(), options, &prefix_idx))
@@ -296,7 +297,7 @@ private:
 	float min_val;
 	float max_val;
 	std::string symbol;
-	std::string format;
+	std::vector<std::string> formats;
 	int prefix_idx = 0;
 	std::vector<std::string> prefixs;
 	std::vector<std::string> options;
@@ -314,6 +315,12 @@ private:
 		else if (!prefix.compare("k")) return 1e3;
 		else return 1;
 	}
+
+	const char* getFormat()
+	{
+		return (formats[prefix_idx]).c_str();
+	}
+
 	void updateDisplayValue()
 	{
 		const float m = getMutliplier();
@@ -327,5 +334,15 @@ private:
 	}
 
 };
+
+bool inline WhiteOutlineButton(const char* id, ImVec2 size=ImVec2(0, 0))
+{
+	ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(1, 1, 1, 0.5)); // White border for buttons
+	ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 1);
+	bool result = ImGui::Button(id, size);
+	ImGui::PopStyleVar();
+	ImGui::PopStyleColor();
+	return result;
+}
 
 #endif

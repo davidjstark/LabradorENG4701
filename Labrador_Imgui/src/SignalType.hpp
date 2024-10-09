@@ -13,12 +13,12 @@ public:
 	GenericSignal(const std::string& label, const float* preview)
 	    : label(label)
 	    , preview(preview)
-	    , amplitude(label + "amp", "Amplitude", 1.0f, 0.15f, 9.0f,
-	          "V", constants::volt_prefs, "%.3g")
-	    , frequency(label + "freq", "Frequncy", 100.f, 1.0f, 1e6f, "Hz",
-	          constants::freq_prefs, "%.3g")
-	    , offset(label + "os", "Offset", 0.0f, -9.0f, 9.0f, "V",
-	          constants::volt_prefs, "%.3g")
+	    , amplitude("##" + label + "amp", "Amplitude", 1.0f, 0.15f, 9.0f, "V",
+	          constants::volt_prefs, constants::volt_formats)
+	    , frequency("##" + label + "freq", "Frequncy", 100.f, 1.0f, 1e6f, "Hz",
+	          constants::freq_prefs, constants::freq_formats)
+	    , offset("##" + label + "os", "Offset", 0.0f, -9.0f, 9.0f, "V",
+	          constants::volt_prefs, constants::volt_formats)
 	{
 	}
 

@@ -37,9 +37,13 @@ extern float triangle_preview[PREVIEW_RES];
 
 // Frequency Units
 static std::vector<std::string> freq_prefs = { "", "k" };
+// Frequency formats
+static std::vector<std::string> freq_formats = { "%.1f", "%.0f" };
 
 // Voltage Units
 static std::vector<std::string> volt_prefs = { "", "m" };
+// Voltage Units
+static std::vector<std::string> volt_formats = { "%.2f", "%.0f" };
 
 //  textures
 extern int pinout_width;
@@ -116,7 +120,7 @@ void init_constants();
 void PreviewStyle();
 void SetControlWidgetStyle(const float ac[3]);
 void SetGlobalStyle();
-ImU32 colourConvert(const float c[3], float alpha=1.0f);
+ImU32 colourConvert(const float c[3], float alpha = 1.0f);
 void replace_all(
     std::string& s, std::string const& toReplace, std::string const& replaceWith);
 void MultiplyButtonColour(ImU32* ButtonColour, float multiplier);

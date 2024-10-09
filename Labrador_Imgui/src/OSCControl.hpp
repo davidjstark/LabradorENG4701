@@ -123,7 +123,7 @@ public:
 			ImGui::TableNextColumn();
 			ToggleSwitch((label + "Display2_toggle").c_str(), &DisplayCheckOSC2,
 				ImU32(OSC2Colour));
-			
+
 			// Cursor 1 Toggle
 			ImGui::TableNextColumn();
 			ImGui::Text("Cursor 1");
@@ -172,7 +172,7 @@ public:
 
 			ImGui::Combo("##Trigger Type OSC1", &Trigger1TypeComboCurrentItem,
 				TriggerTypeComboList, IM_ARRAYSIZE(TriggerTypeComboList));
-			
+
 			if (!AutoTrigger1Level) Trigger1Level.renderInTable(100.0f);
 			else
 			{
@@ -245,10 +245,10 @@ public:
 				ImGui::SameLine();
 				ImGui::Text("OFF");
 			}
-			
+
 			ImGui::EndTable();
 		}
-		
+
 		// Handle Clipboard Copied Feedback
 		std::string OSC1ExportButtonText = "Export OSC1";
 		if (OSC1ClipboardCopied == true)
@@ -260,7 +260,8 @@ public:
 		{
 			OSC1ExportButtonText = "Copied!";
 		}
-		if (ImGui::Button((OSC1ExportButtonText+ "##OSC1ExportButton").c_str(),ImVec2(100,30)))
+
+		if (WhiteOutlineButton((OSC1ExportButtonText+ "##OSC1ExportButton").c_str(),ImVec2(100,30)))
 		{
 			if (OSC1WritePathComboCurrentItem == 0) // Copy to Clipboard
 			{
@@ -291,7 +292,7 @@ public:
 		ImGui::SetNextItemWidth(OSCWritePathComboWidth);
 		ImGui::Combo("##OSC1WritePathCombo",&OSC1WritePathComboCurrentItem,OSCWritePathComboList,IM_ARRAYSIZE(OSCWritePathComboList));
 
-		
+
 		std::string OSC2ExportButtonText = "Export OSC2";
 		if (OSC2ClipboardCopied == true)
 		{
@@ -302,7 +303,7 @@ public:
 		{
 			OSC2ExportButtonText = "Copied!";
 		}
-		if (ImGui::Button((OSC2ExportButtonText + "##OSC2ExportButton").c_str(),ImVec2(100,30)))
+		if (WhiteOutlineButton((OSC2ExportButtonText + "##OSC2ExportButton").c_str(),ImVec2(100,30)))
 		{
 			if (OSC2WritePathComboCurrentItem == 0) // Copy to Clipboard
 			{

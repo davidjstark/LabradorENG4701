@@ -10,7 +10,6 @@
 #include "SGControl.hpp"
 #include "PlotWidget.hpp"
 #include "PlotControl.hpp"
-#include "CursorProperties.hpp"
 #include "util.h"
 
 // #define IMGUI_DEFINE_MATH_OPERATORS
@@ -310,7 +309,7 @@ class App : public AppBase<App>
 					if ((w->getLabel()).find(curr_header) != std::string::npos)
 					{
 						w->setHelpText(buffer.str());
-					}	
+					}
 				}
 				buffer.str("");
 				buffer.clear();
@@ -402,8 +401,8 @@ class App : public AppBase<App>
 	OSCControl OSCWidget
 	    = OSCControl("Plot Settings", ImVec2(0, 0), constants::OSC_ACCENT);
 	PlotWidget PlotWidgetObj 
-		= PlotWidget("Plot Widget",ImVec2(0, 0),&OSCWidget);
-	ControlWidget* widgets[4] = { &PSUWidget, &SG1Widget, &SG2Widget, &OSCWidget };
-	CursorProperties CursorPropertiesObj = CursorProperties();
+		= PlotWidget("Plot Window",ImVec2(0, 0),&OSCWidget);
+	ControlWidget* widgets[5]
+	    = { &PSUWidget, &SG1Widget, &SG2Widget, &OSCWidget, &PlotWidgetObj };
 };
 

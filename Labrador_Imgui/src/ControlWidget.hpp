@@ -41,7 +41,7 @@ public:
 	/// <summary>
 	/// Generic function to render control widget with correct style
 	/// </summary>
-	void Render()
+	virtual void Render()
 	{
 		SetControlWidgetStyle(accentColour);
 
@@ -61,9 +61,10 @@ public:
 		ImGui::AlignTextToFramePadding();
 		bool treeopen = ImGui::TreeNodeEx(label.c_str(),
 		    ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_DefaultOpen);
-		ImGui::SameLine(ImGui::GetContentRegionAvail().x - 5);
+		ImGui::SameLine(ImGui::GetContentRegionAvail().x - 45);
 		
-		if (ImGui::Button("?"))
+		// Help button
+		if (ImGui::Button("           ?"))
 		{
 			show_help = true;
 		}
@@ -170,7 +171,7 @@ public:
 			ImGui::SetNextItemOpen(true);
 		else if (collapseAll)
 			ImGui::SetNextItemOpen(false);
-		if (ImGui::TreeNode(("Pinout##" + label).c_str()))
+		if (pinout_texture != (intptr_t)0 && ImGui ::TreeNode(("Pinout##" + label).c_str()))
 		{
 			ImGui::Image((void*) pinout_texture, ImVec2(pinout_width, pinout_height));
 			ImGui::TreePop();
@@ -182,18 +183,22 @@ public:
 		if (md_text.compare(0, 2, "- ") == 0)
 		{
 			md_text.erase(0, 2);
-			ImGui::BulletText(md_text.c_str());
+			ImGui::BulletText("");
+			ImGui::SameLine();
+			ImGui::TextWrapped(md_text.c_str());
 		}
 		else if (md_text.compare(0, 4, "  - ") == 0)
 		{
 			md_text.erase(0, 4);
 			ImGui::Dummy(ImVec2(10, 0));
 			ImGui::SameLine();
-			ImGui::BulletText(md_text.c_str());
+			ImGui::BulletText("");
+			ImGui::SameLine();
+			ImGui::TextWrapped(md_text.c_str());
 		}
 		else
 		{
-			ImGui::Text(md_text.c_str());
+			ImGui::TextWrapped(md_text.c_str());
 		}
 	}
 
